@@ -1,0 +1,11 @@
+--- ./chrome/app/generated_resources.grd.orig	2010-12-13 12:04:21.000000000 +0100
++++ ./chrome/app/generated_resources.grd	2010-12-20 20:41:37.000000000 +0100
+@@ -11172,7 +11172,7 @@
+       Import bookmarks now...
+     </message>
+ 
+-    <if expr="os == 'linux2' or os == 'openbsd4' or os=='freebsd6'">
++    <if expr="os == 'linux2' or os.find('bsd') != -1">
+       <!-- Linux proxy configuration fallback help -->
+       <message name="IDS_ABOUT_LINUX_PROXY_CONFIG_TITLE" desc="Title of HTML page shown on systems where system proxy configuration is unsupported.">
+         Proxy Configuration Help
