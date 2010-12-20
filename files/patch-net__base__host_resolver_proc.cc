@@ -1,6 +1,6 @@
---- net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ net/base/host_resolver_proc.cc	2010-12-20 21:38:55.000000000 +0100
-@@ -6,15 +6,18 @@
+--- ./net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
++++ ./net/base/host_resolver_proc.cc	2010-12-20 20:41:37.000000000 +0100
+@@ -6,15 +6,15 @@
  
  #include "build/build_config.h"
  
@@ -14,12 +14,24 @@
  #include "net/base/net_errors.h"
  #include "net/base/sys_addrinfo.h"
 +#if defined(OS_POSIX) && !defined(OS_MACOSX)
-+#include <netdb.h>
-+#ifndef EAI_NODATA
-+#define EAI_NODATA 7
-+#endif
++#include <netdb.h> /* EAI_NODATA */
 +#include <resolv.h>
 +#endif
  
  namespace net {
  
++@@ -248,9 +248,12 @@
++ #if defined(OS_WIN)
++     if (err != WSAHOST_NOT_FOUND && err != WSANO_DATA)
++       return ERR_NAME_RESOLUTION_FAILED;
++-#elif defined(OS_POSIX)
+++#elif defined(OS_POSIX) && !defined(OS_FREEBSD)
++     if (err != EAI_NONAME && err != EAI_NODATA)
++       return ERR_NAME_RESOLUTION_FAILED;
+++#elif defined(OS_FREEBSD)
+++    if (err != EAI_NONAME) /* EAI_NODATA obsolete since 5.x */
+++      return ERR_NAME_RESOLUTION_FAILED;
++ #endif
++ 
++     return ERR_NAME_NOT_RESOLVED;
+
