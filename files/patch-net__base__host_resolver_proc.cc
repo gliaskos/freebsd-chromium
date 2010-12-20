@@ -1,6 +1,6 @@
---- ./net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ ./net/base/host_resolver_proc.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -6,15 +6,15 @@
+--- net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
++++ net/base/host_resolver_proc.cc	2010-12-20 21:38:55.000000000 +0100
+@@ -6,15 +6,18 @@
  
  #include "build/build_config.h"
  
@@ -14,7 +14,10 @@
  #include "net/base/net_errors.h"
  #include "net/base/sys_addrinfo.h"
 +#if defined(OS_POSIX) && !defined(OS_MACOSX)
-+#include <netdb.h> /* re-enable EAI_NODATA in netdb.h */
++#include <netdb.h>
++#ifndef EAI_NODATA
++#define EAI_NODATA 7
++#endif
 +#include <resolv.h>
 +#endif
  
