@@ -1,5 +1,5 @@
---- ./net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ ./net/base/host_resolver_proc.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./net/base/host_resolver_proc.cc.orig	2010-12-13 06:03:19.000000000 -0500
++++ ./net/base/host_resolver_proc.cc	2011-01-03 19:08:51.000000000 -0500
 @@ -6,15 +6,15 @@
  
  #include "build/build_config.h"
@@ -20,18 +20,15 @@
  
  namespace net {
  
-+@@ -248,9 +248,12 @@
-+ #if defined(OS_WIN)
-+     if (err != WSAHOST_NOT_FOUND && err != WSANO_DATA)
-+       return ERR_NAME_RESOLUTION_FAILED;
-+-#elif defined(OS_POSIX)
-++#elif defined(OS_POSIX) && !defined(OS_FREEBSD)
-+     if (err != EAI_NONAME && err != EAI_NODATA)
-+       return ERR_NAME_RESOLUTION_FAILED;
-++#elif defined(OS_FREEBSD)
-++    if (err != EAI_NONAME) /* EAI_NODATA obsolete since 5.x */
-++      return ERR_NAME_RESOLUTION_FAILED;
-+ #endif
-+ 
-+     return ERR_NAME_NOT_RESOLVED;
-
+@@ -248,7 +248,10 @@
+ #if defined(OS_WIN)
+     if (err != WSAHOST_NOT_FOUND && err != WSANO_DATA)
+       return ERR_NAME_RESOLUTION_FAILED;
+-#elif defined(OS_POSIX)
++#elif defined(OS_FREEBSD)
++    if (err != EAI_NONAME) /* EAI_NODATA depreciated in FreeBSD 5.x */
++      return ERR_NAME_RESOLUTION_FAILED;
++#elif defined(OS_POSIX) && !defined(OS_FREEBSD)
+     if (err != EAI_NONAME && err != EAI_NODATA)
+       return ERR_NAME_RESOLUTION_FAILED;
+ #endif
