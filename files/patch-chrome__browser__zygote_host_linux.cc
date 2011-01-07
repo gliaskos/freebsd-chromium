@@ -1,5 +1,5 @@
 --- ./chrome/browser/zygote_host_linux.cc.orig	2010-12-13 12:04:29.000000000 +0100
-+++ ./chrome/browser/zygote_host_linux.cc	2010-12-20 20:41:37.000000000 +0100
++++ ./chrome/browser/zygote_host_linux.cc	2011-01-07 14:17:10.000000000 +0100
 @@ -62,7 +62,12 @@
  }
  
@@ -42,19 +42,27 @@
    } else {
      // Not using the SUID sandbox.
      pid_ = process;
-@@ -242,6 +254,7 @@
+@@ -242,12 +254,15 @@
        return base::kNullProcessHandle;
    }
  
 +#if defined(OS_LINUX)
    const int kRendererScore = 5;
    AdjustRendererOOMScore(pid, kRendererScore);
++#endif
  
-@@ -280,6 +293,7 @@
-     selinux = access("/selinux", X_OK) == 0;
-     selinux_valid = true;
+   return pid;
+ }
+ 
++#if defined(OS_LINUX)
+ void ZygoteHost::AdjustRendererOOMScore(base::ProcessHandle pid, int score) {
+   // 1) You can't change the oom_adj of a non-dumpable process (EPERM) unless
+   //    you're root. Because of this, we can't set the oom_adj from the browser
+@@ -299,6 +314,7 @@
+       PLOG(ERROR) << "Failed to adjust OOM score of renderer with pid " << pid;
    }
+ }
 +#endif  // defined(OS_LINUX)
  
-   if (using_suid_sandbox_ && !selinux) {
-     base::ProcessHandle sandbox_helper_process;
+ void ZygoteHost::EnsureProcessTerminated(pid_t process) {
+   DCHECK(init_);

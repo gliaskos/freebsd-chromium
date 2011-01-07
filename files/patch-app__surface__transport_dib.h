@@ -1,5 +1,5 @@
---- ./app/surface/transport_dib.h.orig	2010-12-13 12:03:01.000000000 +0100
-+++ ./app/surface/transport_dib.h	2010-12-20 20:41:37.000000000 +0100
+--- ./app/surface/transport_dib.h.orig	2010-12-13 06:03:01.000000000 -0500
++++ ./app/surface/transport_dib.h	2011-01-07 12:30:47.000000000 -0500
 @@ -8,7 +8,7 @@
  
  #include "base/basictypes.h"
@@ -18,15 +18,6 @@
    typedef base::SharedMemoryHandle Handle;
    // On Mac, the inode number of the backing file is used as an id.
    typedef base::SharedMemoryId Id;
-@@ -93,7 +93,7 @@
-     static int fake_handle = 10;
-     return Handle(fake_handle++, false);
-   }
--#elif defined(USE_X11)
-+#elif defined(OS_LINUX)
-   typedef int Handle;  // These two ints are SysV IPC shared memory keys
-   typedef int Id;
- 
 @@ -171,11 +171,12 @@
  
   private:

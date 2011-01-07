@@ -1,6 +1,6 @@
---- ./app/surface/transport_dib_freebsd.cc.orig	2010-12-20 20:41:37.000000000 +0100
-+++ ./app/surface/transport_dib_freebsd.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -0,0 +1,86 @@
+--- ./app/surface/transport_dib_freebsd.cc.orig	2011-01-07 14:17:10.000000000 +0100
++++ ./app/surface/transport_dib_freebsd.cc	2011-01-07 14:17:10.000000000 +0100
+@@ -0,0 +1,106 @@
 +// Copyright (c) 2009 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -29,8 +29,7 @@
 +// static
 +TransportDIB* TransportDIB::Create(size_t size, uint32 sequence_num) {
 +  TransportDIB* dib = new TransportDIB;
-+  if (!dib->shared_memory_.Create(L"", false /* read write */,
-+                                  false /* do not open existing */, size)) {
++  if (!dib->shared_memory_.CreateAndMapAnonymous(size)) {
 +    delete dib;
 +    return NULL;
 +  }
@@ -58,8 +57,29 @@
 +  return dib;
 +}
 +
++// static
++TransportDIB* TransportDIB::CreateWithHandle(Handle handle) {
++  return new TransportDIB(handle);
++}
++
 +bool TransportDIB::is_valid(Handle dib) {
 +  return dib.fd >= 0;
++}
++
++bool TransportDIB::Map() {
++  if (!is_valid(handle()))
++    return false;
++  if (memory())
++    return true;
++
++  struct stat st;
++  if ((fstat(shared_memory_.handle().fd, &st) != 0) ||
++      (!shared_memory_.Map(st.st_size))) {
++    return false;
++  }
++
++  size_ = st.st_size;
++  return true;
 +}
 +
 +skia::PlatformCanvas* TransportDIB::GetPlatformCanvas(int w, int h) {

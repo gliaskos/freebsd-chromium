@@ -1,7 +1,11 @@
 --- ./base/base.gypi.orig	2010-12-13 12:04:13.000000000 +0100
-+++ ./base/base.gypi	2010-12-20 20:41:38.000000000 +0100
-@@ -355,8 +355,6 @@
-           [ 'OS != "linux"', {
++++ ./base/base.gypi	2011-01-07 14:17:11.000000000 +0100
+@@ -352,11 +352,9 @@
+                 'message_pump_glib_x.cc',
+               ],
+           }],
+-          [ 'OS != "linux"', {
++          [ 'OS != "linux" and OS != "freebsd"', {
                'sources!': [
                  # Not automatically excluded by the *linux.cc rules.
 -                'gtk_util.cc',

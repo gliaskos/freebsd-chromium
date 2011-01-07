@@ -1,5 +1,5 @@
---- ./third_party/tcmalloc/chromium/src/config_freebsd.h.orig	2010-12-20 20:41:38.000000000 +0100
-+++ ./third_party/tcmalloc/chromium/src/config_freebsd.h	2010-12-20 20:41:38.000000000 +0100
+--- ./third_party/tcmalloc/chromium/src/config_freebsd.h.orig	2011-01-07 14:17:11.000000000 +0100
++++ ./third_party/tcmalloc/chromium/src/config_freebsd.h	2011-01-07 14:17:11.000000000 +0100
 @@ -0,0 +1,234 @@
 +/* src/config.h.  Generated from config.h.in by configure.  */
 +/* src/config.h.in.  Generated from configure.ac by autoheader.  */
