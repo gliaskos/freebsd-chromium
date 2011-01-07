@@ -8,4 +8,4 @@
 +#if defined(OS_LINUX) || defined(OS_FREEBSD)
  // Returns the ID for the parent of the given process.
  ProcessId GetParentProcessId(ProcessHandle process);
- 
+

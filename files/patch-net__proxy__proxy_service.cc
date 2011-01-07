@@ -17,4 +17,4 @@
 +#elif defined(OS_LINUX) || defined(OS_FREEBSD)
    ProxyConfigServiceLinux* linux_config_service
        = new ProxyConfigServiceLinux();
- 
+
