@@ -1,5 +1,5 @@
---- ./net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ ./net/base/host_resolver_proc.cc	2011-01-07 14:17:11.000000000 +0100
+--- ./net/base/host_resolver_proc.cc.orig	2010-12-13 06:03:19.000000000 -0500
++++ ./net/base/host_resolver_proc.cc	2011-01-03 19:08:51.000000000 -0500
 @@ -6,15 +6,15 @@
  
  #include "build/build_config.h"
