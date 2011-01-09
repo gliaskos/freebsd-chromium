@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	9.0.597.19 # 10.0.612.1 not yet available
+DISTVERSION=	9.0.597.45
 CATEGORIES=	www
 MASTER_SITES=	ftp://rene-ladan.nl/pub/distfiles/
 
