@@ -9,7 +9,8 @@ PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	9.0.597.45
 CATEGORIES=	www
-MASTER_SITES=	ftp://rene-ladan.nl/pub/distfiles/
+MASTER_SITES=	http://download.goodking.org/downloads/ \
+		ftp://rene-ladan.nl/pub/distfiles/
 
 MAINTAINER=	rene@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
