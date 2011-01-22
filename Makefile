@@ -156,6 +156,10 @@ do-configure:
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} ./build/gyp_chromium chrome/chrome.gyp --depth ./
 
+post-configure:
+	${REINPLACE_CMD} -e 's|-lXtst|-lXtst -lvpx|' \
+		${WRKSRC}/chrome/chrome.target.mk
+
 do-install:
 	${MKDIR} ${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${MANPREFIX}/man/man1
