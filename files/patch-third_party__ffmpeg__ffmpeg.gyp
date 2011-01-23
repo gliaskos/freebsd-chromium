@@ -11,12 +11,3 @@
      'build_ffmpegsumo%': 1,
      'use_system_vpx%': 0,
  
-@@ -433,7 +433,7 @@
-               }, {
-                 # Using libvpx provided by the system.
-                 'include_dirs': [
--                  '/usr/include/vpx',
-+                  '/usr/local/include',
-                 ],
-               }
-             ],

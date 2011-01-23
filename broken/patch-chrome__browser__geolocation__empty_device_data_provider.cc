@@ -9,3 +9,12 @@
  // static
  template<>
  WifiDataProviderImplBase* WifiDataProvider::DefaultFactoryFunction() {
+@@ -21,7 +21,7 @@ WifiDataProviderImplBase* WifiDataProvider::DefaultFac
+ #endif
+ 
+ // Only define for platforms that lack a real gateway data provider.
+-#if !defined(OS_LINUX) && !defined(OS_WIN)
++#if !defined(OS_LINUX) && !defined(OS_WIN) && !defined(OS_OPENBSD) && !defined(OS_FREEBSD)
+ // static
+ template<>
+ GatewayDataProviderImplBase* GatewayDataProvider::DefaultFactoryFunction() {

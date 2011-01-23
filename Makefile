@@ -31,7 +31,8 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo	\
 		asound.2:${PORTSDIR}/audio/alsa-lib		\
 		freetype.9:${PORTSDIR}/print/freetype2		\
 		nss3.1:${PORTSDIR}/security/nss			\
-		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring
+		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
+		avformat:${PORTSDIR}/multimedia/ffmpeg
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
@@ -93,8 +94,6 @@ LIB_DEPENDS+=	vpx:${PORTSDIR}/multimedia/libvpx
 GYP_DEFINES+=	use_system_vpx=1
 .endif
 
-LIB_DEPENDS+=	avformat:${PORTSDIR}/multimedia/ffmpeg
-
 .if !defined(WITH_DEBUG)
 BUILDTYPE=	Release
 .else
@@ -124,23 +123,10 @@ post-patch:
 		${WRKSRC}/third_party/tcmalloc/chromium/src/config_freebsd.h \
 		${WRKSRC}/third_party/WebKit/WebCore/plugins/PluginDatabase.cpp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp
-	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
-		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e "s|/usr/include/vpx|${LOCALBASE}/include|" \
 		${WRKSRC}/third_party/ffmpeg/ffmpeg.gyp
-
-	# kludge just to make it progress for now
-	@${REINPLACE_CMD} -e "s|/usr/lib|${LOCALBASE}/lib|"		\
-			-e "s|'python_ver%': '2.5'|'python_ver%': '2.6'|" \
-			-e "s|.so.1.0|.so.1|"				\
-		${WRKSRC}/build/common.gypi
-	# another (temp) kludge
-	@${REINPLACE_CMD} -e "s|'-ldl',|'-lc',|" \
-		${WRKSRC}/app/app_base.gypi \
-		${WRKSRC}/build/linux/system.gyp \
-		${WRKSRC}/chrome/chrome_browser.gypi \
-		${WRKSRC}/media/media.gyp
-
+	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
+		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e 's|/usr/bin/gcc|${CC}|' \
 		${WRKSRC}/third_party/WebKit/WebCore/bindings/scripts/IDLParser.pm \
 		${WRKSRC}/third_party/WebKit/WebCore/dom/make_names.pl
@@ -151,14 +137,20 @@ post-patch:
 		${WRKSRC}/third_party/WebKit/WebCore/css/makeprop.pl	\
 		${WRKSRC}/third_party/WebKit/WebCore/css/makevalues.pl	\
 		${WRKSRC}/third_party/WebKit/WebCore/make-hash-tools.pl
+	# kludges just to make it progress for now
+	@${REINPLACE_CMD} -e "s|/usr/lib|${LOCALBASE}/lib|"		\
+			-e "s|'python_ver%': '2.5'|'python_ver%': '2.6'|" \
+			-e "s|.so.1.0|.so.1|"				\
+		${WRKSRC}/build/common.gypi
+	@${REINPLACE_CMD} -e "s|'-ldl',|'-lc',|" \
+		${WRKSRC}/app/app_base.gypi \
+		${WRKSRC}/build/linux/system.gyp \
+		${WRKSRC}/chrome/chrome_browser.gypi \
+		${WRKSRC}/media/media.gyp
 
 do-configure:
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} ./build/gyp_chromium chrome/chrome.gyp --depth ./
-
-post-configure:
-	${REINPLACE_CMD} -e 's|-lXtst|-lXtst -lvpx|' \
-		${WRKSRC}/chrome/chrome.target.mk
 
 do-install:
 	${MKDIR} ${DATADIR}
