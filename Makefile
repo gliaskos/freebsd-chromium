@@ -98,11 +98,11 @@ GYP_DEFINES+=	use_system_vpx=1
 BUILDTYPE=	Release
 .else
 BUILDTYPE=	Debug
+STRIP=
 .endif
 
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE}
 MAKE_JOBS_SAFE=	yes
-STRIP=
 
 pre-everything::
 	@${ECHO_MSG}
@@ -160,9 +160,12 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/resources.pak ${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper ${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/xdg-settings ${DATADIR}
-.for f in chrome ffmpegsumo_nolink libffmpegsumo.so mksnapshot protoc
+.for f in chrome mksnapshot protoc
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
 .endfor
+#.for f in ffmpegsumo_nolink libffmpegsumo.so
+#	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
+#.endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin/
 
