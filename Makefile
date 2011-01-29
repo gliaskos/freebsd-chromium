@@ -93,7 +93,6 @@ GYP_DEFINES+=	disable_sse2=1
 .if defined(WITH_VPX)
 LIB_DEPENDS+=	vpx:${PORTSDIR}/multimedia/libvpx
 GYP_DEFINES+=	use_system_vpx=1
-CXXFLAGS+=	-lvpx
 .endif
 
 .if !defined(WITH_DEBUG)
