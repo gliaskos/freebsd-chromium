@@ -9,15 +9,6 @@
      # The cros_api will be pulled in as a static library, and all headers
      # from the system include dirs.
      'system_libcros%': '0',
-@@ -123,7 +123,7 @@
-       'fastbuild%': 0,
- 
-       # Python version.
--      'python_ver%': '2.5',
-+      'python_ver%': '2.6',
- 
-       # Set ARM-v7 compilation flags
-       'armv7%': 0,
 @@ -227,7 +227,7 @@
  
      # Whether proprietary audio/video codecs are assumed to be included with
