@@ -10,7 +10,8 @@ DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	9.0.597.83
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
-		ftp://rene-ladan.nl/pub/distfiles/
+		ftp://rene-ladan.nl/pub/distfiles/ \
+		http://files.etoilebsd.net/goodking/
 
 MAINTAINER=	rene@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
