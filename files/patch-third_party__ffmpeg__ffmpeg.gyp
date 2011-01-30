@@ -10,4 +10,21 @@
 +    'use_system_yasm%': 1,
      'build_ffmpegsumo%': 1,
      'use_system_vpx%': 0,
+
+@@ -839,6 +839,16 @@
+               },
+             }],
  
++            ['use_system_vpx!=0', {
++              'direct_dependent_settings': {
++                'link_settings': {
++                  'libraries': [
++                    '-lvpx',
++                  ],
++                },
++              },
++            }],
++
+             # Add pkg-config result to include path when use_system_ffmpeg!=0
+             ['use_system_ffmpeg!=0', {
+               'cflags': [

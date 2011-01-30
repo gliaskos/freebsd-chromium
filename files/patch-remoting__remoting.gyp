@@ -31,14 +31,6 @@
            'sources': [
              'host/capturer_linux.cc',
              'host/capturer_linux.h',
-@@ -233,6 +239,7 @@
-               '-lX11',
-               '-lXdamage',
-               '-lXtst',
-+              '-lvpx',
-             ],
-           },
-         }],
 @@ -497,7 +503,7 @@
              'host/capturer_gdi_unittest.cc',
            ],
