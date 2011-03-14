@@ -1,5 +1,5 @@
---- ./chrome/browser/notifications/balloon_collection_impl.h.orig	2010-12-13 12:04:26.000000000 +0100
-+++ ./chrome/browser/notifications/balloon_collection_impl.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/notifications/balloon_collection_impl.h.orig	2010-12-16 02:11:58.000000000 +0100
++++ ./chrome/browser/notifications/balloon_collection_impl.h	2010-12-20 20:15:08.000000000 +0100
 @@ -56,7 +56,7 @@
    virtual void WillProcessMessage(const MSG& event) {}
    virtual void DidProcessMessage(const MSG& event);

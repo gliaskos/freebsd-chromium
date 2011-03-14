@@ -1,5 +1,5 @@
---- ./chrome/browser/zygote_main_linux.cc.orig	2010-12-13 12:04:29.000000000 +0100
-+++ ./chrome/browser/zygote_main_linux.cc	2010-12-20 20:41:37.000000000 +0100
+--- chrome/browser/zygote_main_linux.cc.orig	2011-01-06 10:01:46.000000000 +0100
++++ chrome/browser/zygote_main_linux.cc	2011-01-09 20:41:38.000000000 +0100
 @@ -2,12 +2,18 @@
  // Use of this source code is governed by a BSD-style license that can be
  // found in the LICENSE file.
@@ -19,19 +19,16 @@
  #include <sys/socket.h>
  #include <sys/stat.h>
  #include <sys/types.h>
-@@ -52,9 +58,9 @@
+@@ -50,7 +56,7 @@
  #include "unicode/timezone.h"
  
  #if defined(ARCH_CPU_X86_FAMILY) && !defined(CHROMIUM_SELINUX) && \
 -    !defined(__clang__)
 +    !defined(__clang__) && !defined(OS_FREEBSD)
  // The seccomp sandbox is enabled on all ia32 and x86-64 processor as long as
--// we aren't using SELinux or clang.
-+// we aren't using SELinux or clang. FreeBSD is not yet supported.
+ // we aren't using SELinux or clang.
  #define SECCOMP_SANDBOX
- #endif
- 
-@@ -175,6 +181,11 @@
+@@ -173,6 +179,11 @@
          case ZygoteHost::kCmdGetSandboxStatus:
            HandleGetSandboxStatus(fd, pickle, iter);
            return false;
@@ -43,20 +40,20 @@
          default:
            NOTREACHED();
            break;
-@@ -644,7 +655,7 @@
-     }
+@@ -653,7 +664,7 @@
  
-     SkiaFontConfigUseIPCImplementation(kMagicSandboxIPCDescriptor);
+     SkiaFontConfigSetImplementation(
+         new FontConfigIPC(kMagicSandboxIPCDescriptor));
 -
 +#if !defined(OS_FREEBSD)
      // Previously, we required that the binary be non-readable. This causes the
      // kernel to mark the process as non-dumpable at startup. The thinking was
      // that, although we were putting the renderers into a PID namespace (with
-@@ -670,6 +681,7 @@
+@@ -679,6 +690,7 @@
          return false;
        }
      }
 +#endif // !OS_FREEBSD
    } else if (switches::SeccompSandboxEnabled()) {
      PreSandboxInit();
-     SkiaFontConfigUseIPCImplementation(kMagicSandboxIPCDescriptor);
+     SkiaFontConfigSetImplementation(

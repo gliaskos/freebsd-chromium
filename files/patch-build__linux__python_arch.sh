@@ -1,5 +1,5 @@
---- ./build/linux/python_arch.sh.orig	2010-12-13 12:04:11.000000000 +0100
-+++ ./build/linux/python_arch.sh	2010-12-20 20:41:37.000000000 +0100
+--- ./build/linux/python_arch.sh.orig	2010-12-16 02:11:47.000000000 +0100
++++ ./build/linux/python_arch.sh	2010-12-20 20:15:08.000000000 +0100
 @@ -1,4 +1,4 @@
 -#!/bin/bash
 +#!/usr/bin/env bash

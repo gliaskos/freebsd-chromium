@@ -1,5 +1,5 @@
---- ./third_party/libevent/freebsd/config.h.orig	2010-12-20 20:41:37.000000000 +0100
-+++ ./third_party/libevent/freebsd/config.h	2010-12-20 20:41:37.000000000 +0100
+--- ./third_party/libevent/freebsd/config.h.orig	2010-12-20 20:15:08.000000000 +0100
++++ ./third_party/libevent/freebsd/config.h	2010-12-20 20:15:08.000000000 +0100
 @@ -0,0 +1,266 @@
 +/* config.h.  Generated from config.h.in by configure.  */
 +/* config.h.in.  Generated from configure.in by autoheader.  */

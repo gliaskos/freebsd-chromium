@@ -1,5 +1,5 @@
---- ./third_party/libevent/libevent.gyp.orig	2010-12-13 12:03:30.000000000 +0100
-+++ ./third_party/libevent/libevent.gyp	2010-12-20 20:41:37.000000000 +0100
+--- ./third_party/libevent/libevent.gyp.orig	2010-12-16 02:11:36.000000000 +0100
++++ ./third_party/libevent/libevent.gyp	2010-12-20 20:15:08.000000000 +0100
 @@ -45,15 +45,18 @@
                'link_settings': {
                  'libraries': [

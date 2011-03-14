@@ -1,5 +1,5 @@
---- ./gpu/demos/demos.gyp.orig	2010-12-13 12:03:08.000000000 +0100
-+++ ./gpu/demos/demos.gyp	2010-12-20 20:41:37.000000000 +0100
+--- ./gpu/demos/demos.gyp.orig	2010-12-16 02:11:23.000000000 +0100
++++ ./gpu/demos/demos.gyp	2010-12-20 20:15:08.000000000 +0100
 @@ -11,7 +11,7 @@
        # also be compiled with -fPIC flag. Setting GYP_DEFINES="linux_fpic=1"
        # compiles everything with -fPIC. Disable pepper demos on linux/x64

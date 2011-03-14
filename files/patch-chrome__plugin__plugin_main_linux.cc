@@ -1,5 +1,5 @@
---- ./chrome/plugin/plugin_main_linux.cc.orig	2010-12-13 12:04:29.000000000 +0100
-+++ ./chrome/plugin/plugin_main_linux.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/plugin/plugin_main_linux.cc.orig	2010-12-16 02:11:58.000000000 +0100
++++ ./chrome/plugin/plugin_main_linux.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -5,13 +5,13 @@
  #include <signal.h>
  #include <string.h>

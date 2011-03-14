@@ -1,6 +1,6 @@
---- ./chrome/browser/renderer_host/render_sandbox_host_linux.cc.orig	2010-12-13 12:04:26.000000000 +0100
-+++ ./chrome/browser/renderer_host/render_sandbox_host_linux.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -654,7 +654,12 @@
+--- ./chrome/browser/renderer_host/render_sandbox_host_linux.cc.orig	2010-12-16 02:11:57.000000000 +0100
++++ ./chrome/browser/renderer_host/render_sandbox_host_linux.cc	2010-12-20 20:15:08.000000000 +0100
+@@ -660,7 +660,12 @@
    // inherit some sockets. With PF_UNIX+SOCK_DGRAM, it can call sendmsg to send
    // a datagram to any (abstract) socket on the same system. With
    // SOCK_SEQPACKET, this is prevented.

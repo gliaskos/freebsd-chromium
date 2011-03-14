@@ -1,5 +1,5 @@
---- ./chrome/browser/renderer_host/render_widget_host_unittest.cc.orig	2010-12-13 12:04:26.000000000 +0100
-+++ ./chrome/browser/renderer_host/render_widget_host_unittest.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/renderer_host/render_widget_host_unittest.cc.orig	2010-12-16 02:11:57.000000000 +0100
++++ ./chrome/browser/renderer_host/render_widget_host_unittest.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -407,7 +407,7 @@
  
  // Tests setting custom background

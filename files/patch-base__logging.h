@@ -1,5 +1,5 @@
---- ./base/logging.h.orig	2010-12-13 12:04:13.000000000 +0100
-+++ ./base/logging.h	2010-12-20 20:41:37.000000000 +0100
+--- ./base/logging.h.orig	2010-12-16 02:11:49.000000000 +0100
++++ ./base/logging.h	2010-12-20 20:15:08.000000000 +0100
 @@ -141,6 +141,18 @@
  // There is also the special severity of DFATAL, which logs FATAL in
  // debug mode, ERROR in normal mode.

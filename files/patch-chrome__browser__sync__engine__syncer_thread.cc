@@ -1,5 +1,5 @@
---- ./chrome/browser/sync/engine/syncer_thread.cc.orig	2010-12-13 12:04:22.000000000 +0100
-+++ ./chrome/browser/sync/engine/syncer_thread.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/sync/engine/syncer_thread.cc.orig	2010-12-16 02:11:54.000000000 +0100
++++ ./chrome/browser/sync/engine/syncer_thread.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -264,7 +264,7 @@
    bool initial_sync_for_thread = true;
    bool continue_sync_cycle = false;
@@ -18,7 +18,7 @@
    idle_query_.reset();
  #endif
  }
-@@ -813,7 +813,7 @@
+@@ -833,7 +833,7 @@
      return 0;
    }
    return idle_time / 1000000;  // nano to milli

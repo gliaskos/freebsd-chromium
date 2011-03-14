@@ -1,5 +1,5 @@
---- ./remoting/remoting.gyp.orig	2010-12-13 12:03:06.000000000 +0100
-+++ ./remoting/remoting.gyp	2011-01-07 14:17:11.000000000 +0100
+--- ./remoting/remoting.gyp.orig	2010-12-16 02:11:22.000000000 +0100
++++ ./remoting/remoting.gyp	2010-12-20 20:15:08.000000000 +0100
 @@ -16,7 +16,7 @@
    },
  
@@ -9,29 +9,16 @@
        'targets': [
          # Simple webserver for testing chromoting client plugin.
          {
-@@ -40,6 +40,8 @@
-             'chromoting_base',
-             'chromoting_client',
-             'chromoting_jingle_glue',
-+	    '../build/linux/system.gyp:x11',
-+	    '../build/linux/system.gyp:xext',
-           ],
-           'link_settings': {
-             'libraries': [
-@@ -221,7 +223,11 @@
+@@ -221,7 +221,7 @@
              'host/event_executor_win.h',
            ],
          }],
 -        ['OS=="linux"', {
 +        ['OS=="linux" or OS=="freebsd"', {
-+          'dependencies': [
-+	    '../build/linux/system.gyp:x11',
-+	    '../build/linux/system.gyp:xext',
-+          ],
            'sources': [
              'host/capturer_linux.cc',
              'host/capturer_linux.h',
-@@ -497,7 +503,7 @@
+@@ -494,7 +494,7 @@
              'host/capturer_gdi_unittest.cc',
            ],
          }],

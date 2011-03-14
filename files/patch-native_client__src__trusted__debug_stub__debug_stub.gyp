@@ -1,5 +1,5 @@
---- ./native_client/src/trusted/debug_stub/debug_stub.gyp.orig	2010-12-13 12:07:01.000000000 +0100
-+++ ./native_client/src/trusted/debug_stub/debug_stub.gyp	2010-12-20 20:41:37.000000000 +0100
+--- ./native_client/src/trusted/debug_stub/debug_stub.gyp.orig	2010-12-16 02:12:15.000000000 +0100
++++ ./native_client/src/trusted/debug_stub/debug_stub.gyp	2010-12-20 20:15:08.000000000 +0100
 @@ -16,7 +16,7 @@
        'transport_common.cc',
      ],

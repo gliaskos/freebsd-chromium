@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/views/create_application_shortcut_view.cc.orig	2010-12-13 12:04:28.000000000 +0100
-+++ ./chrome/browser/ui/views/create_application_shortcut_view.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/ui/views/create_application_shortcut_view.cc.orig	2010-12-16 02:11:56.000000000 +0100
++++ ./chrome/browser/ui/views/create_application_shortcut_view.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -260,7 +260,7 @@
          l10n_util::GetString(IDS_PIN_TO_TASKBAR_CHKBOX) :
          l10n_util::GetString(IDS_CREATE_SHORTCUTS_QUICK_LAUNCH_BAR_CHKBOX),

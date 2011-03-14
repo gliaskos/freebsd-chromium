@@ -1,5 +1,5 @@
---- ./chrome/browser/memory_details.cc.orig	2010-12-13 12:04:29.000000000 +0100
-+++ ./chrome/browser/memory_details.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/memory_details.cc.orig	2010-12-16 02:11:58.000000000 +0100
++++ ./chrome/browser/memory_details.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -19,7 +19,7 @@
  #include "chrome/common/url_constants.h"
  #include "grit/chromium_strings.h"
@@ -15,8 +15,8 @@
  
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_FREEBSD)
-   const pid_t zygote_pid = Singleton<ZygoteHost>()->pid();
-   const pid_t sandbox_helper_pid = Singleton<RenderSandboxHostLinux>()->pid();
+   const pid_t zygote_pid = ZygoteHost::GetInstance()->pid();
+   const pid_t sandbox_helper_pid = RenderSandboxHostLinux::GetInstance()->pid();
  #endif
 @@ -179,7 +179,7 @@
        }

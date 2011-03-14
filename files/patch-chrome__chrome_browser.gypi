@@ -1,6 +1,6 @@
---- ./chrome/chrome_browser.gypi.orig	2010-12-13 12:04:58.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2011-01-07 14:17:11.000000000 +0100
-@@ -3494,7 +3494,7 @@
+--- ./chrome/chrome_browser.gypi.orig	2010-12-16 02:12:13.000000000 +0100
++++ ./chrome/chrome_browser.gypi	2010-12-20 20:15:08.000000000 +0100
+@@ -3574,7 +3574,7 @@
              ['exclude', '^browser/views/tab_contents/tab_contents_view_gtk.h'],
            ],
          }],
@@ -9,41 +9,7 @@
            'dependencies': [
              '../build/linux/system.gyp:dbus-glib',
              '../build/linux/system.gyp:gconf',
-@@ -3514,6 +3514,7 @@
-           'sources!': [
-             'browser/ui/views/extensions/extension_view.cc',
-             'browser/ui/views/extensions/extension_view.h',
-+            'browser/file_path_watcher_inotify.cc',
-           ],
-           'sources': [
-             'browser/crash_handler_host_linux.h',
-@@ -3567,7 +3568,6 @@
-             'browser/certificate_manager_model.h',
-             'browser/dom_ui/options/certificate_manager_handler.cc',
-             'browser/dom_ui/options/certificate_manager_handler.h',
--            'browser/file_path_watcher_inotify.cc',
-           ],
-         }],
-         ['OS=="freebsd" or OS=="openbsd"', {
-@@ -3579,6 +3579,17 @@
-           ],
-           'sources': [
-             'browser/file_path_watcher_stub.cc',
-+             #'browser/geolocation/gateway_data_provider_bsd.cc',
-+             #'browser/geolocation/gateway_data_provider_bsd.h',
-+          ],
-+          'sources!': [
-+            #'browser/geolocation/empty_device_data_provider.cc',
-+            #'browser/geolocation/empty_device_data_provider.h',
-+             'browser/geolocation/gateway_data_provider_linux.cc',
-+             'browser/geolocation/gateway_data_provider_linux.h',
-+             'browser/geolocation/wifi_data_provider_linux.h',
-+             'browser/geolocation/wifi_data_provider_linux.cc',
-+            'browser/file_path_watcher_inotify.cc',
-           ],
-         }],
-         # Use system SSL settings on Mac and Windows.  Use preferences
-@@ -4159,7 +4170,7 @@
+@@ -4242,7 +4242,7 @@
                ],
              }],
              # GTK build only

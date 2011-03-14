@@ -1,5 +1,5 @@
---- ./app/gfx/gl/gl_bindings.h.orig	2010-12-13 12:03:02.000000000 +0100
-+++ ./app/gfx/gl/gl_bindings.h	2010-12-20 20:41:37.000000000 +0100
+--- ./app/gfx/gl/gl_bindings.h.orig	2010-12-16 02:11:22.000000000 +0100
++++ ./app/gfx/gl/gl_bindings.h	2010-12-20 20:15:07.000000000 +0100
 @@ -22,7 +22,7 @@
  // The standard OpenGL native extension headers are also included.
  #if defined(OS_WIN)

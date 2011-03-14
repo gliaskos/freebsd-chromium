@@ -1,6 +1,6 @@
---- ./chrome/common/chrome_switches.h.orig	2010-12-13 12:04:46.000000000 +0100
-+++ ./chrome/common/chrome_switches.h	2010-12-20 20:41:37.000000000 +0100
-@@ -360,7 +360,7 @@
+--- ./chrome/common/chrome_switches.h.orig	2010-12-16 02:12:13.000000000 +0100
++++ ./chrome/common/chrome_switches.h	2010-12-20 20:15:08.000000000 +0100
+@@ -361,7 +361,7 @@
  extern const char kEnableAdvancedFileSystem[];
  #endif
  

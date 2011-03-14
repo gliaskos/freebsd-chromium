@@ -1,5 +1,5 @@
---- ./net/base/host_resolver_impl.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ ./net/base/host_resolver_impl.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./net/base/host_resolver_impl.cc.orig	2010-12-16 02:11:31.000000000 +0100
++++ ./net/base/host_resolver_impl.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -199,13 +199,11 @@
  std::vector<int> GetAllGetAddrinfoOSErrors() {
    int os_errors[] = {
@@ -23,7 +23,7 @@
    if (HaveOnlyLoopbackAddresses())
      additional_resolver_flags_ |= HOST_RESOLVER_LOOPBACK_ONLY;
  #endif
-@@ -1312,7 +1310,7 @@
+@@ -1316,7 +1314,7 @@
      ipv6_probe_job_ = new IPv6ProbeJob(this);
      ipv6_probe_job_->Start();
    }

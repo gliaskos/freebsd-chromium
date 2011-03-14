@@ -1,5 +1,5 @@
---- ./chrome/renderer/renderer_glue.cc.orig	2010-12-13 12:04:31.000000000 +0100
-+++ ./chrome/renderer/renderer_glue.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/renderer/renderer_glue.cc.orig	2010-12-16 02:11:59.000000000 +0100
++++ ./chrome/renderer/renderer_glue.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -38,7 +38,7 @@
  
  #if defined(OS_WIN)

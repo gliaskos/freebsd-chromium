@@ -1,5 +1,5 @@
---- ./chrome/renderer/mock_render_thread.h.orig	2010-12-13 12:04:30.000000000 +0100
-+++ ./chrome/renderer/mock_render_thread.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/renderer/mock_render_thread.h.orig	2010-12-16 02:11:59.000000000 +0100
++++ ./chrome/renderer/mock_render_thread.h	2010-12-20 20:15:08.000000000 +0100
 @@ -105,7 +105,7 @@
                                base::SharedMemoryHandle* handle);
  #endif

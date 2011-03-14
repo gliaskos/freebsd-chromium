@@ -1,5 +1,5 @@
---- ./chrome/browser/net/connection_tester.cc.orig	2010-12-13 12:04:23.000000000 +0100
-+++ ./chrome/browser/net/connection_tester.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/net/connection_tester.cc.orig	2010-12-16 02:11:55.000000000 +0100
++++ ./chrome/browser/net/connection_tester.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -179,7 +179,7 @@
    // Otherwise returns a network error code.
    int CreateSystemProxyConfigService(

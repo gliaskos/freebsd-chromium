@@ -1,14 +1,5 @@
---- ./tools/gyp/pylib/gyp/generator/make.py.orig	2010-12-13 12:49:17.000000000 +0100
-+++ ./tools/gyp/pylib/gyp/generator/make.py	2011-01-07 14:17:11.000000000 +0100
-@@ -34,7 +34,7 @@
- generator_default_variables = {
-   'EXECUTABLE_PREFIX': '',
-   'EXECUTABLE_SUFFIX': '',
--  'OS': 'linux',
-+  'OS': 'freebsd',
-   'STATIC_LIB_PREFIX': 'lib',
-   'SHARED_LIB_PREFIX': 'lib',
-   'STATIC_LIB_SUFFIX': '.a',
+--- ./tools/gyp/pylib/gyp/generator/make.py.orig	2010-12-16 02:33:33.000000000 +0100
++++ ./tools/gyp/pylib/gyp/generator/make.py	2010-12-20 20:15:08.000000000 +0100
 @@ -106,7 +106,7 @@
  #   export LINK="$(CXX)"
  #

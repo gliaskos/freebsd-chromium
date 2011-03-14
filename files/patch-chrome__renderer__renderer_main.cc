@@ -1,17 +1,17 @@
---- ./chrome/renderer/renderer_main.cc.orig	2010-12-13 12:04:31.000000000 +0100
-+++ ./chrome/renderer/renderer_main.cc	2011-01-07 14:17:11.000000000 +0100
+--- ./chrome/renderer/renderer_main.cc.orig	2010-12-16 02:11:59.000000000 +0100
++++ ./chrome/renderer/renderer_main.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -269,7 +269,7 @@
    PepperPluginRegistry::GetInstance();
  
    {
 -#if !defined(OS_LINUX)
-+#if !defined(OS_LINUX) && !defined(OS_FREEBSD)
++#if !defined(OS_LINUX) || defined(OS_FREEBSD)
      // TODO(markus): Check if it is OK to unconditionally move this
      // instruction down.
      RenderProcessImpl render_process;
-@@ -279,7 +279,7 @@
-     if (!no_sandbox) {
-       run_loop = platform.EnableSandbox();
+@@ -281,7 +281,7 @@
+     } else {
+       LOG(ERROR) << "Running without renderer sandbox";
      }
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_FREEBSD)

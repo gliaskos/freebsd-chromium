@@ -1,5 +1,5 @@
---- ./chrome/renderer/webplugin_delegate_pepper.h.orig	2010-12-13 12:04:31.000000000 +0100
-+++ ./chrome/renderer/webplugin_delegate_pepper.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/renderer/webplugin_delegate_pepper.h.orig	2010-12-16 02:11:59.000000000 +0100
++++ ./chrome/renderer/webplugin_delegate_pepper.h	2010-12-20 20:15:08.000000000 +0100
 @@ -308,7 +308,7 @@
    // variable to hold on to the pixels.
    SkBitmap last_printed_page_;

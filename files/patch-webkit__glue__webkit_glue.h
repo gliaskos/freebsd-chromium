@@ -1,6 +1,6 @@
---- ./webkit/glue/webkit_glue.h.orig	2010-12-13 12:03:08.000000000 +0100
-+++ ./webkit/glue/webkit_glue.h	2010-12-20 20:41:38.000000000 +0100
-@@ -272,7 +272,7 @@
+--- ./webkit/glue/webkit_glue.h.orig	2010-12-16 02:11:23.000000000 +0100
++++ ./webkit/glue/webkit_glue.h	2010-12-20 20:15:08.000000000 +0100
+@@ -271,7 +271,7 @@
  // Notifies the browser that the given action has been performed.
  void UserMetricsRecordAction(const std::string& action);
  

@@ -1,5 +1,5 @@
---- ./native_client/src/shared/platform/platform.gyp.orig	2010-12-13 12:07:00.000000000 +0100
-+++ ./native_client/src/shared/platform/platform.gyp	2010-12-20 20:41:37.000000000 +0100
+--- ./native_client/src/shared/platform/platform.gyp.orig	2010-12-16 02:12:14.000000000 +0100
++++ ./native_client/src/shared/platform/platform.gyp	2010-12-20 20:15:08.000000000 +0100
 @@ -60,7 +60,7 @@
        'time.h',
      ],

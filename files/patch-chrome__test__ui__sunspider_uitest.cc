@@ -1,5 +1,5 @@
---- ./chrome/test/ui/sunspider_uitest.cc.orig	2010-12-13 12:04:45.000000000 +0100
-+++ ./chrome/test/ui/sunspider_uitest.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/test/ui/sunspider_uitest.cc.orig	2010-12-16 02:12:11.000000000 +0100
++++ ./chrome/test/ui/sunspider_uitest.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -129,7 +129,7 @@
      dir = dir.AppendASCII("reference_build");
  #if defined(OS_WIN)

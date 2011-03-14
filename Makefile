@@ -2,12 +2,13 @@
 # Date created:				September 30 2009
 # Whom:					Florent Thoumie <flz@FreeBSD.org>
 #
-# $FreeBSD: ports/www/chromium/Makefile,v 1.13 2010/12/05 20:00:51 itetcu Exp $
+# $FreeBSD$
 #
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	9.0.597.107
+DISTVERSION=	10.0.648.133
+DISTNAME=	chromium-${DISTVERSIONPREFIX}${DISTVERSION}
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -120,25 +121,23 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|"	\
 		${WRKSRC}/base/base.gypi			\
 		${WRKSRC}/build/common.gypi			\
-		${WRKSRC}/third_party/icu/public/common/unicode/pfreebsd.h   \
 		${WRKSRC}/third_party/libvpx/libvpx.gyp \
-		${WRKSRC}/third_party/tcmalloc/chromium/src/config_freebsd.h \
-		${WRKSRC}/third_party/WebKit/WebCore/plugins/PluginDatabase.cpp \
+		${WRKSRC}/third_party/WebKit/Source/WebCore/plugins/PluginDatabase.cpp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp
 	@${REINPLACE_CMD} -e "s|/usr/include/vpx|${LOCALBASE}/include|" \
 		${WRKSRC}/third_party/ffmpeg/ffmpeg.gyp
 	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
 		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e 's|/usr/bin/gcc|${CC}|' \
-		${WRKSRC}/third_party/WebKit/WebCore/bindings/scripts/IDLParser.pm \
-		${WRKSRC}/third_party/WebKit/WebCore/dom/make_names.pl
+		${WRKSRC}/third_party/WebKit/Source/WebCore/bindings/scripts/IDLParser.pm \
+		${WRKSRC}/third_party/WebKit/Source/WebCore/dom/make_names.pl
 	@${REINPLACE_CMD} -e "s|'flex'|'${LOCALBASE}/bin/flex'|" \
 		${WRKSRC}/third_party/angle/src/build_angle.gyp  \
-		${WRKSRC}/third_party/WebKit/WebCore/WebCore.gyp/scripts/action_maketokenizer.py
+		${WRKSRC}/third_party/WebKit/Source/WebCore/WebCore.gyp/scripts/action_maketokenizer.py
 	@${REINPLACE_CMD} -e 's|gperf --key-positions|${LOCALBASE}/bin/gperf --key-positions|' \
-		${WRKSRC}/third_party/WebKit/WebCore/css/makeprop.pl	\
-		${WRKSRC}/third_party/WebKit/WebCore/css/makevalues.pl	\
-		${WRKSRC}/third_party/WebKit/WebCore/make-hash-tools.pl
+		${WRKSRC}/third_party/WebKit/Source/WebCore/css/makeprop.pl	\
+		${WRKSRC}/third_party/WebKit/Source/WebCore/css/makevalues.pl	\
+		${WRKSRC}/third_party/WebKit/Source/WebCore/make-hash-tools.pl
 	# kludges just to make it progress for now
 	@${REINPLACE_CMD} -e "s|/usr/lib|${LOCALBASE}/lib|"		\
 			-e "s|'python_ver%': '2.5'|'python_ver%': '2.6'|" \
@@ -162,12 +161,9 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/resources.pak ${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper ${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/xdg-settings ${DATADIR}
-.for f in chrome mksnapshot protoc
+.for f in chrome ffmpegsumo_nolink libffmpegsumo.so mksnapshot protoc
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
 .endfor
-#.for f in ffmpegsumo_nolink libffmpegsumo.so
-#	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
-#.endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin/
 

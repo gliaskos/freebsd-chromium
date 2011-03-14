@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/views/notifications/balloon_view_host.cc.orig	2010-12-13 12:04:28.000000000 +0100
-+++ ./chrome/browser/ui/views/notifications/balloon_view_host.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/ui/views/notifications/balloon_view_host.cc.orig	2010-12-16 02:11:56.000000000 +0100
++++ ./chrome/browser/ui/views/notifications/balloon_view_host.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -10,7 +10,7 @@
  #if defined(OS_WIN)
  #include "chrome/browser/renderer_host/render_widget_host_view_win.h"

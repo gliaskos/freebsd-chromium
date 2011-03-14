@@ -1,5 +1,5 @@
---- ./third_party/icu/public/common/unicode/pfreebsd.h.orig	2011-01-07 14:17:11.000000000 +0100
-+++ ./third_party/icu/public/common/unicode/pfreebsd.h	2011-01-07 14:17:11.000000000 +0100
+--- ./third_party/icu/public/common/unicode/pfreebsd.h.orig	2010-12-20 20:15:08.000000000 +0100
++++ ./third_party/icu/public/common/unicode/pfreebsd.h	2010-12-20 20:15:08.000000000 +0100
 @@ -0,0 +1,313 @@
 +/*
 +******************************************************************************

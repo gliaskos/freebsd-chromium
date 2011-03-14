@@ -1,5 +1,5 @@
---- ./chrome/gpu/x_util.h.orig	2010-12-13 12:04:29.000000000 +0100
-+++ ./chrome/gpu/x_util.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/gpu/x_util.h.orig	2010-12-16 02:11:58.000000000 +0100
++++ ./chrome/gpu/x_util.h	2010-12-20 20:15:08.000000000 +0100
 @@ -12,7 +12,7 @@
  #include "build/build_config.h"
  #include "chrome/gpu/gpu_config.h"

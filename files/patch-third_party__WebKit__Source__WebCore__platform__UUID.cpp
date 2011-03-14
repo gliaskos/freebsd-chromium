@@ -1,5 +1,5 @@
---- ./third_party/WebKit/WebCore/platform/UUID.cpp.orig	2011-01-25 10:33:42.000000000 +0100
-+++ ./third_party/WebKit/WebCore/platform/UUID.cpp	2011-01-25 10:43:15.000000000 +0100
+--- ./third_party/WebKit/Source/WebCore/platform/UUID.cpp.orig	2011-01-25 10:33:42.000000000 +0100
++++ ./third_party/WebKit/Source/WebCore/platform/UUID.cpp	2011-01-25 10:43:15.000000000 +0100
 @@ -41,6 +41,8 @@
  #include <objbase.h>
  #elif OS(DARWIN)

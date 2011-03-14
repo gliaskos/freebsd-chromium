@@ -1,5 +1,5 @@
---- ./chrome/common/plugin_messages.h.orig	2010-12-13 12:04:46.000000000 +0100
-+++ ./chrome/common/plugin_messages.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/common/plugin_messages.h.orig	2010-12-16 02:12:13.000000000 +0100
++++ ./chrome/common/plugin_messages.h	2010-12-20 20:15:08.000000000 +0100
 @@ -116,7 +116,7 @@
    TransportDIB::Handle windowless_buffer;
    TransportDIB::Handle background_buffer;

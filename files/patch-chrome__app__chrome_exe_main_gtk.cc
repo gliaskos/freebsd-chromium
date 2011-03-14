@@ -1,5 +1,5 @@
---- ./chrome/app/chrome_exe_main_gtk.cc.orig	2010-12-13 12:04:21.000000000 +0100
-+++ ./chrome/app/chrome_exe_main_gtk.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/app/chrome_exe_main_gtk.cc.orig	2010-12-16 02:11:51.000000000 +0100
++++ ./chrome/app/chrome_exe_main_gtk.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -3,7 +3,7 @@
  // found in the LICENSE file.
  

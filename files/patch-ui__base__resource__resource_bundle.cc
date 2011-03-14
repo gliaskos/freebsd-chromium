@@ -1,6 +1,6 @@
---- ./app/resource_bundle.cc.orig	2010-12-13 12:03:02.000000000 +0100
-+++ ./app/resource_bundle.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -228,7 +228,7 @@
+--- ui/base/resource/resource_bundle.cc.orig	2011-01-26 10:31:08.000000000 +0100
++++ ui/base/resource/resource_bundle.cc	2011-01-30 00:45:39.000000000 +0100
+@@ -176,7 +176,7 @@
  #if defined(OS_MACOSX)
    return rb.GetNSImageNamed(resource_id);
  #elif defined(USE_X11) && !defined(TOOLKIT_VIEWS)

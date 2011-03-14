@@ -1,14 +1,14 @@
---- ./base/debug/debugger_posix.cc.orig	2011-01-29 10:49:09.000000000 +0100
-+++ ./base/debug/debugger_posix.cc	2011-02-05 10:59:45.000000000 +0100
-@@ -11,6 +11,7 @@
- #include <sys/stat.h>
+--- base/debug/debugger_posix.cc.orig	2011-02-03 10:01:35.000000000 +0100
++++ base/debug/debugger_posix.cc	2011-02-06 17:07:57.000000000 +0100
+@@ -15,6 +15,7 @@
  #include <sys/sysctl.h>
+ #endif
  #include <sys/types.h>
 +#include <sys/user.h>
  #include <unistd.h>
  
  #include <string>
-@@ -47,7 +48,7 @@
+@@ -50,7 +51,7 @@
    return false;
  }
  
@@ -17,7 +17,7 @@
  
  // Based on Apple's recommended method as described in
  // http://developer.apple.com/qa/qa2004/qa1361.html
-@@ -85,7 +86,11 @@
+@@ -88,7 +89,11 @@
  
    // This process is being debugged if the P_TRACED flag is set.
    is_set = true;
@@ -29,14 +29,13 @@
    return being_debugged;
  }
  
-@@ -124,16 +129,7 @@
-   pid_index += tracer.size();
-   return pid_index < status.size() && status[pid_index] != '0';
+@@ -135,15 +140,7 @@
+   return false;
  }
--
+ 
 -#elif defined(OS_FREEBSD)
 -
--bool DebugUtil::BeingDebugged() {
+-bool BeingDebugged() {
 -  // TODO(benl): can we determine this under FreeBSD?
 -  NOTIMPLEMENTED();
 -  return false;

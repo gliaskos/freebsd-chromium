@@ -1,5 +1,5 @@
---- ./chrome/browser/sync/syncable/directory_backing_store.cc.orig	2010-12-13 12:04:22.000000000 +0100
-+++ ./chrome/browser/sync/syncable/directory_backing_store.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/sync/syncable/directory_backing_store.cc.orig	2010-12-16 02:11:54.000000000 +0100
++++ ./chrome/browser/sync/syncable/directory_backing_store.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -304,13 +304,13 @@
  #else
    UMA_HISTOGRAM_COUNTS_100("Sync.DirectoryOpenFailedNotWinMac", bucket);

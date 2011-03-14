@@ -1,5 +1,5 @@
---- ./chrome/browser/web_applications/web_app.cc.orig	2010-12-13 12:04:23.000000000 +0100
-+++ ./chrome/browser/web_applications/web_app.cc	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/web_applications/web_app.cc.orig	2010-12-16 02:11:54.000000000 +0100
++++ ./chrome/browser/web_applications/web_app.cc	2010-12-20 20:15:08.000000000 +0100
 @@ -34,9 +34,9 @@
  #include "chrome/common/url_constants.h"
  #include "chrome/common/web_apps.h"

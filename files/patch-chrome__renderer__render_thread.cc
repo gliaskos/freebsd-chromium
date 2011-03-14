@@ -1,6 +1,6 @@
---- ./chrome/renderer/render_thread.cc.orig	2010-12-13 12:04:31.000000000 +0100
-+++ ./chrome/renderer/render_thread.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -963,7 +963,7 @@
+--- ./chrome/renderer/render_thread.cc.orig	2010-12-16 02:11:59.000000000 +0100
++++ ./chrome/renderer/render_thread.cc	2010-12-20 20:15:08.000000000 +0100
+@@ -972,7 +972,7 @@
  }
  
  void RenderThread::IdleHandler() {
@@ -9,7 +9,7 @@
    MallocExtension::instance()->ReleaseFreeMemory();
  #endif
  
-@@ -1039,7 +1039,7 @@
+@@ -1048,7 +1048,7 @@
    while (!v8::V8::IdleNotification()) {
    }
  

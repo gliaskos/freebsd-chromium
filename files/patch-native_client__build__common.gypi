@@ -1,5 +1,5 @@
---- ./native_client/build/common.gypi.orig	2010-12-13 12:07:05.000000000 +0100
-+++ ./native_client/build/common.gypi	2010-12-20 20:41:37.000000000 +0100
+--- ./native_client/build/common.gypi.orig	2010-12-16 02:12:20.000000000 +0100
++++ ./native_client/build/common.gypi	2010-12-20 20:15:08.000000000 +0100
 @@ -375,7 +375,7 @@
      },
    },

@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/views/fullscreen_exit_bubble.h.orig	2010-12-13 12:04:28.000000000 +0100
-+++ ./chrome/browser/ui/views/fullscreen_exit_bubble.h	2010-12-20 20:41:37.000000000 +0100
+--- ./chrome/browser/ui/views/fullscreen_exit_bubble.h.orig	2010-12-16 02:11:56.000000000 +0100
++++ ./chrome/browser/ui/views/fullscreen_exit_bubble.h	2010-12-20 20:15:08.000000000 +0100
 @@ -12,7 +12,7 @@
  #include "chrome/browser/command_updater.h"
  #include "views/controls/link.h"

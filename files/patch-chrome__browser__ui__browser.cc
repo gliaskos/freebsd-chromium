@@ -1,6 +1,6 @@
---- ./chrome/browser/ui/browser.cc.orig	2010-12-13 12:04:28.000000000 +0100
-+++ ./chrome/browser/ui/browser.cc	2010-12-20 20:41:37.000000000 +0100
-@@ -272,7 +272,7 @@
+--- ./chrome/browser/ui/browser.cc.orig	2010-12-16 02:11:56.000000000 +0100
++++ ./chrome/browser/ui/browser.cc	2010-12-20 20:15:08.000000000 +0100
+@@ -271,7 +271,7 @@
  
    BrowserList::RemoveBrowser(this);
  
@@ -9,7 +9,7 @@
    if (!BrowserList::HasBrowserWithProfile(profile_)) {
      // We're the last browser window with this profile. We need to nuke the
      // TabRestoreService, which will start the shutdown of the
-@@ -781,7 +781,7 @@
+@@ -799,7 +799,7 @@
    // On Mac or ChromeOS, we don't want to suffix the page title with
    // the application name.
    return title;
@@ -18,7 +18,7 @@
    int string_id = IDS_BROWSER_WINDOW_TITLE_FORMAT;
    // Don't append the app name to window titles on app frames and app popups
    if (type_ & TYPE_APP)
-@@ -1427,7 +1427,7 @@
+@@ -1445,7 +1445,7 @@
    window_->SetFullscreen(!window_->IsFullscreen());
    // On Linux, setting fullscreen mode is an async call to the X server, which
    // may or may not support fullscreen mode.
@@ -27,7 +27,7 @@
    UpdateCommandsForFullscreenMode(window_->IsFullscreen());
  #endif
  }
-@@ -1678,7 +1678,7 @@
+@@ -1700,7 +1700,7 @@
  
  void Browser::OpenCreateShortcutsDialog() {
    UserMetrics::RecordAction(UserMetricsAction("CreateShortcut"), profile_);
@@ -36,7 +36,7 @@
    TabContentsWrapper* current_tab = GetSelectedTabContentsWrapper();
    DCHECK(current_tab &&
        web_app::IsValidUrl(current_tab->tab_contents()->GetURL())) <<
-@@ -2477,7 +2477,7 @@
+@@ -2500,7 +2500,7 @@
  }
  
  void Browser::CloseFrameAfterDragSession() {
