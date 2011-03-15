@@ -1,6 +1,17 @@
---- ./net/net.gyp.orig	2010-12-16 02:11:31.000000000 +0100
-+++ ./net/net.gyp	2010-12-20 20:15:08.000000000 +0100
-@@ -1002,7 +1002,7 @@
+--- net/net.gyp.orig	2011-03-15 05:45:28.000000000 +0200
++++ net/net.gyp	2011-03-15 05:50:51.000000000 +0200
+@@ -137,8 +137,8 @@
+         'base/network_change_notifier_linux.h',
+         'base/network_change_notifier_mac.cc',
+         'base/network_change_notifier_mac.h',
+-        'base/network_change_notifier_netlink_linux.cc',
+-        'base/network_change_notifier_netlink_linux.h',
++        #'base/network_change_notifier_netlink_linux.cc',
++        #'base/network_change_notifier_netlink_linux.h',
+         'base/network_change_notifier_win.cc',
+         'base/network_change_notifier_win.h',
+         'base/network_config_watcher_mac.cc',
+@@ -1029,7 +1029,7 @@
              ],
            }
          ],
@@ -9,7 +20,7 @@
            'conditions': [
              ['linux_use_tcmalloc==1', {
                'dependencies': [
-@@ -1205,7 +1205,7 @@
+@@ -1194,7 +1194,7 @@
              }],
            ],
          }],

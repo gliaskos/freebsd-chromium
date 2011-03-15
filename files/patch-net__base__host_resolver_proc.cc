@@ -1,5 +1,5 @@
---- ./net/base/host_resolver_proc.cc.orig	2010-12-13 12:03:19.000000000 +0100
-+++ ./net/base/host_resolver_proc.cc	2010-12-20 20:41:37.000000000 +0100
+--- net/base/host_resolver_proc.cc.orig	2011-03-15 05:50:10.000000000 +0200
++++ net/base/host_resolver_proc.cc	2011-03-15 05:50:34.000000000 +0200
 @@ -6,15 +6,15 @@
  
  #include "build/build_config.h"
@@ -20,18 +20,16 @@
  
  namespace net {
  
-+@@ -248,9 +248,12 @@
-+ #if defined(OS_WIN)
-+     if (err != WSAHOST_NOT_FOUND && err != WSANO_DATA)
-+       return ERR_NAME_RESOLUTION_FAILED;
-+-#elif defined(OS_POSIX)
-++#elif defined(OS_POSIX) && !defined(OS_FREEBSD)
-+     if (err != EAI_NONAME && err != EAI_NODATA)
-+       return ERR_NAME_RESOLUTION_FAILED;
-++#elif defined(OS_FREEBSD)
-++    if (err != EAI_NONAME) /* EAI_NODATA obsolete since 5.x */
-++      return ERR_NAME_RESOLUTION_FAILED;
-+ #endif
-+ 
-+     return ERR_NAME_NOT_RESOLVED;
-
+@@ -248,7 +248,11 @@
+ #if defined(OS_WIN)
+     if (err != WSAHOST_NOT_FOUND && err != WSANO_DATA)
+       return ERR_NAME_RESOLUTION_FAILED;
+-#elif defined(OS_POSIX)
++#elif defined(OS_FREEBSD)
++	// EAI_NODATA is obsolete [RFC 3493].
++	if (err != EAI_NONAME)
++      return ERR_NAME_RESOLUTION_FAILED;
++#elif defined(OS_POSIX)
+     if (err != EAI_NONAME && err != EAI_NODATA)
+       return ERR_NAME_RESOLUTION_FAILED;
+ #endif
