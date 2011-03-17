@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	10.0.648.134
+DISTVERSION=	10.0.648.151
 DISTNAME=	chromium-${DISTVERSIONPREFIX}${DISTVERSION}
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
