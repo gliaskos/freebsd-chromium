@@ -8,11 +8,11 @@
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	10.0.648.151
-DISTNAME=	chromium-${DISTVERSIONPREFIX}${DISTVERSION}
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
 		http://files.etoilebsd.net/goodking/
+DISTNAME=	chromium-${DISTVERSIONPREFIX}${DISTVERSION}
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
@@ -46,7 +46,7 @@ USE_PYTHON=	2.6+			# only needed at build time
 USE_PERL5_BUILD=yes
 USE_GMAKE=	yes
 MAN1=		chrome.1
-USE_XORG=	scrnsaverproto xtst
+USE_XORG=	scrnsaverproto x11 xproto xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
 LICENSE_COMB=	multi
 LICENSE=	BSD LGPL21 MPL
