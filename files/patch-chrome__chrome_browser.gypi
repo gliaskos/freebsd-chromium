@@ -38,15 +38,6 @@
            'dependencies': [
              '../build/linux/system.gyp:dbus-glib',
              '../build/linux/system.gyp:gconf',
-@@ -3634,7 +3634,7 @@
-           'link_settings': {
-             'libraries': [
-               # For dlsym() in 'browser/zygote_main_linux.cc'
--              '-ldl',
-+              '-lc',
-             ],
-           },
-           'sources!': [
 @@ -4294,7 +4294,7 @@
                ],
              }],

@@ -18,12 +18,3 @@
            'sources': [
              'gfx/gl/gl_context_egl.cc',
              'gfx/gl/gl_context_egl.h',
-@@ -363,7 +363,7 @@
-             'link_settings': {
-               'libraries': [
-                 '-lX11',
--                '-ldl',
-+                '-lc',
-               ],
-             },
-           },
