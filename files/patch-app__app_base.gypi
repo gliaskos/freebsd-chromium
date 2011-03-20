@@ -1,14 +1,15 @@
---- ./app/app_base.gypi.orig	2010-12-16 02:11:22.000000000 +0100
-+++ ./app/app_base.gypi	2010-12-20 20:15:08.000000000 +0100
-@@ -209,7 +209,6 @@
+--- app/app_base.gypi.orig	2011-03-20 22:02:04.362467155 +0200
++++ app/app_base.gypi	2011-03-20 22:02:04.479736529 +0200
+@@ -232,7 +232,7 @@
          'surface/io_surface_support_mac.cc',
          'surface/io_surface_support_mac.h',
          'surface/transport_dib.h',
 -        'surface/transport_dib_linux.cc',
++	'surface/transport_dib_freebsd.cc',
          'surface/transport_dib_mac.cc',
          'surface/transport_dib_win.cc',
-         'table_model.cc',
-@@ -328,7 +327,7 @@
+         'win/iat_patch_function.cc',
+@@ -335,7 +335,7 @@
              ['exclude', '^win/*'],
            ],
          }],
@@ -17,3 +18,12 @@
            'sources': [
              'gfx/gl/gl_context_egl.cc',
              'gfx/gl/gl_context_egl.h',
+@@ -363,7 +363,7 @@
+             'link_settings': {
+               'libraries': [
+                 '-lX11',
+-                '-ldl',
++                '-lc',
+               ],
+             },
+           },

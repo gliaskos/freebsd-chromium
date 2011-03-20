@@ -1,6 +1,6 @@
---- ./app/surface/transport_dib_freebsd.cc.orig	2010-12-20 20:15:07.000000000 +0100
-+++ ./app/surface/transport_dib_freebsd.cc	2010-12-20 20:15:07.000000000 +0100
-@@ -0,0 +1,86 @@
+--- app/surface/transport_dib_freebsd.cc.orig	2011-03-20 22:02:04.374736591 +0200
++++ app/surface/transport_dib_freebsd.cc	2011-03-20 22:02:04.482738307 +0200
+@@ -0,0 +1,96 @@
 +// Copyright (c) 2009 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -12,6 +12,7 @@
 +
 +#include "base/eintr_wrapper.h"
 +#include "base/shared_memory.h"
++#include "base/scoped_ptr.h"
 +#include "skia/ext/platform_canvas.h"
 +
 +TransportDIB::TransportDIB()
@@ -29,8 +30,7 @@
 +// static
 +TransportDIB* TransportDIB::Create(size_t size, uint32 sequence_num) {
 +  TransportDIB* dib = new TransportDIB;
-+  if (!dib->shared_memory_.Create(L"", false /* read write */,
-+                                  false /* do not open existing */, size)) {
++  if (!dib->shared_memory_.CreateAndMapAnonymous(size)) {
 +    delete dib;
 +    return NULL;
 +  }
@@ -40,22 +40,32 @@
 +}
 +
 +// static
-+TransportDIB* TransportDIB::Map(TransportDIB::Handle handle) {
-+  if (!is_valid(handle))
++TransportDIB* TransportDIB::Map(Handle handle) {
++  scoped_ptr<TransportDIB> dib(CreateWithHandle(handle));
++  if (!dib->Map())
 +    return NULL;
++  return dib.release();
++}
 +
-+  TransportDIB* dib = new TransportDIB(handle);
++// static
++TransportDIB* TransportDIB::CreateWithHandle(Handle handle) {
++  return new TransportDIB(handle);
++}
++
++bool TransportDIB::Map() {
++  if (!is_valid(handle()))
++    return false;
++  if (memory())
++    return true;
++
 +  struct stat st;
-+  if ((fstat(handle.fd, &st) != 0) ||
-+      (!dib->shared_memory_.Map(st.st_size))) {
-+    delete dib;
-+    HANDLE_EINTR(close(handle.fd));
-+    return NULL;
++  if ((fstat(shared_memory_.handle().fd, &st) != 0) ||
++      (!shared_memory_.Map(st.st_size))) {
++    return false;
 +  }
 +
-+  dib->size_ = st.st_size;
-+
-+  return dib;
++  size_ = st.st_size;
++  return true;
 +}
 +
 +bool TransportDIB::is_valid(Handle dib) {
@@ -81,7 +91,7 @@
 +
 +XID TransportDIB::MapToX(Display* display) {
 +  if (!x_shm_) {
-+    x_shm_ = x11_util::AttachSharedMemory(display, key_);
++    x_shm_ = ui::AttachSharedMemory(display, key_);
 +    display_ = display;
 +  }
 +

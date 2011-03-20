@@ -1,15 +1,19 @@
---- ./base/base.gypi.orig	2010-12-20 20:09:09.000000000 +0100
-+++ ./base/base.gypi	2010-12-20 20:15:08.000000000 +0100
-@@ -354,8 +354,6 @@
-           [ 'OS != "linux"', {
+--- base/base.gypi.orig	2011-03-20 22:02:04.346738061 +0200
++++ base/base.gypi	2011-03-20 22:02:04.473736325 +0200
+@@ -343,11 +343,9 @@
+                 'message_pump_glib_x.cc',
+               ],
+           }],
+-          [ 'OS != "linux"', {
++          [ 'OS != "linux" and OS != "freebsd"', {
                'sources!': [
                  # Not automatically excluded by the *linux.cc rules.
 -                'gtk_util.cc',
 -                'gtk_util.h',
                  'linux_util.cc',
-                 'setproctitle_linux.c',
-                 'setproctitle_linux.h',
-@@ -479,6 +477,11 @@
+               ],
+             },
+@@ -462,6 +460,11 @@
              ],
          }],
          [ 'OS == "freebsd" or OS == "openbsd"', {

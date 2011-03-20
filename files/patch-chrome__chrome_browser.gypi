@@ -1,7 +1,36 @@
---- ./chrome/chrome_browser.gypi.orig	2010-12-16 02:12:13.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2010-12-20 20:15:08.000000000 +0100
-@@ -3574,7 +3574,7 @@
-             ['exclude', '^browser/views/tab_contents/tab_contents_view_gtk.h'],
+--- chrome/chrome_browser.gypi.orig	2011-03-20 22:02:04.255736830 +0200
++++ chrome/chrome_browser.gypi	2011-03-20 22:02:04.431736294 +0200
+@@ -1237,7 +1237,7 @@
+         'browser/favicon_service.h',
+         'browser/file_path_watcher/file_path_watcher.cc',
+         'browser/file_path_watcher/file_path_watcher.h',
+-        'browser/file_path_watcher/file_path_watcher_inotify.cc',
++        #'browser/file_path_watcher/file_path_watcher_inotify.cc',
+         'browser/file_path_watcher/file_path_watcher_mac.cc',
+         'browser/file_path_watcher/file_path_watcher_win.cc',
+         'browser/file_select_helper.cc',
+@@ -1266,8 +1266,8 @@
+         'browser/geolocation/empty_device_data_provider.h',
+         'browser/geolocation/gateway_data_provider_common.cc',
+         'browser/geolocation/gateway_data_provider_common.h',
+-        'browser/geolocation/gateway_data_provider_linux.cc',
+-        'browser/geolocation/gateway_data_provider_linux.h',
++        #'browser/geolocation/gateway_data_provider_linux.cc',
++        #'browser/geolocation/gateway_data_provider_linux.h',
+         'browser/geolocation/gateway_data_provider_win.cc',
+         'browser/geolocation/gateway_data_provider_win.h',
+         'browser/geolocation/geolocation_content_settings_map.cc',
+@@ -1307,7 +1307,7 @@
+         'browser/geolocation/wifi_data_provider_corewlan_mac.mm',
+         'browser/geolocation/wifi_data_provider_common_win.cc',
+         'browser/geolocation/wifi_data_provider_common_win.h',
+-        'browser/geolocation/wifi_data_provider_linux.cc',
++        #'browser/geolocation/wifi_data_provider_linux.cc',
+         'browser/geolocation/wifi_data_provider_linux.h',
+         'browser/geolocation/wifi_data_provider_mac.cc',
+         'browser/geolocation/wifi_data_provider_mac.h',
+@@ -3621,7 +3621,7 @@
+             ['include', '^browser/chromeos/dom_ui/login/'],
            ],
          }],
 -        ['OS=="linux"', {
@@ -9,7 +38,16 @@
            'dependencies': [
              '../build/linux/system.gyp:dbus-glib',
              '../build/linux/system.gyp:gconf',
-@@ -4242,7 +4242,7 @@
+@@ -3634,7 +3634,7 @@
+           'link_settings': {
+             'libraries': [
+               # For dlsym() in 'browser/zygote_main_linux.cc'
+-              '-ldl',
++              '-lc',
+             ],
+           },
+           'sources!': [
+@@ -4294,7 +4294,7 @@
                ],
              }],
              # GTK build only
