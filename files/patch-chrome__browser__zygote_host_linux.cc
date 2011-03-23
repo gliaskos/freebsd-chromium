@@ -1,5 +1,5 @@
---- chrome/browser/zygote_host_linux.cc.orig	2011-03-20 22:02:04.291167311 +0200
-+++ chrome/browser/zygote_host_linux.cc	2011-03-20 22:02:04.451737160 +0200
+--- chrome/browser/zygote_host_linux.cc.orig	2011-03-23 00:55:52.194986092 +0200
++++ chrome/browser/zygote_host_linux.cc	2011-03-23 00:56:55.886462243 +0200
 @@ -61,8 +61,16 @@
  }
  
@@ -47,7 +47,20 @@
    } else {
      // Not using the SUID sandbox.
      pid_ = process;
-@@ -285,6 +300,7 @@
+@@ -245,9 +260,11 @@
+     if (pid <= 0)
+       return base::kNullProcessHandle;
+   }
+-
++  
++#if defined(OS_LINUX)
+   const int kRendererScore = 5;
+   AdjustRendererOOMScore(pid, kRendererScore);
++#endif
+ 
+   return pid;
+ }
+@@ -285,6 +302,7 @@
      selinux_valid = true;
    }
  
@@ -55,7 +68,7 @@
    if (using_suid_sandbox_ && !selinux) {
      base::ProcessHandle sandbox_helper_process;
      std::vector<std::string> adj_oom_score_cmdline;
-@@ -302,6 +318,7 @@
+@@ -302,6 +320,7 @@
      if (!base::AdjustOOMScore(pid, score))
        PLOG(ERROR) << "Failed to adjust OOM score of renderer with pid " << pid;
    }
