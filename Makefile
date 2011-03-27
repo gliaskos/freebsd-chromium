@@ -68,7 +68,6 @@ GYP_DEFINES+=	use_system_ffmpeg=0
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
 
-
 OPTIONS=	CODECS		"Compile and enable patented codecs like H.264" off \
 		GCONF		"Use gconf2 for preferences"		on \
 		SSE2		"Use SSE2, disable this for PIII or older" on \
