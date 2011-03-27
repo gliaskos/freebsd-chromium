@@ -63,23 +63,25 @@ ALL_TARGET=	chrome
 #GYP_DEFINES+=	use_system_libjpeg=1
 #GYP_DEFINES+=	use_system_libpng=1
 GYP_DEFINES+=	use_system_libxml=1
+GYP_DEFINES+=	use_system_ffmpeg=0
 #GYP_DEFINES+=	use_system_sqlite=0
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
 
-.include <bsd.port.options.mk>
 
 OPTIONS=	CODECS		"Compile and enable patented codecs like H.264" off \
 		GCONF		"Use gconf2 for preferences"		on \
 		SSE2		"Use SSE2, disable this for PIII or older" on \
 		VPX		"Use system libvpx for VP8 codec"	on
 
-.include <bsd.port.pre.mk>
+.include <bsd.port.options.mk>
 
 .if defined(WITH_CODECS)
 GYP_DEFINES+=	ffmpeg_branding=Chrome
+GYP_DEFINES+=	use_proprietary_codecs=1
 .else
 GYP_DEFINES+=	ffmpeg_branding=Chromium
+GYP_DEFINES+=	use_proprietary_codecs=0
 .endif
 
 .if defined(WITH_GCONF)
@@ -167,4 +169,4 @@ do-install:
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin/
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
