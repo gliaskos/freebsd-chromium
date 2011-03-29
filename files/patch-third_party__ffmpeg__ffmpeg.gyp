@@ -9,12 +9,3 @@
          'os_config%': '<(OS)',
        }, {  # all other Unix OS's use the linux config
          'os_config%': 'linux',
-@@ -82,7 +82,7 @@
-     'ffmpeg_variant%': '<(target_arch)',
- 
-     'use_system_ffmpeg%': 0,
--    'use_system_yasm%': 0,
-+    'use_system_yasm%': 1,
-     'build_ffmpegsumo%': 1,
-     'use_system_vpx%': 0,
- 

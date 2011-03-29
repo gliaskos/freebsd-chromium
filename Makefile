@@ -64,6 +64,7 @@ ALL_TARGET=	chrome
 GYP_DEFINES+=	use_system_libxml=1
 GYP_DEFINES+=	use_system_ffmpeg=0
 #GYP_DEFINES+=	use_system_sqlite=0
+GYP_DEFINES+=	use_system_yasm=1
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
 
