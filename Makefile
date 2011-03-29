@@ -33,8 +33,7 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo	\
 		asound.2:${PORTSDIR}/audio/alsa-lib		\
 		freetype.9:${PORTSDIR}/print/freetype2		\
 		nss3.1:${PORTSDIR}/security/nss			\
-		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
-		avformat:${PORTSDIR}/multimedia/ffmpeg
+		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
@@ -74,6 +73,12 @@ OPTIONS=	CODECS		"Compile and enable patented codecs like H.264" off \
 		VPX		"Use system libvpx for VP8 codec"	on
 
 .include <bsd.port.options.mk>
+
+.if ${OSVERSION} < 900033
+BUILD_DEPENDS+=	${LOCALBASE}/bin/as:${PORTSDIR}/devel/binutils
+CONFIGURE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
+MAKE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
+.endif
 
 .if defined(WITH_CODECS)
 GYP_DEFINES+=	ffmpeg_branding=Chrome
