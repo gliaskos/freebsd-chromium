@@ -174,4 +174,9 @@ do-install:
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin/
 
+post-install:
+.if ${OSVERSION} < 900000
+@${CAT} ${PKGMESSAGE}
+.endif
+
 .include <bsd.port.mk>
