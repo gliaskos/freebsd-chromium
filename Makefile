@@ -157,6 +157,7 @@ do-configure:
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
 			./build/gyp_chromium chrome/chrome.gyp --depth .
+	@${FIND} ${WRKSRC} -name "*.mk" | ${XARGS} -n 1 ${REINPLACE_CMD} -e 's/-lc //'
 
 do-install:
 	@${MKDIR} ${DATADIR}
