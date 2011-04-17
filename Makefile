@@ -147,17 +147,11 @@ post-patch:
 			-e "s|'python_ver%': '2.5'|'python_ver%': '2.6'|" \
 			-e "s|.so.1.0|.so.1|" \
 				${WRKSRC}/build/common.gypi
-	@${REINPLACE_CMD} -e "s|'-ldl',|'-lc',|" \
-		${WRKSRC}/app/app_base.gypi \
-		${WRKSRC}/build/linux/system.gyp \
-		${WRKSRC}/chrome/chrome_browser.gypi \
-		${WRKSRC}/media/media.gyp
 
 do-configure:
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
 			./build/gyp_chromium chrome/chrome.gyp --depth .
-	@${FIND} ${WRKSRC} -name "*.mk" | ${XARGS} -n 1 ${REINPLACE_CMD} -e 's/-lc //'
 
 do-install:
 	@${MKDIR} ${DATADIR}
