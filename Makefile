@@ -168,11 +168,4 @@ do-install:
 		${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin
 
-post-install:
-.if ${OSVERSION} < 900000
-	@${ECHO_CMD}
-	@${CAT} ${PKGMESSAGE}
-	@${ECHO_CMD}
-.endif
-
 .include <bsd.port.mk>
