@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	12.0.742.91
+DISTVERSION=	13.0.782.41
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -67,6 +67,13 @@ GYP_DEFINES+=	use_system_ffmpeg=0
 GYP_DEFINES+=	use_system_yasm=1
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
+GYP_DEFINES+=   disable_nacl=1
+#GYP_DEFINES+=  use_ibus=0
+GYP_DEFINES+=   linux_use_heapchecker=1
+GYP_DEFINES+=   linux_link_gsettings=1
+#GYP_DEFINES+=   linux_link_gnome_keyring=1
+#GYP_DEFINES+=   use_gnome_keyring=1
+
 
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	off \
 		GCONF	"Use GConf2 for preferences"			on \
