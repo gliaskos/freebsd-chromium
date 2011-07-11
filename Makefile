@@ -33,7 +33,8 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo \
 		nss3.1:${PORTSDIR}/security/nss \
 		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
 		ibus.2:${PORTSDIR}/textproc/ibus \
-		cups.2:${PORTSDIR}/print/cups-client
+		cups.2:${PORTSDIR}/print/cups-client \
+		gcrypt.so:${PORTSDIR}/security/libgcrypt
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
