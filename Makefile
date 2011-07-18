@@ -57,7 +57,7 @@ DESKTOP_ENTRIES="Chromium" "${COMMENT}" "${DATADIR}/product_logo_48.png" \
 ALL_TARGET=	chrome
 
 #user tunables showing defaults, some won't compile if changed
-#GYP_DEFINES+=	target_arch=ia32     #or x64, should be detected automatically
+#GYP_DEFINES+=	target_arch=ia32	#or x64, should be detected automatically
 #GYP_DEFINES+=	use_system_bzip2=1
 #GYP_DEFINES+=	use_system_libevent=0
 #GYP_DEFINES+=	use_system_libjpeg=1
@@ -68,13 +68,12 @@ GYP_DEFINES+=	use_system_ffmpeg=0
 GYP_DEFINES+=	use_system_yasm=1
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
-GYP_DEFINES+=   disable_nacl=1
-#GYP_DEFINES+=  use_ibus=0
-GYP_DEFINES+=   linux_use_heapchecker=1
-GYP_DEFINES+=   linux_link_gsettings=1
-#GYP_DEFINES+=   linux_link_gnome_keyring=1
-#GYP_DEFINES+=   use_gnome_keyring=1
-
+GYP_DEFINES+=	disable_nacl=1
+#GYP_DEFINES+=	use_ibus=0
+GYP_DEFINES+=	linux_use_heapchecker=1
+GYP_DEFINES+=	linux_link_gsettings=1
+#GYP_DEFINES+=	linux_link_gnome_keyring=1
+#GYP_DEFINES+=	use_gnome_keyring=1
 
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	off \
 		GCONF	"Use GConf2 for preferences"			on \
