@@ -34,7 +34,6 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo \
 		freetype.9:${PORTSDIR}/print/freetype2 \
 		nss3.1:${PORTSDIR}/security/nss \
 		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
-		ibus.2:${PORTSDIR}/textproc/ibus \
 		cups.2:${PORTSDIR}/print/cups-client
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
@@ -57,7 +56,6 @@ DESKTOP_ENTRIES="Chromium" "${COMMENT}" "${DATADIR}/product_logo_48.png" \
 ALL_TARGET=	chrome
 
 #user tunables showing defaults, some won't compile if changed
-#GYP_DEFINES+=	target_arch=ia32	#or x64, should be detected automatically
 #GYP_DEFINES+=	use_system_bzip2=1
 #GYP_DEFINES+=	use_system_libevent=0
 #GYP_DEFINES+=	use_system_libjpeg=1
@@ -69,13 +67,11 @@ GYP_DEFINES+=	use_system_yasm=1
 #GYP_DEFINES+=	use_system_zlib=1
 GYP_DEFINES+=	python_ver=${PYTHON_VER}
 GYP_DEFINES+=	disable_nacl=1
-#GYP_DEFINES+=	use_ibus=0
 GYP_DEFINES+=	linux_use_heapchecker=1
 GYP_DEFINES+=	linux_link_gsettings=1
-#GYP_DEFINES+=	linux_link_gnome_keyring=1
-#GYP_DEFINES+=	use_gnome_keyring=1
+GYP_DEFINES+=	linux_link_gnome_keyring=1
 
-OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	off \
+OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	on \
 		GCONF	"Use GConf2 for preferences"			on \
 		VPX	"Use system libvpx for VP8 codec"		on
 
