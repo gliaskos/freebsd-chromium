@@ -7,15 +7,17 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	13.0.782.41
+DISTVERSION=	13.0.782.55
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
 		http://files.etoilebsd.net/goodking/
-DISTNAME=	${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
+
+LICENSE=	BSD LGPL21 MPL
+LICENSE_COMB=	multi
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
@@ -33,11 +35,11 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo \
 		nss3.1:${PORTSDIR}/security/nss \
 		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
 		ibus.2:${PORTSDIR}/textproc/ibus \
-		cups.2:${PORTSDIR}/print/cups-client \
-		gcrypt.so:${PORTSDIR}/security/libgcrypt
+		cups.2:${PORTSDIR}/print/cups-client
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
-		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
+		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf \
+		${LOCALBASE}/lib/libgcrypt.so:${PORTSDIR}/security/libgcrypt
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
@@ -48,8 +50,6 @@ USE_PYTHON_BUILD=	2.6+
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt pkgconfig
 MAN1=		chrome.1
-LICENSE_COMB=	multi
-LICENSE=	BSD LGPL21 MPL
 
 DESKTOP_ENTRIES="Chromium" "${COMMENT}" "${DATADIR}/product_logo_48.png" \
 		"chrome" "Application;Network;WebBrowser;" true
