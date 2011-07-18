@@ -23,6 +23,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
+		v4l_compat>=1.0.20110603:${PORTSDIR}/multimedia/v4l_compat \
 		nss>=3.12:${PORTSDIR}/security/nss
 # minimal version of nss, LIB_DEPENDS does not enforce this
 
