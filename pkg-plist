@@ -61,6 +61,7 @@ bin/chrome
 %%DATADIR%%/protoc
 %%DATADIR%%/resources.pak
 %%DATADIR%%/resources/inspector/DevTools.js
+%%DATADIR%%/resources/inspector/HeapSnapshotWorker.js
 %%DATADIR%%/resources/inspector/Images/applicationCache.png
 %%DATADIR%%/resources/inspector/Images/back.png
 %%DATADIR%%/resources/inspector/Images/breakpointBorder.png
@@ -77,6 +78,7 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/debuggerStepInto.png
 %%DATADIR%%/resources/inspector/Images/debuggerStepOut.png
 %%DATADIR%%/resources/inspector/Images/debuggerStepOver.png
+%%DATADIR%%/resources/inspector/Images/deleteIcon.png
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallDown.png
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallDownBlack.png
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallDownWhite.png
@@ -86,7 +88,6 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallRightDownBlack.png
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallRightDownWhite.png
 %%DATADIR%%/resources/inspector/Images/disclosureTriangleSmallRightWhite.png
-%%DATADIR%%/resources/inspector/Images/enableSolidButtonGlyph.png
 %%DATADIR%%/resources/inspector/Images/errorIcon.png
 %%DATADIR%%/resources/inspector/Images/errorMediumIcon.png
 %%DATADIR%%/resources/inspector/Images/errorRedDot.png
@@ -104,6 +105,7 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/paneBottomGrow.png
 %%DATADIR%%/resources/inspector/Images/paneBottomGrowActive.png
 %%DATADIR%%/resources/inspector/Images/paneGrowHandleLine.png
+%%DATADIR%%/resources/inspector/Images/paneRefreshButtons.png
 %%DATADIR%%/resources/inspector/Images/paneSettingsButtons.png
 %%DATADIR%%/resources/inspector/Images/popoverArrows.png
 %%DATADIR%%/resources/inspector/Images/popoverBackground.png
@@ -145,6 +147,7 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/statusbarBackgroundChromium.png
 %%DATADIR%%/resources/inspector/Images/statusbarBottomBackground.png
 %%DATADIR%%/resources/inspector/Images/statusbarBottomBackgroundChromium.png
+%%DATADIR%%/resources/inspector/Images/statusbarButtonGlyphs.png
 %%DATADIR%%/resources/inspector/Images/statusbarButtons.png
 %%DATADIR%%/resources/inspector/Images/statusbarButtonsChromium.png
 %%DATADIR%%/resources/inspector/Images/statusbarMenuButton.png
@@ -183,6 +186,8 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/timelinePillPurple.png
 %%DATADIR%%/resources/inspector/Images/timelinePillRed.png
 %%DATADIR%%/resources/inspector/Images/timelinePillYellow.png
+%%DATADIR%%/resources/inspector/Images/toolbarIcons.png
+%%DATADIR%%/resources/inspector/Images/toolbarIconsSmall.png
 %%DATADIR%%/resources/inspector/Images/toolbarItemSelected.png
 %%DATADIR%%/resources/inspector/Images/trackHoriz.png
 %%DATADIR%%/resources/inspector/Images/trackVert.png
