@@ -1,5 +1,5 @@
---- base/base.gypi.orig	2011-06-28 22:44:26.635806924 +0300
-+++ base/base.gypi	2011-06-28 23:21:49.321810313 +0300
+--- base/base.gypi.orig	2011-07-27 11:01:28.000000000 +0300
++++ base/base.gypi	2011-08-12 21:31:05.632294656 +0300
 @@ -94,6 +94,7 @@
            'files/file_path_watcher_linux.cc',
            'files/file_path_watcher_mac.cc',
@@ -29,7 +29,23 @@
                  'linux_util.cc',
                ],
              },
-@@ -413,7 +413,7 @@
+@@ -391,6 +391,15 @@
+               'sources/': [ ['exclude', '_freebsd\\.cc$'] ],
+             },
+           ],
++          # Older releases do not define EV_RECEIPT, fallback to stub.
++          [ 'OS == "freebsd" and <!(sysctl -n kern.osreldate) < 801000', {
++              'sources!': [
++                'files/file_path_watcher_freebsd.cc',
++              ],
++              'sources': [
++                'files/file_path_watcher_stub.cc',
++              ],
++          }],
+           [ 'OS != "openbsd"', {
+               'sources/': [ ['exclude', '_openbsd\\.cc$'] ],
+             },
+@@ -413,7 +422,7 @@
                'string16.cc',
              ],
            },],
@@ -38,7 +54,7 @@
              'sources!': [
                'files/file_path_watcher_linux.cc',
              ],
-@@ -491,6 +491,13 @@
+@@ -491,6 +500,13 @@
              ],
          }],
          [ 'OS == "freebsd" or OS == "openbsd"', {
