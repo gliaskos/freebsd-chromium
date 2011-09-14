@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	14.0.835.160
+DISTVERSION=	14.0.835.162
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -71,6 +71,7 @@ GYP_DEFINES+=	use_cups=0 \
 		disable_nacl=1 \
 		enable_webrtc=0 \
 		enable_openmax=1 \
+		linux_use_heapchecker=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER}
