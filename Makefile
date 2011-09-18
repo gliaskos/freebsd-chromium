@@ -20,7 +20,6 @@ COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
 
 LICENSE=	BSD LGPL21 MPL
 LICENSE_COMB=	multi
-#BROKEN=	tcmalloc needs more work
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
