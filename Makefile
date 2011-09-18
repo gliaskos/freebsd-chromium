@@ -7,18 +7,20 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	14.0.835.162
+DISTVERSION=	14.0.835.163
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
-		http://files.etoilebsd.net/goodking/
+		http://files.etoilebsd.net/goodking/ \
+                http://distfiles.cybertron.gr/
+
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
 
 LICENSE=	BSD LGPL21 MPL
 LICENSE_COMB=	multi
-BROKEN=	tcmalloc needs more work
+#BROKEN=	tcmalloc needs more work
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
@@ -40,7 +42,10 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo \
 		icuuc.48:${PORTSDIR}/devel/icu \
 		icui18n.48:${PORTSDIR}/devel/icu \
 		icudata.48:${PORTSDIR}/devel/icu \
-		event-1.4:${PORTSDIR}/devel/libevent
+		event-1.4:${PORTSDIR}/devel/libevent \
+		vpx:${PORTSDIR}/multimedia/libvpx \
+		tcmalloc.2:${PORTSDIR}/devel/google-perftools
+# TODO(gliaskos): We should add --enable-heap-checker on perftools to set linux_use_heapchecker.
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf \
@@ -62,24 +67,25 @@ DESKTOP_ENTRIES="Chromium" "${COMMENT}" "${DATADIR}/product_logo_48.png" \
 ALL_TARGET=	chrome
 
 # See build/common.gypi for all the available variables.
-GYP_DEFINES+=	use_cups=0 \
+GYP_DEFINES+=	use_cups=1 \
 		use_system_icu=1 \
+		use_system_vpx=1 \
 		use_system_yasm=1 \
 		use_system_libxml=1 \
 		use_system_ffmpeg=0 \
 		use_system_libevent=1 \
+		use_system_tcmalloc=1 \
+		linux_use_heapchecker=0 \
 		disable_nacl=1 \
 		enable_webrtc=0 \
 		enable_openmax=1 \
-		linux_use_heapchecker=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER}
 
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	on \
 		GCONF	"Use GConf2 for preferences"			on \
-		VPX	"Use system libvpx for VP8 codec"		on \
-		CLANG	"Compile Chromium with clang"			off
+#		CLANG	"Compile Chromium with clang"			off
 
 .include <bsd.port.options.mk>
 
@@ -111,11 +117,6 @@ GYP_DEFINES+=	use_gconf=0
 
 .if ! ${MACHINE_CPU:Msse2}
 GYP_DEFINES+=	disable_sse2=1
-.endif
-
-.if defined(WITH_VPX)
-LIB_DEPENDS+=	vpx:${PORTSDIR}/multimedia/libvpx
-GYP_DEFINES+=	use_system_vpx=1
 .endif
 
 .if defined(WITH_CLANG)

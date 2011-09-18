@@ -1,16 +1,17 @@
---- build/common.gypi.orig	2011-08-30 11:58:48.000000000 +0300
-+++ build/common.gypi	2011-09-11 18:29:22.000000000 +0300
-@@ -303,6 +303,9 @@
+--- build/common.gypi.orig	2011-09-12 11:35:33.000000000 +0300
++++ build/common.gypi	2011-09-16 19:05:37.000000000 +0300
+@@ -303,6 +303,10 @@
      'enable_register_protocol_handler%': '<(enable_register_protocol_handler)',
      'enable_smooth_scrolling%': '<(enable_smooth_scrolling)',
  
 +    'os_ver%': 0,
 +    'prefix_dir%': '/usr',
++    'use_system_tcmalloc%': 0,
 +
      # The release channel that this build targets. This is used to restrict
      # channel-specific build options, like which installer packages to create.
      # The default is 'all', which does no channel-specific filtering.
-@@ -516,7 +519,7 @@
+@@ -516,7 +520,7 @@
          # This is used to tweak build flags for gcc 4.4.
          'gcc_version%': '<!(python <(DEPTH)/build/compiler_version.py)',
          # Figure out the python architecture to decide if we build pyauto.
@@ -19,7 +20,7 @@
          'conditions': [
            ['branding=="Chrome"', {
              'linux_breakpad%': 1,
-@@ -956,7 +959,7 @@
+@@ -956,7 +960,7 @@
                ['exclude', '(^|/)(gtk|x11)_[^/]*\\.(h|cc)$'],
              ],
            }],
@@ -28,7 +29,7 @@
              'sources/': [
                ['exclude', '_linux(_unittest)?\\.(h|cc)$'],
                ['exclude', '(^|/)linux/'],
-@@ -1536,6 +1539,12 @@
+@@ -1536,6 +1540,15 @@
          'ldflags': [
            '-Wl,--no-keep-memory',
          ],
@@ -37,6 +38,9 @@
 +        ],
 +        'libraries!': [
 +          '-ldl',
++        ],
++        'cflags!': [
++          '-fno-signed-zeros',
 +        ],
        },
      }],
