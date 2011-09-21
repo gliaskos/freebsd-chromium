@@ -1,11 +1,11 @@
---- content/browser/renderer_host/backing_store_x.cc.orig	2011-09-21 12:26:04.000000000 +0300
-+++ content/browser/renderer_host/backing_store_x.cc	2011-09-21 12:30:25.000000000 +0300
+--- content/browser/renderer_host/backing_store_x.cc.orig	2011-09-14 11:01:10.000000000 +0300
++++ content/browser/renderer_host/backing_store_x.cc	2011-09-22 00:21:16.000000000 +0300
 @@ -57,6 +57,9 @@
    XShmDetach(display, shminfo);
    XDestroyImage(image);
    shmdt(shminfo->shmaddr);
 +#if defined(OS_FREEBSD)
-+  shmctl(shminfo.shmid, IPC_RMID, 0);
++  shmctl(shminfo->shmid, IPC_RMID, 0);
 +#endif
  }
  
