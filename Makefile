@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	14.0.835.202
+DISTVERSION=	15.0.874.83
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -38,9 +38,6 @@ LIB_DEPENDS=	execinfo.1:${PORTSDIR}/devel/libexecinfo \
 		nss3.1:${PORTSDIR}/security/nss \
 		gnome-keyring.0:${PORTSDIR}/security/libgnome-keyring \
 		cups.2:${PORTSDIR}/print/cups-client \
-		icuuc.48:${PORTSDIR}/devel/icu \
-		icui18n.48:${PORTSDIR}/devel/icu \
-		icudata.48:${PORTSDIR}/devel/icu \
 		event-1.4:${PORTSDIR}/devel/libevent \
 		vpx:${PORTSDIR}/multimedia/libvpx \
 		tcmalloc.2:${PORTSDIR}/devel/google-perftools
@@ -66,7 +63,6 @@ ALL_TARGET=	chrome
 
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	use_cups=1 \
-		use_system_icu=1 \
 		use_system_vpx=1 \
 		use_system_yasm=1 \
 		use_system_libxml=1 \
@@ -83,6 +79,7 @@ GYP_DEFINES+=	use_cups=1 \
 
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	on \
 		GCONF	"Use GConf2 for preferences"			on \
+		PULSEAUDIO	"Enable Pulse Audio support"		off \
 		CLANG	"Compile Chromium with clang"			off \
 		GCC45	"Compile Chromium with gcc 4.5+"		off \
 		DEBUG	"Compile with debug symbols and verbose output"	off
@@ -113,6 +110,13 @@ GYP_DEFINES+=	use_proprietary_codecs=0
 USE_GNOME+=	gconf2
 .else
 GYP_DEFINES+=	use_gconf=0
+.endif
+
+.if defined(WITH_PULSEAUDIO)
+LIB_DEPENDS+=	pulse.0:${PORTSDIR}/audio/pulseaudio
+GYP_DEFINES+=	use_pulseaudio=1
+.else
+GYP_DEFINES+=	use_pulseaudio=0
 .endif
 
 .if ! ${MACHINE_CPU:Msse2}
