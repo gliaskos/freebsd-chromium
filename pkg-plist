@@ -211,6 +211,9 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/warningOrangeDot.png
 %%DATADIR%%/resources/inspector/Images/warningsErrors.png
 %%DATADIR%%/resources/inspector/ScriptFormatterWorker.js
+%%DATADIR%%/resources/inspector/dataGrid.css
+%%DATADIR%%/resources/inspector/inspectorCommon.css
+%%DATADIR%%/resources/inspector/networkLogView.css
 %%DATADIR%%/resources/inspector/devTools.css
 %%DATADIR%%/resources/inspector/devtools.html
 %%DATADIR%%/xdg-settings

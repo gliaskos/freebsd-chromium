@@ -200,7 +200,7 @@ do-install:
 		${WRKSRC}/out/${BUILDTYPE}/resources.pak ${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper \
 		${WRKSRC}/out/${BUILDTYPE}/xdg-settings ${DATADIR}
-.for f in chrome ffmpegsumo_nolink libffmpegsumo.so mksnapshot protoc
+.for f in chrome libffmpegsumo.so mksnapshot protoc
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
 .endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
