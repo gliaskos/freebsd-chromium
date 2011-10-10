@@ -2,7 +2,6 @@ bin/chrome
 %%DATADIR%%/chrome
 %%DATADIR%%/chrome-wrapper
 %%DATADIR%%/chrome.pak
-%%DATADIR%%/ffmpegsumo_nolink
 %%DATADIR%%/libffmpegsumo.so
 %%DATADIR%%/locales/am.pak
 %%DATADIR%%/locales/ar.pak
