@@ -7,7 +7,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	15.0.874.92
+DISTVERSION=	15.0.874.102
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -79,7 +79,7 @@ GYP_DEFINES+=	use_cups=1 \
 
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	on \
 		GCONF	"Use GConf2 for preferences"			on \
-		PULSEAUDIO	"Enable Pulse Audio support"		off \
+		PULSE	"Enable Pulse Audio support"			off \
 		CLANG	"Compile Chromium with clang"			off \
 		GCC45	"Compile Chromium with gcc 4.5+"		off \
 		DEBUG	"Compile with debug symbols and verbose output"	off
