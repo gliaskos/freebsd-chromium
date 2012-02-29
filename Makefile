@@ -88,6 +88,16 @@ CONFIGURE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
 MAKE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
 .endif
 
+# There was no __FreeBSD_version bump on 7.4 when log2() and log2f() were
+# MFC'd, so detect it the hard way
+#LOG2=$$(${GREP} -c log2f /usr/include/math.h) # XXX unreliable?
+LOG2!=${GREP} -c log2f /usr/include/math.h || ${TRUE}
+.if ${LOG2} == 0
+GYP_DEFINES+=no_log2=1
+.else
+GYP_DEFINES+=no_log2=0
+.endif
+
 .if defined(WITH_CODECS)
 GYP_DEFINES+=	ffmpeg_branding=Chrome
 GYP_DEFINES+=	proprietary_codecs=1
@@ -185,6 +195,7 @@ pre-configure:
 		${WRKSRC}/third_party/libvpx/source/config/freebsd
 
 do-configure:
+	@${ECHO_CMD} "LOG2=${LOG2}" #XXX
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
 			./build/gyp_chromium chrome/chrome.gyp --depth .
