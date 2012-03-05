@@ -1,18 +1,6 @@
 --- third_party/WebKit/Source/WebCore/WebCore.gyp/WebCore.gyp.orig	2012-02-15 03:05:23.000000000 +0100
-+++ third_party/WebKit/Source/WebCore/WebCore.gyp/WebCore.gyp	2012-02-27 23:32:02.000000000 +0100
-@@ -215,6 +215,11 @@
-               '../platform/graphics/cg',
-         ],
-       }],
-+      ['no_log2==1', {
-+        'defines': [
-+          'NO_LOG2',
-+        ],
-+      }],
-       ['OS=="win"', {
-         'webcore_include_dirs': [
-           '../page/win',
-@@ -1095,7 +1100,7 @@
++++ third_party/WebKit/Source/WebCore/WebCore.gyp/WebCore.gyp	2012-03-02 21:08:55.000000000 +0100
+@@ -1095,7 +1095,7 @@
              'include_dirs+++': ['../dom'],
            },
          }],
@@ -21,7 +9,7 @@
            'include_dirs': [
              '<(chromium_src_dir)/third_party/fftw/api',
            ],
-@@ -1308,7 +1313,7 @@
+@@ -1308,7 +1308,7 @@
              'include_dirs++': ['../dom'],
            },
          }],
@@ -30,7 +18,7 @@
            # This directory needs to be on the include path for multiple sub-targets of webcore.
            'direct_dependent_settings': {
              'include_dirs': [
-@@ -1316,7 +1321,7 @@
+@@ -1316,7 +1316,7 @@
              ],
            },
          }],
@@ -39,7 +27,7 @@
            # This directory needs to be on the include path for multiple sub-targets of webcore.
            'direct_dependent_settings': {
              'include_dirs': [
-@@ -1940,7 +1945,7 @@
+@@ -1940,7 +1940,7 @@
              'include_dirs+++': ['../dom'],
            },
          }],
