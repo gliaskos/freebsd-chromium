@@ -2,7 +2,7 @@
 # Date created:				September 30 2009
 # Whom:					Florent Thoumie <flz@FreeBSD.org>
 #
-# $FreeBSD: ports/www/chromium/Makefile,v 1.68 2012/02/09 23:08:04 rene Exp $
+# $FreeBSD$
 #
 
 PORTNAME=	chromium
@@ -78,8 +78,8 @@ GYP_DEFINES+=	use_cups=1 \
 OPTIONS=	CODECS	"Compile and enable patented codecs like H.264"	on \
 		GCONF	"Use GConf2 for preferences"			on \
 		PULSEAUDIO	"Enable Pulse Audio support"		off \
-		CLANG	"Build Chromium with Clang"			on \
-		GCC46	"Build Chromium with GCC 4.6+"			off \
+		CLANG	"Build Chromium with Clang"			off \
+		GCC46	"Build Chromium with GCC 4.6+"			on \
 		DEBUG	"Compile with debug symbols and verbose output"	off
 
 .include <bsd.port.options.mk>
@@ -130,7 +130,7 @@ IGNORE=	does not compile with base gcc
 .endif
 
 .if defined(WITH_GCC46) && defined(WITH_CLANG)
-IGNORE=	conflicting options (CLANG or GCC46)
+IGNORE=	conflicting options (CLANG and GCC46)
 .endif
 
 .if defined(WITH_GCC46)
@@ -167,9 +167,9 @@ pre-everything::
 	@${ECHO_MSG}
 	@${ECHO_MSG} "To build Chromium, you should have around 1 GB of memory"
 .if defined(WITH_DEBUG)
-	@${ECHO_MSG} "and lots of free diskspace (~ 7GB)."
+	@${ECHO_MSG} "and lots of free diskspace (~ 8.5GB)."
 .else
-	@${ECHO_MSG} "and a fair amount of free diskspace (~ 1.5GB)."
+	@${ECHO_MSG} "and a fair amount of free diskspace (~ 1.8GB)."
 .endif
 	@${ECHO_MSG}
 
