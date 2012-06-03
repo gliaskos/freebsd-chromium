@@ -161,10 +161,6 @@ MAKE_JOBS_SAFE=	yes
 
 .include <bsd.port.pre.mk>
 
-.if ${PERL_LEVEL} >= 501400
-BUILD_DEPENDS+=	p5-Switch>=0:${PORTSDIR}/lang/p5-Switch
-.endif
-
 pre-everything::
 	@${ECHO_MSG}
 	@${ECHO_MSG} "To build Chromium, you should have around 1 GB of memory"
