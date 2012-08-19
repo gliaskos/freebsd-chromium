@@ -2,12 +2,12 @@
 # Date created:				September 30 2009
 # Whom:					Florent Thoumie <flz@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/www/chromium/Makefile 300913 2012-07-15 23:56:20Z rakuco $
 #
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	20.0.1132.57
+DISTVERSION=	21.0.1180.79
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -27,7 +27,6 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
-		svnversion:${PORTSDIR}/devel/subversion \
 		v4l_compat>=1.0.20110603:${PORTSDIR}/multimedia/v4l_compat
 
 LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
@@ -69,6 +68,7 @@ GYP_DEFINES+=	use_cups=1 \
 		linux_strip_binary=1 \
 		linux_use_tcmalloc=0 \
 		linux_use_heapchecker=0 \
+		clang_use_chrome_plugins=0 \
 		disable_nacl=1 \
 		enable_webrtc=0 \
 		enable_openmax=1 \
@@ -89,16 +89,6 @@ OPTIONS_DEFAULT=	CODECS GCONF
 BUILD_DEPENDS+=	${LOCALBASE}/bin/as:${PORTSDIR}/devel/binutils
 CONFIGURE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
 MAKE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
-.endif
-
-# There was no __FreeBSD_version bump on 7.4 when log2() and log2f() were
-# MFC'd, so detect it the hard way
-#LOG2=$$(${GREP} -c log2f /usr/include/math.h) # XXX unreliable?
-LOG2!=${GREP} -c log2f /usr/include/math.h || ${TRUE}
-.if ${LOG2} == 0
-GYP_DEFINES+=no_log2=1
-.else
-GYP_DEFINES+=no_log2=0
 .endif
 
 .if ${PORT_OPTIONS:MCODECS}
@@ -188,7 +178,6 @@ pre-configure:
 		${WRKSRC}/third_party/libvpx/source/config/freebsd
 
 do-configure:
-	@${ECHO_CMD} "LOG2=${LOG2}" #XXX
 	cd ${WRKSRC} && \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
 			./build/gyp_chromium chrome/chrome.gyp --depth .
