@@ -1,5 +1,5 @@
---- third_party/ffmpeg/libavutil/mem.c.orig	2011-09-11 11:03:30.000000000 +0300
-+++ third_party/ffmpeg/libavutil/mem.c	2011-09-12 23:49:42.000000000 +0300
+--- ./third_party/ffmpeg/libavutil/mem.c.orig	2012-08-17 03:03:11.000000000 +0200
++++ ./third_party/ffmpeg/libavutil/mem.c	2012-08-23 22:31:45.000000000 +0200
 @@ -31,7 +31,7 @@
  #include <limits.h>
  #include <stdlib.h>

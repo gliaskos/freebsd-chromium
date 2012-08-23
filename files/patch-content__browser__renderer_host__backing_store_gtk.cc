@@ -1,6 +1,6 @@
---- content/browser/renderer_host/backing_store_gtk.cc.orig	2011-09-14 11:01:10.000000000 +0300
-+++ content/browser/renderer_host/backing_store_gtk.cc	2011-09-22 00:21:16.000000000 +0300
-@@ -57,6 +57,9 @@
+--- ./content/browser/renderer_host/backing_store_gtk.cc.orig	2012-08-17 03:01:27.000000000 +0200
++++ ./content/browser/renderer_host/backing_store_gtk.cc	2012-08-23 22:31:44.000000000 +0200
+@@ -65,6 +65,9 @@
    XShmDetach(display, shminfo);
    XDestroyImage(image);
    shmdt(shminfo->shmaddr);
@@ -9,8 +9,8 @@
 +#endif
  }
  
- BackingStoreX::BackingStoreGtk(RenderWidgetHost* widget,
-@@ -339,7 +342,9 @@
+ // So we don't don't want to call XSync(), which can block the UI loop for
+@@ -527,7 +530,9 @@
      }
  
      void* mapped_memory = shmat(shminfo.shmid, NULL, SHM_RDONLY);

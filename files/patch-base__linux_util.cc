@@ -1,8 +1,8 @@
---- base/linux_util.cc.orig	2011-03-21 20:43:02.797111222 +0200
-+++ base/linux_util.cc	2011-03-21 20:44:28.268111587 +0200
-@@ -133,12 +133,14 @@
- char g_linux_distro[kDistroSize] =
- #if defined(OS_CHROMEOS)
+--- ./base/linux_util.cc.orig	2012-08-17 03:01:51.000000000 +0200
++++ ./base/linux_util.cc	2012-08-23 22:31:42.000000000 +0200
+@@ -142,12 +142,14 @@
+     "CrOS Aura";
+ #elif defined(OS_CHROMEOS)
      "CrOS";
 +#elif defined(OS_FREEBSD)
 +    "FreeBSD";
@@ -16,7 +16,7 @@
    return g_linux_distro;
  #elif defined(OS_LINUX)
    LinuxDistroHelper* distro_state_singleton = LinuxDistroHelper::GetInstance();
-@@ -194,6 +196,7 @@
+@@ -204,6 +206,7 @@
    return true;
  }
  
@@ -24,7 +24,7 @@
  bool FindProcessHoldingSocket(pid_t* pid_out, ino_t socket_inode) {
    DCHECK(pid_out);
    bool already_found = false;
-@@ -293,5 +296,5 @@
+@@ -310,5 +313,5 @@
    }
    return -1;
  }

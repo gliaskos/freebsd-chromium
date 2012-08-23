@@ -1,6 +1,6 @@
---- base/sys_info_posix.cc.orig	2011-02-07 00:36:57.000000000 +0100
-+++ base/sys_info_posix.cc	2011-02-07 00:21:53.000000000 +0100
-@@ -23,7 +23,7 @@
+--- ./base/sys_info_posix.cc.orig	2012-08-17 03:01:51.000000000 +0200
++++ ./base/sys_info_posix.cc	2012-08-23 22:31:42.000000000 +0200
+@@ -24,7 +24,7 @@
  
  namespace base {
  

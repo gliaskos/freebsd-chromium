@@ -1,5 +1,5 @@
---- /dev/null	2011-06-28 23:33:00.000000000 +0300
-+++ ui/surface/transport_dib_freebsd.cc	2011-06-28 23:30:26.428806593 +0300
+--- ./ui/surface/transport_dib_freebsd.cc.orig	2012-08-23 22:31:45.000000000 +0200
++++ ./ui/surface/transport_dib_freebsd.cc	2012-08-23 22:31:45.000000000 +0200
 @@ -0,0 +1,107 @@
 +// Copyright (c) 2011 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be

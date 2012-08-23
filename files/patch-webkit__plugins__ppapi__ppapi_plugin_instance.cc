@@ -1,6 +1,6 @@
---- webkit/plugins/ppapi/ppapi_plugin_instance.cc.orig	2011-07-28 11:01:06.000000000 +0300
-+++ webkit/plugins/ppapi/ppapi_plugin_instance.cc	2011-09-07 01:45:08.000000000 +0300
-@@ -1035,7 +1035,7 @@
+--- ./webkit/plugins/ppapi/ppapi_plugin_instance.cc.orig	2012-08-17 03:01:15.000000000 +0200
++++ ./webkit/plugins/ppapi/ppapi_plugin_instance.cc	2012-08-23 22:31:45.000000000 +0200
+@@ -1465,7 +1465,7 @@
  #endif  // defined(OS_WIN)
  
    bool ret = false;

@@ -1,5 +1,5 @@
---- base/sys_byteorder.h.orig	2012-05-30 10:01:44.000000000 +0300
-+++ base/sys_byteorder.h	2012-06-05 23:52:12.000000000 +0300
+--- ./base/sys_byteorder.h.orig	2012-08-17 03:01:51.000000000 +0200
++++ ./base/sys_byteorder.h	2012-08-23 22:31:42.000000000 +0200
 @@ -25,7 +25,7 @@
  #include <stdlib.h>
  #elif defined(OS_MACOSX)

@@ -1,5 +1,5 @@
---- ui/base/l10n/l10n_util.cc.orig	2012-06-05 23:55:13.000000000 +0300
-+++ ui/base/l10n/l10n_util.cc	2012-06-06 00:00:11.000000000 +0300
+--- ./ui/base/l10n/l10n_util.cc.orig	2012-08-17 03:02:28.000000000 +0200
++++ ./ui/base/l10n/l10n_util.cc	2012-08-23 22:31:45.000000000 +0200
 @@ -33,7 +33,7 @@
  #include "base/android/locale_utils.h"
  #endif

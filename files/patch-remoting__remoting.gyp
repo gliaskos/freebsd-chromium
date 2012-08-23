@@ -1,6 +1,6 @@
---- remoting/remoting.gyp.orig	2011-10-07 11:31:35.000000000 +0300
-+++ remoting/remoting.gyp	2011-10-09 14:43:52.277370445 +0300
-@@ -345,7 +345,7 @@
+--- ./remoting/remoting.gyp.orig	2012-08-17 03:01:14.000000000 +0200
++++ ./remoting/remoting.gyp	2012-08-23 22:31:45.000000000 +0200
+@@ -1031,7 +1031,7 @@
          '../ui/ui.gyp:ui',
          '../net/net.gyp:net',
          '../skia/skia.gyp:skia',

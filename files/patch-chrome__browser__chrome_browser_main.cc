@@ -1,8 +1,8 @@
---- chrome/browser/chrome_browser_main.cc.orig	2012-05-19 23:45:48.797106216 +0300
-+++ chrome/browser/chrome_browser_main.cc	2012-05-19 23:45:56.878106198 +0300
-@@ -1298,7 +1298,7 @@
-   // just changed it to include experiments.
-   child_process_logging::SetCommandLine(CommandLine::ForCurrentProcess());
+--- ./chrome/browser/chrome_browser_main.cc.orig	2012-08-17 03:02:07.000000000 +0200
++++ ./chrome/browser/chrome_browser_main.cc	2012-08-23 22:31:43.000000000 +0200
+@@ -1359,7 +1359,7 @@
+   if (!parsed_command_line().HasSwitch(switches::kNoErrorDialogs))
+     WarnAboutMinimumSystemRequirements();
  
 -#if defined(OS_LINUX) || defined(OS_OPENBSD) || defined(OS_MACOSX)
 +#if defined(OS_LINUX) || defined(OS_BSD) || defined(OS_MACOSX)

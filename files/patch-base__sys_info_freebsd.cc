@@ -1,6 +1,6 @@
---- base/sys_info_freebsd.cc.orig	2011-01-29 10:49:10.000000000 +0100
-+++ base/sys_info_freebsd.cc	2011-02-07 22:02:40.000000000 +0100
-@@ -30,4 +30,21 @@
+--- ./base/sys_info_freebsd.cc.orig	2012-08-17 03:01:51.000000000 +0200
++++ ./base/sys_info_freebsd.cc	2012-08-23 22:31:42.000000000 +0200
+@@ -33,4 +33,21 @@
    return limit;
  }
  

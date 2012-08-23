@@ -156,7 +156,6 @@ post-patch:
 		${WRKSRC}/base/base.gypi \
 		${WRKSRC}/build/common.gypi \
 		${WRKSRC}/third_party/libvpx/libvpx.gyp \
-		${WRKSRC}/third_party/WebKit/Source/WebCore/gyp/WebCore.gyp \
 		${WRKSRC}/third_party/WebKit/Source/WebCore/plugins/PluginDatabase.cpp \
 		${WRKSRC}/crypto/crypto.gyp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp \

@@ -1,6 +1,6 @@
---- skia/ext/vector_platform_device_skia.cc.orig	2012-01-18 11:11:53.000000000 +0200
-+++ skia/ext/vector_platform_device_skia.cc	2012-01-29 19:42:26.000000000 +0200
-@@ -88,7 +88,7 @@
+--- ./skia/ext/vector_platform_device_skia.cc.orig	2012-08-17 03:01:33.000000000 +0200
++++ ./skia/ext/vector_platform_device_skia.cc	2012-08-23 22:31:45.000000000 +0200
+@@ -78,7 +78,7 @@
    SkASSERT(false);
    return NULL;
  }

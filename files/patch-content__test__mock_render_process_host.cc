@@ -1,6 +1,6 @@
---- content/test/mock_render_process_host.cc.orig	2010-12-16 02:11:57.000000000 +0100
-+++ content/test/mock_render_process_host.cc	2010-12-20 20:15:08.000000000 +0100
-@@ -106,7 +106,7 @@
+--- ./content/test/mock_render_process_host.cc.orig	2012-08-17 03:01:26.000000000 +0200
++++ ./content/test/mock_render_process_host.cc	2012-08-23 22:31:44.000000000 +0200
+@@ -115,7 +115,7 @@
    DuplicateHandle(GetCurrentProcess(), dib_id.handle, GetCurrentProcess(),
                    &duped, 0, TRUE, DUPLICATE_SAME_ACCESS);
    transport_dib_ = TransportDIB::Map(duped);

@@ -1,5 +1,5 @@
---- third_party/protobuf/src/google/protobuf/compiler/main.cc.orig	2012-03-27 03:01:30.000000000 +0200
-+++ third_party/protobuf/src/google/protobuf/compiler/main.cc	2012-04-01 12:39:04.000000000 +0200
+--- ./third_party/protobuf/src/google/protobuf/compiler/main.cc.orig	2012-08-17 03:01:36.000000000 +0200
++++ ./third_party/protobuf/src/google/protobuf/compiler/main.cc	2012-08-23 22:31:45.000000000 +0200
 @@ -35,9 +35,12 @@
  #include <google/protobuf/compiler/python/python_generator.h>
  #include <google/protobuf/compiler/java/java_generator.h>

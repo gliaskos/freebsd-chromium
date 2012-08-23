@@ -1,6 +1,6 @@
---- ui/base/x/x11_util.cc.orig	2011-10-12 12:02:46.000000000 +0300
-+++ ui/base/x/x11_util.cc	2011-10-16 17:17:46.000000000 +0300
-@@ -103,6 +103,12 @@
+--- ./ui/base/x/x11_util.cc.orig	2012-08-17 03:02:28.000000000 +0200
++++ ./ui/base/x/x11_util.cc	2012-08-23 22:31:45.000000000 +0200
+@@ -315,6 +315,12 @@
  static SharedMemorySupport DoQuerySharedMemorySupport(Display* dpy) {
    int dummy;
    Bool pixmaps_supported;
@@ -13,7 +13,7 @@
    // Query the server's support for XSHM.
    if (!XShmQueryVersion(dpy, &dummy, &dummy, &pixmaps_supported))
      return SHARED_MEMORY_NONE;
-@@ -112,8 +118,6 @@
+@@ -337,8 +343,6 @@
    if (shmkey == -1)
      return SHARED_MEMORY_NONE;
    void* address = shmat(shmkey, NULL, 0);
@@ -22,7 +22,7 @@
  
    XShmSegmentInfo shminfo;
    memset(&shminfo, 0, sizeof(shminfo));
-@@ -125,6 +129,7 @@
+@@ -350,6 +354,7 @@
    if (gdk_error_trap_pop())
      result = false;
    shmdt(address);

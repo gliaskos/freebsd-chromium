@@ -1,6 +1,6 @@
---- content/public/common/sandbox_init.h.orig	2012-06-25 21:27:29.628231368 +0300
-+++ content/public/common/sandbox_init.h	2012-06-25 21:27:46.571430448 +0300
-@@ -70,7 +70,7 @@
+--- ./content/public/common/sandbox_init.h.orig	2012-08-17 03:01:29.000000000 +0200
++++ ./content/public/common/sandbox_init.h	2012-08-23 22:31:44.000000000 +0200
+@@ -76,7 +76,7 @@
  CONTENT_EXPORT bool InitializeSandbox(int sandbox_type,
                                        const FilePath& allowed_path);
  

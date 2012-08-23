@@ -1,6 +1,6 @@
---- ipc/ipc_channel_posix.cc.orig	2012-01-18 11:12:21.000000000 +0200
-+++ ipc/ipc_channel_posix.cc	2012-01-29 17:17:10.000000000 +0200
-@@ -948,7 +948,7 @@
+--- ./ipc/ipc_channel_posix.cc.orig	2012-08-17 03:01:51.000000000 +0200
++++ ./ipc/ipc_channel_posix.cc	2012-08-23 22:31:44.000000000 +0200
+@@ -674,7 +674,7 @@
  
  bool Channel::ChannelImpl::GetClientEuid(uid_t* client_euid) const {
    DCHECK(HasAcceptedConnection());

@@ -1,5 +1,5 @@
---- tools/gyp/pylib/gyp/common.py.orig	2012-05-30 10:04:06.000000000 +0300
-+++ tools/gyp/pylib/gyp/common.py	2012-06-05 22:36:29.000000000 +0300
+--- ./tools/gyp/pylib/gyp/common.py.orig	2012-08-17 03:04:26.000000000 +0200
++++ ./tools/gyp/pylib/gyp/common.py	2012-08-23 22:31:45.000000000 +0200
 @@ -356,6 +356,7 @@
      'freebsd7': 'freebsd',
      'freebsd8': 'freebsd',

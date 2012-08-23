@@ -1,6 +1,6 @@
---- chrome/common/chrome_paths.cc.orig	2012-05-23 04:50:48.000000000 +0300
-+++ chrome/common/chrome_paths.cc	2012-05-26 00:47:40.880289194 +0300
-@@ -334,10 +334,12 @@
+--- ./chrome/common/chrome_paths.cc.orig	2012-08-17 03:02:26.000000000 +0200
++++ ./chrome/common/chrome_paths.cc	2012-08-23 22:31:43.000000000 +0200
+@@ -358,10 +358,12 @@
        if (!file_util::PathExists(cur))  // We don't want to create this
          return false;
        break;
