@@ -1,5 +1,5 @@
---- ./chrome/browser/chrome_browser_main_posix.cc.orig	2012-08-17 03:02:07.000000000 +0200
-+++ ./chrome/browser/chrome_browser_main_posix.cc	2012-08-23 22:31:43.000000000 +0200
+--- chrome/browser/chrome_browser_main_posix.cc.orig	2012-05-30 10:01:59.000000000 +0300
++++ chrome/browser/chrome_browser_main_posix.cc	2012-06-05 21:35:31.000000000 +0300
 @@ -238,7 +238,13 @@
      g_shutdown_pipe_read_fd = pipefd[0];
      g_shutdown_pipe_write_fd = pipefd[1];

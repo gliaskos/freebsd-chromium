@@ -1,5 +1,5 @@
---- ./chrome/browser/process_singleton.h.orig	2012-08-17 03:02:07.000000000 +0200
-+++ ./chrome/browser/process_singleton.h	2012-08-23 22:31:43.000000000 +0200
+--- chrome/browser/process_singleton.h.orig	2012-05-30 10:01:59.000000000 +0300
++++ chrome/browser/process_singleton.h	2012-06-05 21:41:51.000000000 +0300
 @@ -29,9 +29,9 @@
  #include "base/file_path.h"
  #endif  // defined(OS_POSIX)

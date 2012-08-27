@@ -1,5 +1,5 @@
---- ./chrome/browser/shell_integration_linux.cc.orig	2012-08-17 03:02:07.000000000 +0200
-+++ ./chrome/browser/shell_integration_linux.cc	2012-08-23 22:31:43.000000000 +0200
+--- chrome/browser/shell_integration_linux.cc.orig	2012-05-30 10:01:59.000000000 +0300
++++ chrome/browser/shell_integration_linux.cc	2012-06-05 21:54:31.000000000 +0300
 @@ -122,6 +122,8 @@
    if (!PathService::Get(chrome::DIR_USER_DESKTOP, &desktop_path))
      return false;

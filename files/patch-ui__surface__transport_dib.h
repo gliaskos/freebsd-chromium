@@ -1,8 +1,8 @@
---- ./ui/surface/transport_dib.h.orig	2012-08-17 03:02:27.000000000 +0200
-+++ ./ui/surface/transport_dib.h	2012-08-23 22:31:45.000000000 +0200
+--- ui/surface/transport_dib.h.orig	2011-11-01 10:43:23.000000000 +0200
++++ ui/surface/transport_dib.h	2011-11-21 22:35:21.000000000 +0200
 @@ -9,7 +9,7 @@
  #include "base/basictypes.h"
- #include "ui/surface/surface_export.h"
+ #include "ui/gfx/surface/surface_export.h"
  
 -#if defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_ANDROID)
 +#if defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_ANDROID) || defined(OS_FREEBSD)

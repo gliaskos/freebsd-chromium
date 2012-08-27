@@ -1,6 +1,6 @@
---- ./content/renderer/render_widget.cc.orig	2012-08-17 03:01:28.000000000 +0200
-+++ ./content/renderer/render_widget.cc	2012-08-23 22:31:44.000000000 +0200
-@@ -1410,7 +1410,7 @@
+--- content/renderer/render_widget.cc.orig	2011-03-23 00:47:39.891641114 +0200
++++ content/renderer/render_widget.cc	2011-03-23 00:48:36.043641158 +0200
+@@ -888,7 +888,7 @@
        // Close our unused handle.
  #if defined(OS_WIN)
        ::CloseHandle(dib_handle);

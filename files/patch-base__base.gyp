@@ -1,7 +1,7 @@
---- ./base/base.gyp.orig	2012-08-17 03:01:51.000000000 +0200
-+++ ./base/base.gyp	2012-08-23 22:31:42.000000000 +0200
-@@ -191,6 +191,11 @@
-             }],
+--- base/base.gyp.orig	2011-09-11 11:01:29.000000000 +0300
++++ base/base.gyp	2011-09-14 00:13:24.000000000 +0300
+@@ -320,6 +320,11 @@
+             'test/scoped_locale.h',
            ],
          }],
 +        ['OS=="freebsd"', {
@@ -11,4 +11,4 @@
 +        }],
        ],
        'sources': [
-         'third_party/nspr/prcpucfg.h',
+         'perftimer.cc',

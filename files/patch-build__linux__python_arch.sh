@@ -1,5 +1,5 @@
---- ./build/linux/python_arch.sh.orig	2012-08-17 03:01:49.000000000 +0200
-+++ ./build/linux/python_arch.sh	2012-08-23 22:31:42.000000000 +0200
+--- build/linux/python_arch.sh.orig	2011-06-08 21:00:57.020677627 +0300
++++ build/linux/python_arch.sh	2011-06-08 21:01:35.203676025 +0300
 @@ -10,12 +10,7 @@
  #  python_arch.sh /path/to/sysroot/usr/lib/libpython2.4.so.1.0
  #

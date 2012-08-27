@@ -1,6 +1,6 @@
---- ./content/browser/browser_main_loop.cc.orig	2012-08-17 03:01:27.000000000 +0200
-+++ ./content/browser/browser_main_loop.cc	2012-08-23 22:31:44.000000000 +0200
-@@ -57,7 +57,7 @@
+--- content/browser/browser_main_loop.cc.orig	2012-01-30 22:18:23.000000000 +0200
++++ content/browser/browser_main_loop.cc	2012-01-30 22:19:06.000000000 +0200
+@@ -39,7 +39,7 @@
  #include "net/base/winsock_init.h"
  #endif
  
@@ -9,7 +9,7 @@
  #include <glib-object.h>
  #endif
  
-@@ -116,7 +116,7 @@
+@@ -89,7 +89,7 @@
  }
  #endif
  
@@ -18,7 +18,7 @@
  static void GLibLogHandler(const gchar* log_domain,
                             GLogLevelFlags log_level,
                             const gchar* message,
-@@ -599,7 +599,7 @@
+@@ -518,7 +518,7 @@
    // are no #else branches on any #ifs.
    // TODO(stevenjb): Move platform specific code into platform specific Parts
    // (Need to add InitializeToolkit stage to BrowserParts).

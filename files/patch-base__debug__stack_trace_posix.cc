@@ -1,5 +1,5 @@
---- ./base/debug/stack_trace_posix.cc.orig	2012-08-17 03:01:50.000000000 +0200
-+++ ./base/debug/stack_trace_posix.cc	2012-08-23 22:31:42.000000000 +0200
+--- base/debug/stack_trace_posix.cc.orig	2012-06-11 23:22:13.000000000 +0300
++++ base/debug/stack_trace_posix.cc	2012-06-12 00:09:38.000000000 +0300
 @@ -153,6 +153,11 @@
      count_ = 0;
      return;

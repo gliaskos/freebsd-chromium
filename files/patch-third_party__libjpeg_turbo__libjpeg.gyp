@@ -1,15 +1,6 @@
---- ./third_party/libjpeg_turbo/libjpeg.gyp.orig	2012-08-17 03:03:23.000000000 +0200
-+++ ./third_party/libjpeg_turbo/libjpeg.gyp	2012-08-23 22:56:50.000000000 +0200
-@@ -225,7 +225,7 @@
-                 ],
-               },
-             }],
--            [ 'OS=="linux" or (OS=="android" and target_arch!="arm")', {
-+            [ 'OS=="linux" or OS=="freebsd" or (OS=="android" and target_arch!="arm")', {
-               'conditions': [
-                 [ 'use_system_yasm==0', {
-                   'dependencies': [
-@@ -296,6 +296,9 @@
+--- third_party/libjpeg_turbo/libjpeg.gyp.orig	2011-09-10 20:12:17.000000000 +0300
++++ third_party/libjpeg_turbo/libjpeg.gyp	2011-09-10 20:11:50.000000000 +0300
+@@ -255,6 +255,9 @@
              'defines': [
                'USE_SYSTEM_LIBJPEG',
              ],

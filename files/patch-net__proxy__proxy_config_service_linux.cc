@@ -1,5 +1,5 @@
---- ./net/proxy/proxy_config_service_linux.cc.orig	2012-08-17 03:01:31.000000000 +0200
-+++ ./net/proxy/proxy_config_service_linux.cc	2012-08-23 22:31:45.000000000 +0200
+--- net/proxy/proxy_config_service_linux.cc.orig	2012-04-25 10:01:34.000000000 +0300
++++ net/proxy/proxy_config_service_linux.cc	2012-04-29 21:37:33.000000000 +0300
 @@ -18,7 +18,13 @@
  #include <limits.h>
  #include <stdio.h>
@@ -121,7 +121,7 @@
    }
    void OnFileCanWriteWithoutBlocking(int fd) {
      NOTREACHED();
-@@ -1316,10 +1364,14 @@
+@@ -1317,10 +1365,14 @@
    // from the inotify file descriptor and starts up a debounce timer if
    // an event for kioslaverc is seen.
    void OnChangeNotification() {
@@ -138,7 +138,7 @@
      ssize_t r;
      while ((r = read(inotify_fd_, event_buf, sizeof(event_buf))) > 0) {
        // inotify returns variable-length structures, which is why we have
-@@ -1356,6 +1408,7 @@
+@@ -1357,6 +1409,7 @@
          inotify_fd_ = -1;
        }
      }
@@ -146,7 +146,7 @@
      if (kioslaverc_touched) {
        // We don't use Reset() because the timer may not yet be running.
        // (In that case Stop() is a no-op.)
-@@ -1370,6 +1423,7 @@
+@@ -1371,6 +1424,7 @@
    typedef std::map<StringListSetting,
                     std::vector<std::string> > strings_map_type;
  

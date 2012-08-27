@@ -1,5 +1,5 @@
---- ./third_party/ffmpeg/libavcodec/pthread.c.orig	2012-08-17 03:03:10.000000000 +0200
-+++ ./third_party/ffmpeg/libavcodec/pthread.c	2012-08-23 22:31:45.000000000 +0200
+--- third_party/ffmpeg/libavcodec/pthread.c.orig	2012-05-20 02:54:35.986106782 +0300
++++ third_party/ffmpeg/libavcodec/pthread.c	2012-05-20 02:54:42.671106234 +0300
 @@ -38,7 +38,7 @@
  #if HAVE_GETPROCESSAFFINITYMASK
  #include <windows.h>

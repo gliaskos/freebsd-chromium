@@ -1,11 +1,11 @@
---- ./native_client/src/shared/platform/platform.gyp.orig	2012-08-17 03:02:46.000000000 +0200
-+++ ./native_client/src/shared/platform/platform.gyp	2012-08-23 22:31:44.000000000 +0200
-@@ -36,7 +36,7 @@
-       'refcount_base.cc',
+--- ./native_client/src/shared/platform/platform.gyp.orig	2010-12-16 02:12:14.000000000 +0100
++++ ./native_client/src/shared/platform/platform.gyp	2010-12-20 20:15:08.000000000 +0100
+@@ -60,7 +60,7 @@
+       'time.h',
      ],
      'conditions': [
 -      ['OS=="linux"', {
 +      ['OS=="linux" or OS=="freebsd"', {
          'platform_sources': [
-           'linux/nacl_clock.c',
-           'linux/nacl_host_dir.c',
+           'linux/condition_variable.cc',
+           'linux/lock.cc',

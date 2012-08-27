@@ -1,7 +1,7 @@
---- ./content/common/set_process_title_linux.h.orig	2012-08-17 03:01:27.000000000 +0200
-+++ ./content/common/set_process_title_linux.h	2012-08-23 22:31:44.000000000 +0200
+--- content/common/set_process_title_linux.h.orig	2011-03-20 22:02:04.219736445 +0200
++++ content/common/set_process_title_linux.h	2011-03-20 22:02:04.404739287 +0200
 @@ -6,6 +6,9 @@
- #define CONTENT_COMMON_SET_PROCESS_TITLE_LINUX_H_
+ #define CHROME_COMMON_SET_PROCESS_TITLE_LINUX_H_
  #pragma once
  
 +#include "build/build_config.h"

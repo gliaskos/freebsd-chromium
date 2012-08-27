@@ -1,6 +1,6 @@
---- ./chrome/test/base/testing_browser_process.h.orig	2012-08-17 03:02:23.000000000 +0200
-+++ ./chrome/test/base/testing_browser_process.h	2012-08-23 22:31:43.000000000 +0200
-@@ -97,7 +97,7 @@
+--- chrome/test/base/testing_browser_process.h.orig	2011-11-01 10:43:07.000000000 +0200
++++ chrome/test/base/testing_browser_process.h	2011-11-19 19:35:37.000000000 +0200
+@@ -110,7 +110,7 @@
    virtual DownloadRequestLimiter* download_request_limiter() OVERRIDE;
    virtual bool plugin_finder_disabled() const OVERRIDE;
  

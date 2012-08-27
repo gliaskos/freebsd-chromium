@@ -1,6 +1,6 @@
---- ./content/browser/renderer_host/render_process_host_impl.cc.orig	2012-08-17 03:01:27.000000000 +0200
-+++ ./content/browser/renderer_host/render_process_host_impl.cc	2012-08-23 22:31:44.000000000 +0200
-@@ -805,7 +805,7 @@
+--- content/browser/renderer_host/render_process_host_impl.cc.orig	2012-01-29 16:19:50.000000000 +0200
++++ content/browser/renderer_host/render_process_host_impl.cc	2012-01-29 16:20:14.000000000 +0200
+@@ -806,7 +806,7 @@
                    STANDARD_RIGHTS_REQUIRED | FILE_MAP_READ | FILE_MAP_WRITE,
                    FALSE, 0);
    return TransportDIB::Map(section);

@@ -1,6 +1,6 @@
---- ./chrome/common/url_constants.h.orig	2012-08-17 03:02:26.000000000 +0200
-+++ ./chrome/common/url_constants.h	2012-08-23 22:31:43.000000000 +0200
-@@ -189,7 +189,7 @@
+--- chrome/common/url_constants.h.orig	2012-01-18 11:13:17.000000000 +0200
++++ chrome/common/url_constants.h	2012-01-29 15:35:17.000000000 +0200
+@@ -178,7 +178,7 @@
  extern const char kChromeUIScreenshotPath[];
  extern const char kChromeUIThemePath[];
  

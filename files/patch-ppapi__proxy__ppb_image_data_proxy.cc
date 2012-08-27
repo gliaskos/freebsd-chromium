@@ -1,5 +1,5 @@
---- ./ppapi/proxy/ppb_image_data_proxy.cc.orig	2012-08-17 03:01:23.000000000 +0200
-+++ ./ppapi/proxy/ppb_image_data_proxy.cc	2012-08-23 22:31:45.000000000 +0200
+--- ppapi/proxy/ppb_image_data_proxy.cc.orig	2012-04-25 10:01:26.000000000 +0300
++++ ppapi/proxy/ppb_image_data_proxy.cc	2012-04-29 21:40:17.000000000 +0300
 @@ -104,7 +104,7 @@
  ImageHandle ImageData::NullHandle() {
  #if defined(OS_WIN)

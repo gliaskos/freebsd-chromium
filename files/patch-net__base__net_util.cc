@@ -1,13 +1,10 @@
---- ./net/base/net_util.cc.orig	2012-08-17 03:01:33.000000000 +0200
-+++ ./net/base/net_util.cc	2012-08-23 23:34:09.000000000 +0200
-@@ -21,8 +21,10 @@
+--- net/base/net_util.cc.orig	2011-02-17 10:52:37.000000000 +0100
++++ net/base/net_util.cc	2011-02-20 21:20:04.000000000 +0100
+@@ -24,6 +24,7 @@
+ #include <fcntl.h>
  #include <ifaddrs.h>
- #endif
  #include <netdb.h>
 +#include <sys/socket.h>
  #include <net/if.h>
  #include <netinet/in.h>
-+#include <netinet6/in6.h>
  #endif
- 
- #include "base/base64.h"

@@ -1,8 +1,8 @@
---- ./chrome/common/child_process_logging.h.orig	2012-08-17 03:02:26.000000000 +0200
-+++ ./chrome/common/child_process_logging.h	2012-08-23 22:31:43.000000000 +0200
-@@ -108,7 +108,7 @@
- // Initialize the list of experiment info to send along with crash reports.
- void SetExperimentList(const std::vector<string16>& state);
+--- chrome/common/child_process_logging.h.orig	2012-04-25 10:02:56.000000000 +0300
++++ chrome/common/child_process_logging.h	2012-04-29 20:33:00.000000000 +0300
+@@ -98,7 +98,7 @@
+ // values in |command_line|.
+ void SetCommandLine(const CommandLine* command_line);
  
 -#if defined(OS_LINUX) || defined(OS_OPENBSD) || defined(OS_MACOSX)
 +#if defined(OS_LINUX) || defined(OS_BSD) || defined(OS_MACOSX)

@@ -1,6 +1,6 @@
---- ./chrome/test/ui/ui_test.cc.orig	2012-08-17 03:02:23.000000000 +0200
-+++ ./chrome/test/ui/ui_test.cc	2012-08-23 22:31:43.000000000 +0200
-@@ -69,7 +69,7 @@
+--- ./chrome/test/ui/ui_test.cc.orig	2010-12-16 02:12:11.000000000 +0100
++++ ./chrome/test/ui/ui_test.cc	2010-12-20 20:15:08.000000000 +0100
+@@ -68,7 +68,7 @@
      L"NOTE: This test is expected to fail if crash_service.exe is not "
      L"running. Start it manually before running this test (see the build "
      L"output directory).";

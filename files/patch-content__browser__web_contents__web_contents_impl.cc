@@ -1,8 +1,8 @@
---- ./content/browser/web_contents/web_contents_impl.cc.orig	2012-08-17 03:01:26.000000000 +0200
-+++ ./content/browser/web_contents/web_contents_impl.cc	2012-08-23 22:31:44.000000000 +0200
-@@ -3014,7 +3014,7 @@
+--- content/browser/web_contents/web_contents_impl.cc.orig	2012-01-18 11:11:38.000000000 +0200
++++ content/browser/web_contents/web_contents_impl.cc	2012-01-29 16:23:41.000000000 +0200
+@@ -2021,7 +2021,7 @@
+   if (!render_view_host->CreateRenderView(string16(), max_page_id))
      return false;
-   }
  
 -#if defined(OS_LINUX) || defined(OS_OPENBSD)
 +#if defined(OS_LINUX) || defined(OS_BSD)

@@ -1,5 +1,5 @@
---- ./tools/clang/scripts/plugin_flags.sh.orig	2012-08-17 03:01:20.000000000 +0200
-+++ ./tools/clang/scripts/plugin_flags.sh	2012-08-23 22:31:45.000000000 +0200
+--- tools/clang/scripts/plugin_flags.sh.orig	2012-06-25 20:46:43.544231213 +0300
++++ tools/clang/scripts/plugin_flags.sh	2012-06-25 20:47:09.415231268 +0300
 @@ -1,4 +1,4 @@
 -#!/bin/bash
 +#!/usr/bin/env bash
