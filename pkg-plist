@@ -116,7 +116,6 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/indexedDBIndex.png
 %%DATADIR%%/resources/inspector/Images/indexedDBObjectStore.png
 %%DATADIR%%/resources/inspector/Images/localStorage.png
-%%DATADIR%%/resources/inspector/Images/navigatorPinButton.png
 %%DATADIR%%/resources/inspector/Images/navigatorShowHideButton.png
 %%DATADIR%%/resources/inspector/Images/paneAddButtons.png
 %%DATADIR%%/resources/inspector/Images/paneBottomGrow.png
@@ -189,15 +188,6 @@ bin/chrome
 %%DATADIR%%/resources/inspector/Images/thumbHoverVert.png
 %%DATADIR%%/resources/inspector/Images/thumbVert.png
 %%DATADIR%%/resources/inspector/Images/tickMark.png
-%%DATADIR%%/resources/inspector/Images/timelineBarBlue.png
-%%DATADIR%%/resources/inspector/Images/timelineBarGray.png
-%%DATADIR%%/resources/inspector/Images/timelineBarGreen.png
-%%DATADIR%%/resources/inspector/Images/timelineBarOrange.png
-%%DATADIR%%/resources/inspector/Images/timelineBarPurple.png
-%%DATADIR%%/resources/inspector/Images/timelineBarRed.png
-%%DATADIR%%/resources/inspector/Images/timelineBarYellow.png
-%%DATADIR%%/resources/inspector/Images/timelineCheckmarks.png
-%%DATADIR%%/resources/inspector/Images/timelineDots.png
 %%DATADIR%%/resources/inspector/Images/timelineHollowPillBlue.png
 %%DATADIR%%/resources/inspector/Images/timelineHollowPillGray.png
 %%DATADIR%%/resources/inspector/Images/timelineHollowPillGreen.png
