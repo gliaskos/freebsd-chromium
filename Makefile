@@ -26,7 +26,6 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
-		svnversion:${PORTSDIR}/devel/subversion \
 		v4l_compat>=1.0.20110603:${PORTSDIR}/multimedia/v4l_compat
 
 LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
