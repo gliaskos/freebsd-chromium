@@ -37,7 +37,7 @@ LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
 		gcrypt:${PORTSDIR}/security/libgcrypt
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
-		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf 
+		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
@@ -115,7 +115,7 @@ GYP_DEFINES+=	disable_sse2=1
 .endif
 
 .if ${OSVERSION} < 800069
-IGNORE= requires libusb 2 API, which is not available on this FreeBSD version
+IGNORE=	requires libusb 2 API, which is not available on this FreeBSD version
 .endif
 
 .if ${PORT_OPTIONS:MCLANG}
