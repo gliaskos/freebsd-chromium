@@ -3,7 +3,7 @@
 
 PORTNAME=	chromium
 DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	23.0.1271.95
+DISTVERSION=	24.0.1312.25
 CATEGORIES=	www
 MASTER_SITES=	http://download.goodking.org/downloads/ \
 		ftp://rene-ladan.nl/pub/distfiles/ \
@@ -140,7 +140,6 @@ BUILDTYPE=	Release
 
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
-CONFIGURE_ENV+=	LD=${CC}
 MAKE_JOBS_SAFE=	yes
 
 .include <bsd.port.pre.mk>
