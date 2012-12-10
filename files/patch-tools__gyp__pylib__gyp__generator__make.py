@@ -1,5 +1,5 @@
 --- tools/gyp/pylib/gyp/generator/make.py.orig	2012-11-27 10:03:58.000000000 +0200
-+++ tools/gyp/pylib/gyp/generator/make.py	2012-11-29 23:28:29.575668861 +0200
++++ tools/gyp/pylib/gyp/generator/make.py	2012-12-10 22:26:33.000000000 +0200
 @@ -86,7 +86,7 @@
    else:
      operating_system = flavor
@@ -9,7 +9,14 @@
      default_variables.setdefault('OS', operating_system)
      default_variables.setdefault('SHARED_LIB_SUFFIX', '.so')
      default_variables.setdefault('SHARED_LIB_DIR','$(builddir)/lib.$(TOOLSET)')
-@@ -271,13 +271,13 @@
+@@ -265,19 +265,19 @@
+ CFLAGS.target ?= $(CFLAGS)
+ CXX.target ?= %(CXX.target)s
+ CXXFLAGS.target ?= $(CXXFLAGS)
+-LINK.target ?= %(LINK.target)s
++LINK.target ?= %(CXX.target)s
+ LDFLAGS.target ?= $(LDFLAGS)
+ AR.target ?= $(AR)
  
  # TODO(evan): move all cross-compilation logic to gyp-time so we don't need
  # to replicate this environment fallback in make as well.
