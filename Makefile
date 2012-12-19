@@ -34,6 +34,7 @@ LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
 		gnome-keyring:${PORTSDIR}/security/libgnome-keyring \
 		cups:${PORTSDIR}/print/cups-client \
 		event-1:${PORTSDIR}/devel/libevent \
+		vpx:${PORTSDIR}/multimedia/libvpx \
 		gcrypt:${PORTSDIR}/security/libgcrypt
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
@@ -62,6 +63,7 @@ GYP_DEFINES+=	use_cups=1 \
 		use_system_ffmpeg=0 \
 		use_system_libusb=1 \
 		use_system_libevent=1 \
+		use_system_libvpx=1 \
 		linux_strip_binary=1 \
 		linux_use_tcmalloc=0 \
 		linux_use_heapchecker=0 \
@@ -70,6 +72,7 @@ GYP_DEFINES+=	use_cups=1 \
 		enable_webrtc=0 \
 		enable_openmax=1 \
 		enable_one_click_signin=1 \
+		no_gc_sections=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER}
