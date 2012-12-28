@@ -1,6 +1,6 @@
---- content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2012-12-06 11:09:56.159107947 -0500
-+++ content/browser/geolocation/wifi_data_provider_freebsd.cc	2012-12-06 16:43:53.540918568 -0500
-@@ -0,0 +1,198 @@
+--- content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2012-12-27 23:17:38.000000000 +0100
++++ content/browser/geolocation/wifi_data_provider_freebsd.cc	2012-12-28 12:28:16.000000000 +0100
+@@ -0,0 +1,201 @@
 +// Copyright (c) 2010 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -26,6 +26,7 @@
 +#include "base/utf_string_conversions.h"
 +#include "content/browser/geolocation/wifi_data_provider_common.h"
 +
++namespace content {
 +namespace {
 +// The time periods, in milliseconds, between successive polls of the wifi data.
 +const int kDefaultPollingInterval = 120000;  // 2 mins
@@ -85,10 +86,10 @@
 +	unsigned		len;
 +	AccessPointData		apd;
 +
-+	if (getifaddrs(&ifal) < 0)
-+		return NULL;
-+
 +	res = false;
++	if (getifaddrs(&ifal) < 0)
++		return res;
++
 +	dupn = NULL;
 +	for (ifa = ifal; ifa; ifa = ifa->ifa_next) {
 +		memset(&ifr, 0, sizeof(ifr));
@@ -199,3 +200,5 @@
 +	    kTwoNoChangePollingInterval,
 +	    kNoWifiPollingIntervalMilliseconds>;
 +}
++
++} // namespace content
