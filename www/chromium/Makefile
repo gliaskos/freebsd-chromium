@@ -2,14 +2,14 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	24.0.1312.49
+#DISTVERSIONPREFIX=	courgette-redacted-
+DISTVERSION=	24.0.1312.52
 CATEGORIES=	www
-#MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
-#		http://gsdview.appspot.com/chromium-browser-official/
-MASTER_SITES=	http://download.goodking.org/downloads/ \
-		ftp://rene-ladan.nl/pub/distfiles/ \
-		http://files.etoilebsd.net/goodking/
+MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
+		http://gsdview.appspot.com/chromium-browser-official/
+#MASTER_SITES=	http://download.goodking.org/downloads/ \
+#		ftp://rene-ladan.nl/pub/distfiles/ \
+#		http://files.etoilebsd.net/goodking/
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
@@ -42,8 +42,8 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/a
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
 
 ONLY_FOR_ARCHS=	i386 amd64
-#USE_BZIP2=	yes
-USE_XZ=		yes
+USE_BZIP2=	yes
+#USE_XZ=		yes
 USE_BISON=	build
 USE_GMAKE=	yes
 USE_PERL5_BUILD=	yes
