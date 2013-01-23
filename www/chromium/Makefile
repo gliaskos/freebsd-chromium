@@ -12,7 +12,7 @@ MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 #		http://files.etoilebsd.net/goodking/
 
 MAINTAINER=	chromium@FreeBSD.org
-COMMENT=	A mostly BSD-licensed web browser based on WebKit and Gtk+
+COMMENT=	Mostly BSD-licensed web browser based on WebKit and Gtk+
 
 LICENSE=	BSD LGPL21 MPL
 LICENSE_COMB=	multi
@@ -53,8 +53,8 @@ USE_GNOME=	glib20 gtk20 dconf libxslt
 USE_PKGCONFIG=	build
 MAN1=		chrome.1
 
-DESKTOP_ENTRIES="Chromium" "${COMMENT}" "${DATADIR}/product_logo_48.png" \
-		"chrome" "Application;Network;WebBrowser;" true
+DESKTOP_ENTRIES="Chromium" "Web browser" "${DATADIR}/product_logo_48.png" \
+		"chrome" "Network;WebBrowser;GTK;" true
 
 ALL_TARGET=	chrome
 
