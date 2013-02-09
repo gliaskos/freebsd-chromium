@@ -3,7 +3,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	24.0.1312.57
+DISTVERSION=	24.0.1312.68
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -54,7 +54,7 @@ USE_PKGCONFIG=	build
 MAN1=		chrome.1
 
 DESKTOP_ENTRIES="Chromium" "Web browser" "${DATADIR}/product_logo_48.png" \
-		"chrome %U" "Network;WebBrowser;GTK;" true
+		"chrome" "Network;WebBrowser;GTK;" true
 
 ALL_TARGET=	chrome
 
