@@ -3,7 +3,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	24.0.1312.68
+DISTVERSION=	25.0.1364.68
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -36,7 +36,8 @@ LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
 		cups:${PORTSDIR}/print/cups-client \
 		event-1:${PORTSDIR}/devel/libevent \
 		vpx:${PORTSDIR}/multimedia/libvpx \
-		gcrypt:${PORTSDIR}/security/libgcrypt
+		gcrypt:${PORTSDIR}/security/libgcrypt \
+		pci:${PORTSDIR}/devel/libpci
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
