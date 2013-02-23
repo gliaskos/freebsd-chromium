@@ -55,7 +55,7 @@ USE_PKGCONFIG=	build
 MAN1=		chrome.1
 
 DESKTOP_ENTRIES="Chromium" "Web browser" "${DATADIR}/product_logo_48.png" \
-		"chrome" "Network;WebBrowser;GTK;" true
+		"chrome %U" "Network;WebBrowser;GTK;" true
 
 ALL_TARGET=	chrome
 
