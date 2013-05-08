@@ -3,7 +3,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	25.0.1364.152
+DISTVERSION=	27.0.1453.73
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -35,16 +35,15 @@ LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
 		gnome-keyring:${PORTSDIR}/security/libgnome-keyring \
 		cups:${PORTSDIR}/print/cups-client \
 		event-1:${PORTSDIR}/devel/libevent \
-		vpx:${PORTSDIR}/multimedia/libvpx \
 		gcrypt:${PORTSDIR}/security/libgcrypt \
+		speechd:${PORTSDIR}/accessibility/speech-dispatcher \
 		pci:${PORTSDIR}/devel/libpci
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
 
 ONLY_FOR_ARCHS=	i386 amd64
-USE_BZIP2=	yes
-#USE_XZ=		yes
+USE_XZ=		yes
 USE_BISON=	build
 USE_GMAKE=	yes
 USE_PERL5_BUILD=	yes
@@ -66,10 +65,12 @@ GYP_DEFINES+=	use_cups=1 \
 		use_system_ffmpeg=0 \
 		use_system_libusb=1 \
 		use_system_libevent=1 \
-		use_system_libvpx=1 \
+		use_system_libvpx=0 \
+		linux_breakpad=0 \
 		linux_strip_binary=1 \
 		linux_use_tcmalloc=0 \
 		linux_use_heapchecker=0 \
+		linux_link_libspeechd=1 \
 		clang_use_chrome_plugins=0 \
 		disable_nacl=1 \
 		enable_webrtc=0 \
@@ -167,6 +168,16 @@ post-patch:
 		${WRKSRC}/v8/build/common.gypi
 	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
 		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
+	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
+		${WRKSRC}/chrome/browser/browser_resources.grd \
+		${WRKSRC}/chrome/browser/resources/task_manager/defines.js \
+		${WRKSRC}/tools/grit/grit/xtb_reader_unittest.py \
+		${WRKSRC}/ui/base/strings/app_locale_settings.grd \
+		${WRKSRC}/ui/base/strings/app_locale_settings_bn.xtb \
+		${WRKSRC}/ui/base/strings/app_locale_settings_ja.xtb \
+		${WRKSRC}/ui/base/strings/app_locale_settings_ko.xtb \
+		${WRKSRC}/ui/base/strings/app_locale_settings_ml.xtb \
+		${WRKSRC}/ui/base/strings/app_locale_settings_th.xtb
 
 do-configure:
 	cd ${WRKSRC} && \
