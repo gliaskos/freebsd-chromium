@@ -56,6 +56,7 @@ DESKTOP_ENTRIES="Chromium" "Web browser" "${DATADIR}/product_logo_48.png" \
 		"chrome %U" "Network;WebBrowser;GTK;" true
 
 ALL_TARGET=	chrome
+#ALL_TARGET=	content_unittests
 
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	use_cups=1 \
@@ -169,6 +170,7 @@ post-patch:
 		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
 		${WRKSRC}/chrome/browser/browser_resources.grd \
+		${WRKSRC}/chrome/app/theme/theme_resources.grd \
 		${WRKSRC}/chrome/browser/resources/task_manager/defines.js \
 		${WRKSRC}/tools/grit/grit/xtb_reader_unittest.py \
 		${WRKSRC}/ui/base/strings/app_locale_settings.grd \
