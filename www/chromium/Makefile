@@ -56,7 +56,6 @@ DESKTOP_ENTRIES="Chromium" "Web browser" "${DATADIR}/product_logo_48.png" \
 		"chrome %U" "Network;WebBrowser;GTK;" true
 
 ALL_TARGET=	chrome
-#ALL_TARGET=	content_unittests
 
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	use_cups=1 \
