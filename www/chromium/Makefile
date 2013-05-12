@@ -153,7 +153,7 @@ pre-everything::
 .if ${PORT_OPTIONS:MDEBUG}
 	@${ECHO_MSG} "and lots of free diskspace (~ 8.5GB)."
 .else
-	@${ECHO_MSG} "and a fair amount of free diskspace (~ 2.2GB)."
+	@${ECHO_MSG} "and a fair amount of free diskspace (~ 2.4GB)."
 .endif
 	@${ECHO_MSG}
 
