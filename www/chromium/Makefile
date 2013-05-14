@@ -200,4 +200,7 @@ do-install:
 		${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin
 
+post-install:
+	${CAT} ${PKGMESSAGE}
+
 .include <bsd.port.post.mk>
