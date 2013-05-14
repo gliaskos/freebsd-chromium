@@ -200,10 +200,4 @@ do-install:
 		${COPYTREE_SHARE} "locales resources" ${DATADIR}
 	${LN} -sf ${DATADIR}/chrome ${PREFIX}/bin
 
-post-install:
-	@${ECHO_MSG} "========================================================"
-	@${ECHO_MSG} "For best performance please enable shared memory support"
-	@${ECHO_MSG} "in chromium by setting kern.ipc.shm_allow_removed=1"
-	@${ECHO_MSG} "========================================================"
-
 .include <bsd.port.post.mk>
