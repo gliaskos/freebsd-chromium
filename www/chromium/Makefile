@@ -77,6 +77,11 @@ GYP_DEFINES+=	use_cups=1 \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER}
 
+# FreeBSD Chromium Api Key
+GYP_DEFINES+=	google_api_key=AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8 \
+		google_default_client_id=996322985003.apps.googleusercontent.com \
+		google_default_client_secret=IR1za9-1VK0zZ0f_O8MVFicn
+
 SUB_FILES=	chromium-browser.desktop
 SUB_LIST=	COMMENT="${COMMENT}" \
 		DATADIR=${DATADIR}
