@@ -44,8 +44,7 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/a
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
-USES=		bison pkgconfig desktop-file-utils
-USE_GMAKE=	yes
+USES=		bison pkgconfig desktop-file-utils gmake
 USE_PERL5_BUILD=	yes
 USE_PYTHON_BUILD=	2.6+
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
