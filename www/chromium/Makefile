@@ -1,6 +1,7 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
 # $FreeBSD$
 
+#TODO eadler: s/python/python2/g on a number of files, chromium does not build with python3
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	27.0.1453.116
@@ -46,7 +47,7 @@ ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
 USES=		bison pkgconfig desktop-file-utils gmake
 USE_PERL5_BUILD=	yes
-USE_PYTHON_BUILD=	2.6+
+USE_PYTHON_BUILD=	2.6-2.7
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
 MAN1=		chrome.1
