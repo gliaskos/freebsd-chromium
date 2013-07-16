@@ -38,7 +38,6 @@ LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
 		cups:${PORTSDIR}/print/cups-client \
 		event-1:${PORTSDIR}/devel/libevent \
 		gcrypt:${PORTSDIR}/security/libgcrypt \
-		speechd:${PORTSDIR}/accessibility/speech-dispatcher \
 		pci:${PORTSDIR}/devel/libpci
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
@@ -67,7 +66,6 @@ GYP_DEFINES+=	use_cups=1 \
 		linux_strip_binary=1 \
 		linux_use_tcmalloc=0 \
 		linux_use_heapchecker=0 \
-		linux_link_libspeechd=1 \
 		test_isolation_mode=noop \
 		clang_use_chrome_plugins=0 \
 		disable_nacl=1 \
