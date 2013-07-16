@@ -5,7 +5,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	27.0.1453.116
+DISTVERSION=	28.0.1500.71
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -68,9 +68,10 @@ GYP_DEFINES+=	use_cups=1 \
 		linux_use_tcmalloc=0 \
 		linux_use_heapchecker=0 \
 		linux_link_libspeechd=1 \
+		test_isolation_mode=noop \
 		clang_use_chrome_plugins=0 \
 		disable_nacl=1 \
-		enable_webrtc=0 \
+		enable_webrtc=1 \
 		enable_openmax=1 \
 		enable_one_click_signin=1 \
 		no_gc_sections=1 \
@@ -148,6 +149,7 @@ MAKE_ENV+=	V=1
 BUILDTYPE=	Debug
 .else
 BUILDTYPE=	Release
+GYP_DEFINES+=	buildtype=Official
 .endif
 
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
@@ -171,7 +173,6 @@ post-patch:
 		${WRKSRC}/base/base.gypi \
 		${WRKSRC}/build/common.gypi \
 		${WRKSRC}/third_party/libvpx/libvpx.gyp \
-		${WRKSRC}/third_party/WebKit/Source/WebCore/plugins/PluginDatabase.cpp \
 		${WRKSRC}/crypto/crypto.gyp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp \
 		${WRKSRC}/v8/build/common.gypi
@@ -203,7 +204,7 @@ do-install:
 .for p in chrome chrome_100_percent content_resources resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak ${DATADIR}
 .endfor
-.for f in chrome libffmpegsumo.so mksnapshot protoc
+.for f in chrome libffmpegsumo.so protoc
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${DATADIR}
 .endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
