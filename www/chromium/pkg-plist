@@ -84,6 +84,8 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/heapProfiler.css
 %%DATADIR%%/resources/inspector/HeapSnapshotWorker.js
 %%DATADIR%%/resources/inspector/helpScreen.css
+%%DATADIR%%/resources/inspector/inspector.css
+%%DATADIR%%/resources/inspector/inspector.js
 %%DATADIR%%/resources/inspector/Images/addIcon.png
 %%DATADIR%%/resources/inspector/Images/applicationCache.png
 %%DATADIR%%/resources/inspector/Images/back.png
@@ -91,6 +93,10 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/breakpointConditionalBorder.png
 %%DATADIR%%/resources/inspector/Images/breakpointConditionalCounterBorder.png
 %%DATADIR%%/resources/inspector/Images/breakpointCounterBorder.png
+%%DATADIR%%/resources/inspector/Images/breakpoint2.png
+%%DATADIR%%/resources/inspector/Images/breakpoint2_2x.png
+%%DATADIR%%/resources/inspector/Images/breakpointConditional2.png
+%%DATADIR%%/resources/inspector/Images/breakpointConditional2_2x.png
 %%DATADIR%%/resources/inspector/Images/checker.png
 %%DATADIR%%/resources/inspector/Images/cookie.png
 %%DATADIR%%/resources/inspector/Images/database.png
