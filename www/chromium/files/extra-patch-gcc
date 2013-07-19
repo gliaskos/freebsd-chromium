@@ -41,6 +41,17 @@
  #if defined(POSIX)
  struct ifaddrs;
  #endif  // defined(POSIX)
+--- third_party/libjingle/source/talk/base/systeminfo.cc.orig	2013-07-19 19:48:19.386507825 +0200
++++ third_party/libjingle/source/talk/base/systeminfo.cc	2013-07-19 19:49:17.591508110 +0200
+@@ -36,7 +36,7 @@
+ #elif defined(OSX)
+ #include <ApplicationServices/ApplicationServices.h>
+ #include <CoreServices/CoreServices.h>
+-#elif defined(LINUX) || defined(ANDROID)
++#elif defined(LINUX) || defined(ANDROID) || defined(OS_FREEBSD)
+ #include <unistd.h>
+ #endif
+ #if defined(OSX) || defined(IOS)
 --- base/sys_info_freebsd.cc.orig	2013-05-17 22:44:42.000000000 +0200
 +++ base/sys_info_freebsd.cc	2013-05-26 22:57:45.885322785 +0200
 @@ -4,6 +4,7 @@
@@ -51,3 +62,14 @@
  #include <sys/sysctl.h>
  
  #include "base/logging.h"
+--- content/public/common/child_process_sandbox_support_linux.h.orig	2013-07-19 21:22:38.865506806 +0200
++++ content/public/common/child_process_sandbox_support_linux.h	2013-07-19 21:23:00.863527116 +0200
+@@ -7,6 +7,9 @@
+
+ #include <stdint.h>
+ #include <string>
++#if defined(OS_FREEBSD)
++#include <sys/types.h>
++#endif
+
+ #include "content/common/content_export.h"
