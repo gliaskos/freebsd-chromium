@@ -136,6 +136,7 @@ BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 CC=		clang
 CXX=		clang++
 GYP_DEFINES+=	clang=1
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 .else
 USE_GCC?=	4.6+
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
