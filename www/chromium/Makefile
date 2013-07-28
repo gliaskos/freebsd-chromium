@@ -153,7 +153,6 @@ GYP_DEFINES+=	buildtype=Official
 
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
-MAKE_JOBS_SAFE=	yes
 
 .include <bsd.port.pre.mk>
 
