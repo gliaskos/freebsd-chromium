@@ -6,6 +6,7 @@
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	28.0.1500.71
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -130,7 +131,7 @@ GYP_DEFINES+=	disable_sse2=1
 .endif
 
 .if ${PORT_OPTIONS:MCLANG}
-.if ${OSVERSION} < 900033
+.if ${OSVERSION} < 902000
 BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 .endif
 CC=		clang
