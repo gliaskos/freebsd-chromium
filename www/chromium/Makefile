@@ -5,8 +5,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	28.0.1500.71
-PORTREVISION=	2
+DISTVERSION=	28.0.1500.95
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
