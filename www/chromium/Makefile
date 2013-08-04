@@ -176,7 +176,9 @@ post-patch:
 		${WRKSRC}/third_party/libvpx/libvpx.gyp \
 		${WRKSRC}/crypto/crypto.gyp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp \
-		${WRKSRC}/v8/build/common.gypi
+		${WRKSRC}/v8/build/common.gypi 
+	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
+		${WRKSRC}/third_party/WebKit/Source/core/core.gypi
 	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
 		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
