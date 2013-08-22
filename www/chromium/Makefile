@@ -5,7 +5,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	28.0.1500.95
+DISTVERSION=	29.0.1547.57
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
 		http://gsdview.appspot.com/chromium-browser-official/
@@ -19,12 +19,11 @@ COMMENT=	Mostly BSD-licensed web browser based on WebKit and Gtk+
 LICENSE=	BSD LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-Wno-error -fno-stack-protector
-
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
+		ninja:${PORTSDIR}/devel/ninja \
 		v4l_compat>=1.0.20110603:${PORTSDIR}/multimedia/v4l_compat
 
 LIB_DEPENDS=	execinfo:${PORTSDIR}/devel/libexecinfo \
@@ -45,7 +44,7 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/a
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
-USES=		bison gmake desktop-file-utils pkgconfig
+USES=		bison desktop-file-utils pkgconfig
 USE_PERL5_BUILD=	yes
 USE_PYTHON_BUILD=	2.6-2.7
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
@@ -72,6 +71,7 @@ GYP_DEFINES+=	use_cups=1 \
 		enable_webrtc=1 \
 		enable_openmax=1 \
 		enable_one_click_signin=1 \
+		werror= \
 		no_gc_sections=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
@@ -149,11 +149,15 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .if ${PORT_OPTIONS:MDEBUG}
 MAKE_ENV+=	V=1
 BUILDTYPE=	Debug
+GYP_DEFINES+=	remove_webcore_debug_symbols=1
 .else
 BUILDTYPE=	Release
 GYP_DEFINES+=	buildtype=Official
 .endif
 
+CONFIGURE_ENV+=	CC=${CC} \
+		CXX=${CXX} \
+		GYP_GENERATORS=ninja
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
 
@@ -194,9 +198,13 @@ post-patch:
 		${WRKSRC}/ui/base/strings/app_locale_settings_th.xtb
 
 do-configure:
-	cd ${WRKSRC} && CC="${CC}" CXX="${CXX}" \
+	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} \
 		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
 			./build/gyp_chromium chrome/chrome.gyp --depth .
+
+do-build:
+	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${LOCALBASE}/bin/ninja \
+		${_MAKE_JOBS} -C out/${BUILDTYPE} ${ALL_TARGET}
 
 do-install:
 	@${MKDIR} ${DATADIR}
