@@ -157,7 +157,12 @@ GYP_DEFINES+=	buildtype=Official
 
 CONFIGURE_ENV+=	CC=${CC} \
 		CXX=${CXX} \
-		GYP_GENERATORS=ninja
+		CFLAGS="${CFLAGS}" \
+		CXXFLAGS="${CXXFLAGS}" \
+		CPPFLAGS="${CPPFLAGS}" \
+		LDFLAGS="${LDFLAGS}" \
+		GYP_GENERATORS=ninja \
+		GYP_DEFINES="${GYP_DEFINES}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
 
@@ -200,9 +205,8 @@ post-patch:
 		${WRKSRC}/ui/base/strings/app_locale_settings_th.xtb
 
 do-configure:
-	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} \
-		GYP_DEFINES="${GYP_DEFINES}" ${PYTHON_CMD} \
-			./build/gyp_chromium chrome/chrome.gyp --depth .
+	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
+		./build/gyp_chromium chrome/chrome.gyp --depth .
 
 do-build:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${LOCALBASE}/bin/ninja \
