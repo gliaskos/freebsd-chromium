@@ -183,6 +183,8 @@ post-patch:
 		${WRKSRC}/v8/build/common.gypi 
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
 		${WRKSRC}/third_party/WebKit/Source/core/core.gypi
+	@${REINPLACE_CMD} -e "s|'../courgette/courgette.gyp:courgette_lib',||" \
+		${WRKSRC}/chrome/chrome_tests_unit.gypi
 	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
 		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
