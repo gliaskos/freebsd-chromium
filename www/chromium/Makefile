@@ -156,9 +156,9 @@ TEST_TARGET=	base_unittests \
 		media_unittests \
 		printing_unittests \
 		sql_unittests \
-		gpu_unittests \
 		net_unittests \
 		content_unittests
+EXCLUDED_TESTS=	GPUTestConfigTest.LoadCurrentConfig
 ALL_TARGET+=	${TEST_TARGET}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
@@ -232,7 +232,8 @@ do-build:
 
 test regression-test: build
 .for t in ${TEST_TARGET}
-	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 ./${t}
+	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
+		./${t} --gtest_filter=-${EXCLUDED_TESTS}
 .endfor
 
 do-install:
