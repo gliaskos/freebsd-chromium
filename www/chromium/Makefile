@@ -7,8 +7,7 @@ PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	29.0.1547.57
 CATEGORIES=	www
-MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
-		http://gsdview.appspot.com/chromium-browser-official/
+MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 #MASTER_SITES=	http://download.goodking.org/downloads/ \
 #		ftp://rene-ladan.nl/pub/distfiles/ \
 #		http://files.etoilebsd.net/goodking/
@@ -147,15 +146,16 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .endif
 
 .if ${PORT_OPTIONS:MTESTS}
-# TODO: Add net_unittests
+# TODO: Add net, content unittests
 TEST_TARGET=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
-		content_unittests \
 		gpu_unittests \
+		sync_unit_tests \
 		media_unittests \
 		printing_unittests \
-		sql_unittests
+		sql_unittests \
+		gpu_unittests
 ALL_TARGET+=	${TEST_TARGET}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
@@ -229,7 +229,7 @@ do-build:
 
 test regression-test: build
 .for t in ${TEST_TARGET}
-	cd ${WRKSRC}/out/${BUILDTYPE} && ./${t}
+	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 ./${t}
 .endfor
 
 do-install:
