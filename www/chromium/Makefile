@@ -89,7 +89,7 @@ SUB_FILES=	chromium-browser.desktop
 SUB_LIST=	COMMENT="${COMMENT}" \
 		DATADIR=${DATADIR}
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO CLANG DEBUG
+OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO CLANG TESTS DEBUG
 
 CODECS_DESC=	Compile and enable patented codecs like H.264
 CLANG_DESC=	Build Chromium with Clang instead of GCC 4.6+
@@ -144,6 +144,21 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 USE_GCC?=	yes
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
+.endif
+
+.if ${PORT_OPTIONS:MTESTS}
+# TODO: Add net_unittests
+TEST_TARGET=	base_unittests \
+		crypto_unittests \
+		cacheinvalidation_unittests \
+		content_unittests \
+		gpu_unittests \
+		media_unittests \
+		printing_unittests \
+		sql_unittests
+ALL_TARGET+=	${TEST_TARGET}
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
+		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .endif
 
 .if ${PORT_OPTIONS:MDEBUG}
@@ -211,6 +226,11 @@ do-configure:
 do-build:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${LOCALBASE}/bin/ninja \
 		${_MAKE_JOBS} -C out/${BUILDTYPE} ${ALL_TARGET}
+
+test regression-test: build
+.for t in ${TEST_TARGET}
+	cd ${WRKSRC}/out/${BUILDTYPE} && ./${t}
+.endfor
 
 do-install:
 	@${MKDIR} ${DATADIR}
