@@ -148,7 +148,6 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .endif
 
 .if ${PORT_OPTIONS:MTESTS}
-# TODO: Add net, content unittests
 TEST_TARGET=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
@@ -157,7 +156,9 @@ TEST_TARGET=	base_unittests \
 		media_unittests \
 		printing_unittests \
 		sql_unittests \
-		gpu_unittests
+		gpu_unittests \
+		net_unittests \
+		content_unittests
 ALL_TARGET+=	${TEST_TARGET}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
