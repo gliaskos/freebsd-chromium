@@ -90,7 +90,7 @@ SUB_FILES=	chromium-browser.desktop
 SUB_LIST=	COMMENT="${COMMENT}" \
 		DATADIR=${DATADIR}
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO CLANG TESTS DEBUG
+OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO CLANG TEST DEBUG
 
 CODECS_DESC=	Compile and enable patented codecs like H.264
 CLANG_DESC=	Build Chromium with Clang instead of GCC 4.6+
@@ -147,7 +147,7 @@ GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .endif
 
-.if ${PORT_OPTIONS:MTESTS}
+.if ${PORT_OPTIONS:MTEST}
 TEST_TARGET=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
