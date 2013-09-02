@@ -90,12 +90,12 @@ SUB_FILES=	chromium-browser.desktop
 SUB_LIST=	COMMENT="${COMMENT}" \
 		DATADIR=${DATADIR}
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO CLANG TEST DEBUG
+OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO GCC TEST DEBUG
 
 CODECS_DESC=	Compile and enable patented codecs like H.264
-CLANG_DESC=	Build Chromium with Clang instead of GCC 4.6+
+GCC_DESC=	Build Chromium with GCC 4.6+
 
-OPTIONS_DEFAULT=	CODECS GCONF CLANG
+OPTIONS_DEFAULT=	CODECS GCONF
 
 .include <bsd.port.options.mk>
 
@@ -122,7 +122,11 @@ GYP_DEFINES+=	use_pulseaudio=0
 GYP_DEFINES+=	disable_sse2=1
 .endif
 
-.if ${PORT_OPTIONS:MCLANG}
+.if ${PORT_OPTIONS:MGCC}
+USE_GCC?=	yes
+GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
+.else
 .if ${OSVERSION} < 902000
 BUILD_DEPENDS+=	${LOCALBASE}/bin/clang:${PORTSDIR}/lang/clang
 CC=		${LOCALBASE}/bin/clang
@@ -133,10 +137,6 @@ CXX=		clang++
 .endif
 GYP_DEFINES+=	clang=1
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
-.else
-USE_GCC?=	yes
-GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .endif
 
 .if ${PORT_OPTIONS:MTEST}
