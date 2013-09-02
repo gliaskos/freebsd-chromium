@@ -52,7 +52,7 @@ USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
 MAN1=		chrome.1
 
-ALL_TARGET=	chrome
+NINJA_TARGETS=	chrome
 
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	use_cups=1 \
@@ -142,7 +142,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 .endif
 
 .if ${PORT_OPTIONS:MTEST}
-TEST_TARGET=	base_unittests \
+TEST_TARGETS=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
 		gpu_unittests \
@@ -152,8 +152,8 @@ TEST_TARGET=	base_unittests \
 		sql_unittests \
 		net_unittests \
 		content_unittests
-EXCLUDED_TESTS=	GPUTestConfigTest.LoadCurrentConfig
-ALL_TARGET+=	${TEST_TARGET}
+EXCLUDED_TESTS=
+NINJA_TARGETS+=	${TEST_TARGETS}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .endif
@@ -222,10 +222,10 @@ do-configure:
 
 do-build:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${LOCALBASE}/bin/ninja \
-		${_MAKE_JOBS} -C out/${BUILDTYPE} ${ALL_TARGET}
+		${_MAKE_JOBS} -C out/${BUILDTYPE} ${NINJA_TARGETS}
 
 test regression-test: build
-.for t in ${TEST_TARGET}
+.for t in ${TEST_TARGETS}
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
 		./${t} --gtest_filter=-${EXCLUDED_TESTS}
 .endfor
