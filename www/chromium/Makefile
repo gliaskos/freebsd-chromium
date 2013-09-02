@@ -158,7 +158,7 @@ TEST_TARGET=	base_unittests \
 		sql_unittests \
 		net_unittests \
 		content_unittests
-EXCLUDED_TESTS=	GPUTestConfigTest.LoadCurrentConfig:WebRtcLocalAudioTrackTest.*
+EXCLUDED_TESTS=	GPUTestConfigTest.LoadCurrentConfig
 ALL_TARGET+=	${TEST_TARGET}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
