@@ -101,8 +101,10 @@ OPTIONS_DEFAULT=	CODECS GCONF
 
 .if ${PORT_OPTIONS:MCODECS}
 GYP_DEFINES+=	ffmpeg_branding=Chrome
+GYP_DEFINES+=	proprietary_codecs=1
 .else
 GYP_DEFINES+=	ffmpeg_branding=Chromium
+GYP_DEFINES+=	proprietary_codecs=0
 .endif
 
 .if ${PORT_OPTIONS:MGCONF}
