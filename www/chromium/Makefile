@@ -99,18 +99,10 @@ OPTIONS_DEFAULT=	CODECS GCONF CLANG
 
 .include <bsd.port.options.mk>
 
-.if ${OSVERSION} < 900033 || ! ${PORT_OPTIONS:MCLANG}
-BUILD_DEPENDS+=	${LOCALBASE}/bin/as:${PORTSDIR}/devel/binutils
-CONFIGURE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
-MAKE_ENV+=	COMPILER_PATH=${LOCALBASE}/bin
-.endif
-
 .if ${PORT_OPTIONS:MCODECS}
 GYP_DEFINES+=	ffmpeg_branding=Chrome
-GYP_DEFINES+=	proprietary_codecs=1
 .else
 GYP_DEFINES+=	ffmpeg_branding=Chromium
-GYP_DEFINES+=	proprietary_codecs=0
 .endif
 
 .if ${PORT_OPTIONS:MGCONF}
