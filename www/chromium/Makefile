@@ -45,8 +45,8 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/a
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_XZ=		yes
-USES=		bison desktop-file-utils pkgconfig
-USE_PERL5_BUILD=	yes
+USES=		bison desktop-file-utils pkgconfig perl5
+USE_PERL5=	build
 USE_PYTHON_BUILD=	2.6-2.7
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
@@ -139,6 +139,9 @@ CXX=		clang++
 .endif
 GYP_DEFINES+=	clang=1
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+.if ${OSVERSION} >= 1000054
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++
+.endif
 .endif
 
 .if ${PORT_OPTIONS:MTEST}
@@ -169,12 +172,14 @@ GYP_DEFINES+=	buildtype=Official
 
 CONFIGURE_ENV+=	CC=${CC} \
 		CXX=${CXX} \
-		CFLAGS="${CFLAGS}" \
-		CXXFLAGS="${CXXFLAGS}" \
-		CPPFLAGS="${CPPFLAGS}" \
-		LDFLAGS="${LDFLAGS}" \
 		GYP_GENERATORS=ninja \
 		GYP_DEFINES="${GYP_DEFINES}"
+# according to portlint the below is passed via bsd.port.mk,
+# but 'make -V CONFIGURE_ENV' does not show it:
+CONFIGURE_ENV+= CFLAGS="${CFLAGS}" \
+		CPPFLAGS="${CPPFLAGS}" \
+		CXXFLAGS="${CXXFLAGS}" \
+		LDFLAGS="${LDFLAGS}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
 
