@@ -138,6 +138,9 @@ CXX=		clang++
 .endif
 GYP_DEFINES+=	clang=1
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+.if ${OSVERSION} >= 1000054
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++
+.endif
 .endif
 
 .if ${PORT_OPTIONS:MTEST}
@@ -168,12 +171,14 @@ GYP_DEFINES+=	buildtype=Official
 
 CONFIGURE_ENV+=	CC=${CC} \
 		CXX=${CXX} \
-		CFLAGS="${CFLAGS}" \
-		CXXFLAGS="${CXXFLAGS}" \
-		CPPFLAGS="${CPPFLAGS}" \
-		LDFLAGS="${LDFLAGS}" \
 		GYP_GENERATORS=ninja \
 		GYP_DEFINES="${GYP_DEFINES}"
+# according to portlint the below is passed via bsd.port.mk,
+# but 'make -V CONFIGURE_ENV' does not show it:
+CONFIGURE_ENV+= CFLAGS="${CFLAGS}" \
+		CPPFLAGS="${CPPFLAGS}" \
+		CXXFLAGS="${CXXFLAGS}" \
+		LDFLAGS="${LDFLAGS}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF=${LOCALBASE}/bin/gperf
 
