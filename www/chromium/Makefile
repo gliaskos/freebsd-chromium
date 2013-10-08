@@ -5,7 +5,7 @@
 
 PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
-DISTVERSION=	29.0.1547.76
+DISTVERSION=	30.0.1599.66
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 #MASTER_SITES=	http://download.goodking.org/downloads/ \
@@ -18,7 +18,7 @@ COMMENT=	Mostly BSD-licensed web browser based on WebKit and Gtk+
 LICENSE=	BSD LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-fno-stack-protector
+CFLAGS+=	-fno-stack-protector -Wno-unknown-warning-option
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
@@ -151,7 +151,7 @@ TEST_TARGETS=	base_unittests \
 		sql_unittests \
 		net_unittests \
 		content_unittests
-EXCLUDED_TESTS=
+EXCLUDED_TESTS= GpuDriverBugListTest.CurrentDriverBugListValidation
 NINJA_TARGETS+=	${TEST_TARGETS}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
@@ -196,7 +196,7 @@ post-patch:
 		${WRKSRC}/third_party/libvpx/libvpx.gyp \
 		${WRKSRC}/crypto/crypto.gyp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp \
-		${WRKSRC}/v8/build/common.gypi
+		${WRKSRC}/v8/build/toolchain.gypi
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
 		${WRKSRC}/third_party/WebKit/Source/core/core.gypi
 	@${REINPLACE_CMD} -e "s|'../courgette/courgette.gyp:courgette_lib',||" \
