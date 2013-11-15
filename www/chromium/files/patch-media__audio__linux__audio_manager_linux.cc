@@ -1,7 +1,7 @@
---- media/audio/linux/audio_manager_linux.cc.orig	2013-02-04 04:01:12.000000000 +0200
-+++ media/audio/linux/audio_manager_linux.cc	2013-02-16 01:04:00.975548702 +0200
-@@ -126,22 +126,20 @@
- void AudioManagerLinux::GetAlsaAudioInputDevices(
+--- media/audio/linux/audio_manager_linux.cc.orig	2013-11-08 07:41:29.000000000 +0100
++++ media/audio/linux/audio_manager_linux.cc	2013-11-15 11:45:20.000000000 +0100
+@@ -127,22 +127,20 @@
+     StreamType type,
      media::AudioDeviceNames* device_names) {
    // Constants specified by the ALSA API for device hints.
 +  static const int kGetAllDevices = -1;
@@ -13,12 +13,12 @@
 -    void** hints = NULL;
 -    int error = wrapper_->DeviceNameHint(card, kPcmInterfaceName, &hints);
 -    if (!error) {
--      GetAlsaDevicesInfo(hints, device_names);
+-      GetAlsaDevicesInfo(type, hints, device_names);
 -
 -      // Destroy the hints now that we're done with it.
 -      wrapper_->DeviceNameFreeHint(hints);
 -    } else {
--      DLOG(WARNING) << "GetAudioInputDevices: unable to get device hints: "
+-      DLOG(WARNING) << "GetAlsaAudioDevices: unable to get device hints: "
 -                    << wrapper_->StrError(error);
 -    }
 +  void** hints = NULL;
@@ -35,16 +35,14 @@
    }
  }
  
-@@ -231,40 +229,47 @@
- }
+@@ -244,41 +242,42 @@
  
- bool AudioManagerLinux::HasAnyAlsaAudioDevice(StreamType stream) {
+ bool AudioManagerLinux::HasAnyAlsaAudioDevice(
+     AudioManagerLinux::StreamType stream) {
 +  // Constants specified by the ALSA API for device hints.
 +  static const int kGetAllDevices = -1;
    static const char kPcmInterfaceName[] = "pcm";
    static const char kIoHintName[] = "IOID";
-   const char* kNotWantedDevice =
-       (stream == kStreamPlayback ? "Input" : "Output");
    void** hints = NULL;
    bool has_device = false;
 -  int card = -1;
@@ -60,14 +58,15 @@
 -        // "Input", "Output", and NULL which means both input and output.
 -        scoped_ptr_malloc<char> io(wrapper_->DeviceNameGetHint(*hint_iter,
 -                                                               kIoHintName));
--        if (io != NULL && strcmp(kNotWantedDevice, io.get()) == 0)
+-        const char* unwanted_type = UnwantedDeviceTypeWhenEnumerating(stream);
+-        if (io != NULL && strcmp(unwanted_type, io.get()) == 0)
 -          continue;  // Wrong type, skip the device.
 -
 -        // Found an input device.
 -        has_device = true;
 -        break;
 -      }
-+  // If checking for Input devices, only return true if there is an
++  // If checking the Input devices, only return true if there is an
 +  // actual audio card. The bots have virtual audio input devices that do
 +  // not actually generate samples, breaking some tests.
 +  // See crbug.com/165401.
@@ -98,13 +97,11 @@
 +      has_device = true;
 +      break;
      }
-+
-+    // Destroy the hints now that we're done with it.
-+    wrapper_->DeviceNameFreeHint(hints);
-+    hints = NULL;
 +  } else {
 +    DLOG(WARNING) << "HasAnyAudioDevice: unable to get device hints: "
 +                  << wrapper_->StrError(error);
    }
- 
+-
    return has_device;
+ }
+ 
