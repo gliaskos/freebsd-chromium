@@ -100,6 +100,9 @@ GCC_DESC=	Build Chromium with GCC 4.6+
 
 OPTIONS_DEFAULT=	CODECS GCONF
 
+GCONF_USE=	GNOME=gconf2
+PULSEAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
+
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCODECS}
@@ -110,14 +113,11 @@ GYP_DEFINES+=	ffmpeg_branding=Chromium
 GYP_DEFINES+=	proprietary_codecs=0
 .endif
 
-.if ${PORT_OPTIONS:MGCONF}
-USE_GNOME+=	gconf2
-.else
+.if ! ${PORT_OPTIONS:MGCONF}
 GYP_DEFINES+=	use_gconf=0
 .endif
 
 .if ${PORT_OPTIONS:MPULSEAUDIO}
-LIB_DEPENDS+=	libpulse.so:${PORTSDIR}/audio/pulseaudio
 GYP_DEFINES+=	use_pulseaudio=1
 .else
 GYP_DEFINES+=	use_pulseaudio=0
