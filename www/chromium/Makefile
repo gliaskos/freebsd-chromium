@@ -7,7 +7,7 @@ PORTNAME=	chromium
 #DISTVERSIONPREFIX=	courgette-redacted-
 DISTVERSION=	31.0.1650.57
 CATEGORIES=	www
-MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/ \
+MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 #MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/:testdata \
 #		http://download.goodking.org/downloads/:browser \
 #		ftp://rene-ladan.nl/pub/distfiles/:browser \
