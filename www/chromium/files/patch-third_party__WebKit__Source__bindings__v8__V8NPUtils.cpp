@@ -4,9 +4,7 @@
  #include "core/page/DOMWindow.h"
  #include "wtf/text/WTFString.h"
  
-+#if defined(OS_FREEBSD)
-+#include <stdlib.h> // XXX not properly propagated?
-+#endif
++#include <stdlib.h>
 +
  namespace WebCore {
  
