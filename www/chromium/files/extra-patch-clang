@@ -221,6 +221,7 @@
 +    : CMap::Builder(static_cast<ReadableFontData*>(NULL),
                      CMapFormat::kFormat4, cmap_id) {
  }
+
 --- v8/src/runtime.cc.orig	2013-11-08 08:01:04.000000000 +0100
 +++ v8/src/runtime.cc	2013-11-15 13:17:39.000000000 +0100
 @@ -14028,7 +14028,7 @@
