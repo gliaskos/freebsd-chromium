@@ -127,10 +127,10 @@ GYP_DEFINES+=	use_pulseaudio=0
 GYP_DEFINES+=	disable_sse2=1
 .endif
 
+GCC_EXTRA_PATCHES=${FILESDIR}/extra-patch-gcc
+GCC_USE=	GCC=yes
 .if ${PORT_OPTIONS:MGCC}
-USE_GCC?=	yes
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .else
 .if ${OSVERSION} < 902000
 BUILD_DEPENDS+=	${LOCALBASE}/bin/clang32:${PORTSDIR}/lang/clang32
@@ -165,11 +165,12 @@ TEST_TARGETS=	base_unittests \
 		content_unittests
 EXCLUDED_TESTS=	GpuDriverBugListTest.CurrentDriverBugListValidation
 NINJA_TARGETS+=	${TEST_TARGETS}
-DISTFILES+=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .endif
+TEST_DISTFILES=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
+#TEST_DISTFILES=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}:testdata
 
+DEBUG_MAKE_ENV=	V=1
 .if ${PORT_OPTIONS:MDEBUG}
-MAKE_ENV+=	V=1
 BUILDTYPE=	Debug
 GYP_DEFINES+=	remove_webcore_debug_symbols=1
 .else
