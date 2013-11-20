@@ -174,7 +174,7 @@ MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 
 .include <bsd.port.pre.mk>
 
-.if ${COMPILER_TYPE} == gcc
+.if ${CHOSEN_COMPILER_TYPE} == gcc
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .else
