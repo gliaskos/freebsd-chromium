@@ -11,6 +11,7 @@ MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 #MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/:testdata \
 #		http://download.goodking.org/downloads/:browser \
 #		ftp://rene-ladan.nl/pub/distfiles/:browser \
+#		LOCAL/rene:browser
 #		http://files.etoilebsd.net/goodking/:browser
 #DISTFILES=	${DISTNAME}${EXTRACT_SUFX}:browser
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -18,7 +19,7 @@ DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	Mostly BSD-licensed web browser based on WebKit and Gtk+
 
-LICENSE=	BSD LGPL21 MPL
+LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
 #WRKSRC=	${WRKDIR}/${PORTNAME}-${DISTVERSION}
@@ -51,7 +52,7 @@ USE_XZ=		yes
 USES=		bison compiler:c++11-lang desktop-file-utils pkgconfig \
 		perl5 shebangfix
 USE_PERL5=	build
-USE_PYTHON_BUILD=	2.6-2.7
+USE_PYTHON_BUILD=	2
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
 
