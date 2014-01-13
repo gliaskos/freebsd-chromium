@@ -1,5 +1,5 @@
 --- chrome/app/chrome_main_delegate.cc.orig	2014-01-07 21:01:39.000000000 +0100
-+++ chrome/app/chrome_main_delegate.cc	2014-01-11 02:13:58.000000000 +0100
++++ chrome/app/chrome_main_delegate.cc	2014-01-13 16:53:27.000000000 +0100
 @@ -97,7 +97,7 @@
  #include "ui/base/x/x11_util.h"
  #endif
@@ -54,6 +54,24 @@
    breakpad::SetBreakpadClient(g_chrome_breakpad_client.Pointer());
  #endif
  
+@@ -701,7 +701,7 @@
+ #endif
+   }
+ 
+-#if defined(OS_POSIX) && !defined(OS_MACOSX)
++#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_FREEBSD)
+   // Zygote needs to call InitCrashReporter() in RunZygote().
+   if (process_type != switches::kZygoteProcess) {
+ #if defined(OS_ANDROID)
+@@ -713,7 +713,7 @@
+     breakpad::InitCrashReporter();
+ #endif  // defined(OS_ANDROID)
+   }
+-#endif  // defined(OS_POSIX) && !defined(OS_MACOSX)
++#endif  // defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_FREEBSD)
+ 
+   // After all the platform Breakpads have been initialized, store the command
+   // line for crash reporting.
 @@ -814,7 +814,7 @@
      SetUpProfilingShutdownHandler();
    }

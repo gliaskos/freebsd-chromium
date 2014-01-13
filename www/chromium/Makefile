@@ -205,7 +205,8 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
 		${WRKSRC}/chrome/common/chrome_paths.cc
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
-		${WRKSRC}/third_party/WebKit/Source/core/core.gypi
+		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
+		${WKRSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
 	@${REINPLACE_CMD} -e "s|'../courgette/courgette.gyp:courgette_lib',||" \
 		${WRKSRC}/chrome/chrome_tests_unit.gypi
 	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
