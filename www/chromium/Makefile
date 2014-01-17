@@ -133,16 +133,7 @@ LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
 .endif
 
 .if ${PORT_OPTIONS:MTEST}
-TEST_TARGETS=	base_unittests \
-		crypto_unittests \
-		cacheinvalidation_unittests \
-		gpu_unittests \
-		sync_unit_tests \
-		media_unittests \
-		printing_unittests \
-		sql_unittests \
-		net_unittests \
-		content_unittests
+.include "Makefile.tests"
 ALL_TARGET+=	${TEST_TARGETS}
 DISTFILES+=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 #DISTFILES+=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}:testdata
@@ -229,7 +220,7 @@ do-configure:
 test regression-test: build
 .for t in ${TEST_TARGETS}
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
-		./${t} --gtest_filter=-${EXCLUDED_TESTS} || ${TRUE}
+		./${t} --gtest_filter=-${EXCLUDE_${t}:ts:} || ${TRUE}
 .endfor
 
 do-install:
