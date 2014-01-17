@@ -230,7 +230,7 @@ do-configure:
 test regression-test: build
 .for t in ${TEST_TARGETS}
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
-		./${t} --gtest_filter=-${EXCLUDED_TESTS}
+		./${t} --gtest_filter=-${EXCLUDED_TESTS} || ${TRUE}
 .endfor
 
 do-install:
