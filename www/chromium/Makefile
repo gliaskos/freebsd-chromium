@@ -143,7 +143,6 @@ TEST_TARGETS=	base_unittests \
 		sql_unittests \
 		net_unittests \
 		content_unittests
-EXCLUDED_TESTS=	GpuDriverBugListTest.CurrentDriverBugListValidation
 ALL_TARGET+=	${TEST_TARGETS}
 DISTFILES+=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 #DISTFILES+=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}:testdata
