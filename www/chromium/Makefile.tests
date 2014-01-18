@@ -59,10 +59,19 @@ EXCLUDE_net_unittests = \
 	ProxyResolverV8TracingTest.TooManyAlerts \
 	ProxyResolverV8TracingTest.TooManyEmptyAlerts \
 	ProxyResolverV8TracingTest.Dns \
-	ProxyResolverV8TracingTest.DnsChecksCache
+	ProxyResolverV8TracingTest.DnsChecksCache \
+	ProxyResolverV8TracingTest.FallBackToSynchronous1 \
+	ProxyResolverV8TracingTest.FallBackToSynchronous2 \
+	ProxyResolverV8TracingTest.InfiniteDNSSequence \
+	ProxyResolverV8TracingTest.InfiniteDNSSequence2 \
+	ProxyResolverV8TracingTest.DnsDuringInit \
+	ProxyResolverV8TracingTest.CancelWhileOutstandingNonBlockingDns \
+	ProxyResolverV8TracingTest.CancelWhileBlockedInNonBlockingDns \
+	ProxyResolverV8TracingTest.CancelSetPacWhileOutstandingBlockingDns
 # these tests seem to hang:
 #URLRequestTestHTTP.*DeferredRedirect*  TODO filter
 EXCLUDE_net_unittests += \
+	ProxyResolverV8TracingTest.CancelWhilePendingCompletionTask \
 	TCPClientSocketTest.BindLoopbackToLoopback \
 	TCPServerSocketTest.Accept \
 	TCPServerSocketTest.Accept2Connections \
