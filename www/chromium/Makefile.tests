@@ -13,8 +13,12 @@ TEST_TARGETS=	base_unittests \
 		ipc_tests \
 		dbus_unittests \
 		net_unittests \
-		media_unittests \
-# browser_tests \ unit_tests \ chromedriver_unittests \ chromedriver_tests
+		media_unittests
+# browser_tests: missing test file?
+# unit_tests: missing test file?
+# chromedriver_unittests: does not build
+# chromedriver_tests: does not build
+# telemetry_unittests: unknown ninja target
 
 # exclude these tests because they die (not just fail)
 # (FreeBSD 10.0-amd64, Chromium 32.0.1700.77)
