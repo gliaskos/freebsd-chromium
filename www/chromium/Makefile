@@ -199,8 +199,6 @@ post-patch:
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
 	@${REINPLACE_CMD} -e "s|'../courgette/courgette.gyp:courgette_lib',||" \
 		${WRKSRC}/chrome/chrome_tests_unit.gypi
-	@${REINPLACE_CMD} -e "s|linux|freebsd|" \
-		${WRKSRC}/tools/gyp/pylib/gyp/generator/make.py
 	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
 		${WRKSRC}/chrome/browser/browser_resources.grd \
 		${WRKSRC}/chrome/app/theme/theme_resources.grd \
