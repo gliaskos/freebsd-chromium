@@ -54,7 +54,7 @@
    breakpad::SetBreakpadClient(g_chrome_breakpad_client.Pointer());
  #endif
  
-@@ -701,7 +701,7 @@
+@@ -703,7 +703,7 @@
  #endif
    }
  
@@ -64,7 +64,7 @@
    if (process_type != switches::kZygoteProcess) {
  #if defined(OS_ANDROID)
 @@ -713,7 +713,7 @@
-     breakpad::InitCrashReporter();
+     breakpad::InitCrashReporter(process_type);
  #endif  // defined(OS_ANDROID)
    }
 -#endif  // defined(OS_POSIX) && !defined(OS_MACOSX)
@@ -72,12 +72,3 @@
  
    // After all the platform Breakpads have been initialized, store the command
    // line for crash reporting.
-@@ -814,7 +814,7 @@
-     SetUpProfilingShutdownHandler();
-   }
- 
--#if defined(OS_POSIX) && !defined(OS_MACOSX)
-+#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_BSD)
-   // Needs to be called after we have chrome::DIR_USER_DATA.  BrowserMain sets
-   // this up for the browser process in a different manner.
-   breakpad::InitCrashReporter();
