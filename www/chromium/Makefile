@@ -213,7 +213,7 @@ post-patch:
 
 do-configure:
 	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
-		./build/gyp_chromium chrome/chrome.gyp
+		./build/gyp_chromium chrome/chrome.gyp --depth .
 
 test regression-test: build
 .for t in ${TEST_TARGETS}
