@@ -1,3 +1,4 @@
+#$FreeBSD$
 TEST_TARGETS=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
