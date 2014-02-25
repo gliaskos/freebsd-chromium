@@ -1,5 +1,5 @@
---- base/process/process_iterator.h.orig	2013-08-16 22:08:02.000000000 +0300
-+++ base/process/process_iterator.h	2013-08-16 22:08:08.000000000 +0300
+--- ./base/process/process_iterator.h.orig	2014-02-20 21:28:45.000000000 +0100
++++ ./base/process/process_iterator.h	2014-02-24 17:23:44.000000000 +0100
 @@ -21,6 +21,11 @@
  #include <windows.h>
  #include <tlhelp32.h>

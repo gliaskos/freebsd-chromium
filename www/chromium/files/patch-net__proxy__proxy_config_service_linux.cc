@@ -1,5 +1,5 @@
---- net/proxy/proxy_config_service_linux.cc.orig	2013-08-22 10:48:23.000000000 +0300
-+++ net/proxy/proxy_config_service_linux.cc	2013-08-22 14:41:23.000000000 +0300
+--- ./net/proxy/proxy_config_service_linux.cc.orig	2014-02-20 21:28:32.000000000 +0100
++++ ./net/proxy/proxy_config_service_linux.cc	2014-02-24 17:23:45.000000000 +0100
 @@ -12,7 +12,13 @@
  #include <limits.h>
  #include <stdio.h>

@@ -1,5 +1,5 @@
---- media/filters/decrypting_audio_decoder.cc.orig	2013-08-30 06:47:05.000000000 +0300
-+++ media/filters/decrypting_audio_decoder.cc	2013-09-03 22:11:24.289626887 +0300
+--- ./media/filters/decrypting_audio_decoder.cc.orig	2014-02-20 21:27:59.000000000 +0100
++++ ./media/filters/decrypting_audio_decoder.cc	2014-02-24 17:23:45.000000000 +0100
 @@ -30,7 +30,7 @@
    // Out of sync of 100ms would be pretty noticeable and we should keep any
    // drift below that.

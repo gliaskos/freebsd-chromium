@@ -1,6 +1,6 @@
---- media/media.gyp.orig	2013-11-08 07:41:32.000000000 +0100
-+++ media/media.gyp	2013-11-15 16:39:58.000000000 +0100
-@@ -563,7 +563,7 @@
+--- ./media/media.gyp.orig	2014-02-20 21:28:01.000000000 +0100
++++ ./media/media.gyp	2014-02-24 17:23:45.000000000 +0100
+@@ -606,7 +606,7 @@
              'audio/openbsd/audio_manager_openbsd.h',
            ],
          }],
@@ -9,7 +9,7 @@
            'variables': {
              'conditions': [
                ['sysroot!=""', {
-@@ -836,7 +836,7 @@
+@@ -871,7 +871,7 @@
              'ENABLE_EAC3_PLAYBACK',
            ],
          }],

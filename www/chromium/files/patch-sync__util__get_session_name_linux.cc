@@ -1,5 +1,5 @@
---- sync/util/get_session_name_linux.cc.orig	2013-08-16 23:53:51.000000000 +0300
-+++ sync/util/get_session_name_linux.cc	2013-08-16 23:56:00.000000000 +0300
+--- ./sync/util/get_session_name_linux.cc.orig	2014-02-20 21:28:27.000000000 +0100
++++ ./sync/util/get_session_name_linux.cc	2014-02-24 17:23:45.000000000 +0100
 @@ -13,8 +13,9 @@
  namespace internal {
  

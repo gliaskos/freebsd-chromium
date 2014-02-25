@@ -1,6 +1,6 @@
---- chrome/browser/media/webrtc_log_uploader.cc.orig	2013-08-17 21:10:06.000000000 +0300
-+++ chrome/browser/media/webrtc_log_uploader.cc	2013-08-17 21:10:45.000000000 +0300
-@@ -102,6 +102,8 @@
+--- ./chrome/browser/media/webrtc_log_uploader.cc.orig	2014-02-20 21:27:36.000000000 +0100
++++ ./chrome/browser/media/webrtc_log_uploader.cc	2014-02-24 17:23:44.000000000 +0100
+@@ -155,6 +155,8 @@
    const char product[] = "Chrome_Android";
  #elif defined(OS_CHROMEOS)
    const char product[] = "Chrome_ChromeOS";

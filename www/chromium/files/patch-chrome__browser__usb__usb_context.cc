@@ -1,5 +1,5 @@
---- chrome/browser/usb/usb_context.cc.orig	2013-10-08 21:07:13.000000000 +0300
-+++ chrome/browser/usb/usb_context.cc	2013-10-08 22:04:50.000000000 +0300
+--- ./chrome/browser/usb/usb_context.cc.orig	2014-02-20 21:27:41.000000000 +0100
++++ ./chrome/browser/usb/usb_context.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -44,7 +44,9 @@
    running_ = false;
    // Spreading running_ to the UsbEventHandler thread.

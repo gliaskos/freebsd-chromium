@@ -1,5 +1,5 @@
---- content/browser/browser_main_loop.cc.orig	2014-02-20 21:28:24.000000000 +0100
-+++ content/browser/browser_main_loop.cc	2014-02-24 20:28:45.000000000 +0100
+--- ./content/browser/browser_main_loop.cc.orig	2014-02-20 21:28:24.000000000 +0100
++++ ./content/browser/browser_main_loop.cc	2014-02-24 20:28:45.000000000 +0100
 @@ -102,7 +102,7 @@
  #include "ui/gfx/gtk_util.h"
  #endif

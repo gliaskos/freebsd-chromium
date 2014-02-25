@@ -1,5 +1,5 @@
---- third_party/webrtc/system_wrappers/source/cpu_info.cc.orig	2013-08-09 22:21:35.000000000 +0300
-+++ third_party/webrtc/system_wrappers/source/cpu_info.cc	2013-08-16 23:27:36.000000000 +0300
+--- ./third_party/webrtc/system_wrappers/source/cpu_info.cc.orig	2014-02-20 21:29:47.000000000 +0100
++++ ./third_party/webrtc/system_wrappers/source/cpu_info.cc	2014-02-24 17:23:45.000000000 +0100
 @@ -12,7 +12,10 @@
  
  #if defined(_WIN32)

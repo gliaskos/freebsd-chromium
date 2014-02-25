@@ -1,6 +1,6 @@
---- remoting/remoting.gyp.orig	2013-08-09 19:06:51.000000000 +0000
-+++ remoting/remoting.gyp	2013-08-12 21:21:56.000000000 +0000
-@@ -53,7 +53,7 @@
+--- ./remoting/remoting.gyp.orig	2014-02-20 21:28:03.000000000 +0100
++++ ./remoting/remoting.gyp	2014-02-24 17:23:45.000000000 +0100
+@@ -50,7 +50,7 @@
  
      'conditions': [
        # Remoting host is supported only on Windows, OSX and Linux (with X11).
@@ -9,7 +9,7 @@
          'enable_remoting_host': 1,
        }, {
          'enable_remoting_host': 0,
-@@ -484,7 +484,7 @@
+@@ -468,7 +468,7 @@
              'host/win/wts_terminal_observer.h',
            ],
            'conditions': [

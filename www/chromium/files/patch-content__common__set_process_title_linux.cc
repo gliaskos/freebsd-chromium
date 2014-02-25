@@ -1,5 +1,5 @@
---- content/common/set_process_title_linux.cc.orig	2011-03-20 22:02:04.226737055 +0200
-+++ content/common/set_process_title_linux.cc	2011-03-20 22:02:04.407737434 +0200
+--- ./content/common/set_process_title_linux.cc.orig	2014-02-20 21:28:24.000000000 +0100
++++ ./content/common/set_process_title_linux.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -48,6 +48,8 @@
  extern char** environ;
  

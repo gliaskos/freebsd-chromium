@@ -1,5 +1,5 @@
---- chrome/browser/media_galleries/media_file_system_registry.cc.orig	2014-02-03 15:15:11.000000000 -0500
-+++ chrome/browser/media_galleries/media_file_system_registry.cc	2014-02-24 20:57:03.060309366 -0500
+--- ./chrome/browser/media_galleries/media_file_system_registry.cc.orig	2014-02-20 21:27:41.000000000 +0100
++++ ./chrome/browser/media_galleries/media_file_system_registry.cc	2014-02-25 19:45:44.000000000 +0100
 @@ -591,7 +591,10 @@
  // Constructor in 'private' section because depends on private class definition.
  MediaFileSystemRegistry::MediaFileSystemRegistry()

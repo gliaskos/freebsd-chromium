@@ -1,6 +1,6 @@
---- chrome/browser/browser_process_impl.cc.orig	2013-09-25 23:32:28.000000000 +0300
-+++ chrome/browser/browser_process_impl.cc	2013-09-25 23:34:24.000000000 +0300
-@@ -244,7 +244,7 @@
+--- ./chrome/browser/browser_process_impl.cc.orig	2014-02-20 21:27:48.000000000 +0100
++++ ./chrome/browser/browser_process_impl.cc	2014-02-24 17:23:44.000000000 +0100
+@@ -258,7 +258,7 @@
  
    ExtensionRendererState::GetInstance()->Shutdown();
  
@@ -9,7 +9,7 @@
    media_file_system_registry_.reset();
    // Delete |storage_monitor_| now. Otherwise the FILE thread would be gone
    // when we try to release it in the dtor and Valgrind would report a
-@@ -618,7 +618,7 @@
+@@ -642,7 +642,7 @@
  }
  
  StorageMonitor* BrowserProcessImpl::storage_monitor() {
@@ -18,7 +18,7 @@
    return NULL;
  #else
    return storage_monitor_.get();
-@@ -627,7 +627,7 @@
+@@ -651,7 +651,7 @@
  
  void BrowserProcessImpl::set_storage_monitor_for_test(
      scoped_ptr<StorageMonitor> monitor) {
@@ -27,7 +27,7 @@
    storage_monitor_ = monitor.Pass();
  #endif
  }
-@@ -923,7 +923,7 @@
+@@ -962,7 +962,7 @@
    }
  #endif
  

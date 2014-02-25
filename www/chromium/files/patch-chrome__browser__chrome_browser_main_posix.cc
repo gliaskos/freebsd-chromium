@@ -1,6 +1,6 @@
---- chrome/browser/chrome_browser_main_posix.cc.orig	2013-02-28 10:15:23.000000000 +0200
-+++ chrome/browser/chrome_browser_main_posix.cc	2013-03-06 20:31:24.000000000 +0200
-@@ -310,6 +310,11 @@
+--- ./chrome/browser/chrome_browser_main_posix.cc.orig	2014-02-20 21:27:48.000000000 +0100
++++ ./chrome/browser/chrome_browser_main_posix.cc	2014-02-24 17:23:44.000000000 +0100
+@@ -313,6 +313,11 @@
      g_pipe_pid = getpid();
      g_shutdown_pipe_read_fd = pipefd[0];
      g_shutdown_pipe_write_fd = pipefd[1];
@@ -12,7 +12,7 @@
  #if !defined(ADDRESS_SANITIZER) && !defined(KEEP_SHADOW_STACKS)
      const size_t kShutdownDetectorThreadStackSize = PTHREAD_STACK_MIN;
  #else
-@@ -318,6 +323,7 @@
+@@ -321,6 +326,7 @@
      // size to avoid hitting the guard page.
      const size_t kShutdownDetectorThreadStackSize = PTHREAD_STACK_MIN * 4;
  #endif

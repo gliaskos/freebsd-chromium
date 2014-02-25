@@ -1,5 +1,5 @@
---- content/renderer/renderer_webkitplatformsupport_impl.cc.orig	2013-04-30 10:20:40.000000000 +0300
-+++ content/renderer/renderer_webkitplatformsupport_impl.cc	2013-05-07 21:11:09.000000000 +0300
+--- ./content/renderer/renderer_webkitplatformsupport_impl.cc.orig	2014-02-20 21:28:18.000000000 +0100
++++ ./content/renderer/renderer_webkitplatformsupport_impl.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -87,7 +87,7 @@
  #include "third_party/WebKit/public/platform/mac/WebSandboxSupport.h"
  #endif

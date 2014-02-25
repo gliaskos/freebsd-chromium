@@ -1,6 +1,6 @@
---- content/content_tests.gypi.orig	2013-01-08 23:49:55.890245836 +0200
-+++ content/content_tests.gypi	2013-01-08 23:52:52.374246102 +0200
-@@ -585,6 +585,15 @@
+--- ./content/content_tests.gypi.orig	2014-02-20 21:28:25.000000000 +0100
++++ ./content/content_tests.gypi	2014-02-24 17:23:44.000000000 +0100
+@@ -790,6 +790,15 @@
              'browser/geolocation/wifi_data_provider_linux_unittest.cc',
            ],
          }],

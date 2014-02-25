@@ -1,7 +1,7 @@
---- chrome/common/chrome_paths.cc.orig	2013-02-28 10:15:52.000000000 +0200
-+++ chrome/common/chrome_paths.cc	2013-03-06 21:25:36.000000000 +0200
-@@ -441,10 +441,12 @@
-       if (!file_util::PathExists(cur))  // We don't want to create this
+--- ./chrome/common/chrome_paths.cc.orig	2014-02-20 21:27:53.000000000 +0100
++++ ./chrome/common/chrome_paths.cc	2014-02-24 17:23:45.000000000 +0100
+@@ -436,10 +436,12 @@
+       if (!base::PathExists(cur))  // We don't want to create this
          return false;
        break;
 -#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_OPENBSD)

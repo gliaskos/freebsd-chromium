@@ -1,5 +1,5 @@
---- content/browser/renderer_host/pepper/pepper_file_io_host.cc.orig	2014-02-20 21:28:22.000000000 +0100
-+++ content/browser/renderer_host/pepper/pepper_file_io_host.cc	2014-02-24 22:13:44.000000000 +0100
+--- ./content/browser/renderer_host/pepper/pepper_file_io_host.cc.orig	2014-02-20 21:28:22.000000000 +0100
++++ ./content/browser/renderer_host/pepper/pepper_file_io_host.cc	2014-02-24 22:13:44.000000000 +0100
 @@ -308,10 +308,12 @@
      int64_t actual_offset =
          (open_flags_ & PP_FILEOPENFLAG_APPEND) ? max_written_offset_ : offset;

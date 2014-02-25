@@ -1,6 +1,6 @@
---- chrome/browser/ui/gtk/accelerators_gtk.h.orig	2013-09-28 19:10:31.000000000 +0200
-+++ chrome/browser/ui/gtk/accelerators_gtk.h	2013-10-11 13:42:01.000000000 +0200
-@@ -8,6 +8,8 @@
+--- ./chrome/browser/ui/gtk/accelerators_gtk.h.orig	2014-02-20 21:27:31.000000000 +0100
++++ ./chrome/browser/ui/gtk/accelerators_gtk.h	2014-02-24 17:23:44.000000000 +0100
+@@ -10,6 +10,8 @@
  #include "base/containers/hash_tables.h"
  #include "ui/base/accelerators/accelerator.h"
  

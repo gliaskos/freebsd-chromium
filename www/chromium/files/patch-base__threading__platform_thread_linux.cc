@@ -1,5 +1,5 @@
---- base/threading/platform_thread_linux.cc.orig	2013-08-17 20:52:20.000000000 +0300
-+++ base/threading/platform_thread_linux.cc	2013-08-17 20:56:34.000000000 +0300
+--- ./base/threading/platform_thread_linux.cc.orig	2014-02-20 21:28:46.000000000 +0100
++++ ./base/threading/platform_thread_linux.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -16,7 +16,9 @@
  #include "base/tracked_objects.h"
  
@@ -10,7 +10,7 @@
  #include <sys/resource.h>
  #include <sys/syscall.h>
  #include <sys/time.h>
-@@ -52,7 +54,7 @@
+@@ -48,7 +50,7 @@
    ThreadIdNameManager::GetInstance()->SetName(CurrentId(), name);
    tracked_objects::ThreadData::InitializeThreadContext(name);
  
