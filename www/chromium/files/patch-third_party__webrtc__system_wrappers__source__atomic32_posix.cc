@@ -1,5 +1,5 @@
---- third_party/webrtc/system_wrappers/source/atomic32_posix.cc.orig	2013-07-16 17:22:11.000000000 +0300
-+++ third_party/webrtc/system_wrappers/source/atomic32_posix.cc	2013-07-16 17:23:12.000000000 +0300
+--- ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc.orig	2014-02-20 21:29:47.000000000 +0100
++++ ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc	2014-02-24 17:23:45.000000000 +0100
 @@ -12,7 +12,11 @@
  
  #include <assert.h>
@@ -10,5 +10,5 @@
  #include <malloc.h>
 +#endif
  
- #include "common_types.h"
+ #include "webrtc/common_types.h"
  

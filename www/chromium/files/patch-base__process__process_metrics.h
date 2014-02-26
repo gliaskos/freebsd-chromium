@@ -1,8 +1,8 @@
---- base/process/process_metrics.h.orig	2013-08-16 22:01:16.000000000 +0300
-+++ base/process/process_metrics.h	2013-08-16 22:04:12.000000000 +0300
-@@ -15,6 +15,13 @@
- #include "base/process.h"
- #include "base/time.h"
+--- ./base/process/process_metrics.h.orig	2014-02-20 21:28:45.000000000 +0100
++++ ./base/process/process_metrics.h	2014-02-24 17:23:44.000000000 +0100
+@@ -17,6 +17,13 @@
+ #include "base/time/time.h"
+ #include "base/values.h"
  
 +#if defined(OS_BSD)
 +#include <kvm.h>

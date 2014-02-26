@@ -1,5 +1,5 @@
---- chrome/browser/chrome_content_browser_client.cc.orig	2014-01-07 21:01:57.000000000 +0100
-+++ chrome/browser/chrome_content_browser_client.cc	2014-01-11 01:50:13.000000000 +0100
+--- ./chrome/browser/chrome_content_browser_client.cc.orig	2014-02-20 21:27:48.000000000 +0100
++++ ./chrome/browser/chrome_content_browser_client.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -486,7 +486,7 @@
    }
  }
@@ -9,14 +9,14 @@
  breakpad::CrashHandlerHostLinux* CreateCrashHandlerHost(
      const std::string& process_type) {
    base::FilePath dumps_path;
-@@ -543,7 +543,7 @@
+@@ -542,7 +542,7 @@
  
    return -1;
  }
 -#endif  // defined(OS_POSIX) && !defined(OS_MACOSX)
 +#endif  // defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_BSD)
  #endif  // !defined(OS_ANDROID)
-
+ 
  #if !defined(OS_CHROMEOS)
 @@ -1389,7 +1389,7 @@
  

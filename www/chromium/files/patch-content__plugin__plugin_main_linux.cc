@@ -1,5 +1,5 @@
---- content/plugin/plugin_main_linux.cc.orig	2012-11-28 04:01:26.000000000 +0200
-+++ content/plugin/plugin_main_linux.cc	2012-12-04 22:14:32.000000000 +0200
+--- ./content/plugin/plugin_main_linux.cc.orig	2014-02-20 21:28:18.000000000 +0100
++++ ./content/plugin/plugin_main_linux.cc	2014-02-24 17:23:44.000000000 +0100
 @@ -5,13 +5,13 @@
  #include <signal.h>
  #include <string.h>
@@ -14,5 +14,5 @@
 -#if defined(ARCH_CPU_64_BITS)
 +#if defined(ARCH_CPU_64_BITS) && !defined(OS_BSD)
  
- namespace {
+ namespace content {
  

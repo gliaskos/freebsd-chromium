@@ -1,5 +1,5 @@
---- net/base/net_util.h.orig	2013-09-01 00:45:45.000000000 +0300
-+++ net/base/net_util.h	2013-09-01 00:47:35.000000000 +0300
+--- ./net/base/net_util.h.orig	2014-02-20 21:28:31.000000000 +0100
++++ ./net/base/net_util.h	2014-02-24 17:23:45.000000000 +0100
 @@ -13,6 +13,9 @@
  #elif defined(OS_POSIX)
  #include <sys/types.h>
@@ -9,4 +9,4 @@
 +#endif
  #endif
  
- #include <list>
+ #include <string>

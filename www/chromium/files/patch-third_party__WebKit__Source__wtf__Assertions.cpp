@@ -1,10 +1,10 @@
---- third_party/WebKit/Source/wtf/Assertions.cpp.orig	2013-09-28 19:19:20.000000000 +0200
-+++ third_party/WebKit/Source/wtf/Assertions.cpp	2013-10-10 11:45:33.000000000 +0200
-@@ -37,6 +37,7 @@
- #include "Compiler.h"
- #include "OwnArrayPtr.h"
+--- ./third_party/WebKit/Source/wtf/Assertions.cpp.orig	2014-02-20 21:32:28.000000000 +0100
++++ ./third_party/WebKit/Source/wtf/Assertions.cpp	2014-02-24 17:23:45.000000000 +0100
+@@ -38,6 +38,7 @@
+ #include "OwnPtr.h"
+ #include "PassOwnPtr.h"
  
 +#include <stdlib.h>
  #include <stdio.h>
  #include <stdarg.h>
- #include <string.h>
+ #include <stdlib.h>

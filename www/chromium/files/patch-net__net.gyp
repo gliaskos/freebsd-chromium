@@ -1,6 +1,6 @@
---- net/net.gyp.orig	2013-09-20 05:36:19.000000000 +0300
-+++ net/net.gyp	2013-09-23 20:45:35.000000000 +0300
-@@ -1283,9 +1283,10 @@
+--- ./net/net.gyp.orig	2014-02-20 21:28:32.000000000 +0100
++++ ./net/net.gyp	2014-02-24 17:23:45.000000000 +0100
+@@ -1380,9 +1380,10 @@
                }],
                ['os_bsd==1', {
                  'sources!': [
@@ -12,18 +12,18 @@
                  ],
                },{
                  'dependencies': [
-@@ -1865,7 +1866,7 @@
-         'websockets/websocket_throttle_unittest.cc',
+@@ -1997,7 +1998,7 @@
+         'websockets/websocket_throttle_test.cc',
        ],
        'conditions': [
 -        ['os_posix == 1 and OS != "mac" and OS != "ios" and OS != "android"', {
 +        ['os_posix == 1 and OS != "mac" and OS != "ios" and OS != "android" and os_bsd != 1', {
            'dependencies': [
-             'quic_library',
-             'flip_in_mem_edsm_server_library',
-@@ -2140,6 +2141,11 @@
-             'cert/x509_cert_types_unittest.cc',
-           ],
+             'balsa',
+             'epoll_server',
+@@ -2264,6 +2265,11 @@
+             '../testing/android/native_test.gyp:native_test_native_code',
+           ]
          }],
 +        [ 'os_bsd == 1', {
 +          'sources!': [

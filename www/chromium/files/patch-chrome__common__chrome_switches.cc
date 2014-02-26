@@ -1,8 +1,8 @@
---- chrome/common/chrome_switches.cc.orig	2013-11-08 07:41:00.000000000 +0100
-+++ chrome/common/chrome_switches.cc	2013-11-16 01:18:01.000000000 +0100
-@@ -1563,13 +1563,13 @@
+--- ./chrome/common/chrome_switches.cc.orig	2014-02-20 21:27:53.000000000 +0100
++++ ./chrome/common/chrome_switches.cc	2014-02-24 17:23:44.000000000 +0100
+@@ -1586,13 +1586,13 @@
+ const char kPasswordStore[]                 = "password-store";
  #endif
- #endif  // OS_POSIX
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if (defined(OS_LINUX) || defined(OS_FREEBSD)) && !defined(OS_CHROMEOS)

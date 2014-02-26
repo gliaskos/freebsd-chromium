@@ -1,11 +1,11 @@
---- chrome/browser/chrome_browser_main.cc.orig	2012-05-19 23:45:48.797106216 +0300
-+++ chrome/browser/chrome_browser_main.cc	2012-05-19 23:45:56.878106198 +0300
-@@ -1298,7 +1298,7 @@
-   // just changed it to include experiments.
-   child_process_logging::SetCommandLine(CommandLine::ForCurrentProcess());
+--- ./chrome/browser/chrome_browser_main.cc.orig	2014-02-20 21:27:48.000000000 +0100
++++ ./chrome/browser/chrome_browser_main.cc	2014-02-24 17:23:44.000000000 +0100
+@@ -980,7 +980,7 @@
+   }
+ #endif
  
 -#if defined(OS_LINUX) || defined(OS_OPENBSD) || defined(OS_MACOSX)
 +#if defined(OS_LINUX) || defined(OS_BSD) || defined(OS_MACOSX)
    // Set the product channel for crash reports.
-   child_process_logging::SetChannel(
+   base::debug::SetCrashKeyValue(crash_keys::kChannel,
        chrome::VersionInfo::GetVersionStringModifier());

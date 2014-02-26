@@ -1,7 +1,7 @@
---- chrome/common/chrome_switches.h.orig	2013-11-08 07:41:00.000000000 +0100
-+++ chrome/common/chrome_switches.h	2013-11-16 01:20:25.000000000 +0100
-@@ -435,7 +435,7 @@
- #endif
+--- ./chrome/common/chrome_switches.h.orig	2014-02-20 21:27:53.000000000 +0100
++++ ./chrome/common/chrome_switches.h	2014-02-24 17:23:44.000000000 +0100
+@@ -441,7 +441,7 @@
+ extern const char kPasswordStore[];
  #endif
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)

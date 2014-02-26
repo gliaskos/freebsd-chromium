@@ -1,6 +1,6 @@
---- third_party/libjpeg_turbo/libjpeg.gyp.orig	2012-09-25 16:03:33.000000000 +0300
-+++ third_party/libjpeg_turbo/libjpeg.gyp	2012-09-29 18:07:42.000000000 +0300
-@@ -231,7 +231,7 @@
+--- ./third_party/libjpeg_turbo/libjpeg.gyp.orig	2014-02-20 21:28:56.000000000 +0100
++++ ./third_party/libjpeg_turbo/libjpeg.gyp	2014-02-24 17:23:45.000000000 +0100
+@@ -232,7 +232,7 @@
              ],
            },
          }],
@@ -9,7 +9,7 @@
            'conditions': [
              [ 'use_system_yasm==0', {
                'dependencies': [
-@@ -262,6 +262,9 @@
+@@ -263,6 +263,9 @@
                  ],
                }],
              ],
@@ -18,4 +18,4 @@
 +            ],
            },
          }],
-       ],
+         [ 'OS=="android"', {
