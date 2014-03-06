@@ -1,0 +1,11 @@
+--- ./chrome/renderer/printing/print_web_view_helper.h.orig	2014-02-20 21:27:30.000000000 +0100
++++ ./chrome/renderer/printing/print_web_view_helper.h	2014-02-24 17:23:44.000000000 +0100
+@@ -233,7 +233,7 @@
+   void FinishFramePrinting();
+ 
+   // Prints the page listed in |params|.
+-#if defined(OS_LINUX) || defined(OS_ANDROID)
++#if defined(OS_POSIX) && !defined(OS_MACOSX)
+   void PrintPageInternal(const PrintMsg_PrintPage_Params& params,
+                          const gfx::Size& canvas_size,
+                          blink::WebFrame* frame,

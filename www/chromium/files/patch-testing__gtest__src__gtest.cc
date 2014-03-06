@@ -1,0 +1,22 @@
+--- ./testing/gtest/src/gtest.cc.orig	2014-02-20 21:28:52.000000000 +0100
++++ ./testing/gtest/src/gtest.cc	2014-02-24 17:23:45.000000000 +0100
+@@ -117,6 +117,10 @@
+ 
+ #endif  // GTEST_OS_LINUX
+ 
++#if GTEST_OS_FREEBSD
++# include <sys/socket.h>
++#endif
++
+ #if GTEST_HAS_EXCEPTIONS
+ # include <stdexcept>
+ #endif
+@@ -1592,7 +1596,7 @@
+ 
+ #if GTEST_OS_WINDOWS
+   return _wcsicmp(lhs, rhs) == 0;
+-#elif GTEST_OS_LINUX && !GTEST_OS_LINUX_ANDROID
++#elif GTEST_OS_LINUX && !GTEST_OS_LINUX_ANDROID && !GTEST_OS_FREEBSD
+   return wcscasecmp(lhs, rhs) == 0;
+ #else
+   // Android, Mac OS X and Cygwin don't define wcscasecmp.
