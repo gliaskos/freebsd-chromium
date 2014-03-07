@@ -1,5 +1,5 @@
---- ./third_party/WebKit/Source/core/core.gyp.orig	2014-02-20 21:32:35.000000000 +0100
-+++ ./third_party/WebKit/Source/core/core.gyp	2014-02-24 17:23:45.000000000 +0100
+--- ./third_party/WebKit/Source/core/core.gyp.orig	2014-03-04 03:21:42.000000000 +0100
++++ ./third_party/WebKit/Source/core/core.gyp	2014-03-07 14:10:35.000000000 +0100
 @@ -593,7 +593,7 @@
          ['exclude', 'platform/Theme\\.cpp$'],
        ],

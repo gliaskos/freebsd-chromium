@@ -1,5 +1,5 @@
---- ./chrome/browser/storage_monitor/storage_monitor.cc.orig	2014-02-20 21:27:36.000000000 +0100
-+++ ./chrome/browser/storage_monitor/storage_monitor.cc	2014-02-24 17:23:44.000000000 +0100
+--- ./chrome/browser/storage_monitor/storage_monitor.cc.orig	2014-03-04 03:17:01.000000000 +0100
++++ ./chrome/browser/storage_monitor/storage_monitor.cc	2014-03-07 14:10:32.000000000 +0100
 @@ -63,6 +63,7 @@
  
  void StorageMonitor::EnsureInitialized(base::Closure callback) {

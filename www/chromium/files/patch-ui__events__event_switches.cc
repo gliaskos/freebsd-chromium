@@ -1,5 +1,5 @@
---- ./ui/events/event_switches.cc.orig	2014-02-20 21:27:56.000000000 +0100
-+++ ./ui/events/event_switches.cc	2014-02-24 17:23:45.000000000 +0100
+--- ./ui/events/event_switches.cc.orig	2014-03-04 03:17:19.000000000 +0100
++++ ./ui/events/event_switches.cc	2014-03-07 14:10:36.000000000 +0100
 @@ -20,7 +20,7 @@
  //   disabled: touch events are disabled.
  const char kTouchEventsDisabled[] = "disabled";

@@ -1,5 +1,5 @@
---- ./remoting/remoting.gyp.orig	2014-02-20 21:28:03.000000000 +0100
-+++ ./remoting/remoting.gyp	2014-02-24 17:23:45.000000000 +0100
+--- ./remoting/remoting.gyp.orig	2014-03-04 03:17:28.000000000 +0100
++++ ./remoting/remoting.gyp	2014-03-07 14:10:34.000000000 +0100
 @@ -50,7 +50,7 @@
  
      'conditions': [

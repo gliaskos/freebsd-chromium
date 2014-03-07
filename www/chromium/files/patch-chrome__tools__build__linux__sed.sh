@@ -1,5 +1,5 @@
---- ./chrome/tools/build/linux/sed.sh.orig	2014-02-20 21:27:53.000000000 +0100
-+++ ./chrome/tools/build/linux/sed.sh	2014-02-24 17:23:44.000000000 +0100
+--- ./chrome/tools/build/linux/sed.sh.orig	2014-03-04 03:17:18.000000000 +0100
++++ ./chrome/tools/build/linux/sed.sh	2014-03-07 14:10:33.000000000 +0100
 @@ -1,4 +1,4 @@
 -#!/bin/sh
 +#!/usr/bin/env bash

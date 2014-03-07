@@ -1,5 +1,5 @@
---- ./base/debug/stack_trace_posix.cc.orig	2014-02-20 21:28:47.000000000 +0100
-+++ ./base/debug/stack_trace_posix.cc	2014-02-24 17:23:44.000000000 +0100
+--- ./base/debug/stack_trace_posix.cc.orig	2014-03-04 03:16:26.000000000 +0100
++++ ./base/debug/stack_trace_posix.cc	2014-03-07 14:10:31.000000000 +0100
 @@ -14,6 +14,9 @@
  #include <sys/stat.h>
  #include <sys/types.h>

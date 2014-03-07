@@ -1,5 +1,5 @@
---- ./content/renderer/render_process_impl.cc.orig	2014-02-20 21:28:18.000000000 +0100
-+++ ./content/renderer/render_process_impl.cc	2014-02-24 17:23:44.000000000 +0100
+--- ./content/renderer/render_process_impl.cc.orig	2014-03-04 03:17:42.000000000 +0100
++++ ./content/renderer/render_process_impl.cc	2014-03-07 14:10:33.000000000 +0100
 @@ -101,7 +101,7 @@
  
  bool RenderProcessImpl::InProcessPlugins() {

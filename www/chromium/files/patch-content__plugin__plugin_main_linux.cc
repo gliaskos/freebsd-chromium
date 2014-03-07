@@ -1,5 +1,5 @@
---- ./content/plugin/plugin_main_linux.cc.orig	2014-02-20 21:28:18.000000000 +0100
-+++ ./content/plugin/plugin_main_linux.cc	2014-02-24 17:23:44.000000000 +0100
+--- ./content/plugin/plugin_main_linux.cc.orig	2014-03-04 03:17:41.000000000 +0100
++++ ./content/plugin/plugin_main_linux.cc	2014-03-07 14:10:33.000000000 +0100
 @@ -5,13 +5,13 @@
  #include <signal.h>
  #include <string.h>
