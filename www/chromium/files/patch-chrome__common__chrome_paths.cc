@@ -1,6 +1,6 @@
---- ./chrome/common/chrome_paths.cc.orig	2014-03-04 03:16:39.000000000 +0100
-+++ ./chrome/common/chrome_paths.cc	2014-03-07 14:10:36.000000000 +0100
-@@ -436,10 +436,12 @@
+--- ./chrome/common/chrome_paths.cc.orig	2014-03-05 22:24:58.000000000 +0100
++++ ./chrome/common/chrome_paths.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -440,10 +440,12 @@
        if (!base::PathExists(cur))  // We don't want to create this
          return false;
        break;

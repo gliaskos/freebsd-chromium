@@ -1,6 +1,6 @@
---- ./base/base.gypi.orig	2014-03-04 03:16:26.000000000 +0100
-+++ ./base/base.gypi	2014-03-07 14:10:36.000000000 +0100
-@@ -917,11 +917,15 @@
+--- ./base/base.gypi.orig	2014-03-05 22:24:31.000000000 +0100
++++ ./base/base.gypi	2014-03-07 23:57:25.000000000 +0100
+@@ -918,11 +918,15 @@
                'process/memory_stubs.cc',
              ],
              'sources/': [
@@ -15,4 +15,4 @@
 +              ['exclude', '^process/process_metrics_linux\\.cc$'],
              ],
            }],
-           ['<(chromeos)!=1 or >(nacl_untrusted_build)==1', {
+           # Remove all unnecessary files for build_nexe.py to avoid exceeding

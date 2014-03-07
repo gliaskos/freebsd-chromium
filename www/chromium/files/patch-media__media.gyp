@@ -1,6 +1,6 @@
---- ./media/media.gyp.orig	2014-03-04 03:17:26.000000000 +0100
-+++ ./media/media.gyp	2014-03-07 14:10:34.000000000 +0100
-@@ -606,7 +606,7 @@
+--- ./media/media.gyp.orig	2014-03-05 22:25:35.000000000 +0100
++++ ./media/media.gyp	2014-03-07 23:57:26.000000000 +0100
+@@ -625,7 +625,7 @@
              'audio/openbsd/audio_manager_openbsd.h',
            ],
          }],
@@ -9,8 +9,8 @@
            'variables': {
              'conditions': [
                ['sysroot!=""', {
-@@ -871,7 +871,7 @@
-             'ENABLE_EAC3_PLAYBACK',
+@@ -885,7 +885,7 @@
+             'base/simd/convert_yuv_to_rgb_x86.cc',
            ],
          }],
 -        ['OS!="linux" and OS!="win"', {

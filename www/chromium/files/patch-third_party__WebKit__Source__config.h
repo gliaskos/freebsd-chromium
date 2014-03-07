@@ -1,7 +1,7 @@
---- ./third_party/WebKit/Source/config.h.orig	2014-03-04 03:21:46.000000000 +0100
-+++ ./third_party/WebKit/Source/config.h	2014-03-07 14:10:35.000000000 +0100
-@@ -167,6 +167,6 @@
- #define __STDC_FORMAT_MACROS 1
+--- ./third_party/WebKit/Source/config.h.orig	2014-03-05 22:29:42.000000000 +0100
++++ ./third_party/WebKit/Source/config.h	2014-03-07 23:57:27.000000000 +0100
+@@ -156,6 +156,6 @@
+ #define SKIP_STATIC_CONSTRUCTORS_ON_GCC 1
  #endif
  
 -#if OS(LINUX) || OS(ANDROID) || ENABLE(HARFBUZZ_ON_WINDOWS)

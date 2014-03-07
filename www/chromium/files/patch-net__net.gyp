@@ -1,6 +1,6 @@
---- ./net/net.gyp.orig	2014-03-04 03:16:07.000000000 +0100
-+++ ./net/net.gyp	2014-03-07 14:10:34.000000000 +0100
-@@ -1380,9 +1380,10 @@
+--- ./net/net.gyp.orig	2014-03-05 22:24:17.000000000 +0100
++++ ./net/net.gyp	2014-03-07 23:57:26.000000000 +0100
+@@ -1435,9 +1435,10 @@
                }],
                ['os_bsd==1', {
                  'sources!': [
@@ -12,7 +12,7 @@
                  ],
                },{
                  'dependencies': [
-@@ -1997,7 +1998,7 @@
+@@ -2081,7 +2082,7 @@
          'websockets/websocket_throttle_test.cc',
        ],
        'conditions': [
@@ -21,7 +21,7 @@
            'dependencies': [
              'balsa',
              'epoll_server',
-@@ -2264,6 +2265,11 @@
+@@ -2359,6 +2360,11 @@
              '../testing/android/native_test.gyp:native_test_native_code',
            ]
          }],
@@ -31,5 +31,5 @@
 +          ],
 +        }],
        ],
-     },
-     {
+       'target_conditions': [
+         # These source files are excluded by default platform rules, but they

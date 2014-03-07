@@ -1,6 +1,6 @@
---- ./net/base/mime_util_unittest.cc.orig	2014-03-04 03:16:06.000000000 +0100
-+++ ./net/base/mime_util_unittest.cc	2014-03-07 14:10:34.000000000 +0100
-@@ -247,7 +247,7 @@
+--- ./net/base/mime_util_unittest.cc.orig	2014-03-05 22:24:13.000000000 +0100
++++ ./net/base/mime_util_unittest.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -260,7 +260,7 @@
      { "MeSsAge/*",  1, "eml" },
      { "image/bmp",  1, "bmp" },
      { "video/*",    6, "mp4" },

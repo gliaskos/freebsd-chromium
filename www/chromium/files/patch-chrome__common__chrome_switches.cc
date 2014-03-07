@@ -1,6 +1,6 @@
---- ./chrome/common/chrome_switches.cc.orig	2014-03-04 03:16:39.000000000 +0100
-+++ ./chrome/common/chrome_switches.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -1586,13 +1586,13 @@
+--- ./chrome/common/chrome_switches.cc.orig	2014-03-05 22:24:58.000000000 +0100
++++ ./chrome/common/chrome_switches.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -1583,13 +1583,13 @@
  const char kPasswordStore[]                 = "password-store";
  #endif
  
@@ -15,4 +15,4 @@
 +#endif  // (defined(OS_LINUX) || defined(OS_FREEBSD)) && !defined(OS_CHROMEOS)
  
  #if defined(OS_MACOSX)
- // Forcibly disables Lion-style on newer OSes, to allow developers to test the
+ // Disables the creation and launch of app shims for platform apps.

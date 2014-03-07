@@ -1,6 +1,6 @@
---- ./chrome/test/base/in_process_browser_test.cc.orig	2014-03-04 03:17:00.000000000 +0100
-+++ ./chrome/test/base/in_process_browser_test.cc	2014-03-07 14:10:33.000000000 +0100
-@@ -73,6 +73,10 @@
+--- ./chrome/test/base/in_process_browser_test.cc.orig	2014-03-05 22:25:17.000000000 +0100
++++ ./chrome/test/base/in_process_browser_test.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -72,6 +72,10 @@
  
  namespace {
  

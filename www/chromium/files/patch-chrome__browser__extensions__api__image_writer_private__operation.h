@@ -1,6 +1,6 @@
---- ./chrome/browser/extensions/api/image_writer_private/operation.h.orig	2014-03-04 03:17:16.000000000 +0100
-+++ ./chrome/browser/extensions/api/image_writer_private/operation.h	2014-03-07 14:10:32.000000000 +0100
-@@ -114,7 +114,7 @@
+--- ./chrome/browser/extensions/api/image_writer_private/operation.h.orig	2014-03-05 22:24:41.000000000 +0100
++++ ./chrome/browser/extensions/api/image_writer_private/operation.h	2014-03-07 23:57:25.000000000 +0100
+@@ -117,7 +117,7 @@
    friend class base::RefCountedThreadSafe<Operation>;
  
    // TODO(haven): Clean up these switches. http://crbug.com/292956

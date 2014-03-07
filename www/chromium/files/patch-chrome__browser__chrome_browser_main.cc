@@ -1,6 +1,6 @@
---- ./chrome/browser/chrome_browser_main.cc.orig	2014-03-04 03:17:18.000000000 +0100
-+++ ./chrome/browser/chrome_browser_main.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -980,7 +980,7 @@
+--- ./chrome/browser/chrome_browser_main.cc.orig	2014-03-05 22:24:51.000000000 +0100
++++ ./chrome/browser/chrome_browser_main.cc	2014-03-07 23:57:25.000000000 +0100
+@@ -972,7 +972,7 @@
    }
  #endif
  

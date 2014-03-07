@@ -1,6 +1,6 @@
---- ./chrome/browser/usb/usb_context.cc.orig	2014-03-04 03:17:17.000000000 +0100
-+++ ./chrome/browser/usb/usb_context.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -44,7 +44,9 @@
+--- ./chrome/browser/usb/usb_context.cc.orig	2014-03-05 22:24:51.000000000 +0100
++++ ./chrome/browser/usb/usb_context.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -43,7 +43,9 @@
    running_ = false;
    // Spreading running_ to the UsbEventHandler thread.
    base::subtle::MemoryBarrier();

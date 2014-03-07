@@ -1,6 +1,6 @@
---- ./chrome/chrome_browser.gypi.orig	2014-03-04 03:17:18.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2014-03-07 14:10:32.000000000 +0100
-@@ -2891,7 +2891,7 @@
+--- ./chrome/chrome_browser.gypi.orig	2014-03-05 22:25:27.000000000 +0100
++++ ./chrome/chrome_browser.gypi	2014-03-07 23:57:26.000000000 +0100
+@@ -2947,7 +2947,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
          }],
@@ -9,17 +9,17 @@
            'dependencies': [
              '../build/linux/system.gyp:libspeechd',
            ],
-@@ -3014,7 +3014,7 @@
-             ],
-           },
+@@ -3075,7 +3075,7 @@
+             '../build/linux/system.gyp:xscrnsaver',
+           ],
          }],
 -        ['os_posix == 1 and OS != "mac" and OS != "ios"', {
 +        ['os_posix == 1 and OS != "mac" and OS != "ios" and os_bsd != 1', {
            'sources': [
              'app/chrome_breakpad_client.cc',
              'app/chrome_breakpad_client.h',
-@@ -3272,6 +3272,25 @@
-             ['exclude', '^browser/usb/'],
+@@ -3343,6 +3343,25 @@
+             ['exclude', '^third_party/mozilla_security_manager/'],
            ],
          }],
 +        ['os_bsd==1', {
@@ -43,4 +43,4 @@
 +        }],
          ['OS=="mac"', {
            'dependencies': [
-             '../third_party/mozilla/mozilla.gyp:mozilla',
+             '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',

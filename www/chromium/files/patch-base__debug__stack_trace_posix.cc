@@ -1,5 +1,5 @@
---- ./base/debug/stack_trace_posix.cc.orig	2014-03-04 03:16:26.000000000 +0100
-+++ ./base/debug/stack_trace_posix.cc	2014-03-07 14:10:31.000000000 +0100
+--- ./base/debug/stack_trace_posix.cc.orig	2014-03-05 22:24:31.000000000 +0100
++++ ./base/debug/stack_trace_posix.cc	2014-03-07 23:57:25.000000000 +0100
 @@ -14,6 +14,9 @@
  #include <sys/stat.h>
  #include <sys/types.h>
@@ -10,7 +10,7 @@
  
  #include <ostream>
  
-@@ -475,9 +478,15 @@
+@@ -469,9 +472,15 @@
    // NOTE: This code MUST be async-signal safe (it's used by in-process
    // stack dumping signal handler). NO malloc or stdio is allowed here.
  

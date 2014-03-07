@@ -1,6 +1,6 @@
---- ./content/renderer/media/webrtc_audio_capturer.cc.orig	2014-03-04 03:17:41.000000000 +0100
-+++ ./content/renderer/media/webrtc_audio_capturer.cc	2014-03-07 14:10:33.000000000 +0100
-@@ -27,10 +27,10 @@
+--- ./content/renderer/media/webrtc_audio_capturer.cc.orig	2014-03-05 22:24:02.000000000 +0100
++++ ./content/renderer/media/webrtc_audio_capturer.cc	2014-03-07 23:57:26.000000000 +0100
+@@ -29,10 +29,10 @@
  // The listed rates below adds restrictions and WebRtcAudioDeviceImpl::Init()
  // will fail if the user selects any rate outside these ranges.
  const int kValidInputRates[] = {96000, 48000, 44100, 32000, 16000, 8000};
