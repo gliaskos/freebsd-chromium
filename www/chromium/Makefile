@@ -180,11 +180,7 @@ pre-everything::
 
 post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|" \
-		${WRKSRC}/base/base.gypi \
-		${WRKSRC}/build/common.gypi \
 		${WRKSRC}/crypto/crypto.gyp \
-		${WRKSRC}/third_party/libvpx/libvpx.gyp \
-		${WRKSRC}/third_party/WebKit/Source/testing/testing.gyp \
 		${WRKSRC}/v8/tools/gyp/v8.gyp \
 		${WRKSRC}/v8/build/toolchain.gypi
 	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
@@ -192,17 +188,6 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
-	@${REINPLACE_CMD} -e "s|is_linux|(is_linux or is_bsd)|" \
-		${WRKSRC}/chrome/browser/browser_resources.grd \
-		${WRKSRC}/chrome/app/theme/theme_resources.grd \
-		${WRKSRC}/chrome/browser/resources/task_manager/defines.js \
-		${WRKSRC}/tools/grit/grit/xtb_reader_unittest.py \
-		${WRKSRC}/ui/base/strings/app_locale_settings.grd \
-		${WRKSRC}/ui/base/strings/app_locale_settings_bn.xtb \
-		${WRKSRC}/ui/base/strings/app_locale_settings_ja.xtb \
-		${WRKSRC}/ui/base/strings/app_locale_settings_ko.xtb \
-		${WRKSRC}/ui/base/strings/app_locale_settings_ml.xtb \
-		${WRKSRC}/ui/base/strings/app_locale_settings_th.xtb
 
 do-configure:
 	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
