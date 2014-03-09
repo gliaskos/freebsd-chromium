@@ -19,7 +19,9 @@ files/patch-base__memory__shared_memory.h
 files/patch-third_party__libjingle__source__talk__base__stream.h
 files/patch-media__filters__file_data_source.h
 files/patch-content__public__common__child_process_sandbox_support_linux.h
-files/patch-third_party__ffmpeg__libavutil/cpu.c
+files/patch-third_party__ffmpeg__libavutil__cpu.c
 files/patch-content__browser__browser_shutdown_profile_dumper.cc
 files/patch-testing__perf__perf_test.cc
 files/patch-ui__gfx__codec__jpeg_codec.cc
+files/patch-v8__src__checks.cc
+files/patch-third_party__openssl__openssl__openssl.config
