@@ -6,6 +6,7 @@ files/patch-base__tracked_objects.cc
 files/patch-base__tracked_objects_unittest.cc
 files/patch-chrome__browser__metrics__thread_watcher.cc
 files/patch-chrome__browser__sync__glue__synced_session_tracker.cc
+files/patch-content__browser__frame_host__render_widget_host_view_guest.cc
 files/patch-media__audio__audio_output_proxy_unittest.cc
 files/patch-media__filters__decrypting_video_decoder_unittest.cc
 files/patch-net__url_request__view_cache_helper_unittest.cc
