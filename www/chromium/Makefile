@@ -205,7 +205,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/product_logo_48.png ${STAGEDIR}${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper \
 		${WRKSRC}/out/${BUILDTYPE}/xdg-settings ${STAGEDIR}${DATADIR}
-.for p in chrome chrome_100_percent content_resources resources
+.for p in chrome_100_percent content_resources resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak ${STAGEDIR}${DATADIR}
 .endfor
 .for f in chrome libffmpegsumo.so protoc
