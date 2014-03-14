@@ -1,15 +1,15 @@
---- ./content/renderer/renderer_webkitplatformsupport_impl.cc.orig	2014-03-05 22:24:03.000000000 +0100
-+++ ./content/renderer/renderer_webkitplatformsupport_impl.cc	2014-03-07 23:57:26.000000000 +0100
-@@ -86,7 +86,7 @@
- #include "third_party/WebKit/public/platform/mac/WebSandboxSupport.h"
- #endif
+--- ./content/renderer/renderer_webkitplatformsupport_impl.cc.orig	2014-03-12 20:23:07.000000000 +0100
++++ ./content/renderer/renderer_webkitplatformsupport_impl.cc	2014-03-14 09:23:25.000000000 +0100
+@@ -88,7 +88,7 @@
  
--#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_ANDROID)
-+#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_ANDROID) && !defined(OS_BSD)
+ #if defined(OS_POSIX)
+ #include "base/file_descriptor_posix.h"
+-#if !defined(OS_MACOSX) && !defined(OS_ANDROID)
++#if !defined(OS_MACOSX) && !defined(OS_ANDROID) && !defined(OS_BSD)
  #include <map>
  #include <string>
  
-@@ -162,7 +162,7 @@
+@@ -169,7 +169,7 @@
    scoped_refptr<ThreadSafeSender> thread_safe_sender_;
  };
  
@@ -18,7 +18,7 @@
  // WebKit doesn't use WebSandboxSupport on android so we don't need to
  // implement anything here.
  class RendererWebKitPlatformSupportImpl::SandboxSupport {
-@@ -254,7 +254,7 @@
+@@ -262,7 +262,7 @@
  }
  
  blink::WebSandboxSupport* RendererWebKitPlatformSupportImpl::sandboxSupport() {
@@ -27,7 +27,7 @@
    // WebKit doesn't use WebSandboxSupport on android.
    return NULL;
  #else
-@@ -539,7 +539,7 @@
+@@ -547,7 +547,7 @@
    return FontLoader::CGFontRefFromBuffer(font_data, font_data_size, out);
  }
  
