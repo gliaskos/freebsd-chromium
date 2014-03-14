@@ -1,5 +1,5 @@
---- ./chrome/chrome_browser.gypi.orig	2014-03-05 22:25:27.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2014-03-07 23:57:26.000000000 +0100
+--- ./chrome/chrome_browser.gypi.orig	2014-03-12 20:22:39.000000000 +0100
++++ ./chrome/chrome_browser.gypi	2014-03-14 09:23:25.000000000 +0100
 @@ -2947,7 +2947,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],

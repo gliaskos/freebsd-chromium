@@ -1,5 +1,5 @@
---- ./device/hid/hid.gyp.orig	2014-03-05 22:23:49.000000000 +0100
-+++ ./device/hid/hid.gyp	2014-03-09 11:25:38.000000000 +0100
+--- ./device/hid/hid.gyp.orig	2014-03-12 20:22:58.000000000 +0100
++++ ./device/hid/hid.gyp	2014-03-14 09:23:25.000000000 +0100
 @@ -23,8 +23,8 @@
        'sources': [
          'hid_connection.cc',

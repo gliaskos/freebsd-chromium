@@ -1,5 +1,5 @@
---- ./media/audio/audio_input_volume_unittest.cc.orig	2014-03-05 22:25:32.000000000 +0100
-+++ ./media/audio/audio_input_volume_unittest.cc	2014-03-07 23:57:26.000000000 +0100
+--- ./media/audio/audio_input_volume_unittest.cc.orig	2014-03-12 20:22:43.000000000 +0100
++++ ./media/audio/audio_input_volume_unittest.cc	2014-03-14 09:23:25.000000000 +0100
 @@ -74,7 +74,7 @@
          params, device_id);
      EXPECT_TRUE(NULL != ais);

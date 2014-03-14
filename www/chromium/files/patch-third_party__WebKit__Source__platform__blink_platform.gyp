@@ -1,5 +1,5 @@
---- ./third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-03-05 22:29:33.000000000 +0100
-+++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-03-07 23:57:27.000000000 +0100
+--- ./third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-03-12 20:26:59.000000000 +0100
++++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-03-14 09:23:25.000000000 +0100
 @@ -193,7 +193,7 @@
      # compiler optimizations, see crbug.com/237063
      'msvs_disabled_warnings': [ 4267, 4334, 4724 ],

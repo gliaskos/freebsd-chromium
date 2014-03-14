@@ -1,5 +1,5 @@
---- ./net/udp/udp_socket_unittest.cc.orig	2014-03-05 22:24:16.000000000 +0100
-+++ ./net/udp/udp_socket_unittest.cc	2014-03-07 23:57:26.000000000 +0100
+--- ./net/udp/udp_socket_unittest.cc.orig	2014-03-12 20:21:26.000000000 +0100
++++ ./net/udp/udp_socket_unittest.cc	2014-03-14 09:23:25.000000000 +0100
 @@ -202,7 +202,7 @@
        client_entries, 5, NetLog::TYPE_SOCKET_ALIVE));
  }

@@ -1,5 +1,5 @@
---- ./chrome/renderer/printing/print_web_view_helper.h.orig	2014-03-05 22:24:33.000000000 +0100
-+++ ./chrome/renderer/printing/print_web_view_helper.h	2014-03-07 23:57:26.000000000 +0100
+--- ./chrome/renderer/printing/print_web_view_helper.h.orig	2014-03-12 20:21:46.000000000 +0100
++++ ./chrome/renderer/printing/print_web_view_helper.h	2014-03-14 09:23:25.000000000 +0100
 @@ -214,7 +214,7 @@
    void FinishFramePrinting();
  

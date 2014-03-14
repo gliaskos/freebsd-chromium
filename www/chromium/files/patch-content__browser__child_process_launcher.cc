@@ -1,5 +1,5 @@
---- ./content/browser/child_process_launcher.cc.orig	2014-03-05 22:24:08.000000000 +0100
-+++ ./content/browser/child_process_launcher.cc	2014-03-07 23:57:26.000000000 +0100
+--- ./content/browser/child_process_launcher.cc.orig	2014-03-12 20:23:14.000000000 +0100
++++ ./content/browser/child_process_launcher.cc	2014-03-14 09:23:25.000000000 +0100
 @@ -58,7 +58,7 @@
          termination_status_(base::TERMINATION_STATUS_NORMAL_TERMINATION),
          exit_code_(RESULT_CODE_NORMAL_EXIT),

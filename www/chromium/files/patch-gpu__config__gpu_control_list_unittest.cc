@@ -1,5 +1,5 @@
---- ./gpu/config/gpu_control_list_unittest.cc.orig	2014-03-05 22:23:48.000000000 +0100
-+++ ./gpu/config/gpu_control_list_unittest.cc	2014-03-07 23:57:26.000000000 +0100
+--- ./gpu/config/gpu_control_list_unittest.cc.orig	2014-03-12 20:22:58.000000000 +0100
++++ ./gpu/config/gpu_control_list_unittest.cc	2014-03-14 09:23:25.000000000 +0100
 @@ -175,8 +175,7 @@
    features = control_list->MakeDecision(
        GpuControlList::kOsLinux, kOsVersion, gpu_info());

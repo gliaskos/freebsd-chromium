@@ -1,5 +1,5 @@
---- ./chrome/app/chrome_main_delegate.cc.orig	2014-03-05 22:25:27.000000000 +0100
-+++ ./chrome/app/chrome_main_delegate.cc	2014-03-07 23:57:25.000000000 +0100
+--- ./chrome/app/chrome_main_delegate.cc.orig	2014-03-12 20:22:39.000000000 +0100
++++ ./chrome/app/chrome_main_delegate.cc	2014-03-14 09:23:25.000000000 +0100
 @@ -95,7 +95,7 @@
  #include "ui/base/x/x11_util.h"
  #endif

@@ -1,5 +1,5 @@
---- ./chrome/common/pref_names.h.orig	2014-03-05 22:24:58.000000000 +0100
-+++ ./chrome/common/pref_names.h	2014-03-07 23:57:26.000000000 +0100
+--- ./chrome/common/pref_names.h.orig	2014-03-12 20:22:10.000000000 +0100
++++ ./chrome/common/pref_names.h	2014-03-14 09:23:25.000000000 +0100
 @@ -306,7 +306,7 @@
  extern const char kForceSafeSearch[];
  extern const char kDeleteTimePeriod[];
