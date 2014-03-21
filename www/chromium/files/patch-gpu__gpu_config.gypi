@@ -1,5 +1,5 @@
---- ./gpu/gpu_config.gypi.orig	2014-03-12 20:22:58.000000000 +0100
-+++ ./gpu/gpu_config.gypi	2014-03-14 09:23:25.000000000 +0100
+--- ./gpu/gpu_config.gypi.orig	2014-03-19 20:03:11.000000000 +0100
++++ ./gpu/gpu_config.gypi	2014-03-21 00:27:12.000000000 +0100
 @@ -63,7 +63,7 @@
          '../third_party/amd/amd_videocard_info_win.cc',
        ],

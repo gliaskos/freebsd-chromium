@@ -1,5 +1,5 @@
---- ./content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-03-14 09:23:25.000000000 +0100
-+++ ./content/browser/geolocation/wifi_data_provider_freebsd.cc	2014-03-14 09:23:25.000000000 +0100
+--- ./content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-03-21 00:27:12.000000000 +0100
++++ ./content/browser/geolocation/wifi_data_provider_freebsd.cc	2014-03-21 00:27:12.000000000 +0100
 @@ -0,0 +1,200 @@
 +// Copyright (c) 2010 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be

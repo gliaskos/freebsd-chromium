@@ -1,5 +1,5 @@
---- ./chrome/app/chrome_main_delegate.cc.orig	2014-03-12 20:22:39.000000000 +0100
-+++ ./chrome/app/chrome_main_delegate.cc	2014-03-14 09:23:25.000000000 +0100
+--- ./chrome/app/chrome_main_delegate.cc.orig	2014-03-19 20:02:33.000000000 +0100
++++ ./chrome/app/chrome_main_delegate.cc	2014-03-21 00:27:12.000000000 +0100
 @@ -95,7 +95,7 @@
  #include "ui/base/x/x11_util.h"
  #endif
@@ -27,7 +27,7 @@
        // The zygote process opens the resources for the renderers.
        process_type == switches::kZygoteProcess ||
  #endif
-@@ -443,7 +443,7 @@
+@@ -457,7 +457,7 @@
        std::string format_str =
            command_line.GetSwitchValueASCII(switches::kDiagnosticsFormat);
        if (format_str == "machine") {
@@ -36,7 +36,7 @@
        } else if (format_str == "log") {
          format = diagnostics::DiagnosticsWriter::LOG;
        } else {
-@@ -484,7 +484,7 @@
+@@ -498,7 +498,7 @@
        std::string format_str =
            command_line.GetSwitchValueASCII(switches::kDiagnosticsFormat);
        if (format_str == "machine") {
@@ -45,7 +45,7 @@
        } else if (format_str == "human") {
          format = diagnostics::DiagnosticsWriter::HUMAN;
        } else {
-@@ -615,7 +615,7 @@
+@@ -629,7 +629,7 @@
    std::string process_type =
        command_line.GetSwitchValueASCII(switches::kProcessType);
  
@@ -54,7 +54,7 @@
    breakpad::SetBreakpadClient(g_chrome_breakpad_client.Pointer());
  #endif
  
-@@ -732,7 +732,7 @@
+@@ -747,7 +747,7 @@
  #endif
    }
  
@@ -63,7 +63,7 @@
    // Zygote needs to call InitCrashReporter() in RunZygote().
    if (process_type != switches::kZygoteProcess) {
  #if defined(OS_ANDROID)
-@@ -744,7 +744,7 @@
+@@ -759,7 +759,7 @@
      breakpad::InitCrashReporter(process_type);
  #endif  // defined(OS_ANDROID)
    }
@@ -72,7 +72,7 @@
  
    // After all the platform Breakpads have been initialized, store the command
    // line for crash reporting.
-@@ -829,7 +829,7 @@
+@@ -844,7 +844,7 @@
    return process_type == switches::kNaClLoaderProcess ||
        process_type == switches::kRelauncherProcess;
  }

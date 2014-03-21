@@ -1,5 +1,5 @@
---- ./third_party/ffmpeg/libavutil/mem.c.orig	2014-03-12 20:23:33.000000000 +0100
-+++ ./third_party/ffmpeg/libavutil/mem.c	2014-03-14 09:23:25.000000000 +0100
+--- ./third_party/ffmpeg/libavutil/mem.c.orig	2014-03-19 20:03:37.000000000 +0100
++++ ./third_party/ffmpeg/libavutil/mem.c	2014-03-21 00:27:13.000000000 +0100
 @@ -32,7 +32,7 @@
  #include <stdint.h>
  #include <stdlib.h>

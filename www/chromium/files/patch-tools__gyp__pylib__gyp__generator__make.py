@@ -1,5 +1,5 @@
---- ./tools/gyp/pylib/gyp/generator/make.py.orig	2014-03-12 20:23:53.000000000 +0100
-+++ ./tools/gyp/pylib/gyp/generator/make.py	2014-03-14 09:23:25.000000000 +0100
+--- ./tools/gyp/pylib/gyp/generator/make.py.orig	2014-03-19 20:04:04.000000000 +0100
++++ ./tools/gyp/pylib/gyp/generator/make.py	2014-03-21 00:27:13.000000000 +0100
 @@ -87,7 +87,7 @@
    else:
      operating_system = flavor

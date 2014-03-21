@@ -1,5 +1,5 @@
---- ./components/storage_monitor.gypi.orig	2014-03-12 20:22:56.000000000 +0100
-+++ ./components/storage_monitor.gypi	2014-03-14 09:23:25.000000000 +0100
+--- ./components/storage_monitor.gypi.orig	2014-03-19 20:03:05.000000000 +0100
++++ ./components/storage_monitor.gypi	2014-03-21 00:27:12.000000000 +0100
 @@ -20,10 +20,10 @@
          'storage_monitor/image_capture_device_manager.mm',
          'storage_monitor/media_storage_util.cc',

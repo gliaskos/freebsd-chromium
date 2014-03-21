@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/gtk/first_run_dialog.cc.orig	2014-03-12 20:22:02.000000000 +0100
-+++ ./chrome/browser/ui/gtk/first_run_dialog.cc	2014-03-14 09:23:25.000000000 +0100
+--- ./chrome/browser/ui/gtk/first_run_dialog.cc.orig	2014-03-19 20:02:50.000000000 +0100
++++ ./chrome/browser/ui/gtk/first_run_dialog.cc	2014-03-21 00:27:12.000000000 +0100
 @@ -132,6 +132,7 @@
    if (dialog_)
      gtk_widget_hide_all(dialog_);

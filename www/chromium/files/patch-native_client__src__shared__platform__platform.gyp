@@ -1,5 +1,5 @@
---- ./native_client/src/shared/platform/platform.gyp.orig	2014-03-12 20:23:22.000000000 +0100
-+++ ./native_client/src/shared/platform/platform.gyp	2014-03-14 09:23:25.000000000 +0100
+--- ./native_client/src/shared/platform/platform.gyp.orig	2014-03-19 20:03:37.000000000 +0100
++++ ./native_client/src/shared/platform/platform.gyp	2014-03-21 00:27:13.000000000 +0100
 @@ -36,7 +36,7 @@
        'refcount_base.cc',
      ],
