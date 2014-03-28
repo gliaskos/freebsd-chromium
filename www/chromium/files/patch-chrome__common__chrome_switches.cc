@@ -1,6 +1,6 @@
---- ./chrome/common/chrome_switches.cc.orig	2014-03-19 20:02:24.000000000 +0100
-+++ ./chrome/common/chrome_switches.cc	2014-03-21 00:27:12.000000000 +0100
-@@ -1587,13 +1587,13 @@
+--- ./chrome/common/chrome_switches.cc.orig	2014-03-26 21:15:15.000000000 +0100
++++ ./chrome/common/chrome_switches.cc	2014-03-28 10:57:59.000000000 +0100
+@@ -1587,7 +1587,7 @@
  const char kPasswordStore[]                 = "password-store";
  #endif
  
@@ -9,8 +9,10 @@
  // Triggers migration of user data directory to another directory
  // specified as a parameter. The migration is done under singleton lock,
  // and sanity checks are made to avoid corrupting the profile.
- // The browser exits after migration is complete.
- const char kMigrateDataDirForSxS[]          = "migrate-data-dir-for-sxs";
+@@ -1598,7 +1598,7 @@
+ // Linux speech service. Because it's buggy, the user must explicitly
+ // enable it so that visiting a random webpage can't cause instability.
+ const char kEnableSpeechDispatcher[] = "enable-speech-dispatcher";
 -#endif  // defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#endif  // (defined(OS_LINUX) || defined(OS_FREEBSD)) && !defined(OS_CHROMEOS)
  
