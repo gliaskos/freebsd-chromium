@@ -1,5 +1,5 @@
---- ./third_party/WebKit/Source/wtf/ByteSwap.h.orig	2014-03-19 20:07:09.000000000 +0100
-+++ ./third_party/WebKit/Source/wtf/ByteSwap.h	2014-03-21 00:27:13.000000000 +0100
+--- ./third_party/WebKit/Source/wtf/ByteSwap.h.orig	2014-03-26 21:19:53.000000000 +0100
++++ ./third_party/WebKit/Source/wtf/ByteSwap.h	2014-03-28 10:57:59.000000000 +0100
 @@ -52,14 +52,20 @@
  
  #else

@@ -1,5 +1,5 @@
---- ./third_party/libjingle/source/talk/base/linux.h.orig	2014-03-19 20:03:39.000000000 +0100
-+++ ./third_party/libjingle/source/talk/base/linux.h	2014-03-21 00:27:13.000000000 +0100
+--- ./third_party/libjingle/source/talk/base/linux.h.orig	2014-03-26 21:16:46.000000000 +0100
++++ ./third_party/libjingle/source/talk/base/linux.h	2014-03-28 10:57:59.000000000 +0100
 @@ -28,7 +28,7 @@
  #ifndef TALK_BASE_LINUX_H_
  #define TALK_BASE_LINUX_H_

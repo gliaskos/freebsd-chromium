@@ -1,5 +1,5 @@
---- ./content/renderer/renderer_main_platform_delegate_linux.cc.orig	2014-03-19 20:01:20.000000000 +0100
-+++ ./content/renderer/renderer_main_platform_delegate_linux.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./content/renderer/renderer_main_platform_delegate_linux.cc.orig	2014-03-26 21:14:25.000000000 +0100
++++ ./content/renderer/renderer_main_platform_delegate_linux.cc	2014-03-28 10:57:59.000000000 +0100
 @@ -50,11 +50,14 @@
    // http://code.google.com/p/chromium/wiki/LinuxSUIDSandbox
    //

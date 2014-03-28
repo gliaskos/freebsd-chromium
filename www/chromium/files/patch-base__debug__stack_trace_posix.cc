@@ -1,5 +1,5 @@
---- ./base/debug/stack_trace_posix.cc.orig	2014-03-19 20:01:54.000000000 +0100
-+++ ./base/debug/stack_trace_posix.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./base/debug/stack_trace_posix.cc.orig	2014-03-26 21:14:51.000000000 +0100
++++ ./base/debug/stack_trace_posix.cc	2014-03-28 10:57:58.000000000 +0100
 @@ -471,7 +471,7 @@
  
    // Though the backtrace API man page does not list any possible negative

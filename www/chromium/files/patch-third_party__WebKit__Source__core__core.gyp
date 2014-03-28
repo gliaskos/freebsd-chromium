@@ -1,5 +1,5 @@
---- ./third_party/WebKit/Source/core/core.gyp.orig	2014-03-19 20:07:04.000000000 +0100
-+++ ./third_party/WebKit/Source/core/core.gyp	2014-03-21 00:27:13.000000000 +0100
+--- ./third_party/WebKit/Source/core/core.gyp.orig	2014-03-26 21:20:00.000000000 +0100
++++ ./third_party/WebKit/Source/core/core.gyp	2014-03-28 10:57:59.000000000 +0100
 @@ -627,7 +627,7 @@
            # Due to a bug in gcc 4.6 in android NDK, we get warnings about uninitialized variable.
            'cflags': ['-Wno-uninitialized'],

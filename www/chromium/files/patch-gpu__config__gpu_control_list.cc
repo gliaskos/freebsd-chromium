@@ -1,5 +1,5 @@
---- ./gpu/config/gpu_control_list.cc.orig	2014-03-19 20:03:10.000000000 +0100
-+++ ./gpu/config/gpu_control_list.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./gpu/config/gpu_control_list.cc.orig	2014-03-26 21:14:09.000000000 +0100
++++ ./gpu/config/gpu_control_list.cc	2014-03-28 10:57:59.000000000 +0100
 @@ -1344,10 +1344,10 @@
    return kOsWin;
  #elif defined(OS_ANDROID)

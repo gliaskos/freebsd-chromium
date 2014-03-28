@@ -1,5 +1,5 @@
---- ./cc/layers/layer_impl.cc.orig	2014-03-19 20:01:32.000000000 +0100
-+++ ./cc/layers/layer_impl.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./cc/layers/layer_impl.cc.orig	2014-03-26 21:14:34.000000000 +0100
++++ ./cc/layers/layer_impl.cc	2014-03-28 10:57:59.000000000 +0100
 @@ -1222,21 +1222,23 @@
    scaled_scroll_bounds.SetSize(scale_factor * scaled_scroll_bounds.width(),
                                 scale_factor * scaled_scroll_bounds.height());

@@ -1,5 +1,5 @@
---- ./base/file_util_posix.cc.orig	2014-03-19 20:01:55.000000000 +0100
-+++ ./base/file_util_posix.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./base/file_util_posix.cc.orig	2014-03-26 21:14:53.000000000 +0100
++++ ./base/file_util_posix.cc	2014-03-28 10:57:58.000000000 +0100
 @@ -672,7 +672,7 @@
  #endif  // defined(OS_ANDROID)
    results->is_directory = S_ISDIR(file_info.st_mode);

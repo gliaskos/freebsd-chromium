@@ -1,5 +1,5 @@
---- ./content/renderer/render_process_impl.cc.orig	2014-03-19 20:01:20.000000000 +0100
-+++ ./content/renderer/render_process_impl.cc	2014-03-21 00:27:12.000000000 +0100
+--- ./content/renderer/render_process_impl.cc.orig	2014-03-26 21:14:25.000000000 +0100
++++ ./content/renderer/render_process_impl.cc	2014-03-28 10:57:59.000000000 +0100
 @@ -155,7 +155,7 @@
    int width = rect.width();
    int height = rect.height();
