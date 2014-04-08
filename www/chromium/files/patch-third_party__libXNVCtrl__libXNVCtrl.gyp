@@ -1,5 +1,5 @@
---- ./third_party/libXNVCtrl/libXNVCtrl.gyp.orig	2014-03-04 03:16:12.000000000 +0100
-+++ ./third_party/libXNVCtrl/libXNVCtrl.gyp	2014-03-07 14:10:35.000000000 +0100
+--- ./third_party/libXNVCtrl/libXNVCtrl.gyp.orig	2014-04-02 21:03:50.000000000 +0200
++++ ./third_party/libXNVCtrl/libXNVCtrl.gyp	2014-04-04 01:39:19.000000000 +0200
 @@ -13,6 +13,9 @@
          'NVCtrlLib.h',
          'nv_control.h',

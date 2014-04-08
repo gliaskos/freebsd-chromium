@@ -1,5 +1,5 @@
---- ./chrome/browser/web_applications/web_app.cc.orig	2014-03-04 03:17:15.000000000 +0100
-+++ ./chrome/browser/web_applications/web_app.cc	2014-03-07 14:10:32.000000000 +0100
+--- ./chrome/browser/web_applications/web_app.cc.orig	2014-04-02 21:04:20.000000000 +0200
++++ ./chrome/browser/web_applications/web_app.cc	2014-04-04 01:39:18.000000000 +0200
 @@ -226,7 +226,7 @@
  }
  #endif

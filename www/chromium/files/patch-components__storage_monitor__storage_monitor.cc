@@ -1,18 +1,18 @@
---- ./chrome/browser/storage_monitor/storage_monitor.cc.orig	2014-03-04 03:17:01.000000000 +0100
-+++ ./chrome/browser/storage_monitor/storage_monitor.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -63,6 +63,7 @@
+--- ./components/storage_monitor/storage_monitor.cc.orig	2014-04-02 21:03:06.000000000 +0200
++++ ./components/storage_monitor/storage_monitor.cc	2014-04-04 01:39:18.000000000 +0200
+@@ -83,6 +83,7 @@
  
  void StorageMonitor::EnsureInitialized(base::Closure callback) {
    DCHECK(thread_checker_.CalledOnValidThread());
-+#if !defined(OS_BSD)
++//#if !defined(OS_BSD) //XXX(rene) why disabled?
    if (initialized_) {
      if (!callback.is_null())
        callback.Run();
-@@ -78,6 +79,7 @@
+@@ -98,6 +99,7 @@
  
    initializing_ = true;
    Init();
-+#endif
++//#endif
  }
  
  bool StorageMonitor::IsInitialized() const {

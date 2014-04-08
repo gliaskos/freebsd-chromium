@@ -1,5 +1,5 @@
---- ./chrome/browser/extensions/api/music_manager_private/device_id_linux.cc.orig	2014-03-04 03:17:16.000000000 +0100
-+++ ./chrome/browser/extensions/api/music_manager_private/device_id_linux.cc	2014-03-07 14:10:32.000000000 +0100
+--- ./chrome/browser/extensions/api/music_manager_private/device_id_linux.cc.orig	2014-04-02 21:04:36.000000000 +0200
++++ ./chrome/browser/extensions/api/music_manager_private/device_id_linux.cc	2014-04-04 01:39:18.000000000 +0200
 @@ -4,6 +4,10 @@
  
  #include "chrome/browser/extensions/api/music_manager_private/device_id.h"
@@ -11,7 +11,7 @@
  #include <sys/socket.h>  // Must be included before ifaddrs.h.
  #include <ifaddrs.h>
  #include <net/if.h>
-@@ -100,11 +104,33 @@
+@@ -102,11 +106,33 @@
                          const char* prefixes[],
                          size_t prefixes_count) {
      const int MAC_LENGTH = 6;
@@ -46,7 +46,7 @@
      int sd = socket(AF_INET, SOCK_DGRAM, 0);
      int result = ioctl(sd, SIOCGIFHWADDR, &ifinfo);
      close(sd);
-@@ -114,11 +140,17 @@
+@@ -116,11 +142,17 @@
  
      const char* mac_address =
          static_cast<const char*>(ifinfo.ifr_hwaddr.sa_data);

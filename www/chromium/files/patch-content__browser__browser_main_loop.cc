@@ -1,5 +1,5 @@
---- ./content/browser/browser_main_loop.cc.orig	2014-03-04 03:17:48.000000000 +0100
-+++ ./content/browser/browser_main_loop.cc	2014-03-07 14:10:33.000000000 +0100
+--- ./content/browser/browser_main_loop.cc.orig	2014-04-02 21:03:33.000000000 +0200
++++ ./content/browser/browser_main_loop.cc	2014-04-04 01:39:18.000000000 +0200
 @@ -102,7 +102,7 @@
  #include "ui/gfx/gtk_util.h"
  #endif
@@ -9,7 +9,7 @@
  #include <sys/stat.h>
  
  #include "content/browser/renderer_host/render_sandbox_host_linux.h"
-@@ -125,7 +125,7 @@
+@@ -129,7 +129,7 @@
  namespace content {
  namespace {
  
@@ -18,7 +18,7 @@
  void SetupSandbox(const CommandLine& parsed_command_line) {
    TRACE_EVENT0("startup", "SetupSandbox");
    // TODO(evanm): move this into SandboxWrapper; I'm just trying to move this
-@@ -346,7 +346,7 @@
+@@ -353,7 +353,7 @@
  void BrowserMainLoop::EarlyInitialization() {
    TRACE_EVENT0("startup", "BrowserMainLoop::EarlyInitialization");
  
@@ -27,7 +27,7 @@
    // No thread should be created before this call, as SetupSandbox()
    // will end-up using fork().
    SetupSandbox(parsed_command_line_);
-@@ -784,7 +784,7 @@
+@@ -777,7 +777,7 @@
    }
  #endif
  

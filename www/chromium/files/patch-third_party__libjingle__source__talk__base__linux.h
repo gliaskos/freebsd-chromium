@@ -1,5 +1,5 @@
---- ./third_party/libjingle/source/talk/base/linux.h.orig	2014-03-04 03:18:12.000000000 +0100
-+++ ./third_party/libjingle/source/talk/base/linux.h	2014-03-07 14:10:35.000000000 +0100
+--- ./third_party/libjingle/source/talk/base/linux.h.orig	2014-04-02 21:06:30.000000000 +0200
++++ ./third_party/libjingle/source/talk/base/linux.h	2014-04-04 01:39:19.000000000 +0200
 @@ -28,7 +28,7 @@
  #ifndef TALK_BASE_LINUX_H_
  #define TALK_BASE_LINUX_H_
@@ -9,7 +9,7 @@
  #include <string>
  #include <map>
  #include <vector>
-@@ -131,5 +131,5 @@
+@@ -136,5 +136,5 @@
  
  }  // namespace talk_base
  

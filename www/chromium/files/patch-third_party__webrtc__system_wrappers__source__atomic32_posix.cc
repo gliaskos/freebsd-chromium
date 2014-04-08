@@ -1,5 +1,5 @@
---- ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc.orig	2014-03-04 03:18:45.000000000 +0100
-+++ ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc	2014-03-07 14:10:36.000000000 +0100
+--- ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc.orig	2014-04-02 21:06:27.000000000 +0200
++++ ./third_party/webrtc/system_wrappers/source/atomic32_posix.cc	2014-04-04 01:39:19.000000000 +0200
 @@ -12,7 +12,11 @@
  
  #include <assert.h>

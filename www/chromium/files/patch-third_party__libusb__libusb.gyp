@@ -1,5 +1,5 @@
---- ./third_party/libusb/libusb.gyp.orig	2014-03-04 03:16:21.000000000 +0100
-+++ ./third_party/libusb/libusb.gyp	2014-03-07 14:10:35.000000000 +0100
+--- ./third_party/libusb/libusb.gyp.orig	2014-04-02 21:03:46.000000000 +0200
++++ ./third_party/libusb/libusb.gyp	2014-04-04 01:39:19.000000000 +0200
 @@ -93,6 +93,19 @@
            ],
            'msvs_disabled_warnings': [ 4267 ],

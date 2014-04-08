@@ -1,5 +1,5 @@
---- ./third_party/libjingle/source/talk/base/systeminfo.cc.orig	2014-03-04 03:18:12.000000000 +0100
-+++ ./third_party/libjingle/source/talk/base/systeminfo.cc	2014-03-07 14:10:35.000000000 +0100
+--- ./third_party/libjingle/source/talk/base/systeminfo.cc.orig	2014-04-02 21:06:30.000000000 +0200
++++ ./third_party/libjingle/source/talk/base/systeminfo.cc	2014-04-04 01:39:19.000000000 +0200
 @@ -36,7 +36,7 @@
  #elif defined(OSX)
  #include <ApplicationServices/ApplicationServices.h>

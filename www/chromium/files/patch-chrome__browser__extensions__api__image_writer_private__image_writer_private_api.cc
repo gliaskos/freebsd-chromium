@@ -1,6 +1,6 @@
---- ./chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc.orig	2014-03-04 03:17:16.000000000 +0100
-+++ ./chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -164,10 +164,12 @@
+--- ./chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc.orig	2014-04-02 21:04:35.000000000 +0200
++++ ./chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc	2014-04-04 01:39:18.000000000 +0200
+@@ -166,10 +166,12 @@
  }
  
  bool ImageWriterPrivateListRemovableStorageDevicesFunction::RunImpl() {

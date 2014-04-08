@@ -1,6 +1,6 @@
---- ./chrome/common/chrome_switches.cc.orig	2014-03-04 03:16:39.000000000 +0100
-+++ ./chrome/common/chrome_switches.cc	2014-03-07 14:10:32.000000000 +0100
-@@ -1586,13 +1586,13 @@
+--- ./chrome/common/chrome_switches.cc.orig	2014-04-02 21:04:09.000000000 +0200
++++ ./chrome/common/chrome_switches.cc	2014-04-04 01:39:18.000000000 +0200
+@@ -1587,7 +1587,7 @@
  const char kPasswordStore[]                 = "password-store";
  #endif
  
@@ -9,10 +9,12 @@
  // Triggers migration of user data directory to another directory
  // specified as a parameter. The migration is done under singleton lock,
  // and sanity checks are made to avoid corrupting the profile.
- // The browser exits after migration is complete.
- const char kMigrateDataDirForSxS[]          = "migrate-data-dir-for-sxs";
+@@ -1598,7 +1598,7 @@
+ // Linux speech service. Because it's buggy, the user must explicitly
+ // enable it so that visiting a random webpage can't cause instability.
+ const char kEnableSpeechDispatcher[] = "enable-speech-dispatcher";
 -#endif  // defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#endif  // (defined(OS_LINUX) || defined(OS_FREEBSD)) && !defined(OS_CHROMEOS)
  
  #if defined(OS_MACOSX)
- // Forcibly disables Lion-style on newer OSes, to allow developers to test the
+ // Disables the creation and launch of app shims for platform apps.
