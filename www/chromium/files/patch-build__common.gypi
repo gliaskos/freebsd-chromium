@@ -1,5 +1,5 @@
---- ./build/common.gypi.orig	2014-03-26 21:14:50.000000000 +0100
-+++ ./build/common.gypi	2014-03-28 10:57:59.000000000 +0100
+--- ./build/common.gypi.orig	2014-04-02 21:03:54.000000000 +0200
++++ ./build/common.gypi	2014-04-04 01:39:18.000000000 +0200
 @@ -565,7 +565,7 @@
          }],
  
@@ -20,7 +20,7 @@
      # The release channel that this build targets. This is used to restrict
      # channel-specific build options, like which installer packages to create.
      # The default is 'all', which does no channel-specific filtering.
-@@ -3699,6 +3703,13 @@
+@@ -3701,6 +3705,13 @@
          'ldflags': [
            '-Wl,--no-keep-memory',
          ],

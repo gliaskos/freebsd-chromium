@@ -1,6 +1,6 @@
---- ./chrome/chrome_browser.gypi.orig	2014-03-26 21:15:57.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2014-03-28 10:57:59.000000000 +0100
-@@ -2947,7 +2947,7 @@
+--- ./chrome/chrome_browser.gypi.orig	2014-04-02 21:04:59.000000000 +0200
++++ ./chrome/chrome_browser.gypi	2014-04-04 01:39:18.000000000 +0200
+@@ -2949,7 +2949,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
          }],
@@ -9,7 +9,7 @@
            'dependencies': [
              '../build/linux/system.gyp:libspeechd',
            ],
-@@ -3075,7 +3075,7 @@
+@@ -3077,7 +3077,7 @@
              '../build/linux/system.gyp:xscrnsaver',
            ],
          }],
@@ -18,7 +18,7 @@
            'sources': [
              'app/chrome_breakpad_client.cc',
              'app/chrome_breakpad_client.h',
-@@ -3343,6 +3343,25 @@
+@@ -3345,6 +3345,25 @@
              ['exclude', '^third_party/mozilla_security_manager/'],
            ],
          }],
