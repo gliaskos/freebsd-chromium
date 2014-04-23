@@ -133,7 +133,6 @@ ALL_TARGET+=	${TEST_TARGETS}
 DEBUG_MAKE_ENV=	V=1
 .if ${PORT_OPTIONS:MDEBUG}
 BUILDTYPE=	Debug
-GYP_DEFINES+=	remove_webcore_debug_symbols=1
 .else
 BUILDTYPE=	Release
 GYP_DEFINES+=	buildtype=Official
