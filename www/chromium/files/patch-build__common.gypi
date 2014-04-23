@@ -1,5 +1,5 @@
 --- ./build/common.gypi.orig	2014-04-02 21:03:54.000000000 +0200
-+++ ./build/common.gypi	2014-04-04 01:39:18.000000000 +0200
++++ ./build/common.gypi	2014-04-22 21:47:39.000000000 +0200
 @@ -565,7 +565,7 @@
          }],
  
@@ -20,6 +20,15 @@
      # The release channel that this build targets. This is used to restrict
      # channel-specific build options, like which installer packages to create.
      # The default is 'all', which does no channel-specific filtering.
+@@ -1322,7 +1326,7 @@
+           # TODO(jungshik): Turn this on on Android.
+           # For ChromeOS, this should be turned on in chromeos-chrome.ebuild
+           # file as well by adding icu_use_data_file_flag=1 to BUILD_DEFINES.
+-          ['OS!="android"', {
++          ['OS!="android" and os_bsd!=1', {
+             'icu_use_data_file_flag%': 1,
+           }],
+         ],
 @@ -3701,6 +3705,13 @@
          'ldflags': [
            '-Wl,--no-keep-memory',
