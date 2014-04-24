@@ -1,5 +1,5 @@
---- ./components/policy/tools/generate_policy_source.py.orig	2014-04-02 21:03:06.000000000 +0200
-+++ ./components/policy/tools/generate_policy_source.py	2014-04-04 01:39:18.000000000 +0200
+--- ./components/policy/tools/generate_policy_source.py.orig	2014-04-24 22:35:24.000000000 +0200
++++ ./components/policy/tools/generate_policy_source.py	2014-04-24 23:23:44.000000000 +0200
 @@ -64,7 +64,7 @@
        if platform.startswith('chrome.'):
          platform_sub = platform[7:]

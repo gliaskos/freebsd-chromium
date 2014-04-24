@@ -1,5 +1,5 @@
---- ./media/media.gyp.orig	2014-04-02 21:05:04.000000000 +0200
-+++ ./media/media.gyp	2014-04-04 01:39:18.000000000 +0200
+--- ./media/media.gyp.orig	2014-04-24 22:35:20.000000000 +0200
++++ ./media/media.gyp	2014-04-24 23:23:46.000000000 +0200
 @@ -625,7 +625,7 @@
              'audio/openbsd/audio_manager_openbsd.h',
            ],

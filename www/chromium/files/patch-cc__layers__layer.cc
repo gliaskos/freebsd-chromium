@@ -1,5 +1,5 @@
---- ./cc/layers/layer.cc.orig	2014-04-02 21:03:37.000000000 +0200
-+++ ./cc/layers/layer.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./cc/layers/layer.cc.orig	2014-04-24 22:35:51.000000000 +0200
++++ ./cc/layers/layer.cc	2014-04-24 23:23:42.000000000 +0200
 @@ -726,13 +726,15 @@
    DCHECK(current_layer);
    DCHECK(current_layer->id() == scroll_clip_layer_id_);

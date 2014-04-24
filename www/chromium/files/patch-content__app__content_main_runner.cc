@@ -1,5 +1,5 @@
---- ./content/app/content_main_runner.cc.orig	2014-04-02 21:03:31.000000000 +0200
-+++ ./content/app/content_main_runner.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./content/app/content_main_runner.cc.orig	2014-04-24 22:35:46.000000000 +0200
++++ ./content/app/content_main_runner.cc	2014-04-24 23:23:44.000000000 +0200
 @@ -86,10 +86,10 @@
  #include "base/posix/global_descriptors.h"
  #include "content/public/common/content_descriptors.h"

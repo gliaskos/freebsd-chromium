@@ -1,5 +1,5 @@
---- ./net/base/network_change_notifier.cc.orig	2014-04-02 21:03:39.000000000 +0200
-+++ ./net/base/network_change_notifier.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./net/base/network_change_notifier.cc.orig	2014-04-24 22:35:53.000000000 +0200
++++ ./net/base/network_change_notifier.cc	2014-04-24 23:23:46.000000000 +0200
 @@ -470,7 +470,6 @@
  #elif defined(OS_MACOSX)
    return new NetworkChangeNotifierMac();

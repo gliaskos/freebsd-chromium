@@ -1,5 +1,5 @@
---- ./third_party/libjingle/libjingle.gyp.orig	2014-04-02 21:03:47.000000000 +0200
-+++ ./third_party/libjingle/libjingle.gyp	2014-04-04 01:39:19.000000000 +0200
+--- ./third_party/libjingle/libjingle.gyp.orig	2014-04-24 22:35:58.000000000 +0200
++++ ./third_party/libjingle/libjingle.gyp	2014-04-24 23:23:47.000000000 +0200
 @@ -543,7 +543,7 @@
              '<(libjingle_source)/talk/base/unixfilesystem.h',
            ],

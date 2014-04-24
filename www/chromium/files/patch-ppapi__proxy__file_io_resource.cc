@@ -1,5 +1,5 @@
---- ./ppapi/proxy/file_io_resource.cc.orig	2014-04-02 21:03:24.000000000 +0200
-+++ ./ppapi/proxy/file_io_resource.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./ppapi/proxy/file_io_resource.cc.orig	2014-04-24 22:35:39.000000000 +0200
++++ ./ppapi/proxy/file_io_resource.cc	2014-04-24 23:23:46.000000000 +0200
 @@ -294,15 +294,17 @@
  
    if (check_quota_) {

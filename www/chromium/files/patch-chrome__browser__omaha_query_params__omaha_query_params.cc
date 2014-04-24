@@ -1,5 +1,5 @@
---- ./chrome/browser/omaha_query_params/omaha_query_params.cc.orig	2014-04-02 21:04:21.000000000 +0200
-+++ ./chrome/browser/omaha_query_params/omaha_query_params.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./chrome/browser/omaha_query_params/omaha_query_params.cc.orig	2014-04-24 22:35:10.000000000 +0200
++++ ./chrome/browser/omaha_query_params/omaha_query_params.cc	2014-04-24 23:23:43.000000000 +0200
 @@ -29,6 +29,8 @@
      "linux";
  #elif defined(OS_OPENBSD)

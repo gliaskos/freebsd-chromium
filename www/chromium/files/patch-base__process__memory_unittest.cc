@@ -1,5 +1,5 @@
---- ./base/process/memory_unittest.cc.orig	2014-04-02 21:03:56.000000000 +0200
-+++ ./base/process/memory_unittest.cc	2014-04-04 01:39:18.000000000 +0200
+--- ./base/process/memory_unittest.cc.orig	2014-04-24 22:36:10.000000000 +0200
++++ ./base/process/memory_unittest.cc	2014-04-24 23:23:41.000000000 +0200
 @@ -151,12 +151,12 @@
  
  // Android doesn't implement set_new_handler, so we can't use the
