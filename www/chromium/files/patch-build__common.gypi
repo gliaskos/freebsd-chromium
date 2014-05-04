@@ -1,5 +1,5 @@
 --- ./build/common.gypi.orig	2014-04-30 22:43:21.000000000 +0200
-+++ ./build/common.gypi	2014-05-04 13:52:39.000000000 +0200
++++ ./build/common.gypi	2014-05-04 14:43:03.000000000 +0200
 @@ -615,7 +615,7 @@
          }],
  
@@ -14,7 +14,7 @@
          # except when building Android WebView.
          # TODO(jshin): Handle 'use_system_icu' on Linux (Chromium).
 -        ['android_webview_build==0', {
-+        ['android_webview_build==0 and os_bsd!=1', {
++        ['android_webview_build==0 and OS!="freebsd" and OS!="openbsd"', {
            'icu_use_data_file_flag%' : 1,
          }, {
            'icu_use_data_file_flag%' : 0,
