@@ -1,5 +1,5 @@
 --- ./base/process/memory_unittest.cc.orig	2014-04-30 22:41:43.000000000 +0200
-+++ ./base/process/memory_unittest.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./base/process/memory_unittest.cc	2014-05-04 16:09:01.000000000 +0200
 @@ -151,12 +151,12 @@
  
  // Android doesn't implement set_new_handler, so we can't use the
@@ -15,12 +15,10 @@
      !defined(OS_WIN) && \
      !defined(ADDRESS_SANITIZER) && !defined(THREAD_SANITIZER)
  
-@@ -369,7 +369,7 @@
- // See process_util_unittest_mac.mm for an explanation of why this test isn't
- // run in the 64-bit environment.
+@@ -427,5 +427,5 @@
+   EXPECT_TRUE(value_ == NULL);
+ }
  
--TEST_F(OutOfMemoryDeathTest, PsychoticallyBigObjCObject) {
+-#endif  // !defined(OS_ANDROID) && !defined(OS_OPENBSD) &&
 +#endif  // !defined(OS_ANDROID) && !defined(OS_BSD) &&
-   ASSERT_DEATH({
-       SetUpInDeathAssert();
-       while ((value_ = base::AllocatePsychoticallyBigObjCObject())) {}
+         // !defined(OS_WIN) && !defined(ADDRESS_SANITIZER)
