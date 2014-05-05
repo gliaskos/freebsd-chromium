@@ -1,5 +1,16 @@
 --- ./chrome/chrome_browser.gypi.orig	2014-04-30 22:42:53.000000000 +0200
-+++ ./chrome/chrome_browser.gypi	2014-05-04 14:38:46.000000000 +0200
++++ ./chrome/chrome_browser.gypi	2014-05-05 20:38:00.000000000 +0200
+@@ -1209,8 +1209,8 @@
+         'browser/media_galleries/imported_media_gallery_registry.h',
+         'browser/media_galleries/linux/mtp_device_delegate_impl_linux.cc',
+         'browser/media_galleries/linux/mtp_device_delegate_impl_linux.h',
+-        'browser/media_galleries/linux/mtp_device_object_enumerator.cc',
+-        'browser/media_galleries/linux/mtp_device_object_enumerator.h',
++        #'browser/media_galleries/linux/mtp_device_object_enumerator.cc',
++        #'browser/media_galleries/linux/mtp_device_object_enumerator.h',
+         'browser/media_galleries/linux/mtp_device_task_helper.cc',
+         'browser/media_galleries/linux/mtp_device_task_helper.h',
+         'browser/media_galleries/linux/mtp_device_task_helper_map_service.cc',
 @@ -3025,7 +3025,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],

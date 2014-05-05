@@ -1,5 +1,4 @@
 #$FreeBSD$
-#unit_tests needs some courgette file
 #telemetry_unittests : unknown ninja target
 TEST_TARGETS=	base_unittests \
 		crypto_unittests \
@@ -19,7 +18,8 @@ TEST_TARGETS=	base_unittests \
 		media_unittests \
 		chromedriver_unittests \
 		chromedriver_tests \
-		browser_tests
+		browser_tests \
+		unit_tests
 
 # exclude these tests because they die (not just fail)
 
