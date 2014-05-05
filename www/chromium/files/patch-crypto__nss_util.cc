@@ -1,5 +1,5 @@
 --- ./crypto/nss_util.cc.orig	2014-04-30 22:41:24.000000000 +0200
-+++ ./crypto/nss_util.cc	2014-05-04 13:58:46.000000000 +0200
++++ ./crypto/nss_util.cc	2014-05-04 14:38:48.000000000 +0200
 @@ -13,7 +13,7 @@
  #include <prtime.h>
  #include <secmod.h>

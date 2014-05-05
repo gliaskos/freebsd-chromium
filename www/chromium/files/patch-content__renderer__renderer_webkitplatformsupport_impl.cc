@@ -1,5 +1,5 @@
 --- ./content/renderer/renderer_webkitplatformsupport_impl.cc.orig	2014-04-30 22:41:48.000000000 +0200
-+++ ./content/renderer/renderer_webkitplatformsupport_impl.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./content/renderer/renderer_webkitplatformsupport_impl.cc	2014-05-04 14:38:48.000000000 +0200
 @@ -90,7 +90,7 @@
  
  #if defined(OS_POSIX)

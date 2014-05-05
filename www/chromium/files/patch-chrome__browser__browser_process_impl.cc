@@ -1,5 +1,5 @@
 --- ./chrome/browser/browser_process_impl.cc.orig	2014-04-30 22:42:17.000000000 +0200
-+++ ./chrome/browser/browser_process_impl.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./chrome/browser/browser_process_impl.cc	2014-05-04 14:38:46.000000000 +0200
 @@ -256,7 +256,7 @@
  
    ExtensionRendererState::GetInstance()->Shutdown();

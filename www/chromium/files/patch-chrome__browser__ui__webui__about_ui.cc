@@ -1,5 +1,5 @@
 --- ./chrome/browser/ui/webui/about_ui.cc.orig	2014-04-30 22:42:10.000000000 +0200
-+++ ./chrome/browser/ui/webui/about_ui.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./chrome/browser/ui/webui/about_ui.cc	2014-05-04 14:38:46.000000000 +0200
 @@ -762,7 +762,7 @@
    return data;
  }

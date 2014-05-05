@@ -1,5 +1,5 @@
 --- ./chrome/browser/chrome_content_browser_client.cc.orig	2014-04-30 22:42:18.000000000 +0200
-+++ ./chrome/browser/chrome_content_browser_client.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./chrome/browser/chrome_content_browser_client.cc	2014-05-04 14:38:46.000000000 +0200
 @@ -501,7 +501,7 @@
    }
  }

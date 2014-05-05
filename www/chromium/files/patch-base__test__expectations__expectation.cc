@@ -1,5 +1,5 @@
 --- ./base/test/expectations/expectation.cc.orig	2014-04-30 22:41:42.000000000 +0200
-+++ ./base/test/expectations/expectation.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./base/test/expectations/expectation.cc	2014-05-04 14:38:46.000000000 +0200
 @@ -59,6 +59,7 @@
          variant != "64") {
        return false;

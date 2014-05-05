@@ -1,5 +1,5 @@
 --- ./content/renderer/media/webrtc_audio_capturer.cc.orig	2014-04-30 22:41:47.000000000 +0200
-+++ ./content/renderer/media/webrtc_audio_capturer.cc	2014-05-04 14:15:36.000000000 +0200
++++ ./content/renderer/media/webrtc_audio_capturer.cc	2014-05-04 14:38:47.000000000 +0200
 @@ -29,10 +29,10 @@
  // The listed rates below adds restrictions and WebRtcAudioDeviceImpl::Init()
  // will fail if the user selects any rate outside these ranges.
