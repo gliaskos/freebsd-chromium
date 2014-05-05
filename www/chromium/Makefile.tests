@@ -1,4 +1,7 @@
 #$FreeBSD$
+#browser_tests needs MTP fixes/ignores
+#unit_tests needs some courgette file
+#telemetry_unittests : unknown ninja target
 TEST_TARGETS=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
@@ -14,12 +17,9 @@ TEST_TARGETS=	base_unittests \
 		ipc_tests \
 		dbus_unittests \
 		net_unittests \
-		media_unittests
-# browser_tests: missing test file?
-# unit_tests: missing test file?
-# chromedriver_unittests: does not build
-# chromedriver_tests: does not build
-# telemetry_unittests: unknown ninja target
+		media_unittests \
+		chromedriver_unittests \
+		chromedriver_tests
 
 # exclude these tests because they die (not just fail)
 # (FreeBSD 10.0-amd64, Chromium 32.0.1700.77)
