@@ -22,16 +22,15 @@ TEST_TARGETS=	base_unittests \
 		chromedriver_tests
 
 # exclude these tests because they die (not just fail)
-# (FreeBSD 10.0-amd64, Chromium 32.0.1700.77)
 
-EXCLUDE_dbus_unittests = \
+#EXCLUDE_dbus_unittests = \
 	MessageTest.SetInvalidHeaders \
 	EndToEndSyncTest.InvalidObjectPath \
 	EndToEndSyncTest.InvalidServiceName \
 	EndToEndAsyncTest.InvalidObjectPath \
 	EndToEndAsyncTest.InvalidServiceName
 
-EXCLUDE_net_unittests = \
+#EXCLUDE_net_unittests = \
 	HTTPSOCSPTest.Valid \
 	HTTPSOCSPTest.Revoked \
 	HTTPSOCSPTest.Invalid \
@@ -75,7 +74,7 @@ EXCLUDE_net_unittests = \
 	ProxyResolverV8TracingTest.CancelSetPacWhileOutstandingBlockingDns
 # these tests seem to hang:
 #URLRequestTestHTTP.*DeferredRedirect*  TODO filter
-EXCLUDE_net_unittests += \
+#EXCLUDE_net_unittests += \
 	ProxyResolverV8TracingTest.CancelWhilePendingCompletionTask \
 	TCPClientSocketTest.BindLoopbackToLoopback \
 	TCPServerSocketTest.Accept \
@@ -92,7 +91,7 @@ EXCLUDE_net_unittests += \
 	URLFetcherPostFileTest.Range \
 	URLFetcherPostTest.Basic
 
-EXCLUDE_media_unittests = \
+#EXCLUDE_media_unittests = \
 	MP4StreamParserTest.UnalignedAppend \
 	MP4StreamParserTest.BytewiseAppend \
 	MP4StreamParserTest.MultiFragmentAppend \
