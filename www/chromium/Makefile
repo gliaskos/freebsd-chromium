@@ -4,7 +4,7 @@
 #TODO eadler: s/python/python2/g on a number of files, chromium does not build with python3
 
 PORTNAME=	chromium
-PORTVERSION=	35.0.1916.114
+PORTVERSION=	36.0.1985.103
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
