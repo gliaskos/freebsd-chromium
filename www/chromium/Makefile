@@ -59,7 +59,7 @@ GYP_DEFINES+=	use_cups=1 \
 		use_system_libvpx=0 \
 		linux_breakpad=0 \
 		linux_strip_binary=1 \
-		linux_use_tcmalloc=0 \
+		use_allocator=none \
 		linux_use_heapchecker=0 \
 		test_isolation_mode=noop \
 		clang_use_chrome_plugins=0 \
