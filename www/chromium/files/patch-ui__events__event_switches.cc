@@ -1,8 +1,8 @@
---- ./ui/events/event_switches.cc.orig	2014-04-30 22:42:57.000000000 +0200
-+++ ./ui/events/event_switches.cc	2014-05-04 14:38:49.000000000 +0200
-@@ -20,7 +20,7 @@
- //   disabled: touch events are disabled.
- const char kTouchEventsDisabled[] = "disabled";
+--- ./ui/events/event_switches.cc.orig	2014-06-30 21:02:38.000000000 +0200
++++ ./ui/events/event_switches.cc	2014-07-01 22:46:25.000000000 +0200
+@@ -22,7 +22,7 @@
+ // Use the unified gesture detector, instead of the aura gesture detector.
+ const char kUseUnifiedGestureDetector[] = "use-unified-gesture-detector";
  
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_FREEBSD)

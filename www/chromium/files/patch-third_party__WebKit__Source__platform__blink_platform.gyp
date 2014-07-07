@@ -1,6 +1,6 @@
---- ./third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-04-30 22:47:17.000000000 +0200
-+++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-05-04 14:38:48.000000000 +0200
-@@ -193,7 +193,7 @@
+--- ./third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-06-30 21:06:52.000000000 +0200
++++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-07-01 22:46:25.000000000 +0200
+@@ -246,7 +246,7 @@
      # compiler optimizations, see crbug.com/237063
      'msvs_disabled_warnings': [ 4267, 4334, 4724 ],
      'conditions': [
@@ -9,7 +9,7 @@
          'sources/': [
            # Cherry-pick files excluded by the broader regular expressions above.
            ['include', 'fonts/harfbuzz/FontHarfBuzz\\.cpp$'],
-@@ -303,7 +303,7 @@
+@@ -363,7 +363,7 @@
            ['exclude', 'fonts/harfbuzz/HarfBuzzFaceCoreText\\.cpp$'],
          ],
        }],

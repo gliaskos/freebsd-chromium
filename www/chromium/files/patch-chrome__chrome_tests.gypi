@@ -1,6 +1,6 @@
---- ./chrome/chrome_tests.gypi.orig	2014-04-30 22:42:53.000000000 +0200
-+++ ./chrome/chrome_tests.gypi	2014-05-05 18:29:40.000000000 +0200
-@@ -1628,7 +1628,7 @@
+--- ./chrome/chrome_tests.gypi.orig	2014-06-30 21:02:37.000000000 +0200
++++ ./chrome/chrome_tests.gypi	2014-07-01 22:46:25.000000000 +0200
+@@ -1548,7 +1548,7 @@
          'test/remoting/remote_desktop_browsertest.h',
          'test/remoting/waiter.cc',
          'test/remoting/waiter.h',
