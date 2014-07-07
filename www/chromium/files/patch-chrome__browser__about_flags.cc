@@ -1,5 +1,5 @@
 --- ./chrome/browser/about_flags.cc.orig	2014-06-30 21:02:28.000000000 +0200
-+++ ./chrome/browser/about_flags.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./chrome/browser/about_flags.cc	2014-07-07 15:12:46.000000000 +0200
 @@ -2183,7 +2183,7 @@
    return kOsWin;
  #elif defined(OS_CHROMEOS)  // Needs to be before the OS_LINUX check.

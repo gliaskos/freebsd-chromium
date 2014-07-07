@@ -1,5 +1,5 @@
 --- ./chrome/app/chromium_strings.grd.orig	2014-06-30 21:02:36.000000000 +0200
-+++ ./chrome/app/chromium_strings.grd	2014-07-01 22:53:34.000000000 +0200
++++ ./chrome/app/chromium_strings.grd	2014-07-07 15:12:46.000000000 +0200
 @@ -1099,7 +1099,7 @@
        </message>
  

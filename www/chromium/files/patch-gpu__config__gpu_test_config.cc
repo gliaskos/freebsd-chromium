@@ -1,5 +1,5 @@
 --- ./gpu/config/gpu_test_config.cc.orig	2014-06-30 21:01:22.000000000 +0200
-+++ ./gpu/config/gpu_test_config.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./gpu/config/gpu_test_config.cc	2014-07-07 15:12:48.000000000 +0200
 @@ -23,8 +23,6 @@
  GPUTestConfig::OS GetCurrentOS() {
  #if defined(OS_CHROMEOS)

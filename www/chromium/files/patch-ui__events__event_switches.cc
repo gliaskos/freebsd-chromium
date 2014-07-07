@@ -1,5 +1,5 @@
 --- ./ui/events/event_switches.cc.orig	2014-06-30 21:02:38.000000000 +0200
-+++ ./ui/events/event_switches.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./ui/events/event_switches.cc	2014-07-07 15:12:51.000000000 +0200
 @@ -22,7 +22,7 @@
  // Use the unified gesture detector, instead of the aura gesture detector.
  const char kUseUnifiedGestureDetector[] = "use-unified-gesture-detector";

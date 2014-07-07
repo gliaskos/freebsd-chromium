@@ -1,5 +1,5 @@
 --- ./net/proxy/proxy_service.cc.orig	2014-06-30 21:02:53.000000000 +0200
-+++ ./net/proxy/proxy_service.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./net/proxy/proxy_service.cc	2014-07-07 15:12:49.000000000 +0200
 @@ -39,7 +39,7 @@
  #elif defined(OS_MACOSX)
  #include "net/proxy/proxy_config_service_mac.h"

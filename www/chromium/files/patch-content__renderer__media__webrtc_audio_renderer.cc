@@ -1,5 +1,5 @@
 --- ./content/renderer/media/webrtc_audio_renderer.cc.orig	2014-06-30 21:01:30.000000000 +0200
-+++ ./content/renderer/media/webrtc_audio_renderer.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./content/renderer/media/webrtc_audio_renderer.cc	2014-07-07 15:12:48.000000000 +0200
 @@ -34,7 +34,7 @@
  // rates below adds restrictions and Initialize() will fail if the user selects
  // any rate outside these ranges.

@@ -1,5 +1,5 @@
 --- ./content/browser/browser_main_loop.cc.orig	2014-06-30 21:01:37.000000000 +0200
-+++ ./content/browser/browser_main_loop.cc	2014-07-07 14:36:25.000000000 +0200
++++ ./content/browser/browser_main_loop.cc	2014-07-07 15:12:47.000000000 +0200
 @@ -135,7 +135,7 @@
  namespace content {
  namespace {

@@ -1,5 +1,5 @@
 --- ./base/strings/safe_sprintf.cc.orig	2014-06-30 21:01:38.000000000 +0200
-+++ ./base/strings/safe_sprintf.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./base/strings/safe_sprintf.cc	2014-07-07 15:12:46.000000000 +0200
 @@ -107,11 +107,11 @@
        : buffer_(buffer),
          size_(size - 1),  // Account for trailing NUL byte

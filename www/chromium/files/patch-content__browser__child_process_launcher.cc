@@ -1,5 +1,5 @@
 --- ./content/browser/child_process_launcher.cc.orig	2014-06-30 21:01:37.000000000 +0200
-+++ ./content/browser/child_process_launcher.cc	2014-07-07 14:42:13.000000000 +0200
++++ ./content/browser/child_process_launcher.cc	2014-07-07 15:12:47.000000000 +0200
 @@ -66,7 +66,7 @@
  #else
          terminate_child_on_shutdown_(true)

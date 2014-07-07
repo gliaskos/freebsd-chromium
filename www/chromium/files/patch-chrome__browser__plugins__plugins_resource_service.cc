@@ -1,5 +1,5 @@
 --- ./chrome/browser/plugins/plugins_resource_service.cc.orig	2014-06-30 21:02:16.000000000 +0200
-+++ ./chrome/browser/plugins/plugins_resource_service.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./chrome/browser/plugins/plugins_resource_service.cc	2014-07-07 15:12:47.000000000 +0200
 @@ -33,7 +33,7 @@
    std::string filename;
  #if defined(OS_WIN)

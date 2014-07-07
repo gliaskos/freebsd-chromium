@@ -1,5 +1,5 @@
 --- ./media/base/audio_splicer.cc.orig	2014-06-30 21:01:13.000000000 +0200
-+++ ./media/base/audio_splicer.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./media/base/audio_splicer.cc	2014-07-07 15:12:48.000000000 +0200
 @@ -143,7 +143,7 @@
        output_timestamp_helper_.GetTimestamp();
    const base::TimeDelta delta = timestamp - expected_timestamp;

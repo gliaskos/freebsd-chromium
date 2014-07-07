@@ -1,5 +1,5 @@
 --- ./chrome/browser/media_galleries/media_folder_finder.cc.orig	2014-06-30 21:02:20.000000000 +0200
-+++ ./chrome/browser/media_galleries/media_folder_finder.cc	2014-07-01 22:46:25.000000000 +0200
++++ ./chrome/browser/media_galleries/media_folder_finder.cc	2014-07-07 15:12:46.000000000 +0200
 @@ -50,10 +50,10 @@
    chrome::DIR_USER_APPLICATIONS,
    chrome::DIR_USER_LIBRARY,
