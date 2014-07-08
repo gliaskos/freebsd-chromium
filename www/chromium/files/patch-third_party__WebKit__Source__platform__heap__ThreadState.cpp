@@ -1,11 +1,11 @@
 --- ./third_party/WebKit/Source/platform/heap/ThreadState.cpp.orig	2014-06-30 21:06:50.000000000 +0200
-+++ ./third_party/WebKit/Source/platform/heap/ThreadState.cpp	2014-07-07 15:12:50.000000000 +0200
++++ ./third_party/WebKit/Source/platform/heap/ThreadState.cpp	2014-07-08 21:44:13.000000000 +0200
 @@ -45,13 +45,22 @@
  extern "C" void* __libc_stack_end;  // NOLINT
  #endif
  
 +#if OS(FREEBSD)
-+#include <phtread_np.h>
++#include <pthread_np.h>
 +#endif
 +
  namespace WebCore {
