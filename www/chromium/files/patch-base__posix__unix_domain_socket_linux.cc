@@ -1,5 +1,5 @@
 --- ./base/posix/unix_domain_socket_linux.cc.orig	2014-06-30 21:01:40.000000000 +0200
-+++ ./base/posix/unix_domain_socket_linux.cc	2014-07-07 15:46:31.000000000 +0200
++++ ./base/posix/unix_domain_socket_linux.cc	2014-07-08 19:00:16.000000000 +0200
 @@ -18,6 +18,15 @@
  #include "base/posix/eintr_wrapper.h"
  #include "base/stl_util.h"
@@ -16,15 +16,29 @@
  const size_t UnixDomainSocket::kMaxFileDescriptors = 16;
  
  // Creates a connected pair of UNIX-domain SOCK_SEQPACKET sockets, and passes
-@@ -35,7 +44,11 @@
+@@ -35,7 +44,13 @@
  // static
  bool UnixDomainSocket::EnableReceiveProcessId(int fd) {
    const int enable = 1;
 +#if defined(__FreeBSD__)
-+  //TODO cmsghdr / cmsgcred see http://books.google.gr/books?id=ptSC4LpwGA0C&pg=PA429&lp
++  // XXX(rene) do this? :
++  // taken from dbus, Academic Free License 2.1 / GPL 2+
++  return 0; // fake OK
 +#else
    return setsockopt(fd, SOL_SOCKET, SO_PASSCRED, &enable, sizeof(enable)) == 0;
 +#endif
  }
  
  // static
+@@ -131,7 +146,11 @@
+         wire_fds_len = payload_len / sizeof(int);
+       }
+       if (cmsg->cmsg_level == SOL_SOCKET &&
++#if defined(__FreeBSD__)
++        1) { // XXX(rene) carpet getting full ...
++#else
+           cmsg->cmsg_type == SCM_CREDENTIALS) {
++#endif
+         DCHECK(payload_len == sizeof(struct ucred));
+         DCHECK(pid == -1);
+         pid = reinterpret_cast<struct ucred*>(CMSG_DATA(cmsg))->pid;
