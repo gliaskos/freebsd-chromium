@@ -1,5 +1,5 @@
 --- ./chrome/chrome_browser.gypi.orig	2014-06-30 21:02:37.000000000 +0200
-+++ ./chrome/chrome_browser.gypi	2014-07-07 15:12:47.000000000 +0200
++++ ./chrome/chrome_browser.gypi	2014-07-17 21:29:37.000000000 +0200
 @@ -1122,8 +1122,8 @@
          'browser/media_galleries/imported_media_gallery_registry.h',
          'browser/media_galleries/linux/mtp_device_delegate_impl_linux.cc',
@@ -55,3 +55,12 @@
          ['OS=="mac"', {
            'dependencies': [
              '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',
+@@ -3387,7 +3406,7 @@
+             }],
+           ],
+         }],
+-        ['OS=="linux"', {
++        ['OS=="linux" or OS=="freebsd"', {
+           'conditions': [
+             ['use_aura==1', {
+               'dependencies': [

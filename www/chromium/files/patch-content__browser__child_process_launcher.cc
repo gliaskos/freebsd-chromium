@@ -1,5 +1,5 @@
 --- ./content/browser/child_process_launcher.cc.orig	2014-06-30 21:01:37.000000000 +0200
-+++ ./content/browser/child_process_launcher.cc	2014-07-07 15:12:47.000000000 +0200
++++ ./content/browser/child_process_launcher.cc	2014-07-14 19:55:49.000000000 +0200
 @@ -66,7 +66,7 @@
  #else
          terminate_child_on_shutdown_(true)
@@ -115,3 +115,12 @@
    bool zygote_;
  #endif
  };
+@@ -455,7 +455,7 @@
+       *exit_code = context_->exit_code_;
+     return context_->termination_status_;
+   }
+-#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_ANDROID)
++#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_ANDROID) && !defined(OS_BSD)
+   if (context_->zygote_) {
+     context_->termination_status_ = ZygoteHostImpl::GetInstance()->
+         GetTerminationStatus(handle, known_dead, &context_->exit_code_);
