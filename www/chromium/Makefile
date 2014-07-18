@@ -33,7 +33,8 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libcups.so:${PORTSDIR}/print/cups-client \
 		libevent-1.4.so:${PORTSDIR}/devel/libevent \
 		libgcrypt.so:${PORTSDIR}/security/libgcrypt \
-		libpci.so:${PORTSDIR}/devel/libpci
+		libpci.so:${PORTSDIR}/devel/libpci \
+		libdrm.so:${PORTSDIR}/graphics/libdrm
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
