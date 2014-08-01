@@ -178,7 +178,7 @@ pre-everything::
 .endif
 	@${ECHO_MSG}
 	@${ECHO_MSG} "Make sure you have Python build with the SEM option ON"
-	@${ECHO_MSG} "(default in python27-2.7.8 since r361735)
+	@${ECHO_MSG} "(default in python27-2.7.8 since r361735)"
 
 post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|" \
