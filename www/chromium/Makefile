@@ -139,7 +139,6 @@ DEBUG_MAKE_ENV=	V=1
 BUILDTYPE=	Debug
 .else
 BUILDTYPE=	Release
-GYP_DEFINES+=	buildtype=Official
 .endif
 
 CONFIGURE_ENV+=	CC="${CC}" \
