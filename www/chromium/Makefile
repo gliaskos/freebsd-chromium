@@ -35,7 +35,8 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libevent.so:${PORTSDIR}/devel/libevent2 \
 		libgcrypt.so:${PORTSDIR}/security/libgcrypt \
 		libpci.so:${PORTSDIR}/devel/libpci \
-		libdrm.so:${PORTSDIR}/graphics/libdrm
+		libdrm.so:${PORTSDIR}/graphics/libdrm \
+		libicuuc.so:${PORTSDIR}/devel/icu
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
@@ -76,6 +77,8 @@ GYP_DEFINES+=	use_cups=1 \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER} \
 		use_system_protobuf=1 \
+		want_separate_host_toolset=0 \
+		use_system_icu=1
 
 # FreeBSD Chromium Api Key
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
