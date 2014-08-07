@@ -78,6 +78,7 @@ GYP_DEFINES+=	use_cups=1 \
 		python_ver=${PYTHON_VER} \
 		use_system_protobuf=1 \
 		want_separate_host_toolset=0 \
+		use_system_libpng=1 \
 		use_system_icu=1
 
 # FreeBSD Chromium Api Key
