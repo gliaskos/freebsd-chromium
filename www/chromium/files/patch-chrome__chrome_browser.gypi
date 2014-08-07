@@ -1,5 +1,5 @@
---- ./chrome/chrome_browser.gypi.orig	2014-06-30 21:02:37.000000000 +0200
-+++ ./chrome/chrome_browser.gypi	2014-07-17 21:29:37.000000000 +0200
+--- ./chrome/chrome_browser.gypi.orig	2014-07-15 21:02:11.000000000 +0200
++++ ./chrome/chrome_browser.gypi	2014-07-20 18:13:08.000000000 +0200
 @@ -1122,8 +1122,8 @@
          'browser/media_galleries/imported_media_gallery_registry.h',
          'browser/media_galleries/linux/mtp_device_delegate_impl_linux.cc',

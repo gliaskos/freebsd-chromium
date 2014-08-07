@@ -1,5 +1,5 @@
---- ./ui/views/views_delegate.h.orig	2014-06-30 21:02:40.000000000 +0200
-+++ ./ui/views/views_delegate.h	2014-07-14 13:36:20.000000000 +0200
+--- ./ui/views/views_delegate.h.orig	2014-07-15 21:02:14.000000000 +0200
++++ ./ui/views/views_delegate.h	2014-07-20 18:13:10.000000000 +0200
 @@ -94,7 +94,7 @@
    // Returns true if the window passed in is in the Windows 8 metro
    // environment.

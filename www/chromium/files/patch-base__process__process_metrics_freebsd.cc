@@ -1,5 +1,5 @@
---- ./base/process/process_metrics_freebsd.cc.orig	2014-06-30 21:01:38.000000000 +0200
-+++ ./base/process/process_metrics_freebsd.cc	2014-07-14 22:30:13.000000000 +0200
+--- ./base/process/process_metrics_freebsd.cc.orig	2014-07-15 21:01:12.000000000 +0200
++++ ./base/process/process_metrics_freebsd.cc	2014-07-20 18:13:07.000000000 +0200
 @@ -10,6 +10,9 @@
  
  #include "base/sys_info.h"

@@ -1,5 +1,5 @@
---- ./chrome/browser/web_applications/web_app.h.orig	2014-06-30 21:02:19.000000000 +0200
-+++ ./chrome/browser/web_applications/web_app.h	2014-07-07 15:12:47.000000000 +0200
+--- ./chrome/browser/web_applications/web_app.h.orig	2014-07-15 21:01:17.000000000 +0200
++++ ./chrome/browser/web_applications/web_app.h	2014-07-20 18:13:08.000000000 +0200
 @@ -188,7 +188,7 @@
                    IconInfoList* icons);
  #endif

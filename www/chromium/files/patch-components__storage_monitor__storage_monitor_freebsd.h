@@ -1,5 +1,5 @@
---- ./components/storage_monitor/storage_monitor_freebsd.h.orig	2014-07-07 15:12:47.000000000 +0200
-+++ ./components/storage_monitor/storage_monitor_freebsd.h	2014-07-07 15:12:47.000000000 +0200
+--- ./components/storage_monitor/storage_monitor_freebsd.h.orig	2014-07-20 18:13:08.000000000 +0200
++++ ./components/storage_monitor/storage_monitor_freebsd.h	2014-07-20 18:13:08.000000000 +0200
 @@ -0,0 +1,47 @@
 +// Copyright 2014 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be

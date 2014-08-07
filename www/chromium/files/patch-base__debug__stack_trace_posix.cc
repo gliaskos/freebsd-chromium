@@ -1,5 +1,5 @@
---- ./base/debug/stack_trace_posix.cc.orig	2014-06-30 21:01:39.000000000 +0200
-+++ ./base/debug/stack_trace_posix.cc	2014-07-07 15:12:46.000000000 +0200
+--- ./base/debug/stack_trace_posix.cc.orig	2014-07-15 21:01:12.000000000 +0200
++++ ./base/debug/stack_trace_posix.cc	2014-07-20 18:13:07.000000000 +0200
 @@ -590,6 +590,10 @@
    // for the modules that are loaded in the current process.
    // Returns true on success.

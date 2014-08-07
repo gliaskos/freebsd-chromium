@@ -1,5 +1,5 @@
---- ./content/renderer/pepper/usb_key_code_conversion.cc.orig	2014-06-30 21:01:31.000000000 +0200
-+++ ./content/renderer/pepper/usb_key_code_conversion.cc	2014-07-07 15:12:48.000000000 +0200
+--- ./content/renderer/pepper/usb_key_code_conversion.cc.orig	2014-07-15 21:02:44.000000000 +0200
++++ ./content/renderer/pepper/usb_key_code_conversion.cc	2014-07-20 18:13:08.000000000 +0200
 @@ -10,7 +10,7 @@
  
  namespace content {

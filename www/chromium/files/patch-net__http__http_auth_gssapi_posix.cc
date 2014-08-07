@@ -1,5 +1,5 @@
---- ./net/http/http_auth_gssapi_posix.cc.orig	2014-06-30 21:02:51.000000000 +0200
-+++ ./net/http/http_auth_gssapi_posix.cc	2014-07-07 15:12:49.000000000 +0200
+--- ./net/http/http_auth_gssapi_posix.cc.orig	2014-07-15 21:02:58.000000000 +0200
++++ ./net/http/http_auth_gssapi_posix.cc	2014-07-20 18:13:09.000000000 +0200
 @@ -431,8 +431,8 @@
      static const char* const kDefaultLibraryNames[] = {
  #if defined(OS_MACOSX)

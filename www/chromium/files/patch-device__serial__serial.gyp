@@ -1,5 +1,5 @@
---- ./device/serial/serial.gyp.orig	2014-06-30 21:01:09.000000000 +0200
-+++ ./device/serial/serial.gyp	2014-07-07 15:12:48.000000000 +0200
+--- ./device/serial/serial.gyp.orig	2014-07-15 21:02:36.000000000 +0200
++++ ./device/serial/serial.gyp	2014-07-20 18:13:09.000000000 +0200
 @@ -23,8 +23,8 @@
        'sources': [
          'serial_device_enumerator.cc',

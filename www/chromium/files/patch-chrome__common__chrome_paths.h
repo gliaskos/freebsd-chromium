@@ -1,5 +1,5 @@
---- ./chrome/common/chrome_paths.h.orig	2014-06-30 21:02:11.000000000 +0200
-+++ ./chrome/common/chrome_paths.h	2014-07-07 15:12:47.000000000 +0200
+--- ./chrome/common/chrome_paths.h.orig	2014-07-15 21:01:37.000000000 +0200
++++ ./chrome/common/chrome_paths.h	2014-07-20 18:13:08.000000000 +0200
 @@ -116,7 +116,7 @@
                                     // files to be installed when managed user
                                     // session starts.
