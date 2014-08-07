@@ -21,7 +21,8 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
-		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat
+		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
+		protoc:${PORTSDIR}/devel/protobuf
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
@@ -73,7 +74,8 @@ GYP_DEFINES+=	use_cups=1 \
 		no_gc_sections=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
-		python_ver=${PYTHON_VER}
+		python_ver=${PYTHON_VER} \
+		use_system_protobuf=1 \
 
 # FreeBSD Chromium Api Key
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
