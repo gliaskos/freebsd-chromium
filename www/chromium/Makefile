@@ -52,26 +52,27 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 
 # See build/common.gypi for all the available variables.
-GYP_DEFINES+=	use_cups=1 \
+GYP_DEFINES+=	\
+		clang_use_chrome_plugins=0 \
 		use_system_yasm=1 \
 		use_system_libxml=1 \
 		use_system_libusb=1 \
 		use_system_libevent=1 \
 		linux_breakpad=0 \
-		linux_strip_binary=1 \
-		use_allocator=none \
 		linux_use_heapchecker=0 \
+		linux_strip_binary=1 \
 		test_isolation_mode=noop \
-		clang_use_chrome_plugins=0 \
 		disable_nacl=1 \
-		enable_webrtc=1 \
-		enable_openmax=1 \
 		enable_one_click_signin=1 \
+		enable_openmax=1 \
+		enable_webrtc=1 \
 		werror= \
 		no_gc_sections=1 \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER} \
+		use_allocator=none \
+		use_cups=1 \
 		use_system_protobuf=1 \
 		want_separate_host_toolset=0 \
 		use_system_libpng=1 \
