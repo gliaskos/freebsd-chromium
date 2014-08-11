@@ -20,7 +20,8 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
-		protoc:${PORTSDIR}/devel/protobuf
+		protoc:${PORTSDIR}/devel/protobuf \
+		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
@@ -28,13 +29,27 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libasound.so:${PORTSDIR}/audio/alsa-lib \
 		libfreetype.so:${PORTSDIR}/print/freetype2 \
 		libnss3.so:${PORTSDIR}/security/nss \
+		libFLAC.so:${PORTSDIR}/audio/flac \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring \
+		libharfbuzz.so:${PORTSDIR}/print/harfbuzz \
 		libcups.so:${PORTSDIR}/print/cups-client \
 		libevent.so:${PORTSDIR}/devel/libevent2 \
+		libexif.so:${PORTSDIR}/graphics/libexif \
 		libgcrypt.so:${PORTSDIR}/security/libgcrypt \
 		libpci.so:${PORTSDIR}/devel/libpci \
 		libdrm.so:${PORTSDIR}/graphics/libdrm \
-		libicuuc.so:${PORTSDIR}/devel/icu
+		libicuuc.so:${PORTSDIR}/devel/icu \
+		libjpeg.so:${PORTSDIR}/graphics/jpeg \
+		libjsoncpp.so:${PORTSDIR}/devel/jsoncpp \
+		libminizip.so:${PORTSDIR}/archivers/minizip \
+		libnspr4.so:${PORTSDIR}/devel/nspr \
+		libpng.so:${PORTSDIR}/graphics/png \
+		libre2.so:${PORTSDIR}/devel/re2 \
+		libsnappy.so:${PORTSDIR}/archivers/snappy \
+		libspeechd.so:${PORTSDIR}/accessibility/speech-dispatcher \
+		libspeex.so:${PORTSDIR}/audio/speex \
+		libxml.so:${PORTSDIR}/textproc/libxml2 \
+		libwebp.so:${PORTSDIR}/graphics/libwebp
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf
@@ -47,6 +62,8 @@ CPE_PRODUCT=	chrome
 USE_PERL5=	build
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
+USE_OPENSSL=	yes
+WITH_OPENSSL_PORT=	yes # simplify for pkg-config in configure phase
 
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
@@ -54,10 +71,6 @@ ALL_TARGET=	chrome
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	\
 		clang_use_chrome_plugins=0 \
-		use_system_yasm=1 \
-		use_system_libxml=1 \
-		use_system_libusb=1 \
-		use_system_libevent=1 \
 		linux_breakpad=0 \
 		linux_use_heapchecker=0 \
 		linux_strip_binary=1 \
@@ -74,15 +87,38 @@ GYP_DEFINES+=	\
 		use_allocator=none \
 		use_cups=1 \
 		use_gnome_keyring=1 \
-		use_system_protobuf=1 \
 		linux_link_gnome_keyring=1 \
 		linux_link_gsettings=1 \
 		linux_link_libpci=1 \
 		linux_link_libspeechd=1 \
 		libspeechd_h_prefix=speech-dispatcher/ \
+		usb_ids_path=${LOCALBASE}/share/usbids/usb.ids \
 		want_separate_host_toolset=0 \
+		use_system_bzip2=1 \
+		use_system_flac=1 \
+		use_system_harfbuzz=1 \
+		use_system_icu=1 \
+		use_system_jsoncpp=1 \
+		use_system_libevent=1 \
+		use_system_libexif=1 \
+		use_system_libjpeg=1 \
 		use_system_libpng=1 \
-		use_system_icu=1
+		use_system_libusb=1 \
+		use_system_libwebp=1 \
+		use_system_libxml=1 \
+		use_system_libxslt=1 \
+		use_system_minizip=1 \
+		use_system_nspr=1 \
+		use_system_openssl=1 \
+		use_system_protobuf=1 \
+		use_system_re2=1 \
+		use_system_snappy=1 \
+		use_system_speex=1 \
+		use_system_xdg_utils=1 \
+		use_system_yasm=1 \
+		use_system_zlib=1
+# allow removal of third_party/adobe
+GYP_DEFINES+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
 
 # FreeBSD Chromium Api Key
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
@@ -201,6 +237,91 @@ post-patch:
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
 
+#pre-configure:
+post-extract:
+	# phajdan-jr: list of things *not* to remove, so maybe the script
+	#             should be called "keep_bundled_libraries.py"
+	# XXX(rene) do not keep third_party/protobuf ?
+	cd ${WRKSRC} && ${PYTHON_CMD} \
+		./build/linux/unbundle/remove_bundled_libraries.py \
+		'base/third_party/dmg_fp' \
+		'base/third_party/dynamic_annotations' \
+		'base/third_party/icu' \
+		'base/third_party/nspr' \
+		'base/third_party/superfasthash' \
+		'base/third_party/symbolize' \
+		'base/third_party/valgrind' \
+		'base/third_party/xdg_mime' \
+		'base/third_party/xdg_user_dirs' \
+		'breakpad/src/third_party/curl' \
+		'chrome/third_party/mozilla_security_manager' \
+		'courgette/third_party' \
+		'crypto/third_party/nss' \
+		'net/third_party/mozilla_security_manager' \
+		'net/third_party/nss' \
+		'third_party/WebKit' \
+		'third_party/angle' \
+		'third_party/brotli' \
+		'third_party/cacheinvalidation' \
+		'third_party/cld' \
+		'third_party/cros_system_api' \
+		'third_party/dom_distiller_js' \
+		'third_party/ffmpeg' \
+		'third_party/flot' \
+		'third_party/hunspell' \
+		'third_party/iccjpeg' \
+		'third_party/icu/icu.isolate' \
+		'third_party/jinja2' \
+		'third_party/jstemplate' \
+		'third_party/khronos' \
+		'third_party/leveldatabase' \
+		'third_party/libaddressinput' \
+		'third_party/libjingle' \
+		'third_party/libphonenumber' \
+		'third_party/libsrtp' \
+		'third_party/libvpx' \
+		'third_party/libwebm' \
+		'third_party/libxml/chromium' \
+		'third_party/libXNVCtrl' \
+		'third_party/libyuv' \
+		'third_party/lss' \
+		'third_party/lzma_sdk' \
+		'third_party/markupsafe' \
+		'third_party/mesa' \
+		'third_party/modp_b64' \
+		'third_party/mt19937ar' \
+		'third_party/npapi' \
+		'third_party/opus' \
+		'third_party/ots' \
+		'third_party/polymer' \
+		'third_party/ply' \
+		'third_party/protobuf' \
+		'third_party/pywebsocket' \
+		'third_party/qcms' \
+		'third_party/readability' \
+		'third_party/sfntly' \
+		'third_party/skia' \
+		'third_party/smhasher' \
+		'third_party/sqlite' \
+		'third_party/tcmalloc' \
+		'third_party/tlslite' \
+		'third_party/trace-viewer' \
+		'third_party/undoview' \
+		'third_party/usrsctp' \
+		'third_party/webdriver' \
+		'third_party/webrtc' \
+		'third_party/widevine' \
+		'third_party/x86inc' \
+		'third_party/zlib/google' \
+		'url/third_party/mozilla' \
+		'v8/src/third_party/valgrind' \
+		--do-remove || ${FALSE}
+	cd ${WRKSRC} && ${PYTHON_CMD} \
+		./build/linux/unbundle/replace_gyp_files.py \
+		${GYP_DEFINES:C/^/-D/} || ${FALSE}
+	# allow removal of third_party/adobe
+	${ECHO_CMD} > ${WRKSRC}/flapper_version.h
+
 do-configure:
 	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
 		./build/gyp_chromium chrome/chrome.gyp --depth .
@@ -220,7 +341,7 @@ do-install:
 .for p in chrome_100_percent content_resources resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak ${STAGEDIR}${DATADIR}
 .endfor
-.for f in chrome libffmpegsumo.so protoc
+.for f in chrome libffmpegsumo.so
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
 .endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && \

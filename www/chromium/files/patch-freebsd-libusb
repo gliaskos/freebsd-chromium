@@ -1,0 +1,97 @@
+--- components/usb_service/usb_context.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_context.cc	2014-08-11 21:58:01.000000000 +0200
+@@ -7,8 +7,13 @@
+ #include "base/logging.h"
+ #include "base/synchronization/waitable_event.h"
+ #include "base/threading/platform_thread.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#define LIBUSB_CALL
++#else
+ #include "third_party/libusb/src/libusb/interrupt.h"
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ namespace usb_service {
+ 
+@@ -45,7 +50,9 @@
+   running_ = false;
+   // Spreading running_ to the UsbEventHandler thread.
+   base::subtle::MemoryBarrier();
++#if !defined(OS_FREEBSD) // XXX(rene) we should use internal libusb which definees this function
+   libusb_interrupt_handle_event(context_);
++#endif
+   base::PlatformThread::Join(thread_handle_);
+ }
+ 
+--- components/usb_service/usb_context_unittest.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_context_unittest.cc	2014-08-11 21:51:08.000000000 +0200
+@@ -6,7 +6,11 @@
+ #include "build/build_config.h"
+ #include "components/usb_service/usb_context.h"
+ #include "testing/gtest/include/gtest/gtest.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#else
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ using usb_service::UsbContext;
+ using usb_service::PlatformUsbContext;
+--- components/usb_service/usb_device_handle.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_device_handle.cc	2014-08-11 21:58:22.000000000 +0200
+@@ -16,7 +16,12 @@
+ #include "components/usb_service/usb_interface.h"
+ #include "components/usb_service/usb_service.h"
+ #include "content/public/browser/browser_thread.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#define LIBUSB_CALL
++#else
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ using content::BrowserThread;
+ 
+--- components/usb_service/usb_device_impl.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_device_impl.cc	2014-08-11 21:51:14.000000000 +0200
+@@ -10,7 +10,11 @@
+ #include "components/usb_service/usb_context.h"
+ #include "components/usb_service/usb_device_handle.h"
+ #include "content/public/browser/browser_thread.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#else
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ #if defined(OS_CHROMEOS)
+ #include "base/sys_info.h"
+--- components/usb_service/usb_interface.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_interface.cc	2014-08-11 21:51:17.000000000 +0200
+@@ -5,7 +5,11 @@
+ #include "components/usb_service/usb_interface.h"
+ 
+ #include "base/logging.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#else
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ namespace usb_service {
+ 
+--- components/usb_service/usb_service_impl.cc.orig	2014-07-15 21:02:29.000000000 +0200
++++ components/usb_service/usb_service_impl.cc	2014-08-11 21:51:21.000000000 +0200
+@@ -13,7 +13,11 @@
+ #include "components/usb_service/usb_context.h"
+ #include "components/usb_service/usb_device_impl.h"
+ #include "content/public/browser/browser_thread.h"
++#if defined(OS_FREEBSD)
++#include "libusb.h"
++#else
+ #include "third_party/libusb/src/libusb/libusb.h"
++#endif
+ 
+ namespace usb_service {
+ 
