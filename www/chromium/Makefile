@@ -1,8 +1,6 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
 # $FreeBSD$
 
-#TODO eadler: s/python/python2/g on a number of files, chromium does not build with python3
-
 PORTNAME=	chromium
 PORTVERSION=	36.0.1985.125
 CATEGORIES=	www
