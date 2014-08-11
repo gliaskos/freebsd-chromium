@@ -55,10 +55,8 @@ ALL_TARGET=	chrome
 GYP_DEFINES+=	use_cups=1 \
 		use_system_yasm=1 \
 		use_system_libxml=1 \
-		use_system_ffmpeg=0 \
 		use_system_libusb=1 \
 		use_system_libevent=1 \
-		use_system_libvpx=0 \
 		linux_breakpad=0 \
 		linux_strip_binary=1 \
 		use_allocator=none \
