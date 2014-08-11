@@ -73,6 +73,7 @@ GYP_DEFINES+=	\
 		python_ver=${PYTHON_VER} \
 		use_allocator=none \
 		use_cups=1 \
+		use_gnome_keyring=1 \
 		use_system_protobuf=1 \
 		linux_link_gnome_keyring=1 \
 		linux_link_gsettings=1 \
