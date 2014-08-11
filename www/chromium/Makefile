@@ -109,7 +109,9 @@ GYP_DEFINES+=	ffmpeg_branding=Chromium
 GYP_DEFINES+=	proprietary_codecs=0
 .endif
 
-.if ! ${PORT_OPTIONS:MGCONF}
+.if ${PORT_OPTIONS:MGCONF}
+GYP_DEFINES+=	use_gconf=1
+.else
 GYP_DEFINES+=	use_gconf=0
 .endif
 
