@@ -233,7 +233,8 @@ post-patch:
 		${WRKSRC}/v8/tools/gyp/v8.gyp \
 		${WRKSRC}/v8/build/toolchain.gypi
 	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
-		${WRKSRC}/chrome/common/chrome_paths.cc
+		${WRKSRC}/chrome/common/chrome_paths.cc \
+		${WRKSRC}/base/base.gyp
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
