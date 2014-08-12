@@ -1,5 +1,5 @@
---- ./ui/gl/gl.gyp.orig	2014-07-15 21:02:12.000000000 +0200
-+++ ./ui/gl/gl.gyp	2014-07-20 18:13:10.000000000 +0200
+--- ui/gl/gl.gyp.orig	2014-07-15 21:02:12.000000000 +0200
++++ ui/gl/gl.gyp	2014-08-12 22:47:17.000000000 +0200
 @@ -173,7 +173,7 @@
          },
        ],
@@ -14,7 +14,7 @@
          ],
          }],
 -        ['OS in ("android", "linux")', {
-+        ['OS in ("android", "linux", "freebsd")', {
++        ['OS in ("android", "linux", "freebsd", "openbsd")', {
            'sources': [
              'gl_implementation_osmesa.cc',
              'gl_implementation_osmesa.h',

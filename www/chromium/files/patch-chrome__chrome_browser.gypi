@@ -1,5 +1,5 @@
---- ./chrome/chrome_browser.gypi.orig	2014-07-15 21:02:11.000000000 +0200
-+++ ./chrome/chrome_browser.gypi	2014-08-12 19:21:47.000000000 +0200
+--- chrome/chrome_browser.gypi.orig	2014-07-15 21:02:11.000000000 +0200
++++ chrome/chrome_browser.gypi	2014-08-12 21:49:26.000000000 +0200
 @@ -2921,7 +2921,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
@@ -18,7 +18,7 @@
            'sources': [
              'app/chrome_breakpad_client.cc',
              'app/chrome_breakpad_client.h',
-@@ -3278,6 +3278,27 @@
+@@ -3278,6 +3278,13 @@
              ['exclude', '^third_party/mozilla_security_manager/'],
            ],
          }],
@@ -27,31 +27,17 @@
 +            ['exclude', '^browser/chrome_browser_main_linux.cc'],
 +            ['exclude', '^browser/chrome_browser_main_linux.h'],
 +            ['exclude', '^browser/media_galleries/linux/'],
-+            ['exclude', '^browser/storage_monitor/media_transfer_protocol_device_observer_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/media_transfer_protocol_device_observer_linux.h'],
-+            ['exclude', '^browser/storage_monitor/removable_device_notifications_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/removable_device_notifications_linux.h'],
-+            ['exclude', '^browser/storage_monitor/storage_monitor_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/storage_monitor_linux.h'],
-+            ['exclude', '^browser/storage_monitor/udev_util_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/udev_util_linux.h'],
-+            ['exclude', '^browser/storage_monitor/test_media_transfer_protocol_manager_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/test_media_transfer_protocol_manager_linux.h'],
-+            ['exclude', '^browser/storage_monitor/mtab_watcher_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/mtab_watcher_linux.h'],
-+            ['exclude', 'browser/media_galleries/linux/mtp_device_object_enumerator.cc'],
-+            ['exclude', 'browser/media_galleries/linux/mtp_device_object_enumerator.h'],
 +          ],
 +        }],
          ['OS=="mac"', {
            'dependencies': [
              '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',
-@@ -3387,7 +3408,7 @@
+@@ -3387,7 +3394,7 @@
              }],
            ],
          }],
 -        ['OS=="linux"', {
-+        ['OS=="linux" or OS=="freebsd"', {
++        ['OS=="linux" or os_bsd==1', {
            'conditions': [
              ['use_aura==1', {
                'dependencies': [

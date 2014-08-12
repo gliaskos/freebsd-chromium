@@ -1,11 +1,11 @@
---- ./media/media.gyp.orig	2014-07-15 21:02:23.000000000 +0200
-+++ ./media/media.gyp	2014-07-20 18:13:09.000000000 +0200
+--- media/media.gyp.orig	2014-07-15 21:02:23.000000000 +0200
++++ media/media.gyp	2014-08-12 22:07:56.000000000 +0200
 @@ -658,7 +658,7 @@
              'audio/openbsd/audio_manager_openbsd.h',
            ],
          }],
 -        ['OS=="linux"', {
-+        ['OS=="linux" or OS=="freebsd"', {
++        ['OS=="linux" or os_bsd==1', {
            'conditions': [
              ['use_x11==1', {
                'dependencies': [
@@ -14,7 +14,7 @@
            ],
          }],
 -        ['OS!="linux" and OS!="win"', {
-+        ['OS!="linux" and OS!="win" and OS!="freebsd"', {
++        ['OS!="linux" and OS!="win" and os_bsd!=1', {
            'sources!': [
              'base/keyboard_event_counter.cc',
              'base/keyboard_event_counter.h',
