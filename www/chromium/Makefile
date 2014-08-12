@@ -48,8 +48,8 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libsnappy.so:${PORTSDIR}/archivers/snappy \
 		libspeechd.so:${PORTSDIR}/accessibility/speech-dispatcher \
 		libspeex.so:${PORTSDIR}/audio/speex \
-		libxml.so:${PORTSDIR}/textproc/libxml2 \
-		libwebp.so:${PORTSDIR}/graphics/libwebp
+		libxml2.so:${PORTSDIR}/textproc/libxml2 \
+		libwebp.so:${PORTSDIR}/graphics/webp
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins \
 		${LOCALBASE}/lib/X11/fonts/Droid/fonts.dir:${PORTSDIR}/x11-fonts/droid-fonts-ttf \
