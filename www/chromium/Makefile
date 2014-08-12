@@ -238,6 +238,8 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
 		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
+	@${REINPLACE_CMD} -e "s|g++|${CXX}|" \
+		${WRKSRC}/tools/compile_test/compile_test.py
 
 #pre-configure:
 post-extract:
