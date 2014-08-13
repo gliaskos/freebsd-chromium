@@ -244,7 +244,6 @@ post-patch:
 pre-configure:
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
-	# XXX(rene) do not keep third_party/protobuf ?
 	cd ${WRKSRC} && ${PYTHON_CMD} \
 		./build/linux/unbundle/remove_bundled_libraries.py \
 		'base/third_party/dmg_fp' \
@@ -298,7 +297,6 @@ pre-configure:
 		'third_party/ots' \
 		'third_party/polymer' \
 		'third_party/ply' \
-		'third_party/protobuf' \
 		'third_party/pywebsocket' \
 		'third_party/qcms' \
 		'third_party/readability' \
