@@ -241,8 +241,7 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|g++|${CXX}|" \
 		${WRKSRC}/tools/compile_test/compile_test.py
 
-#pre-configure:
-post-extract:
+pre-configure:
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	# XXX(rene) do not keep third_party/protobuf ?
