@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/webui/options/browser_options_handler.h.orig	2014-07-15 21:01:24.000000000 +0200
-+++ ./chrome/browser/ui/webui/options/browser_options_handler.h	2014-07-20 18:13:08.000000000 +0200
+--- ./chrome/browser/ui/webui/options/browser_options_handler.h.orig	2014-08-12 21:01:37.000000000 +0200
++++ ./chrome/browser/ui/webui/options/browser_options_handler.h	2014-08-13 09:56:57.000000000 +0200
 @@ -197,7 +197,8 @@
  
    void ObserveThemeChanged();

@@ -1,5 +1,5 @@
---- ./third_party/webrtc/modules/desktop_capture/desktop_capture.gypi.orig	2014-07-15 21:04:47.000000000 +0200
-+++ ./third_party/webrtc/modules/desktop_capture/desktop_capture.gypi	2014-07-20 18:13:09.000000000 +0200
+--- ./third_party/webrtc/modules/desktop_capture/desktop_capture.gypi.orig	2014-08-12 21:04:10.000000000 +0200
++++ ./third_party/webrtc/modules/desktop_capture/desktop_capture.gypi	2014-08-13 09:57:00.000000000 +0200
 @@ -107,6 +107,11 @@
              ],
            },

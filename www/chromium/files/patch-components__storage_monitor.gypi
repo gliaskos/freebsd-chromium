@@ -1,5 +1,5 @@
---- components/storage_monitor.gypi.orig	2014-07-15 21:02:29.000000000 +0200
-+++ components/storage_monitor.gypi	2014-08-12 21:47:38.000000000 +0200
+--- ./components/storage_monitor.gypi.orig	2014-08-12 21:02:37.000000000 +0200
++++ ./components/storage_monitor.gypi	2014-08-13 09:56:57.000000000 +0200
 @@ -49,6 +49,24 @@
          'storage_monitor/volume_mount_watcher_win.h',
        ],

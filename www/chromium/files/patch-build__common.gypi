@@ -1,5 +1,5 @@
---- build/common.gypi.orig	2014-07-15 21:03:13.000000000 +0200
-+++ build/common.gypi	2014-08-12 21:48:34.000000000 +0200
+--- ./build/common.gypi.orig	2014-08-12 21:02:52.000000000 +0200
++++ ./build/common.gypi	2014-08-13 09:56:56.000000000 +0200
 @@ -101,7 +101,7 @@
              #
              # TODO(erg): Merge this into the previous block once compiling with

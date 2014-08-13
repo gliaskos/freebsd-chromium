@@ -1,5 +1,5 @@
---- remoting/remoting_host.gypi.orig	2014-07-15 21:02:25.000000000 +0200
-+++ remoting/remoting_host.gypi	2014-08-12 22:27:24.000000000 +0200
+--- ./remoting/remoting_host.gypi.orig	2014-08-12 21:02:33.000000000 +0200
++++ ./remoting/remoting_host.gypi	2014-08-13 09:56:58.000000000 +0200
 @@ -12,7 +12,7 @@
    'variables': {
      'conditions': [

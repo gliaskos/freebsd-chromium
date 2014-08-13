@@ -1,5 +1,5 @@
---- chrome/chrome_browser_ui.gypi.orig	2014-07-15 21:02:11.000000000 +0200
-+++ chrome/chrome_browser_ui.gypi	2014-08-12 21:41:45.000000000 +0200
+--- ./chrome/chrome_browser_ui.gypi.orig	2014-08-12 21:02:25.000000000 +0200
++++ ./chrome/chrome_browser_ui.gypi	2014-08-13 09:56:57.000000000 +0200
 @@ -2665,7 +2665,7 @@
              'browser/ui/views/message_center/web_notification_tray.cc',
            ],

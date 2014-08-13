@@ -1,5 +1,5 @@
---- ./chrome/browser/extensions/api/serial/serial_api.cc.orig	2014-07-15 21:01:19.000000000 +0200
-+++ ./chrome/browser/extensions/api/serial/serial_api.cc	2014-07-20 18:13:07.000000000 +0200
+--- ./chrome/browser/extensions/api/serial/serial_api.cc.orig	2014-08-12 21:01:44.000000000 +0200
++++ ./chrome/browser/extensions/api/serial/serial_api.cc	2014-08-13 09:56:56.000000000 +0200
 @@ -84,7 +84,7 @@
  
  void SerialGetDevicesFunction::Work() {

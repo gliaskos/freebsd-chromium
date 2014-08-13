@@ -1,5 +1,5 @@
---- ./chrome/browser/chrome_content_browser_client.h.orig	2014-07-15 21:01:31.000000000 +0200
-+++ ./chrome/browser/chrome_content_browser_client.h	2014-07-20 18:13:07.000000000 +0200
+--- ./chrome/browser/chrome_content_browser_client.h.orig	2014-08-12 21:01:48.000000000 +0200
++++ ./chrome/browser/chrome_content_browser_client.h	2014-08-13 09:56:56.000000000 +0200
 @@ -260,7 +260,7 @@
        const base::FilePath& storage_partition_path,
        ScopedVector<fileapi::FileSystemBackend>* additional_backends) OVERRIDE;

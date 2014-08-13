@@ -1,5 +1,5 @@
---- ./base/threading/platform_thread_linux.cc.orig	2014-07-15 21:01:13.000000000 +0200
-+++ ./base/threading/platform_thread_linux.cc	2014-07-20 18:13:07.000000000 +0200
+--- ./base/threading/platform_thread_linux.cc.orig	2014-08-12 21:01:27.000000000 +0200
++++ ./base/threading/platform_thread_linux.cc	2014-08-13 09:56:56.000000000 +0200
 @@ -16,7 +16,9 @@
  #include "base/tracked_objects.h"
  

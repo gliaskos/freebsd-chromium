@@ -1,5 +1,5 @@
---- components/usb_service/usb_context.cc.orig	2014-07-15 21:02:29.000000000 +0200
-+++ components/usb_service/usb_context.cc	2014-08-11 21:58:01.000000000 +0200
+--- ./components/usb_service/usb_context.cc.orig	2014-08-12 21:02:37.000000000 +0200
++++ ./components/usb_service/usb_context.cc	2014-08-13 09:56:57.000000000 +0200
 @@ -7,8 +7,13 @@
  #include "base/logging.h"
  #include "base/synchronization/waitable_event.h"
@@ -24,4 +24,3 @@
    base::PlatformThread::Join(thread_handle_);
  }
  
-

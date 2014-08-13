@@ -1,5 +1,5 @@
---- ./chrome/browser/ui/startup/startup_browser_creator.cc.orig	2014-07-15 21:01:28.000000000 +0200
-+++ ./chrome/browser/ui/startup/startup_browser_creator.cc	2014-07-20 18:13:08.000000000 +0200
+--- ./chrome/browser/ui/startup/startup_browser_creator.cc.orig	2014-08-12 21:01:35.000000000 +0200
++++ ./chrome/browser/ui/startup/startup_browser_creator.cc	2014-08-13 09:56:56.000000000 +0200
 @@ -81,7 +81,7 @@
  #include "chromeos/chromeos_switches.h"
  #endif

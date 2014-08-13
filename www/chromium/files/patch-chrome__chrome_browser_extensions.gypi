@@ -1,5 +1,5 @@
---- ./chrome/chrome_browser_extensions.gypi.orig	2014-07-15 21:02:11.000000000 +0200
-+++ ./chrome/chrome_browser_extensions.gypi	2014-07-20 18:13:08.000000000 +0200
+--- ./chrome/chrome_browser_extensions.gypi.orig	2014-08-12 21:02:25.000000000 +0200
++++ ./chrome/chrome_browser_extensions.gypi	2014-08-13 09:56:57.000000000 +0200
 @@ -921,6 +921,11 @@
          'browser/extensions/window_controller_list_observer.h',
        ],

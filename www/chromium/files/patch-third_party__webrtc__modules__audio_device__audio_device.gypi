@@ -1,5 +1,5 @@
---- ./third_party/webrtc/modules/audio_device/audio_device.gypi.orig	2014-07-15 21:04:19.000000000 +0200
-+++ ./third_party/webrtc/modules/audio_device/audio_device.gypi	2014-07-20 18:13:09.000000000 +0200
+--- ./third_party/webrtc/modules/audio_device/audio_device.gypi.orig	2014-08-12 21:03:58.000000000 +0200
++++ ./third_party/webrtc/modules/audio_device/audio_device.gypi	2014-08-13 09:56:59.000000000 +0200
 @@ -47,7 +47,7 @@
          'dummy/audio_device_utility_dummy.h',
        ],

@@ -1,5 +1,5 @@
---- ./content/browser/renderer_host/render_widget_host_view_aura.cc.orig	2014-07-15 21:02:50.000000000 +0200
-+++ ./content/browser/renderer_host/render_widget_host_view_aura.cc	2014-07-20 18:13:08.000000000 +0200
+--- ./content/browser/renderer_host/render_widget_host_view_aura.cc.orig	2014-08-12 21:01:24.000000000 +0200
++++ ./content/browser/renderer_host/render_widget_host_view_aura.cc	2014-08-13 09:56:57.000000000 +0200
 @@ -626,7 +626,7 @@
    if (host)
      return reinterpret_cast<gfx::NativeViewId>(host->GetAcceleratedWidget());

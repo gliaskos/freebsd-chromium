@@ -1,5 +1,5 @@
---- components/usb_service/usb_device_handle.cc.orig	2014-07-15 21:02:29.000000000 +0200
-+++ components/usb_service/usb_device_handle.cc	2014-08-11 21:58:22.000000000 +0200
+--- ./components/usb_service/usb_device_handle.cc.orig	2014-08-12 21:02:37.000000000 +0200
++++ ./components/usb_service/usb_device_handle.cc	2014-08-13 09:56:57.000000000 +0200
 @@ -16,7 +16,12 @@
  #include "components/usb_service/usb_interface.h"
  #include "components/usb_service/usb_service.h"
@@ -13,4 +13,3 @@
  
  using content::BrowserThread;
  
-
