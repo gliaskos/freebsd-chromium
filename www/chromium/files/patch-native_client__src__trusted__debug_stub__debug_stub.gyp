@@ -1,5 +1,5 @@
---- ./native_client/src/trusted/debug_stub/debug_stub.gyp.orig	2014-02-20 21:28:53.000000000 +0100
-+++ ./native_client/src/trusted/debug_stub/debug_stub.gyp	2014-02-24 17:23:45.000000000 +0100
+--- ./native_client/src/trusted/debug_stub/debug_stub.gyp.orig	2014-08-12 21:03:10.000000000 +0200
++++ ./native_client/src/trusted/debug_stub/debug_stub.gyp	2014-08-13 09:56:57.000000000 +0200
 @@ -27,7 +27,7 @@
        'test.cc',
      ],

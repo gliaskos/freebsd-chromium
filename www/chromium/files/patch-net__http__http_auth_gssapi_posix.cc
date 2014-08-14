@@ -1,6 +1,6 @@
---- ./net/http/http_auth_gssapi_posix.cc.orig	2014-02-20 21:28:32.000000000 +0100
-+++ ./net/http/http_auth_gssapi_posix.cc	2014-02-24 17:23:45.000000000 +0100
-@@ -430,8 +430,8 @@
+--- ./net/http/http_auth_gssapi_posix.cc.orig	2014-08-12 21:02:39.000000000 +0200
++++ ./net/http/http_auth_gssapi_posix.cc	2014-08-13 09:56:57.000000000 +0200
+@@ -431,8 +431,8 @@
      static const char* const kDefaultLibraryNames[] = {
  #if defined(OS_MACOSX)
        "libgssapi_krb5.dylib"  // MIT Kerberos

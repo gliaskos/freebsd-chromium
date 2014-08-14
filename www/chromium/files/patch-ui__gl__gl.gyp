@@ -1,6 +1,6 @@
---- ./ui/gl/gl.gyp.orig	2014-02-20 21:27:58.000000000 +0100
-+++ ./ui/gl/gl.gyp	2014-02-24 17:23:45.000000000 +0100
-@@ -177,7 +177,7 @@
+--- ./ui/gl/gl.gyp.orig	2014-08-12 21:02:27.000000000 +0200
++++ ./ui/gl/gl.gyp	2014-08-13 09:57:00.000000000 +0200
+@@ -173,7 +173,7 @@
          },
        ],
        'conditions': [
@@ -9,3 +9,12 @@
            'sources': [
              'egl_util.cc',
              'egl_util.h',
+@@ -192,7 +192,7 @@
+             '<(DEPTH)/third_party/khronos',
+         ],
+         }],
+-        ['OS in ("android", "linux")', {
++        ['OS in ("android", "linux", "freebsd", "openbsd")', {
+           'sources': [
+             'gl_implementation_osmesa.cc',
+             'gl_implementation_osmesa.h',

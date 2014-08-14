@@ -1,6 +1,6 @@
---- ./chrome/browser/ui/webui/about_ui.cc.orig	2014-02-20 21:27:34.000000000 +0100
-+++ ./chrome/browser/ui/webui/about_ui.cc	2014-02-24 17:23:44.000000000 +0100
-@@ -766,7 +766,7 @@
+--- ./chrome/browser/ui/webui/about_ui.cc.orig	2014-08-12 21:01:37.000000000 +0200
++++ ./chrome/browser/ui/webui/about_ui.cc	2014-08-13 09:56:57.000000000 +0200
+@@ -763,7 +763,7 @@
    return data;
  }
  
@@ -9,7 +9,7 @@
  std::string AboutLinuxProxyConfig() {
    std::string data;
    AppendHeader(&data, 0,
-@@ -782,6 +782,7 @@
+@@ -779,6 +779,7 @@
    return data;
  }
  
@@ -17,7 +17,7 @@
  void AboutSandboxRow(std::string* data, const std::string& prefix, int name_id,
                       bool good) {
    data->append("<tr><td>");
-@@ -848,6 +849,7 @@
+@@ -849,6 +850,7 @@
    return data;
  }
  #endif
@@ -25,7 +25,7 @@
  
  // AboutMemoryHandler ----------------------------------------------------------
  
-@@ -1013,7 +1015,7 @@
+@@ -1019,7 +1021,7 @@
    } else if (source_name_ == chrome::kChromeUIDNSHost) {
      AboutDnsHandler::Start(profile(), callback);
      return;

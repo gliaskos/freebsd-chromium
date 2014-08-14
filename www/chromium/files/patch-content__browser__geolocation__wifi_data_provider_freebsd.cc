@@ -1,5 +1,5 @@
---- ./content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-02-24 17:23:44.000000000 +0100
-+++ ./content/browser/geolocation/wifi_data_provider_freebsd.cc	2014-02-24 17:23:44.000000000 +0100
+--- ./content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-08-13 09:56:57.000000000 +0200
++++ ./content/browser/geolocation/wifi_data_provider_freebsd.cc	2014-08-13 09:56:57.000000000 +0200
 @@ -0,0 +1,200 @@
 +// Copyright (c) 2010 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
@@ -148,7 +148,7 @@
 +			}
 +			strncpy(ssid, id, idlen);
 +			ssid[idlen] = '\0';
-+			apd.ssid = UTF8ToUTF16(ssid);
++			apd.ssid = base::UTF8ToUTF16(ssid);
 +			apd.mac_address = MacAddressAsString16(isr->isr_bssid);
 +			apd.radio_signal_strength = (isr->isr_rssi/2) + isr->isr_noise;
 +			apd.signal_to_noise = apd.radio_signal_strength - isr->isr_noise;

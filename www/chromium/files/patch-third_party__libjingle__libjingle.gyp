@@ -1,15 +1,6 @@
---- ./third_party/libjingle/libjingle.gyp.orig	2014-02-20 21:28:39.000000000 +0100
-+++ ./third_party/libjingle/libjingle.gyp	2014-02-24 17:23:45.000000000 +0100
-@@ -541,7 +541,7 @@
-             '<(libjingle_source)/talk/base/unixfilesystem.h',
-           ],
-         }],
--        ['OS=="linux"', {
-+        ['OS=="linux" or os_bsd==1', {
-           'sources': [
-             '<(libjingle_source)/talk/base/latebindingsymboltable.cc',
-             '<(libjingle_source)/talk/base/latebindingsymboltable.h',
-@@ -790,7 +790,7 @@
+--- ./third_party/libjingle/libjingle.gyp.orig	2014-08-12 21:02:51.000000000 +0200
++++ ./third_party/libjingle/libjingle.gyp	2014-08-13 09:56:58.000000000 +0200
+@@ -473,7 +473,7 @@
                ],
              }],
              # TODO(mallinath) - Enable SCTP for iOS.

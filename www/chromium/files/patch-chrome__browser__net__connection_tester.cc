@@ -1,6 +1,6 @@
---- ./chrome/browser/net/connection_tester.cc.orig	2014-02-20 21:27:46.000000000 +0100
-+++ ./chrome/browser/net/connection_tester.cc	2014-02-24 17:23:44.000000000 +0100
-@@ -216,7 +216,7 @@
+--- ./chrome/browser/net/connection_tester.cc.orig	2014-08-12 21:01:39.000000000 +0200
++++ ./chrome/browser/net/connection_tester.cc	2014-08-13 09:56:56.000000000 +0200
+@@ -213,7 +213,7 @@
    // Otherwise returns a network error code.
    int CreateSystemProxyConfigService(
        scoped_ptr<net::ProxyConfigService>* config_service) {

@@ -1,5 +1,5 @@
---- ./native_client/src/trusted/service_runtime/service_runtime.gyp.orig	2014-02-20 21:28:52.000000000 +0100
-+++ ./native_client/src/trusted/service_runtime/service_runtime.gyp	2014-02-24 17:23:45.000000000 +0100
+--- ./native_client/src/trusted/service_runtime/service_runtime.gyp.orig	2014-08-12 21:03:22.000000000 +0200
++++ ./native_client/src/trusted/service_runtime/service_runtime.gyp	2014-08-13 09:56:57.000000000 +0200
 @@ -6,7 +6,7 @@
  {
    'variables': {

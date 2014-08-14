@@ -1,6 +1,6 @@
---- ./chrome/chrome_browser.gypi.orig	2014-02-20 21:27:54.000000000 +0100
-+++ ./chrome/chrome_browser.gypi	2014-02-24 17:23:44.000000000 +0100
-@@ -2891,7 +2891,7 @@
+--- ./chrome/chrome_browser.gypi.orig	2014-08-12 21:02:25.000000000 +0200
++++ ./chrome/chrome_browser.gypi	2014-08-13 09:56:57.000000000 +0200
+@@ -2923,7 +2923,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
          }],
@@ -9,17 +9,17 @@
            'dependencies': [
              '../build/linux/system.gyp:libspeechd',
            ],
-@@ -3014,7 +3014,7 @@
-             ],
-           },
+@@ -3046,7 +3046,7 @@
+             '../build/linux/system.gyp:xscrnsaver',
+           ],
          }],
 -        ['os_posix == 1 and OS != "mac" and OS != "ios"', {
 +        ['os_posix == 1 and OS != "mac" and OS != "ios" and os_bsd != 1', {
            'sources': [
              'app/chrome_breakpad_client.cc',
              'app/chrome_breakpad_client.h',
-@@ -3272,6 +3272,25 @@
-             ['exclude', '^browser/usb/'],
+@@ -3281,6 +3281,13 @@
+             ['exclude', '^third_party/mozilla_security_manager/'],
            ],
          }],
 +        ['os_bsd==1', {
@@ -27,20 +27,17 @@
 +            ['exclude', '^browser/chrome_browser_main_linux.cc'],
 +            ['exclude', '^browser/chrome_browser_main_linux.h'],
 +            ['exclude', '^browser/media_galleries/linux/'],
-+            ['exclude', '^browser/storage_monitor/media_transfer_protocol_device_observer_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/media_transfer_protocol_device_observer_linux.h'],
-+            ['exclude', '^browser/storage_monitor/removable_device_notifications_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/removable_device_notifications_linux.h'],
-+            ['exclude', '^browser/storage_monitor/storage_monitor_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/storage_monitor_linux.h'],
-+            ['exclude', '^browser/storage_monitor/udev_util_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/udev_util_linux.h'],
-+            ['exclude', '^browser/storage_monitor/test_media_transfer_protocol_manager_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/test_media_transfer_protocol_manager_linux.h'],
-+            ['exclude', '^browser/storage_monitor/mtab_watcher_linux.cc'],
-+            ['exclude', '^browser/storage_monitor/mtab_watcher_linux.h'],
 +          ],
 +        }],
          ['OS=="mac"', {
            'dependencies': [
-             '../third_party/mozilla/mozilla.gyp:mozilla',
+             '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',
+@@ -3390,7 +3397,7 @@
+             }],
+           ],
+         }],
+-        ['OS=="linux"', {
++        ['OS=="linux" or os_bsd==1', {
+           'conditions': [
+             ['use_aura==1', {
+               'dependencies': [

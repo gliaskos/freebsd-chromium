@@ -1,24 +1,20 @@
---- ./base/process/memory_unittest.cc.orig	2014-02-20 21:28:45.000000000 +0100
-+++ ./base/process/memory_unittest.cc	2014-02-24 17:23:44.000000000 +0100
-@@ -153,12 +153,12 @@
+--- ./base/process/memory_unittest.cc.orig	2014-08-12 21:01:27.000000000 +0200
++++ ./base/process/memory_unittest.cc	2014-08-13 09:56:56.000000000 +0200
+@@ -151,9 +151,9 @@
  
  // Android doesn't implement set_new_handler, so we can't use the
  // OutOfMemoryTest cases.
 -// OpenBSD does not support these tests either.
-+// OpenBSD and FreeBSD does not support these tests either.
- // AddressSanitizer and ThreadSanitizer define the malloc()/free()/etc.
- // functions so that they don't crash if the program is out of memory, so the
- // OOM tests aren't supposed to work.
++// OpenBSD and FreeBSD do not support these tests either.
  // TODO(vandebo) make this work on Windows too.
 -#if !defined(OS_ANDROID) && !defined(OS_OPENBSD) && \
 +#if !defined(OS_ANDROID) && !defined(OS_BSD) && \
-     !defined(OS_WIN) && \
-     !defined(ADDRESS_SANITIZER) && !defined(THREAD_SANITIZER)
+     !defined(OS_WIN)
  
-@@ -374,5 +374,5 @@
- #endif  // !ARCH_CPU_64_BITS
- #endif  // OS_MACOSX
- 
--#endif  // !defined(OS_ANDROID) && !defined(OS_OPENBSD) &&
-+#endif  // !defined(OS_ANDROID) && !defined(OS_BSD) &&
-         // !defined(OS_WIN) && !defined(ADDRESS_SANITIZER)
+ #if defined(USE_TCMALLOC)
+@@ -425,4 +425,4 @@
+   EXPECT_TRUE(value_ == NULL);
+ }
+ #endif  // !defined(MEMORY_TOOL_REPLACES_ALLOCATOR)
+-#endif  // !defined(OS_ANDROID) && !defined(OS_OPENBSD) && !defined(OS_WIN)
++#endif  // !defined(OS_ANDROID) && !defined(OS_BSD) && !defined(OS_WIN)

@@ -1,6 +1,6 @@
---- ./native_client/build/common.gypi.orig	2014-02-20 21:28:56.000000000 +0100
-+++ ./native_client/build/common.gypi	2014-02-24 17:23:45.000000000 +0100
-@@ -262,7 +262,7 @@
+--- ./native_client/build/common.gypi.orig	2014-08-12 21:03:33.000000000 +0200
++++ ./native_client/build/common.gypi	2014-08-13 09:56:57.000000000 +0200
+@@ -269,7 +269,7 @@
      ],
    },
    'conditions': [

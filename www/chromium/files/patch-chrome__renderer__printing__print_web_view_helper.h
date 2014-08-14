@@ -1,6 +1,6 @@
---- ./chrome/renderer/printing/print_web_view_helper.h.orig	2014-02-20 21:27:30.000000000 +0100
-+++ ./chrome/renderer/printing/print_web_view_helper.h	2014-02-24 17:23:44.000000000 +0100
-@@ -233,7 +233,7 @@
+--- ./chrome/renderer/printing/print_web_view_helper.h.orig	2014-08-12 21:02:25.000000000 +0200
++++ ./chrome/renderer/printing/print_web_view_helper.h	2014-08-13 09:56:57.000000000 +0200
+@@ -201,7 +201,7 @@
    void FinishFramePrinting();
  
    // Prints the page listed in |params|.

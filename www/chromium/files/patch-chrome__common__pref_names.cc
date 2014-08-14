@@ -1,6 +1,6 @@
---- ./chrome/common/pref_names.cc.orig	2014-02-20 21:27:53.000000000 +0100
-+++ ./chrome/common/pref_names.cc	2014-02-24 17:23:44.000000000 +0100
-@@ -921,7 +921,7 @@
+--- ./chrome/common/pref_names.cc.orig	2014-08-12 21:02:17.000000000 +0200
++++ ./chrome/common/pref_names.cc	2014-08-13 09:56:57.000000000 +0200
+@@ -923,7 +923,7 @@
  // Boolean controlling whether SafeSearch is mandatory for Google Web Searches.
  const char kForceSafeSearch[] = "settings.force_safesearch";
  

@@ -1,6 +1,6 @@
---- ./third_party/WebKit/Source/web/web.gyp.orig	2014-02-20 21:32:27.000000000 +0100
-+++ ./third_party/WebKit/Source/web/web.gyp	2014-02-24 17:23:45.000000000 +0100
-@@ -147,7 +147,7 @@
+--- ./third_party/WebKit/Source/web/web.gyp.orig	2014-08-12 21:07:15.000000000 +0200
++++ ./third_party/WebKit/Source/web/web.gyp	2014-08-13 09:56:58.000000000 +0200
+@@ -142,7 +142,7 @@
                        },
                      },
                  }],
