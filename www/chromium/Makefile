@@ -65,7 +65,6 @@ USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
 USE_OPENSSL=	yes
 WITH_OPENSSL_PORT=	yes # simplify for pkg-config in configure phase
-
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 
@@ -331,7 +330,7 @@ test regression-test: build
 .endfor
 
 do-install:
-	${MKDIR} ${STAGEDIR}${DATADIR}
+	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/product_logo_48.png ${STAGEDIR}${DATADIR}
 	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper \
@@ -344,7 +343,7 @@ do-install:
 .endfor
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
-	${MKDIR} ${STAGEDIR}${DESKTOPDIR}
+	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_DATA} ${WRKDIR}/chromium-browser.desktop ${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_SCRIPT} ${WRKDIR}/chrome ${STAGEDIR}${PREFIX}/bin
 
