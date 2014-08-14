@@ -67,6 +67,7 @@ USE_OPENSSL=	yes
 WITH_OPENSSL_PORT=	yes # simplify for pkg-config in configure phase
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
+INSTALLS_ICONS=	yes
 
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	\
@@ -332,19 +333,24 @@ test regression-test: build
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/product_logo_48.png ${STAGEDIR}${DATADIR}
-	${INSTALL_SCRIPT} ${WRKSRC}/out/${BUILDTYPE}/chrome-wrapper \
-		${WRKSRC}/out/${BUILDTYPE}/xdg-settings ${STAGEDIR}${DATADIR}
-.for p in chrome_100_percent content_resources resources
+.for s in 22 24 48 64 128 256
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/${s}x${s}/apps
+	${INSTALL_DATA} ${WRKSRC}/chrome/app/theme/chromium/product_logo_${s}.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/${s}x${s}/apps/chrome.png
+.endfor
+	${INSTALL_SCRIPT} ${WRKSRC}/chrome/tools/build/linux/chrome-wrapper \
+		${STAGEDIR}${DATADIR}
+.for p in chrome_100_percent content_resources keyboard_resources resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak ${STAGEDIR}${DATADIR}
 .endfor
-.for f in chrome libffmpegsumo.so
-	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
-.endfor
+	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chrome ${STAGEDIR}${DATADIR}
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libffmpegsumo.so ${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
 	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_DATA} ${WRKDIR}/chromium-browser.desktop ${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_SCRIPT} ${WRKDIR}/chrome ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/mksnapshot.${ARCH:S/i386/x86/:S/amd64/x64/} \
+		${STAGEDIR}${DATADIR}/mksnapshot
 
 .include <bsd.port.post.mk>
