@@ -197,7 +197,6 @@ MAKE_ARGS+=	-C out/${BUILDTYPE}
 
 .if ${CHOSEN_COMPILER_TYPE} == gcc
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
-CFLAGS+=	-Wno-unknown-warning
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 .else
 GYP_DEFINES+=	clang=1
