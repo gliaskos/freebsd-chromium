@@ -20,7 +20,6 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
-		protoc:${PORTSDIR}/devel/protobuf \
 		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
@@ -43,6 +42,7 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libjsoncpp.so:${PORTSDIR}/devel/jsoncpp \
 		libminizip.so:${PORTSDIR}/archivers/minizip \
 		libnspr4.so:${PORTSDIR}/devel/nspr \
+		libprotobuf.so:${PORTSDIR}/devel/protobuf \
 		libpng.so:${PORTSDIR}/graphics/png \
 		libre2.so:${PORTSDIR}/devel/re2 \
 		libsnappy.so:${PORTSDIR}/archivers/snappy \
