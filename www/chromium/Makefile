@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	36.0.1985.143
-PORTREVISION=	1
+PORTVERSION=	37.0.2062.76
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
