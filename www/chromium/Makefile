@@ -63,8 +63,7 @@ CPE_PRODUCT=	chrome
 USE_PERL5=	build
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
-USE_OPENSSL=	yes
-WITH_OPENSSL_PORT=	yes # simplify for pkg-config in configure phase
+USE_OPENSSL=	yes # must be from base to prevent a link failure against cups
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
@@ -190,9 +189,12 @@ CONFIGURE_ENV+=	CC="${CC}" \
 		GYP_DEFINES="${GYP_DEFINES}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF="${LOCALBASE}/bin/gperf"
-MAKE_ARGS+=	-C out/${BUILDTYPE}
 
 .include <bsd.port.pre.mk>
+
+#XXX redefine MAKE_ARGS after bsd.port.pre.mk to avoid OPENSSL flags
+# leaking in which confuses ninja
+MAKE_ARGS=	-C out/${BUILDTYPE}
 
 .if ${CHOSEN_COMPILER_TYPE} == gcc
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
