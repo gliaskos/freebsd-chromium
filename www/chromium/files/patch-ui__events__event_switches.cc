@@ -1,5 +1,5 @@
---- ./ui/events/event_switches.cc.orig	2014-08-13 21:01:28.000000000 +0200
-+++ ./ui/events/event_switches.cc	2014-08-21 21:41:50.000000000 +0200
+--- ./ui/events/event_switches.cc.orig	2014-08-20 21:02:18.000000000 +0200
++++ ./ui/events/event_switches.cc	2014-08-21 23:18:11.000000000 +0200
 @@ -32,7 +32,7 @@
  //   disabled: Use the aura gesture detector.
  const char kUnifiedGestureDetectorDisabled[] = "disabled";

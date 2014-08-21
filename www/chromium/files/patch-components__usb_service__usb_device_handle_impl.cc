@@ -1,5 +1,5 @@
---- ./components/usb_service/usb_device_handle_impl.cc.orig	2014-08-13 21:03:14.000000000 +0200
-+++ ./components/usb_service/usb_device_handle_impl.cc	2014-08-21 22:17:24.000000000 +0200
+--- ./components/usb_service/usb_device_handle_impl.cc.orig	2014-08-20 21:02:55.000000000 +0200
++++ ./components/usb_service/usb_device_handle_impl.cc	2014-08-21 23:18:11.000000000 +0200
 @@ -17,8 +17,25 @@
  #include "components/usb_service/usb_interface.h"
  #include "components/usb_service/usb_service.h"

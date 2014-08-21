@@ -1,5 +1,5 @@
---- ./content/renderer/renderer_main_platform_delegate_linux.cc.orig	2014-08-13 21:02:42.000000000 +0200
-+++ ./content/renderer/renderer_main_platform_delegate_linux.cc	2014-08-21 22:31:41.000000000 +0200
+--- ./content/renderer/renderer_main_platform_delegate_linux.cc.orig	2014-08-20 21:02:43.000000000 +0200
++++ ./content/renderer/renderer_main_platform_delegate_linux.cc	2014-08-21 23:18:11.000000000 +0200
 @@ -40,6 +40,7 @@
  }
  

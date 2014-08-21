@@ -1,5 +1,5 @@
---- ./chrome/common/chrome_paths.h.orig	2014-08-13 21:02:07.000000000 +0200
-+++ ./chrome/common/chrome_paths.h	2014-08-21 22:12:24.000000000 +0200
+--- ./chrome/common/chrome_paths.h.orig	2014-08-20 21:01:56.000000000 +0200
++++ ./chrome/common/chrome_paths.h	2014-08-21 23:18:10.000000000 +0200
 @@ -115,7 +115,7 @@
    DIR_SUPERVISED_USERS_DEFAULT_APPS,  // Directory where installer places .crx
                                        // files to be installed when managed user

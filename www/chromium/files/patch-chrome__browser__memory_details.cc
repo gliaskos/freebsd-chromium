@@ -1,5 +1,5 @@
---- ./chrome/browser/memory_details.cc.orig	2014-08-13 21:02:26.000000000 +0200
-+++ ./chrome/browser/memory_details.cc	2014-08-21 21:41:49.000000000 +0200
+--- ./chrome/browser/memory_details.cc.orig	2014-08-20 21:02:13.000000000 +0200
++++ ./chrome/browser/memory_details.cc	2014-08-21 23:18:10.000000000 +0200
 @@ -32,7 +32,7 @@
  #include "grit/generated_resources.h"
  #include "ui/base/l10n/l10n_util.h"

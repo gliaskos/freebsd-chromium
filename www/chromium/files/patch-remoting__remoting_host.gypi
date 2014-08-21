@@ -1,5 +1,5 @@
---- ./remoting/remoting_host.gypi.orig	2014-08-12 21:02:33.000000000 +0200
-+++ ./remoting/remoting_host.gypi	2014-08-13 09:56:58.000000000 +0200
+--- ./remoting/remoting_host.gypi.orig	2014-08-20 21:02:52.000000000 +0200
++++ ./remoting/remoting_host.gypi	2014-08-21 23:18:11.000000000 +0200
 @@ -12,7 +12,7 @@
    'variables': {
      'conditions': [
@@ -9,7 +9,7 @@
          'enable_remoting_host': 1,
        }, {
          'enable_remoting_host': 0,
-@@ -266,7 +266,7 @@
+@@ -270,7 +270,7 @@
              'host/win/wts_terminal_observer.h',
            ],
            'conditions': [

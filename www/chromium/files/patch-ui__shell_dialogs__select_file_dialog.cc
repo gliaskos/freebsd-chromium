@@ -1,5 +1,5 @@
---- ./ui/shell_dialogs/select_file_dialog.cc.orig	2014-08-13 21:01:25.000000000 +0200
-+++ ./ui/shell_dialogs/select_file_dialog.cc	2014-08-21 22:45:10.000000000 +0200
+--- ./ui/shell_dialogs/select_file_dialog.cc.orig	2014-08-20 21:02:18.000000000 +0200
++++ ./ui/shell_dialogs/select_file_dialog.cc	2014-08-21 23:18:11.000000000 +0200
 @@ -20,7 +20,7 @@
  #include "ui/shell_dialogs/select_file_dialog_mac.h"
  #elif defined(OS_ANDROID)

@@ -1,5 +1,5 @@
---- ./native_client/build/common.gypi.orig	2014-08-13 21:03:17.000000000 +0200
-+++ ./native_client/build/common.gypi	2014-08-21 22:35:54.000000000 +0200
+--- ./native_client/build/common.gypi.orig	2014-08-20 21:03:22.000000000 +0200
++++ ./native_client/build/common.gypi	2014-08-21 23:18:11.000000000 +0200
 @@ -286,7 +286,7 @@
      ],
    },
