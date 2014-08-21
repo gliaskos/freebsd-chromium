@@ -1,6 +1,6 @@
---- ./base/test/launcher/test_launcher.cc.orig	2014-08-12 21:01:28.000000000 +0200
-+++ ./base/test/launcher/test_launcher.cc	2014-08-13 09:56:56.000000000 +0200
-@@ -40,6 +40,10 @@
+--- ./base/test/launcher/test_launcher.cc.orig	2014-08-13 21:01:18.000000000 +0200
++++ ./base/test/launcher/test_launcher.cc	2014-08-21 21:41:49.000000000 +0200
+@@ -41,6 +41,10 @@
  #include "base/mac/scoped_nsautorelease_pool.h"
  #endif
  
@@ -10,4 +10,4 @@
 +
  namespace base {
  
- // See https://groups.google.com/a/chromium.org/d/msg/chromium-dev/nkdTP7sstSc/uT3FaE_sgkAJ .
+ // Launches a child process using |command_line|. If the child process is still
