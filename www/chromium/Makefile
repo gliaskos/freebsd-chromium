@@ -270,6 +270,7 @@ pre-configure:
 		'third_party/cros_system_api' \
 		'third_party/dom_distiller_js' \
 		'third_party/ffmpeg' \
+		'third_party/fips181' \
 		'third_party/flot' \
 		'third_party/hunspell' \
 		'third_party/iccjpeg' \
@@ -296,8 +297,9 @@ pre-configure:
 		'third_party/npapi' \
 		'third_party/opus' \
 		'third_party/ots' \
-		'third_party/polymer' \
+		'third_party/pdfium' \
 		'third_party/ply' \
+		'third_party/polymer' \
 		'third_party/pywebsocket' \
 		'third_party/qcms' \
 		'third_party/readability' \
