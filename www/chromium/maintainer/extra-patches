@@ -25,3 +25,4 @@ files/patch-testing__perf__perf_test.cc
 files/patch-ui__gfx__codec__jpeg_codec.cc
 files/patch-v8__src__checks.cc
 files/patch-third_party__openssl__openssl__openssl.config
+files/patch-third_party__webrtc__base__taskrunner.cc
