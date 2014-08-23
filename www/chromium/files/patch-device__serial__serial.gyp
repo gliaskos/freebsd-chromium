@@ -1,5 +1,5 @@
 --- ./device/serial/serial.gyp.orig	2014-08-20 21:03:08.000000000 +0200
-+++ ./device/serial/serial.gyp	2014-08-21 23:18:11.000000000 +0200
++++ ./device/serial/serial.gyp	2014-08-22 15:06:26.000000000 +0200
 @@ -20,6 +20,12 @@
              '../../build/linux/system.gyp:udev',
            ],

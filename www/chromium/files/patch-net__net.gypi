@@ -1,5 +1,5 @@
 --- ./net/net.gypi.orig	2014-08-20 21:02:28.000000000 +0200
-+++ ./net/net.gypi	2014-08-21 23:18:11.000000000 +0200
++++ ./net/net.gypi	2014-08-22 15:06:26.000000000 +0200
 @@ -171,8 +171,8 @@
        'android/network_change_notifier_factory_android.h',
        'android/network_library.cc',

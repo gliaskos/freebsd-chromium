@@ -1,5 +1,5 @@
 --- ./third_party/WebKit/Source/platform/heap/ThreadState.cpp.orig	2014-08-20 21:07:57.000000000 +0200
-+++ ./third_party/WebKit/Source/platform/heap/ThreadState.cpp	2014-08-21 23:18:11.000000000 +0200
++++ ./third_party/WebKit/Source/platform/heap/ThreadState.cpp	2014-08-22 15:06:26.000000000 +0200
 @@ -50,13 +50,22 @@
  #include <sanitizer/msan_interface.h>
  #endif

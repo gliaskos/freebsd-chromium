@@ -1,5 +1,5 @@
 --- ./content/content_browser.gypi.orig	2014-08-20 21:02:50.000000000 +0200
-+++ ./content/content_browser.gypi	2014-08-21 23:18:11.000000000 +0200
++++ ./content/content_browser.gypi	2014-08-22 15:06:25.000000000 +0200
 @@ -615,6 +615,8 @@
        'browser/geolocation/wifi_data_provider_common_win.cc',
        'browser/geolocation/wifi_data_provider_common_win.h',

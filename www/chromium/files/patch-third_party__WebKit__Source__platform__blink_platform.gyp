@@ -1,5 +1,5 @@
 --- ./third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-08-20 21:07:58.000000000 +0200
-+++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-08-21 23:18:11.000000000 +0200
++++ ./third_party/WebKit/Source/platform/blink_platform.gyp	2014-08-22 15:06:26.000000000 +0200
 @@ -38,6 +38,9 @@
    'targets': [{
      'target_name': 'blink_common',

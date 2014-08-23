@@ -1,5 +1,5 @@
 --- ./third_party/libjingle/source/talk/base/cpumonitor.cc.orig	2014-08-20 21:03:47.000000000 +0200
-+++ ./third_party/libjingle/source/talk/base/cpumonitor.cc	2014-08-21 23:18:11.000000000 +0200
++++ ./third_party/libjingle/source/talk/base/cpumonitor.cc	2014-08-22 15:06:26.000000000 +0200
 @@ -53,13 +53,13 @@
  #include <mach/task.h>
  #endif  // defined(IOS) || defined(OSX)

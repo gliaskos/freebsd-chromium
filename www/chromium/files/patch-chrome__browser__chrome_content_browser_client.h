@@ -1,5 +1,5 @@
 --- ./chrome/browser/chrome_content_browser_client.h.orig	2014-08-20 21:02:13.000000000 +0200
-+++ ./chrome/browser/chrome_content_browser_client.h	2014-08-21 23:18:10.000000000 +0200
++++ ./chrome/browser/chrome_content_browser_client.h	2014-08-22 15:06:24.000000000 +0200
 @@ -288,7 +288,7 @@
    virtual net::CookieStore* OverrideCookieStoreForRenderProcess(
        int render_process_id) OVERRIDE;

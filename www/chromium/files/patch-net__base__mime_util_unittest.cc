@@ -1,5 +1,5 @@
 --- ./net/base/mime_util_unittest.cc.orig	2014-08-20 21:02:28.000000000 +0200
-+++ ./net/base/mime_util_unittest.cc	2014-08-21 23:18:11.000000000 +0200
++++ ./net/base/mime_util_unittest.cc	2014-08-22 15:06:26.000000000 +0200
 @@ -385,7 +385,7 @@
      { "MeSsAge/*",  1, "eml" },
      { "image/bmp",  1, "bmp" },

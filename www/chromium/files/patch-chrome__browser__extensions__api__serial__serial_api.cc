@@ -1,5 +1,5 @@
 --- ./chrome/browser/extensions/api/serial/serial_api.cc.orig	2014-08-20 21:01:58.000000000 +0200
-+++ ./chrome/browser/extensions/api/serial/serial_api.cc	2014-08-21 23:18:10.000000000 +0200
++++ ./chrome/browser/extensions/api/serial/serial_api.cc	2014-08-22 15:06:24.000000000 +0200
 @@ -85,11 +85,13 @@
  void SerialGetDevicesFunction::Work() {
    DCHECK_CURRENTLY_ON(BrowserThread::FILE);

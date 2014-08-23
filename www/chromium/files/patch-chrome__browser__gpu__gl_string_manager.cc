@@ -1,5 +1,5 @@
 --- ./chrome/browser/gpu/gl_string_manager.cc.orig	2014-08-20 21:02:06.000000000 +0200
-+++ ./chrome/browser/gpu/gl_string_manager.cc	2014-08-21 23:18:10.000000000 +0200
++++ ./chrome/browser/gpu/gl_string_manager.cc	2014-08-22 15:06:24.000000000 +0200
 @@ -25,7 +25,7 @@
  
  void GLStringManager::Initialize() {

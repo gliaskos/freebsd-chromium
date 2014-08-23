@@ -1,5 +1,5 @@
 --- ./chrome/common/chrome_switches.cc.orig	2014-08-20 21:01:56.000000000 +0200
-+++ ./chrome/common/chrome_switches.cc	2014-08-21 23:18:11.000000000 +0200
++++ ./chrome/common/chrome_switches.cc	2014-08-22 15:06:25.000000000 +0200
 @@ -1319,7 +1319,7 @@
  const char kPasswordStore[]                 = "password-store";
  #endif

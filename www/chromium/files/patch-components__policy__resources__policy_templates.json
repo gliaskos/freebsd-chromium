@@ -1,5 +1,5 @@
 --- ./components/policy/resources/policy_templates.json.orig	2014-08-20 21:02:55.000000000 +0200
-+++ ./components/policy/resources/policy_templates.json	2014-08-21 23:18:11.000000000 +0200
++++ ./components/policy/resources/policy_templates.json	2014-08-22 15:06:25.000000000 +0200
 @@ -1513,7 +1513,7 @@
            'name': 'GSSAPILibraryName',
            'type': 'string',

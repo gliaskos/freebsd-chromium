@@ -1,5 +1,5 @@
 --- ./ppapi/shared_impl/private/net_address_private_impl.cc.orig	2014-08-20 21:02:39.000000000 +0200
-+++ ./ppapi/shared_impl/private/net_address_private_impl.cc	2014-08-21 23:18:11.000000000 +0200
++++ ./ppapi/shared_impl/private/net_address_private_impl.cc	2014-08-22 15:06:26.000000000 +0200
 @@ -14,6 +14,10 @@
  #include <sys/types.h>
  #endif
