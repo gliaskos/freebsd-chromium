@@ -1,5 +1,5 @@
---- ./chrome/app/chrome_main_delegate.h.orig	2014-08-20 21:01:26.000000000 +0200
-+++ ./chrome/app/chrome_main_delegate.h	2014-08-22 15:06:24.000000000 +0200
+--- chrome/app/chrome_main_delegate.h.orig	2014-09-04 00:04:10 UTC
++++ chrome/app/chrome_main_delegate.h
 @@ -38,7 +38,7 @@
    virtual bool ShouldSendMachPort(const std::string& process_type) OVERRIDE;
    virtual bool DelaySandboxInitialization(

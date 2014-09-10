@@ -1,5 +1,5 @@
---- ./third_party/webrtc/system_wrappers/source/thread_posix.cc.orig	2014-08-20 21:04:27.000000000 +0200
-+++ ./third_party/webrtc/system_wrappers/source/thread_posix.cc	2014-08-22 15:06:27.000000000 +0200
+--- third_party/webrtc/system_wrappers/source/thread_posix.cc.orig	2014-09-04 00:29:44 UTC
++++ third_party/webrtc/system_wrappers/source/thread_posix.cc
 @@ -51,9 +51,11 @@
  #include <string.h>  // strncpy
  #include <unistd.h>

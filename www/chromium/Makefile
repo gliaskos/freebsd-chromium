@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/www/chromium/Makefile 366965 2014-09-01 21:58:53Z rene $
 
 PORTNAME=	chromium
 PORTVERSION=	38.0.2125.44
@@ -40,7 +40,6 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libicuuc.so:${PORTSDIR}/devel/icu \
 		libjpeg.so:${PORTSDIR}/graphics/jpeg \
 		libjsoncpp.so:${PORTSDIR}/devel/jsoncpp \
-		libminizip.so:${PORTSDIR}/archivers/minizip \
 		libnspr4.so:${PORTSDIR}/devel/nspr \
 		libprotobuf.so:${PORTSDIR}/devel/protobuf \
 		libpng.so:${PORTSDIR}/graphics/png \
@@ -76,6 +75,7 @@ GYP_DEFINES+=	\
 		linux_strip_binary=1 \
 		test_isolation_mode=noop \
 		disable_nacl=1 \
+		enable_extensions=1 \
 		enable_one_click_signin=1 \
 		enable_openmax=1 \
 		enable_webrtc=1 \
@@ -105,16 +105,13 @@ GYP_DEFINES+=	\
 		use_system_libwebp=1 \
 		use_system_libxml=1 \
 		use_system_libxslt=1 \
-		use_system_minizip=1 \
 		use_system_nspr=1 \
-		use_system_openssl=1 \
 		use_system_protobuf=1 \
 		use_system_re2=1 \
 		use_system_snappy=1 \
 		use_system_speex=1 \
 		use_system_xdg_utils=1 \
-		use_system_yasm=1 \
-		use_system_zlib=1
+		use_system_yasm=1
 # allow removal of third_party/adobe
 GYP_DEFINES+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
 
@@ -234,11 +231,6 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
 		${WRKSRC}/chrome/common/chrome_paths.cc \
 		${WRKSRC}/base/base.gyp
-	@${REINPLACE_CMD} -e "s|/usr/bin/gcc|${CC}|" \
-		${WRKSRC}/third_party/WebKit/Source/build/scripts/preprocessor.pm \
-		${WRKSRC}/third_party/WebKit/Source/build/scripts/scripts.gypi
-	@${REINPLACE_CMD} -e "s|g++|${CXX}|" \
-		${WRKSRC}/tools/compile_test/compile_test.py
 
 pre-configure:
 	# phajdan-jr: list of things *not* to remove, so maybe the script
@@ -262,6 +254,7 @@ pre-configure:
 		'net/third_party/nss' \
 		'third_party/WebKit' \
 		'third_party/angle' \
+		'third_party/angle/src/third_party' \
 		'third_party/brotli' \
 		'third_party/cacheinvalidation' \
 		'third_party/cld' \
@@ -293,9 +286,11 @@ pre-configure:
 		'third_party/modp_b64' \
 		'third_party/mt19937ar' \
 		'third_party/npapi' \
+		'third_party/openssl' \
 		'third_party/opus' \
 		'third_party/ots' \
 		'third_party/pdfium' \
+		'third_party/pdfium/third_party' \
 		'third_party/ply' \
 		'third_party/polymer' \
 		'third_party/pywebsocket' \
@@ -308,15 +303,20 @@ pre-configure:
 		'third_party/tcmalloc' \
 		'third_party/tlslite' \
 		'third_party/trace-viewer' \
+		'third_party/trace-viewer/third_party' \
+		'third_party/trace-viewer/third_party/tvcm/third_party' \
+		'third_party/trace-viewer/trace_viewer' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
 		'third_party/webdriver' \
 		'third_party/webrtc' \
 		'third_party/widevine' \
 		'third_party/x86inc' \
-		'third_party/zlib/google' \
+		'third_party/yasm' \
+		'third_party/zlib' \
 		'url/third_party/mozilla' \
 		'v8/src/third_party/valgrind' \
+		'v8/third_party/fdlibm' \
 		--do-remove || ${FALSE}
 	cd ${WRKSRC} && ${PYTHON_CMD} \
 		./build/linux/unbundle/replace_gyp_files.py \

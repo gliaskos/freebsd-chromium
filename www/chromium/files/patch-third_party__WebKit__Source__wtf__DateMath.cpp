@@ -1,5 +1,5 @@
---- ./third_party/WebKit/Source/wtf/DateMath.cpp.orig	2014-08-20 21:08:05.000000000 +0200
-+++ ./third_party/WebKit/Source/wtf/DateMath.cpp	2014-08-22 15:06:26.000000000 +0200
+--- third_party/WebKit/Source/wtf/DateMath.cpp.orig	2014-09-04 00:48:11 UTC
++++ third_party/WebKit/Source/wtf/DateMath.cpp
 @@ -80,6 +80,7 @@
  #include "StringExtras.h"
  
@@ -8,7 +8,7 @@
  #include <limits.h>
  #include <limits>
  #include <math.h>
-@@ -785,7 +786,7 @@
+@@ -732,7 +733,7 @@
                  return std::numeric_limits<double>::quiet_NaN();
  
              int sgn = (o < 0) ? -1 : 1;
@@ -17,7 +17,7 @@
              if (*dateString != ':') {
                  if (o >= 24)
                      offset = ((o / 100) * 60 + (o % 100)) * sgn;
-@@ -874,7 +875,7 @@
+@@ -821,7 +822,7 @@
      stringBuilder.append(' ');
  
      stringBuilder.append(utcOffset > 0 ? '+' : '-');

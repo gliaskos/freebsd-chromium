@@ -1,5 +1,5 @@
---- ./content/renderer/media/webrtc_audio_capturer.cc.orig	2014-08-20 21:02:43.000000000 +0200
-+++ ./content/renderer/media/webrtc_audio_capturer.cc	2014-08-22 15:06:26.000000000 +0200
+--- content/renderer/media/webrtc_audio_capturer.cc.orig	2014-09-04 00:29:10 UTC
++++ content/renderer/media/webrtc_audio_capturer.cc
 @@ -31,9 +31,7 @@
  // will fail if the user selects any rate outside these ranges.
  const int kValidInputRates[] =
