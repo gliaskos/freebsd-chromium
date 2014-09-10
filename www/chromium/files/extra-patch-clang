@@ -256,3 +256,14 @@
  
    tasks_.erase(it, tasks_.end());
  
+--- v8/src/unique.h.orig	2014-09-04 02:30:24.000000000 +0200
++++ v8/src/unique.h	2014-09-10 16:19:37.000000000 +0200
+@@ -167,7 +167,7 @@
+ 
+   // TODO(titzer): this is a hack to migrate to Unique<T> incrementally.
+   static PrintableUnique<T> CreateUninitialized(Zone* zone, Handle<T> handle) {
+-    return PrintableUnique<T>(zone, reinterpret_cast<Address>(NULL), handle);
++    return PrintableUnique<T>(zone, static_cast<Address>(NULL), handle);
+   }
+ 
+   static PrintableUnique<T> CreateImmovable(Zone* zone, Handle<T> handle) {
