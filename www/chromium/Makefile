@@ -166,9 +166,6 @@ GYP_DEFINES+=	disable_sse2=1
 .if !exists(/usr/libdata/pkgconfig/libusb-1.0.pc)
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libusb-pc
 .endif
-.if ${OSVERSION} >= 1000052 && !exists(${LOCALBASE}/include/execinfo.h)
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-fixup-execinfo
-.endif
 
 .if ${PORT_OPTIONS:MTEST}
 .include "Makefile.tests"
