@@ -102,6 +102,7 @@ GYP_DEFINES+=	\
 		use_system_libjpeg=1 \
 		use_system_libpng=1 \
 		use_system_libusb=1 \
+		use_system_libvpx=1 \
 		use_system_libwebp=1 \
 		use_system_libxml=1 \
 		use_system_libxslt=1 \
