@@ -257,6 +257,7 @@ pre-configure:
 		'third_party/cld' \
 		'third_party/cros_system_api' \
 		'third_party/dom_distiller_js' \
+		'third_party/dom_distiller_js/package/proto_gen/third_party/dom_distiller_js' \
 		'third_party/ffmpeg' \
 		'third_party/fips181' \
 		'third_party/flot' \
@@ -272,6 +273,7 @@ pre-configure:
 		'third_party/libphonenumber' \
 		'third_party/libsrtp' \
 		'third_party/libvpx' \
+		'third_party/libvpx/source/libvpx/third_party/x86inc' \
 		'third_party/libwebm' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
@@ -302,7 +304,6 @@ pre-configure:
 		'third_party/trace-viewer' \
 		'third_party/trace-viewer/third_party' \
 		'third_party/trace-viewer/third_party/tvcm/third_party' \
-		'third_party/trace-viewer/trace_viewer' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
 		'third_party/webdriver' \
