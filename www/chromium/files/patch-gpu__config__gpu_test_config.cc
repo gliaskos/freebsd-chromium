@@ -1,5 +1,5 @@
---- gpu/config/gpu_test_config.cc.orig	2014-09-04 00:04:16 UTC
-+++ gpu/config/gpu_test_config.cc
+--- gpu/config/gpu_test_config.cc.orig	2014-09-11 08:58:47.000000000 +0200
++++ gpu/config/gpu_test_config.cc	2014-09-11 17:53:54.000000000 +0200
 @@ -23,8 +23,6 @@
  GPUTestConfig::OS GetCurrentOS() {
  #if defined(OS_CHROMEOS)
@@ -18,3 +18,22 @@
  #endif
    return GPUTestConfig::kOsUnknown;
  }
+@@ -234,6 +234,10 @@
+   if (gpu_info == NULL) {
+     GPUInfo my_gpu_info;
+     GpuIDResult result;
++#if defined(OS_FREEBSD)
++    rt = false;
++    LOG(WARNING) << "CollectGpuID not present on FreeBSD";
++#else
+     result = CollectGpuID(&my_gpu_info.gpu.vendor_id,
+                           &my_gpu_info.gpu.device_id);
+     if (result == kGpuIDNotSupported) {
+@@ -243,6 +247,7 @@
+     } else {
+       rt = SetGPUInfo(my_gpu_info);
+     }
++#endif
+   } else {
+     rt = SetGPUInfo(*gpu_info);
+   }
