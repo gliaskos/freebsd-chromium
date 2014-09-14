@@ -16,7 +16,9 @@ TEST_TARGETS=	base_unittests \
 		net_unittests \
 		media_unittests \
 		chromedriver_unittests \
-		chromedriver_tests
+		chromedriver_tests \
+		browser_tests \
+		unit_tests
 
 # exclude these tests because they die (not just fail)
 
