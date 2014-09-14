@@ -43,6 +43,7 @@ LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libjsoncpp.so:${PORTSDIR}/devel/jsoncpp \
 		libminizip.so:${PORTSDIR}/archivers/minizip \
 		libnspr4.so:${PORTSDIR}/devel/nspr \
+		libprotobuf.so:${PORTSDIR}/devel/protobuf \
 		libpng.so:${PORTSDIR}/graphics/png \
 		libre2.so:${PORTSDIR}/devel/re2 \
 		libsnappy.so:${PORTSDIR}/archivers/snappy \
@@ -108,6 +109,7 @@ GYP_DEFINES+=	\
 		use_system_minizip=1 \
 		use_system_nspr=1 \
 		use_system_openssl=1 \
+		use_system_protobuf=1 \
 		use_system_re2=1 \
 		use_system_snappy=1 \
 		use_system_speex=1 \
@@ -297,7 +299,6 @@ pre-configure:
 		'third_party/pdfium' \
 		'third_party/ply' \
 		'third_party/polymer' \
-		'third_party/protobuf' \
 		'third_party/pywebsocket' \
 		'third_party/qcms' \
 		'third_party/readability' \
