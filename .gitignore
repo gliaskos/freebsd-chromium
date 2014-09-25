@@ -1,4 +1,4 @@
 work*
 files/patch-third_party__openssl__openssl__openssl.config
-.ccache/
+.ccache*
 fontconfig/
