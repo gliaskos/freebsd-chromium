@@ -188,29 +188,3 @@ share/icons/hicolor/24x24/apps/chrome.png
 share/icons/hicolor/256x256/apps/chrome.png
 share/icons/hicolor/48x48/apps/chrome.png
 share/icons/hicolor/64x64/apps/chrome.png
-@dirrmtry %%DATADIR%%/locales
-@dirrmtry %%DATADIR%%/resources/extension/demo
-@dirrmtry %%DATADIR%%/resources/extension
-@dirrmtry %%DATADIR%%/resources/inspector/Images
-@dirrmtry %%DATADIR%%/resources/inspector/audits
-@dirrmtry %%DATADIR%%/resources/inspector/cm
-@dirrmtry %%DATADIR%%/resources/inspector/console
-@dirrmtry %%DATADIR%%/resources/inspector/devices
-@dirrmtry %%DATADIR%%/resources/inspector/elements
-@dirrmtry %%DATADIR%%/resources/inspector/extensions
-@dirrmtry %%DATADIR%%/resources/inspector/layers
-@dirrmtry %%DATADIR%%/resources/inspector/main
-@dirrmtry %%DATADIR%%/resources/inspector/network
-@dirrmtry %%DATADIR%%/resources/inspector/profiler/heap_snapshot_worker
-@dirrmtry %%DATADIR%%/resources/inspector/profiler
-@dirrmtry %%DATADIR%%/resources/inspector/resources
-@dirrmtry %%DATADIR%%/resources/inspector/script_formatter_worker
-@dirrmtry %%DATADIR%%/resources/inspector/search
-@dirrmtry %%DATADIR%%/resources/inspector/settings
-@dirrmtry %%DATADIR%%/resources/inspector/source_frame
-@dirrmtry %%DATADIR%%/resources/inspector/sources
-@dirrmtry %%DATADIR%%/resources/inspector/temp_storage_shared_worker
-@dirrmtry %%DATADIR%%/resources/inspector/timeline
-@dirrmtry %%DATADIR%%/resources/inspector
-@dirrmtry %%DATADIR%%/resources
-@dirrmtry %%DATADIR%%
