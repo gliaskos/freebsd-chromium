@@ -244,6 +244,7 @@ pre-configure:
 		'base/third_party/xdg_mime' \
 		'base/third_party/xdg_user_dirs' \
 		'breakpad/src/third_party/curl' \
+		'chrome/third_party/mock4js' \
 		'chrome/third_party/mozilla_security_manager' \
 		'courgette/third_party' \
 		'crypto/third_party/nss' \
@@ -282,7 +283,6 @@ pre-configure:
 		'third_party/lzma_sdk' \
 		'third_party/markupsafe' \
 		'third_party/mesa' \
-		'third_party/mock4js' \
 		'third_party/modp_b64' \
 		'third_party/mt19937ar' \
 		'third_party/npapi' \
