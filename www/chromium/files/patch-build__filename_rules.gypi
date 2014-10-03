@@ -1,4 +1,4 @@
---- build/filename_rules.gypi.orig	2014-09-04 00:04:10 UTC
+--- build/filename_rules.gypi.orig	2014-10-02 17:18:52 UTC
 +++ build/filename_rules.gypi
 @@ -85,7 +85,7 @@
      ['<(use_aura)==0 or OS!="win" or >(nacl_untrusted_build)==1', {

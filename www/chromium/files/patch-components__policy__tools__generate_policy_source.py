@@ -1,4 +1,4 @@
---- components/policy/tools/generate_policy_source.py.orig	2014-09-04 00:04:15 UTC
+--- components/policy/tools/generate_policy_source.py.orig	2014-10-02 17:39:46 UTC
 +++ components/policy/tools/generate_policy_source.py
 @@ -67,7 +67,7 @@
        if platform.startswith('chrome.'):

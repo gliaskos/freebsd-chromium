@@ -1,4 +1,4 @@
---- base/process/process_metrics.h.orig	2014-09-04 00:04:10 UTC
+--- base/process/process_metrics.h.orig	2014-10-02 17:39:45 UTC
 +++ base/process/process_metrics.h
 @@ -17,6 +17,13 @@
  #include "base/time/time.h"

@@ -1,4 +1,4 @@
---- base/test/launcher/test_launcher.cc.orig	2014-09-04 00:29:09 UTC
+--- base/test/launcher/test_launcher.cc.orig	2014-10-02 17:39:45 UTC
 +++ base/test/launcher/test_launcher.cc
 @@ -45,6 +45,10 @@
  #include "base/win/windows_version.h"

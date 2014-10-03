@@ -1,4 +1,4 @@
---- chrome/test/base/in_process_browser_test.cc.orig	2014-09-04 00:29:10 UTC
+--- chrome/test/base/in_process_browser_test.cc.orig	2014-10-02 17:39:46 UTC
 +++ chrome/test/base/in_process_browser_test.cc
 @@ -76,6 +76,10 @@
  

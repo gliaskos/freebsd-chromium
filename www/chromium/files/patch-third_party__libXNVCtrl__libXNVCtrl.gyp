@@ -1,4 +1,4 @@
---- third_party/libXNVCtrl/libXNVCtrl.gyp.orig	2014-09-04 00:04:19 UTC
+--- third_party/libXNVCtrl/libXNVCtrl.gyp.orig	2014-10-02 17:19:02 UTC
 +++ third_party/libXNVCtrl/libXNVCtrl.gyp
 @@ -13,6 +13,9 @@
          'NVCtrlLib.h',

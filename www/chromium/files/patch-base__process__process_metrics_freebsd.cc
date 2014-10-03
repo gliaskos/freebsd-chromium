@@ -1,4 +1,4 @@
---- base/process/process_metrics_freebsd.cc.orig	2014-09-04 00:04:10 UTC
+--- base/process/process_metrics_freebsd.cc.orig	2014-10-02 17:18:52 UTC
 +++ base/process/process_metrics_freebsd.cc
 @@ -10,6 +10,9 @@
  

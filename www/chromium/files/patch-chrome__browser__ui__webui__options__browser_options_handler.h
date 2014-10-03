@@ -1,4 +1,4 @@
---- chrome/browser/ui/webui/options/browser_options_handler.h.orig	2014-09-04 00:29:10 UTC
+--- chrome/browser/ui/webui/options/browser_options_handler.h.orig	2014-10-02 17:39:46 UTC
 +++ chrome/browser/ui/webui/options/browser_options_handler.h
 @@ -197,7 +197,8 @@
  

@@ -1,5 +1,5 @@
---- content/gpu/gpu_child_thread.cc.orig	2014-09-11 08:58:47.000000000 +0200
-+++ content/gpu/gpu_child_thread.cc	2014-09-12 12:33:25.000000000 +0200
+--- content/gpu/gpu_child_thread.cc.orig	2014-10-02 17:39:47 UTC
++++ content/gpu/gpu_child_thread.cc
 @@ -179,6 +179,7 @@
  }
  

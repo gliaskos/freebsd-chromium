@@ -1,6 +1,6 @@
---- content/public/common/content_switches.cc.orig	2014-09-12 15:01:18.000000000 +0200
-+++ content/public/common/content_switches.cc	2014-09-12 15:00:43.000000000 +0200
-@@ -916,7 +916,7 @@
+--- content/public/common/content_switches.cc.orig	2014-10-02 17:39:47 UTC
++++ content/public/common/content_switches.cc
+@@ -920,7 +920,7 @@
      "disable-vaapi-accelerated-video-encode";
  #endif
  

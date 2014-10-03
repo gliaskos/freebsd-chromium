@@ -1,4 +1,4 @@
---- chrome/common/pref_names.cc.orig	2014-09-04 00:29:10 UTC
+--- chrome/common/pref_names.cc.orig	2014-10-02 17:39:46 UTC
 +++ chrome/common/pref_names.cc
 @@ -898,7 +898,7 @@
  // Boolean controlling whether SafeSearch is mandatory for Google Web Searches.

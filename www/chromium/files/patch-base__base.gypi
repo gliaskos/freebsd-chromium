@@ -1,6 +1,6 @@
---- base/base.gypi.orig	2014-09-04 00:29:09 UTC
+--- base/base.gypi.orig	2014-10-02 17:39:45 UTC
 +++ base/base.gypi
-@@ -943,11 +943,16 @@
+@@ -945,11 +945,16 @@
                'process/memory_stubs.cc',
              ],
              'sources/': [

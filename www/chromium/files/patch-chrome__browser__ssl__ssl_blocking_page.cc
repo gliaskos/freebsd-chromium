@@ -1,5 +1,5 @@
---- chrome/browser/ssl/ssl_blocking_page.cc.orig	2014-09-11 08:58:46.000000000 +0200
-+++ chrome/browser/ssl/ssl_blocking_page.cc	2014-09-12 14:34:46.000000000 +0200
+--- chrome/browser/ssl/ssl_blocking_page.cc.orig	2014-10-02 17:39:46 UTC
++++ chrome/browser/ssl/ssl_blocking_page.cc
 @@ -260,7 +260,7 @@
    // settings. Weird. TODO(palmer): Do something more graceful than ignoring
    // the user's click! crbug.com/394993

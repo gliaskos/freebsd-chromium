@@ -1,4 +1,4 @@
---- testing/gtest/src/gtest.cc.orig	2014-09-04 00:29:14 UTC
+--- testing/gtest/src/gtest.cc.orig	2014-10-02 17:39:53 UTC
 +++ testing/gtest/src/gtest.cc
 @@ -121,6 +121,10 @@
  

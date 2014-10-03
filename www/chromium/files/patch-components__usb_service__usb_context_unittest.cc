@@ -1,4 +1,4 @@
---- components/usb_service/usb_context_unittest.cc.orig	2014-09-04 00:04:15 UTC
+--- components/usb_service/usb_context_unittest.cc.orig	2014-10-02 17:39:47 UTC
 +++ components/usb_service/usb_context_unittest.cc
 @@ -6,7 +6,11 @@
  #include "build/build_config.h"

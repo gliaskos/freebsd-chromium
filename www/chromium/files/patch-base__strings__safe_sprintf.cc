@@ -1,4 +1,4 @@
---- base/strings/safe_sprintf.cc.orig	2014-09-04 00:04:10 UTC
+--- base/strings/safe_sprintf.cc.orig	2014-10-02 17:18:52 UTC
 +++ base/strings/safe_sprintf.cc
 @@ -107,15 +107,16 @@
        : buffer_(buffer),

@@ -1,4 +1,4 @@
---- chrome/browser/chrome_content_browser_client.cc.orig	2014-09-04 00:29:09 UTC
+--- chrome/browser/chrome_content_browser_client.cc.orig	2014-10-02 17:39:45 UTC
 +++ chrome/browser/chrome_content_browser_client.cc
 @@ -430,7 +430,7 @@
    return false;

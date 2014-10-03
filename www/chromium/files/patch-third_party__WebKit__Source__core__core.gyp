@@ -1,4 +1,4 @@
---- third_party/WebKit/Source/core/core.gyp.orig	2014-09-04 00:48:10 UTC
+--- third_party/WebKit/Source/core/core.gyp.orig	2014-10-02 18:00:36 UTC
 +++ third_party/WebKit/Source/core/core.gyp
 @@ -589,7 +589,7 @@
            # Due to a bug in gcc 4.6 in android NDK, we get warnings about uninitialized variable.

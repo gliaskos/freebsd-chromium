@@ -1,4 +1,4 @@
---- third_party/libjingle/libjingle.gyp.orig	2014-09-04 00:29:11 UTC
+--- third_party/libjingle/libjingle.gyp.orig	2014-10-02 17:39:48 UTC
 +++ third_party/libjingle/libjingle.gyp
 @@ -484,7 +484,7 @@
                ],

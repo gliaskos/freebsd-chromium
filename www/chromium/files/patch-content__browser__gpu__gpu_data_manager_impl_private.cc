@@ -1,5 +1,5 @@
---- content/browser/gpu/gpu_data_manager_impl_private.cc.orig	2014-09-11 08:58:47.000000000 +0200
-+++ content/browser/gpu/gpu_data_manager_impl_private.cc	2014-09-12 12:42:34.000000000 +0200
+--- content/browser/gpu/gpu_data_manager_impl_private.cc.orig	2014-10-02 17:39:47 UTC
++++ content/browser/gpu/gpu_data_manager_impl_private.cc
 @@ -454,7 +454,9 @@
    gpu_info.gl_renderer = gl_renderer;
    gpu_info.gl_version = gl_version;

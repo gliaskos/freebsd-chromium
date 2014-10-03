@@ -1,4 +1,4 @@
---- net/base/mime_util_unittest.cc.orig	2014-09-04 00:29:11 UTC
+--- net/base/mime_util_unittest.cc.orig	2014-10-02 17:39:47 UTC
 +++ net/base/mime_util_unittest.cc
 @@ -383,7 +383,7 @@
      { "MeSsAge/*",  1, "eml" },

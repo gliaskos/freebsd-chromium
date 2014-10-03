@@ -1,4 +1,4 @@
---- ui/events/event_switches.cc.orig	2014-09-04 00:29:11 UTC
+--- ui/events/event_switches.cc.orig	2014-10-02 17:39:48 UTC
 +++ ui/events/event_switches.cc
 @@ -39,7 +39,7 @@
  const char kCompensateForUnstablePinchZoom[] =

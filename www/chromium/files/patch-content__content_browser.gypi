@@ -1,4 +1,4 @@
---- content/content_browser.gypi.orig	2014-09-04 00:29:10 UTC
+--- content/content_browser.gypi.orig	2014-10-02 17:39:47 UTC
 +++ content/content_browser.gypi
 @@ -679,6 +679,8 @@
        'browser/geolocation/wifi_data_provider_common_win.cc',

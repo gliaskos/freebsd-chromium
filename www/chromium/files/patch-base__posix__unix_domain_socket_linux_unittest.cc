@@ -1,4 +1,4 @@
---- base/posix/unix_domain_socket_linux_unittest.cc.orig	2014-09-04 00:04:10 UTC
+--- base/posix/unix_domain_socket_linux_unittest.cc.orig	2014-10-02 17:18:52 UTC
 +++ base/posix/unix_domain_socket_linux_unittest.cc
 @@ -2,8 +2,13 @@
  // Use of this source code is governed by a BSD-style license that can be

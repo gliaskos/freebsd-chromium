@@ -1,4 +1,4 @@
---- sync/util/get_session_name.cc.orig	2014-09-04 00:29:11 UTC
+--- sync/util/get_session_name.cc.orig	2014-10-02 17:39:48 UTC
 +++ sync/util/get_session_name.cc
 @@ -11,7 +11,7 @@
  #include "base/sys_info.h"

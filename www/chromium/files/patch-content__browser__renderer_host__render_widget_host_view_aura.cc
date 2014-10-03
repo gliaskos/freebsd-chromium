@@ -1,4 +1,4 @@
---- content/browser/renderer_host/render_widget_host_view_aura.cc.orig	2014-09-04 00:29:10 UTC
+--- content/browser/renderer_host/render_widget_host_view_aura.cc.orig	2014-10-02 17:39:47 UTC
 +++ content/browser/renderer_host/render_widget_host_view_aura.cc
 @@ -653,7 +653,7 @@
    if (host)

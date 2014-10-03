@@ -1,4 +1,4 @@
---- third_party/webrtc/base/network.cc.orig	2014-09-04 00:29:43 UTC
+--- third_party/webrtc/base/network.cc.orig	2014-10-02 17:40:33 UTC
 +++ third_party/webrtc/base/network.cc
 @@ -18,7 +18,7 @@
  // linux/if.h can't be included at the same time as the posix sys/if.h, and

@@ -1,4 +1,4 @@
---- third_party/webrtc/modules/desktop_capture/desktop_capture.gypi.orig	2014-09-04 00:29:43 UTC
+--- third_party/webrtc/modules/desktop_capture/desktop_capture.gypi.orig	2014-10-02 17:40:34 UTC
 +++ third_party/webrtc/modules/desktop_capture/desktop_capture.gypi
 @@ -109,6 +109,11 @@
              ],

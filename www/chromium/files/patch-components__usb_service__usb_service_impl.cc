@@ -1,4 +1,4 @@
---- components/usb_service/usb_service_impl.cc.orig	2014-09-04 00:29:10 UTC
+--- components/usb_service/usb_service_impl.cc.orig	2014-10-02 17:39:47 UTC
 +++ components/usb_service/usb_service_impl.cc
 @@ -14,7 +14,11 @@
  #include "components/usb_service/usb_device_impl.h"

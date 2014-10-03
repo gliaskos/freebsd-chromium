@@ -1,4 +1,4 @@
---- content/app/content_main_runner.cc.orig	2014-09-04 00:29:10 UTC
+--- content/app/content_main_runner.cc.orig	2014-10-02 17:39:47 UTC
 +++ content/app/content_main_runner.cc
 @@ -95,10 +95,10 @@
  #include "base/posix/global_descriptors.h"

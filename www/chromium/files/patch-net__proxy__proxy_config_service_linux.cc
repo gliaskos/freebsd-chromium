@@ -1,4 +1,4 @@
---- net/proxy/proxy_config_service_linux.cc.orig	2014-09-04 00:29:11 UTC
+--- net/proxy/proxy_config_service_linux.cc.orig	2014-10-02 17:39:47 UTC
 +++ net/proxy/proxy_config_service_linux.cc
 @@ -21,7 +21,13 @@
  #include <limits.h>

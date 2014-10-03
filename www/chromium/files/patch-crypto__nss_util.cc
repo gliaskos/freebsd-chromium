@@ -1,4 +1,4 @@
---- crypto/nss_util.cc.orig	2014-09-04 00:29:10 UTC
+--- crypto/nss_util.cc.orig	2014-10-02 17:39:47 UTC
 +++ crypto/nss_util.cc
 @@ -13,7 +13,7 @@
  #include <prtime.h>

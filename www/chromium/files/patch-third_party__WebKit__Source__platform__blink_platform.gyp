@@ -1,4 +1,4 @@
---- third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-09-04 00:48:11 UTC
+--- third_party/WebKit/Source/platform/blink_platform.gyp.orig	2014-10-02 18:00:37 UTC
 +++ third_party/WebKit/Source/platform/blink_platform.gyp
 @@ -38,6 +38,9 @@
    'targets': [{

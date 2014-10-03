@@ -1,5 +1,5 @@
---- content/gpu/gpu_main.cc.orig	2014-09-11 08:58:47.000000000 +0200
-+++ content/gpu/gpu_main.cc	2014-09-12 12:38:12.000000000 +0200
+--- content/gpu/gpu_main.cc.orig	2014-10-02 17:39:47 UTC
++++ content/gpu/gpu_main.cc
 @@ -71,7 +71,7 @@
                                 const CommandLine& command_line);
  bool WarmUpSandbox(const CommandLine& command_line);

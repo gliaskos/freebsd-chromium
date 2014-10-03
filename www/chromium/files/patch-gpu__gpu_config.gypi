@@ -1,5 +1,5 @@
---- gpu/gpu_config.gypi.orig	2014-09-11 08:41:46.000000000 +0200
-+++ gpu/gpu_config.gypi	2014-09-11 13:55:09.000000000 +0200
+--- gpu/gpu_config.gypi.orig	2014-10-02 17:18:58 UTC
++++ gpu/gpu_config.gypi
 @@ -70,12 +70,18 @@
          '../build/linux/system.gyp:libpci',
        ],

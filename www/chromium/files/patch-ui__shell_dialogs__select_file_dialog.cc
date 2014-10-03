@@ -1,4 +1,4 @@
---- ui/shell_dialogs/select_file_dialog.cc.orig	2014-09-04 00:04:20 UTC
+--- ui/shell_dialogs/select_file_dialog.cc.orig	2014-10-02 17:19:03 UTC
 +++ ui/shell_dialogs/select_file_dialog.cc
 @@ -19,7 +19,7 @@
  #include "ui/shell_dialogs/select_file_dialog_mac.h"

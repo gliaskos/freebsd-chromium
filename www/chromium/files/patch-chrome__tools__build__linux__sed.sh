@@ -1,4 +1,4 @@
---- chrome/tools/build/linux/sed.sh.orig	2014-09-04 00:04:14 UTC
+--- chrome/tools/build/linux/sed.sh.orig	2014-10-02 17:18:56 UTC
 +++ chrome/tools/build/linux/sed.sh
 @@ -1,4 +1,4 @@
 -#!/bin/sh

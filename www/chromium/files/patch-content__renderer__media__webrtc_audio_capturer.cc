@@ -1,5 +1,5 @@
---- content/renderer/media/webrtc_audio_capturer.cc.orig	2014-09-11 08:58:47.000000000 +0200
-+++ content/renderer/media/webrtc_audio_capturer.cc	2014-09-11 12:00:46.000000000 +0200
+--- content/renderer/media/webrtc_audio_capturer.cc.orig	2014-10-02 17:39:47 UTC
++++ content/renderer/media/webrtc_audio_capturer.cc
 @@ -430,8 +430,8 @@
  // CaptureCallback.
  #if defined(OS_WIN) || defined(OS_MACOSX)

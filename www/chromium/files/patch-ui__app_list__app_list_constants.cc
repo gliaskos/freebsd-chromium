@@ -1,4 +1,4 @@
---- ui/app_list/app_list_constants.cc.orig	2014-09-04 00:29:11 UTC
+--- ui/app_list/app_list_constants.cc.orig	2014-10-02 17:39:48 UTC
 +++ ui/app_list/app_list_constants.cc
 @@ -95,7 +95,7 @@
  const ui::ResourceBundle::FontStyle kItemTextFontStyle =

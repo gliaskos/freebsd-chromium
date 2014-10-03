@@ -1,4 +1,4 @@
---- chrome/chrome_browser.gypi.orig	2014-09-04 00:29:10 UTC
+--- chrome/chrome_browser.gypi.orig	2014-10-02 17:39:46 UTC
 +++ chrome/chrome_browser.gypi
 @@ -3173,7 +3173,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',

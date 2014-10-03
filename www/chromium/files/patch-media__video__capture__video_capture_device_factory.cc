@@ -1,4 +1,4 @@
---- media/video/capture/video_capture_device_factory.cc.orig	2014-09-04 00:04:17 UTC
+--- media/video/capture/video_capture_device_factory.cc.orig	2014-10-02 17:18:58 UTC
 +++ media/video/capture/video_capture_device_factory.cc
 @@ -11,7 +11,7 @@
  

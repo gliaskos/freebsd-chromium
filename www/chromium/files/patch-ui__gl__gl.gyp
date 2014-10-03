@@ -1,4 +1,4 @@
---- ui/gl/gl.gyp.orig	2014-09-04 00:29:11 UTC
+--- ui/gl/gl.gyp.orig	2014-10-02 17:39:48 UTC
 +++ ui/gl/gl.gyp
 @@ -174,7 +174,7 @@
          },

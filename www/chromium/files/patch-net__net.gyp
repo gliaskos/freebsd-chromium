@@ -1,4 +1,4 @@
---- net/net.gyp.orig	2014-09-04 00:29:11 UTC
+--- net/net.gyp.orig	2014-10-02 17:39:47 UTC
 +++ net/net.gyp
 @@ -322,9 +322,10 @@
                }],

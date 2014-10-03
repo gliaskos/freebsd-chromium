@@ -1,4 +1,4 @@
---- chrome/common/pref_names.h.orig	2014-09-04 00:29:10 UTC
+--- chrome/common/pref_names.h.orig	2014-10-02 17:39:46 UTC
 +++ chrome/common/pref_names.h
 @@ -291,7 +291,7 @@
  extern const char kForceSafeSearch[];

@@ -1,4 +1,4 @@
---- chrome/browser/ui/webui/options/browser_options_handler.cc.orig	2014-09-04 00:29:10 UTC
+--- chrome/browser/ui/webui/options/browser_options_handler.cc.orig	2014-10-02 17:39:46 UTC
 +++ chrome/browser/ui/webui/options/browser_options_handler.cc
 @@ -356,7 +356,8 @@
      { "toolbarShowHomeButton", IDS_OPTIONS_TOOLBAR_SHOW_HOME_BUTTON },

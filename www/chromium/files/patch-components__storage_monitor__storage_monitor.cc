@@ -1,4 +1,4 @@
---- components/storage_monitor/storage_monitor.cc.orig	2014-09-04 00:04:15 UTC
+--- components/storage_monitor/storage_monitor.cc.orig	2014-10-02 17:18:56 UTC
 +++ components/storage_monitor/storage_monitor.cc
 @@ -85,6 +85,7 @@
  

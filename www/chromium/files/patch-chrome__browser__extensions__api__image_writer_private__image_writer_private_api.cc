@@ -1,4 +1,4 @@
---- chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc.orig	2014-09-04 00:04:11 UTC
+--- chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc.orig	2014-10-02 17:18:53 UTC
 +++ chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc
 @@ -167,10 +167,12 @@
  }

@@ -1,4 +1,4 @@
---- chrome/renderer/printing/print_web_view_helper.h.orig	2014-09-04 00:29:10 UTC
+--- chrome/renderer/printing/print_web_view_helper.h.orig	2014-10-02 17:39:46 UTC
 +++ chrome/renderer/printing/print_web_view_helper.h
 @@ -207,7 +207,7 @@
    void FinishFramePrinting();

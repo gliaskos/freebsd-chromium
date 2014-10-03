@@ -1,4 +1,4 @@
---- third_party/WebKit/Source/platform/heap/ThreadState.cpp.orig	2014-09-04 00:48:11 UTC
+--- third_party/WebKit/Source/platform/heap/ThreadState.cpp.orig	2014-10-02 18:00:37 UTC
 +++ third_party/WebKit/Source/platform/heap/ThreadState.cpp
 @@ -54,13 +54,22 @@
  #include <sanitizer/msan_interface.h>

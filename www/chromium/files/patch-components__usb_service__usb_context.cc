@@ -1,4 +1,4 @@
---- components/usb_service/usb_context.cc.orig	2014-09-04 00:29:10 UTC
+--- components/usb_service/usb_context.cc.orig	2014-10-02 17:39:47 UTC
 +++ components/usb_service/usb_context.cc
 @@ -8,8 +8,13 @@
  #include "base/synchronization/waitable_event.h"

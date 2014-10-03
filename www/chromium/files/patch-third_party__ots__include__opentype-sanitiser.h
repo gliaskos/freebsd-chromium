@@ -1,4 +1,4 @@
---- third_party/ots/include/opentype-sanitiser.h.orig	2014-09-04 00:29:31 UTC
+--- third_party/ots/include/opentype-sanitiser.h.orig	2014-10-02 17:40:20 UTC
 +++ third_party/ots/include/opentype-sanitiser.h
 @@ -22,6 +22,7 @@
  #else

@@ -1,5 +1,5 @@
---- chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc.orig	2014-09-11 08:41:42.000000000 +0200
-+++ chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc	2014-09-12 14:49:00.000000000 +0200
+--- chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc.orig	2014-10-02 17:18:54 UTC
++++ chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc
 @@ -8,7 +8,12 @@
  
  #include "base/hash.h"

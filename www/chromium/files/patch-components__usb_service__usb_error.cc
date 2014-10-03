@@ -1,4 +1,4 @@
---- components/usb_service/usb_error.cc.orig	2014-09-04 00:04:15 UTC
+--- components/usb_service/usb_error.cc.orig	2014-10-02 17:39:47 UTC
 +++ components/usb_service/usb_error.cc
 @@ -4,7 +4,11 @@
  

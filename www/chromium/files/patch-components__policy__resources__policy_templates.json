@@ -1,4 +1,4 @@
---- components/policy/resources/policy_templates.json.orig	2014-09-04 00:29:10 UTC
+--- components/policy/resources/policy_templates.json.orig	2014-10-02 17:39:46 UTC
 +++ components/policy/resources/policy_templates.json
 @@ -1556,7 +1556,7 @@
            'name': 'GSSAPILibraryName',

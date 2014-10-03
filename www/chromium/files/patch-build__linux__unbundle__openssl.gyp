@@ -1,4 +1,4 @@
---- build/linux/unbundle/openssl.gyp.orig	2014-09-04 00:04:10 UTC
+--- build/linux/unbundle/openssl.gyp.orig	2014-10-02 17:18:52 UTC
 +++ build/linux/unbundle/openssl.gyp
 @@ -9,15 +9,15 @@
        'type': 'none',

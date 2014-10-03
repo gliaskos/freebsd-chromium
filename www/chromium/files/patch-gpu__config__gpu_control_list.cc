@@ -1,4 +1,4 @@
---- gpu/config/gpu_control_list.cc.orig	2014-09-04 00:29:11 UTC
+--- gpu/config/gpu_control_list.cc.orig	2014-10-02 17:39:47 UTC
 +++ gpu/config/gpu_control_list.cc
 @@ -1480,10 +1480,10 @@
    return kOsWin;

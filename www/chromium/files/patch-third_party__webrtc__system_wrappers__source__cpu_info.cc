@@ -1,4 +1,4 @@
---- third_party/webrtc/system_wrappers/source/cpu_info.cc.orig	2014-09-04 00:29:44 UTC
+--- third_party/webrtc/system_wrappers/source/cpu_info.cc.orig	2014-10-02 17:40:34 UTC
 +++ third_party/webrtc/system_wrappers/source/cpu_info.cc
 @@ -12,7 +12,10 @@
  

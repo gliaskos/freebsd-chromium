@@ -1,4 +1,4 @@
---- content/renderer/accessibility/blink_ax_tree_source.cc.orig	2014-09-04 00:29:10 UTC
+--- content/renderer/accessibility/blink_ax_tree_source.cc.orig	2014-10-02 17:39:47 UTC
 +++ content/renderer/accessibility/blink_ax_tree_source.cc
 @@ -443,13 +443,15 @@
      dst->AddIntAttribute(ui::AX_ATTR_SCROLL_X, scroll_offset.width());
