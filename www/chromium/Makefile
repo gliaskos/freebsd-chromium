@@ -62,7 +62,6 @@ CPE_PRODUCT=	chrome
 USE_PERL5=	build
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
 USE_GNOME=	glib20 gtk20 dconf libxslt
-USE_OPENSSL=	yes # must be from base to prevent a link failure against cups
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
@@ -184,12 +183,9 @@ CONFIGURE_ENV+=	CC="${CC}" \
 		GYP_DEFINES="${GYP_DEFINES}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF="${LOCALBASE}/bin/gperf"
+MAKE_ARGS=	-C out/${BUILDTYPE}
 
 .include <bsd.port.pre.mk>
-
-#XXX redefine MAKE_ARGS after bsd.port.pre.mk to avoid OPENSSL flags
-# leaking in which confuses ninja
-MAKE_ARGS=	-C out/${BUILDTYPE}
 
 .if ${CHOSEN_COMPILER_TYPE} == gcc
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
@@ -255,6 +251,7 @@ pre-configure:
 		'third_party/angle/src/third_party' \
 		'third_party/blanketjs' \
 		'third_party/brotli' \
+		'third_party/boringssl' \
 		'third_party/cacheinvalidation' \
 		'third_party/cld' \
 		'third_party/cros_system_api' \
@@ -287,7 +284,6 @@ pre-configure:
 		'third_party/modp_b64' \
 		'third_party/mt19937ar' \
 		'third_party/npapi' \
-		'third_party/openssl' \
 		'third_party/opus' \
 		'third_party/ots' \
 		'third_party/pdfium' \
