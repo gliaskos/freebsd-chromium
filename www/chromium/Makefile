@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 366965 2014-09-01 21:58:53Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	38.0.2125.77
+PORTVERSION=	38.0.2125.101
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -253,6 +253,7 @@ pre-configure:
 		'third_party/WebKit' \
 		'third_party/angle' \
 		'third_party/angle/src/third_party' \
+		'third_party/blanketjs' \
 		'third_party/brotli' \
 		'third_party/cacheinvalidation' \
 		'third_party/cld' \
@@ -295,8 +296,10 @@ pre-configure:
 		'third_party/polymer' \
 		'third_party/pywebsocket' \
 		'third_party/qcms' \
+		'third_party/qunit' \
 		'third_party/readability' \
 		'third_party/sfntly' \
+		'third_party/sinonjs' \
 		'third_party/skia' \
 		'third_party/smhasher' \
 		'third_party/sqlite' \
