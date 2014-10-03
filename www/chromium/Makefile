@@ -8,7 +8,7 @@ MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	chromium@FreeBSD.org
-COMMENT=	Mostly BSD-licensed web browser based on WebKit and Gtk+
+COMMENT=	Google web browser based on WebKit
 
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
