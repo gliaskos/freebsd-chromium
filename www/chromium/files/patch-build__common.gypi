@@ -1,4 +1,4 @@
---- build/common.gypi.orig	2014-09-04 00:29:09 UTC
+--- build/common.gypi.orig	2014-10-02 17:39:45 UTC
 +++ build/common.gypi
 @@ -91,7 +91,7 @@
  
@@ -18,6 +18,15 @@
            'use_dbus%': 1,
          }, {
            'use_dbus%': 0,
+@@ -931,7 +931,7 @@
+         }, {
+           'use_openmax_dl_fft%': 0,
+         }],
+-        ['OS=="win" or OS=="linux"', {
++        ['OS=="win" or OS=="linux" or OS=="freebsd"', {
+             'enable_mdns%' : 1,
+         }],
+ 
 @@ -954,7 +954,7 @@
          # except when building Android WebView or Chromecast.
          # TODO(jshin): Handle 'use_system_icu' on Linux (Chromium).
