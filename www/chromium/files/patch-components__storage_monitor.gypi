@@ -1,6 +1,6 @@
---- components/storage_monitor.gypi.orig	2014-09-04 00:04:15 UTC
+--- components/storage_monitor.gypi.orig	2014-10-02 17:18:56 UTC
 +++ components/storage_monitor.gypi
-@@ -50,6 +50,24 @@
+@@ -50,6 +50,26 @@
          'storage_monitor/volume_mount_watcher_win.h',
        ],
        'conditions': [
@@ -8,6 +8,8 @@
 +          'sources!': [
 +            'storage_monitor/media_transfer_protocol_device_observer_linux.cc',
 +            'storage_monitor/media_transfer_protocol_device_observer_linux.h',
++            'storage_monitor/test_media_transfer_protocol_manager_linux.cc',
++            'storage_monitor/test_media_transfer_protocol_manager_linux.h',
 +            'storage_monitor/mtab_watcher_linux.cc',
 +            'storage_monitor/mtab_watcher_linux.h',
 +            'storage_monitor/storage_monitor_linux.cc',
