@@ -1,4 +1,4 @@
---- content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-10-02 21:05:41 UTC
+--- content/browser/geolocation/wifi_data_provider_freebsd.cc.orig	2014-10-13 17:11:09 UTC
 +++ content/browser/geolocation/wifi_data_provider_freebsd.cc
 @@ -0,0 +1,200 @@
 +// Copyright (c) 2010 The Chromium Authors. All rights reserved.

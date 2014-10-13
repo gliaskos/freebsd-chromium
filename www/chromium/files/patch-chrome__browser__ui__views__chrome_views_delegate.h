@@ -1,5 +1,5 @@
---- chrome/browser/ui/views/chrome_views_delegate.h.orig	2014-10-06 09:19:31.000000000 +0200
-+++ chrome/browser/ui/views/chrome_views_delegate.h	2014-10-06 09:23:19.000000000 +0200
+--- chrome/browser/ui/views/chrome_views_delegate.h.orig	2014-10-10 09:15:30 UTC
++++ chrome/browser/ui/views/chrome_views_delegate.h
 @@ -36,7 +36,7 @@
  #if defined(OS_WIN)
    virtual HICON GetDefaultWindowIcon() const OVERRIDE;
