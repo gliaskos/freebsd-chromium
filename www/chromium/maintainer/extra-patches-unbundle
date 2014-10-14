@@ -10,6 +10,7 @@ files/patch-third_party__libwebp__libwebp.gyp
 files/patch-third_party__libxml__libxml.gyp
 files/patch-third_party__libxslt__libxslt.gyp
 files/patch-third_party__openssl__openssl.gyp
+files/patch-third_party__protobuf__protobuf.gyp
 files/patch-third_party__re2__re2.gyp
 files/patch-third_party__snappy__snappy.gyp
 files/patch-third_party__speex__speex.gyp
