@@ -4,7 +4,7 @@
  
  #include "device/usb/usb_error.h"
  
-+#if defined(OS_FREEBSD)
++#if defined(__FreeBSD__)
 +#include "libusb.h"
 +#else
  #include "third_party/libusb/src/libusb/libusb.h"

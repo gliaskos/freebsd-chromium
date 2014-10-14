@@ -54,3 +54,12 @@
  
    // After all the platform Breakpads have been initialized, store the command
    // line for crash reporting.
+@@ -875,7 +875,7 @@
+ #endif
+   return process_type == switches::kRelauncherProcess;
+ }
+-#elif defined(OS_POSIX) && !defined(OS_ANDROID)
++#elif defined(OS_POSIX) && !defined(OS_ANDROID) && !defined(OS_BSD)
+ void ChromeMainDelegate::ZygoteStarting(
+     ScopedVector<content::ZygoteForkDelegate>* delegates) {
+ #if !defined(DISABLE_NACL)

@@ -24,7 +24,7 @@
 +      : inotify_fd_(-1), config_fd_(-1), notify_delegate_(NULL),
 +        indirect_manual_(false),  auto_no_pac_(false),
 +        reversed_bypass_list_(false), env_var_getter_(env_var_getter),
-+        file_loop_(NULL) {
++        file_task_runner_(NULL) {
      // This has to be called on the UI thread (http://crbug.com/69057).
      base::ThreadRestrictions::ScopedAllowIO allow_io;
  

@@ -247,7 +247,7 @@
  
 --- v8/src/unique.h.orig	2014-10-10 11:16:50.000000000 +0200
 +++ v8/src/unique.h	2014-10-13 18:55:35.000000000 +0200
-@@ -110,11 +110,11 @@
+@@ -110,7 +110,7 @@
  
    // TODO(titzer): this is a hack to migrate to Unique<T> incrementally.
    static Unique<T> CreateUninitialized(Handle<T> handle) {
@@ -256,8 +256,3 @@
    }
  
    static Unique<T> CreateImmovable(Handle<T> handle) {
--    return Unique<T>(reinterpret_cast<Address>(*handle), handle);
-+    return Unique<T>(static_cast<Address>(*handle), handle);
-   }
- 
-   friend class UniqueSet<T>;  // Uses internal details for speed.
