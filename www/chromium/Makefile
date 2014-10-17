@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 366965 2014-09-01 21:58:53Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	39.0.2171.19
+PORTVERSION=	39.0.2171.27
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -258,6 +258,7 @@ pre-configure:
 		'third_party/dom_distiller_js' \
 		'third_party/dom_distiller_js/package/proto_gen/third_party/dom_distiller_js' \
 		'third_party/ffmpeg' \
+		'third_party/gardiner_mod' \
 		'third_party/fips181' \
 		'third_party/flot' \
 		'third_party/hunspell' \
