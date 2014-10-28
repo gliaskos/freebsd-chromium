@@ -14,7 +14,7 @@
  }
  
 -#elif defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#elif defined(OS_LINUX) && !defined(OS_CHROMEOS)  || defined(OS_BSD)
++#elif defined(OS_LINUX) && !defined(OS_CHROMEOS) || defined(OS_BSD)
  gfx::ImageSkia* ChromeViewsDelegate::GetDefaultWindowIcon() const {
    ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
    return rb.GetImageSkiaNamed(IDR_PRODUCT_LOGO_64);

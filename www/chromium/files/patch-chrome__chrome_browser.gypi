@@ -28,7 +28,7 @@
 +            ['exclude', '^browser/chrome_browser_main_linux.h'],
 +            ['exclude', '^browser/media_galleries/linux/'],
 +          ],
-+        }],  
++        }],
          ['OS=="mac"', {
            'dependencies': [
              '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',

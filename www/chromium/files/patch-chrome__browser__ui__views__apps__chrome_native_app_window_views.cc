@@ -5,7 +5,7 @@
  #include "ui/wm/core/shadow_types.h"
  
 -#if defined(OS_LINUX)
-+#if defined(OS_LINUX)  || defined(OS_BSD) || defined(OS_BSD)
++#if defined(OS_LINUX) || defined(OS_BSD)
  #include "chrome/browser/shell_integration_linux.h"
  #endif
  
@@ -14,7 +14,7 @@
        create_params.visible_on_all_workspaces;
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#if defined(OS_LINUX) && !defined(OS_CHROMEOS)  || defined(OS_BSD)
++#if defined(OS_LINUX) && !defined(OS_CHROMEOS) || defined(OS_BSD)
    // Set up a custom WM_CLASS for app windows. This allows task switchers in
    // X11 environments to distinguish them from main browser windows.
    init_params.wm_class_name = web_app::GetWMClassFromAppName(app_name);

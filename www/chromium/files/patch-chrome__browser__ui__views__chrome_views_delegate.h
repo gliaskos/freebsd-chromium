@@ -5,7 +5,7 @@
    virtual HICON GetDefaultWindowIcon() const OVERRIDE;
    virtual bool IsWindowInMetro(gfx::NativeWindow window) const OVERRIDE;
 -#elif defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#elif defined(OS_LINUX) && !defined(OS_CHROMEOS)  || defined(OS_BSD)
++#elif defined(OS_LINUX) && !defined(OS_CHROMEOS) || defined(OS_BSD)
    virtual gfx::ImageSkia* GetDefaultWindowIcon() const OVERRIDE;
  #endif
  
@@ -14,7 +14,7 @@
        views::Widget::InitParams* params,
        views::internal::NativeWidgetDelegate* delegate) OVERRIDE;
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#if defined(OS_LINUX) && !defined(OS_CHROMEOS)  || defined(OS_BSD)
++#if defined(OS_LINUX) && !defined(OS_CHROMEOS) || defined(OS_BSD)
    virtual bool WindowManagerProvidesTitleBar(bool maximized) OVERRIDE;
  #endif
  #if defined(USE_AURA)
