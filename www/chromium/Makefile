@@ -165,6 +165,12 @@ GYP_DEFINES+=	disable_sse2=1
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libusb-pc
 .endif
 
+# pointed out by "Tomek" on freebsd-chromium@
+.if !exists(/usr/lib/libexecinfo.so)
+CFLAGS+=	-fno-omit-frame-pointer
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-fixup-ffmpeg
+.endif
+
 .if ${PORT_OPTIONS:MTEST}
 .include "Makefile.tests"
 ALL_TARGET+=	${TEST_TARGETS}
