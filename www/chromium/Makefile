@@ -1,6 +1,7 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
 # $FreeBSD: head/www/chromium/Makefile 366965 2014-09-01 21:58:53Z rene $
 
+#TODO bz@ : if you do undestand the gyp stuff, third_party/widevine/cdm/widevine_cdm.gyp talks about it (plz install libwidevinecdm.so)
 PORTNAME=	chromium
 PORTVERSION=	39.0.2171.52
 CATEGORIES=	www
