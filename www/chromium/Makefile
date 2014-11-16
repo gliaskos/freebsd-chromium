@@ -14,7 +14,7 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-fno-stack-protector -isystem${LOCALBASE}/include
+CFLAGS+=	-isystem${LOCALBASE}/include
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
