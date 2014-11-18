@@ -29,7 +29,7 @@
      result.push_back(SharedLibraryAddress(start_of_path, start, end));
    }
    close(fd);
-@@ -188,7 +188,7 @@
+@@ -187,7 +187,7 @@
    void* reservation = mmap(OS::GetRandomMmapAddr(),
                             request_size,
                             PROT_NONE,
@@ -38,7 +38,7 @@
                             kMmapFd,
                             kMmapFdOffset);
    if (reservation == MAP_FAILED) return;
-@@ -260,7 +260,7 @@
+@@ -259,7 +259,7 @@
    void* result = mmap(OS::GetRandomMmapAddr(),
                        size,
                        PROT_NONE,
@@ -47,7 +47,7 @@
                        kMmapFd,
                        kMmapFdOffset);
  
-@@ -288,7 +288,7 @@
+@@ -287,7 +287,7 @@
    return mmap(base,
                size,
                PROT_NONE,
