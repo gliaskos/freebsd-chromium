@@ -126,10 +126,10 @@ GYP_DEFINES+=	google_api_key=AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8 \
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO TEST DEBUG
+OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO TEST KERBEROS DEBUG
 CODECS_DESC=	Compile and enable patented codecs like H.264
 
-OPTIONS_DEFAULT=	CODECS GCONF
+OPTIONS_DEFAULT=	CODECS GCONF KERBEROS
 
 GCONF_USE=	GNOME=gconf2
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
@@ -203,6 +203,10 @@ GYP_DEFINES+=	clang=1
 CFLAGS+=	-Wno-unknown-warning-option
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 CONFIGURE_ENV+=	AR=/usr/bin/ar
+.endif
+
+.if ! ${PORT_OPTIONS:MKERBEROS}
+GYP_DEFINES+=	use_kerberos=0
 .endif
 
 # according to portlint the below is passed via bsd.port.mk,
