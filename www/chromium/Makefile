@@ -1,7 +1,6 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
 # $FreeBSD: head/www/chromium/Makefile 372253 2014-11-07 10:51:33Z rene $
 
-#TODO bz@ : if you do undestand the gyp stuff, third_party/widevine/cdm/widevine_cdm.gyp talks about it (plz install libwidevinecdm.so)
 PORTNAME=	chromium
 PORTVERSION=	39.0.2171.95
 PORTREVISION=	3
@@ -68,6 +67,7 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
+#TODO bz@ : if you do undestand the gyp stuff, third_party/widevine/cdm/widevine_cdm.gyp talks about it (plz install libwidevinecdm.so)
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	\
 		clang_use_chrome_plugins=0 \
