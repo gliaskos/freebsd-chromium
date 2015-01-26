@@ -9,6 +9,15 @@
          , zygote_(false)
  #endif
          {
+@@ -190,7 +190,7 @@
+     bool launch_elevated = delegate->ShouldLaunchElevated();
+ #elif defined(OS_ANDROID)
+     // Uses |ipcfd_| instead of |ipcfd| on Android.
+-#elif defined(OS_MACOSX)
++#elif defined(OS_MACOSX) || defined(OS_BSD)
+     base::EnvironmentMap env = delegate->GetEnvironment();
+     base::ScopedFD ipcfd = delegate->TakeIpcFd();
+ #elif defined(OS_POSIX)
 @@ -253,7 +253,7 @@
      // We need to close the client end of the IPC channel to reliably detect
      // child termination.
