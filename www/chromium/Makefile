@@ -218,7 +218,7 @@ CONFIGURE_ENV+=	CFLAGS="${CFLAGS}" \
 
 pre-everything::
 	@${ECHO_MSG}
-	@${ECHO_MSG} "To build Chromium, you should have around 1 GB of memory"
+	@${ECHO_MSG} "To build Chromium, you should have around 2 GB of memory"
 .if ${PORT_OPTIONS:MDEBUG}
 	@${ECHO_MSG} "and lots of free diskspace (~ 8.5GB)."
 .else
