@@ -1,6 +1,6 @@
 --- content/content_browser.gypi.orig	2014-10-10 09:15:31 UTC
 +++ content/content_browser.gypi
-@@ -687,6 +687,8 @@
+@@ -733,6 +733,8 @@
        'browser/geolocation/wifi_data_provider_common_win.cc',
        'browser/geolocation/wifi_data_provider_common_win.h',
        'browser/geolocation/wifi_data_provider_corewlan_mac.mm',
@@ -9,7 +9,7 @@
        'browser/geolocation/wifi_data_provider_linux.cc',
        'browser/geolocation/wifi_data_provider_linux.h',
        'browser/geolocation/wifi_data_provider_mac.cc',
-@@ -1818,8 +1820,18 @@
+@@ -1888,8 +1890,18 @@
        ],
      }],
      ['os_bsd==1', {
@@ -30,12 +30,12 @@
        ],
      }],
      ['use_aura==1', {
-@@ -1867,7 +1879,7 @@
+@@ -1936,7 +1948,7 @@
          'browser/geolocation/empty_wifi_data_provider.cc',
        ],
      }],
 -    ['OS == "linux" and use_dbus==1', {
 +    ['(OS == "linux" or os_bsd==1) and use_dbus==1', {
        'sources!': [
-         'browser/battery_status/battery_status_manager_default.cc',
          'browser/geolocation/empty_wifi_data_provider.cc',
+       ],
