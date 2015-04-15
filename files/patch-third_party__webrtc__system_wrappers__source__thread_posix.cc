@@ -38,7 +38,7 @@
  
  bool ThreadPosix::Start(unsigned int& thread_id)
  {
-@@ -235,7 +238,8 @@
+@@ -211,7 +211,8 @@
  
  // CPU_ZERO and CPU_SET are not available in NDK r7, so disable
  // SetAffinity on Android for now.
@@ -48,7 +48,7 @@
  bool ThreadPosix::SetAffinity(const int* processor_numbers,
                                const unsigned int amount_of_processors) {
    if (!processor_numbers || (amount_of_processors == 0)) {
-@@ -317,7 +321,7 @@
+@@ -292,7 +296,7 @@
    event_->Set();
  
    if (set_thread_name_) {

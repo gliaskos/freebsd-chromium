@@ -1,6 +1,6 @@
 --- third_party/webrtc/modules/video_coding/main/source/receiver.cc.orig	2014-10-10 09:16:13 UTC
 +++ third_party/webrtc/modules/video_coding/main/source/receiver.cc
-@@ -134,8 +134,8 @@
+@@ -112,8 +112,8 @@
    // Assume that render timing errors are due to changes in the video stream.
    if (next_render_time_ms < 0) {
      timing_error = true;

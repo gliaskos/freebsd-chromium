@@ -1,6 +1,6 @@
 --- v8/src/base/platform/platform-posix.cc.orig	2015-01-27 03:22:59.000000000 +0100
 +++ v8/src/base/platform/platform-posix.cc	2015-02-06 18:41:53.881294389 +0100
-@@ -54,6 +54,15 @@
+@@ -55,6 +55,15 @@
  #include <sys/prctl.h>  // NOLINT, for prctl
  #endif
  
@@ -16,7 +16,7 @@
  #if !V8_OS_NACL
  #include <sys/syscall.h>
  #endif
-@@ -259,6 +268,18 @@ int OS::GetCurrentThreadId() {
+@@ -260,6 +269,18 @@ int OS::GetCurrentThreadId() {
    return static_cast<int>(syscall(__NR_gettid));
  #elif V8_OS_ANDROID
    return static_cast<int>(gettid());
