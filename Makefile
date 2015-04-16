@@ -201,7 +201,7 @@ CFLAGS+=	-fno-stack-protector # gcc 4.8 cannot find __stack_chk_fail_local
 .else
 GYP_DEFINES+=	clang=1
 CFLAGS+=	-Wno-unknown-warning-option
-#EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 CONFIGURE_ENV+=	AR=/usr/bin/ar
 .endif
 
