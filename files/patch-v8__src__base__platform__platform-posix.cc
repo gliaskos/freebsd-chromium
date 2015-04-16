@@ -16,7 +16,7 @@
  #if !V8_OS_NACL
  #include <sys/syscall.h>
  #endif
-@@ -260,6 +269,18 @@ int OS::GetCurrentThreadId() {
+@@ -260,6 +269,18 @@
    return static_cast<int>(syscall(__NR_gettid));
  #elif V8_OS_ANDROID
    return static_cast<int>(gettid());
@@ -32,6 +32,6 @@
 +#  endif
 +#elif V8_OS_NETBSD
 +  return static_cast<int>(_lwp_self());
- #else
+ #elif V8_OS_SOLARIS
    return static_cast<int>(pthread_self());
- #endif
+ #else

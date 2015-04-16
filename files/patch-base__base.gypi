@@ -1,10 +1,8 @@
---- base/base.gypi.orig	2014-10-10 09:15:29 UTC
-+++ base/base.gypi
-@@ -972,11 +972,16 @@
-               'process/memory_stubs.cc',
+--- base/base.gypi.orig	2015-04-15 16:31:58.033792000 -0400
++++ base/base.gypi	2015-04-15 16:33:35.751246000 -0400
+@@ -973,10 +973,14 @@
              ],
              'sources/': [
-+              ['exclude', '^debug/proc_maps_linux\\.cc$'],
                ['exclude', '^files/file_path_watcher_linux\\.cc$'],
 -              ['exclude', '^files/file_path_watcher_stub\\.cc$'],
                ['exclude', '^files/file_util_linux\\.cc$'],

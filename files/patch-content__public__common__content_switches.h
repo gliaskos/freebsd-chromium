@@ -5,7 +5,7 @@
  #endif
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#if (defined(OS_LINUX) || defined(OS_BSD)) && !defined(OS_CHROMEOS))
++#if (defined(OS_LINUX) || defined(OS_BSD)) && !defined(OS_CHROMEOS)
  CONTENT_EXPORT extern const char kEnableSpeechDispatcher[];
  #endif
  

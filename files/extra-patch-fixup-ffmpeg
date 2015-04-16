@@ -1,6 +1,6 @@
 --- third_party/ffmpeg/ffmpeg.gyp.orig	2014-10-27 20:27:40.000000000 +0100
 +++ third_party/ffmpeg/ffmpeg.gyp	2014-11-06 22:53:10.000000000 +0100
-@@ -213,6 +213,15 @@
+@@ -245,6 +245,15 @@
                'cflags!': [
                  '-fno-omit-frame-pointer',
                ],

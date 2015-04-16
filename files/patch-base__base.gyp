@@ -1,23 +1,11 @@
---- base/base.gyp.orig	2014-10-10 09:15:29 UTC
-+++ base/base.gyp
+--- base.gyp.orig	2015-04-16 09:41:31.365078000 -0400
++++ base.gyp	2015-04-16 08:52:25.212482000 -0400
 @@ -129,7 +129,7 @@
            ],
            'link_settings': {
              'libraries': [
--              '-L/usr/local/lib -lexecinfo',
-+              '-L/usr/local/lib -lexecinfo -lkvm',
+-              '-L/usr/local/lib -L/usr/lib -lexecinfo',
++              '-L/usr/local/lib -L/usr/lib -lexecinfo -lkvm',
              ],
            },
          }],
-@@ -803,6 +803,11 @@
-             ['include', '^debug/proc_maps_linux_unittest\\.cc$'],
-           ],
-         }],
-+        ['OS == "freebsd"', {
-+          'sources!': [
-+            'debug/proc_maps_linux_unittest.cc',
-+          ],
-+        }],
-       ],  # target_conditions
-     },
-     {

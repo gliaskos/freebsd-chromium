@@ -1,5 +1,14 @@
 --- chrome/browser/chrome_content_browser_client.cc.orig	2014-10-10 09:15:30 UTC
 +++ chrome/browser/chrome_content_browser_client.cc
+@@ -167,7 +167,7 @@
+ #include "chrome/browser/chrome_browser_main_posix.h"
+ #endif
+ 
+-#if defined(OS_POSIX) && !defined(OS_MACOSX)
++#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_BSD)
+ #include "base/debug/leak_annotations.h"
+ #include "components/crash/app/breakpad_linux.h"
+ #include "components/crash/browser/crash_handler_host_linux.h"
 @@ -443,7 +443,7 @@
    return false;
  }
@@ -18,16 +27,16 @@
  
  #if !defined(OS_CHROMEOS)
  GURL GetEffectiveURLForSignin(const GURL& url) {
-@@ -1231,7 +1231,7 @@
+@@ -1232,7 +1232,7 @@
  
-void ChromeContentBrowserClient::AppendExtraCommandLineSwitches(
-    base::CommandLine* command_line,
-    int child_process_id) {
+ void ChromeContentBrowserClient::AppendExtraCommandLineSwitches(
+     base::CommandLine* command_line,
+     int child_process_id) {
 -#if defined(OS_POSIX)
 +#if defined(OS_POSIX) && !defined(OS_BSD)
    if (breakpad::IsCrashReporterEnabled()) {
-    scoped_ptr<metrics::ClientInfo> client_info =
-        GoogleUpdateSettings::LoadMetricsClientInfo();
+     scoped_ptr<metrics::ClientInfo> client_info =
+         GoogleUpdateSettings::LoadMetricsClientInfo();
 @@ -1240,7 +1240,7 @@
                                      client_info ? client_info->client_id
                                                  : std::string());

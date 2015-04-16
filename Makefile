@@ -4,9 +4,8 @@
 PORTNAME=	chromium
 PORTVERSION=	41.0.2272.118
 CATEGORIES=	www
-#MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
-# DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
-DISTFILES=
+MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	Google web browser based on WebKit
@@ -202,7 +201,7 @@ CFLAGS+=	-fno-stack-protector # gcc 4.8 cannot find __stack_chk_fail_local
 .else
 GYP_DEFINES+=	clang=1
 CFLAGS+=	-Wno-unknown-warning-option
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+#EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 CONFIGURE_ENV+=	AR=/usr/bin/ar
 .endif
 
@@ -290,7 +289,6 @@ pre-configure:
 		'third_party/libsrtp' \
 		'third_party/libvpx' \
 		'third_party/libvpx/source/libvpx/third_party/x86inc' \
-		'third_party/libwebm' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
 		'third_party/libyuv' \
