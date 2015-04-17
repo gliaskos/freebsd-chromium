@@ -8,6 +8,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/keyboard_resources.pak
 %%DATADIR%%/libffmpegsumo.so
 %%DATADIR%%/libpdf.so
+%%DATADIR%%/icudtl.dat
 %%DATADIR%%/locales/am.pak
 %%DATADIR%%/locales/ar.pak
 %%DATADIR%%/locales/bg.pak
