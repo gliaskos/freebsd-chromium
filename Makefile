@@ -239,6 +239,8 @@ post-patch:
 		${WRKSRC}/base/base.gyp
 
 pre-configure:
+    # copy icudtl.dat for post-build
+	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	cd ${WRKSRC} && ${PYTHON_CMD} \
@@ -370,6 +372,8 @@ do-install:
 		${STAGEDIR}${DATADIR}
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libpdf.so \
 		${STAGEDIR}${DATADIR}
+	${INSTALL_DATA} ${WRKSRC}/icudtl.dat \
+	    ${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
 	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}
