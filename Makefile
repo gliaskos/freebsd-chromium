@@ -19,7 +19,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
-		py27-ply:${PORTSDIR}/devel/py-ply \
+		${LOCALBASE}/lib/python2.7/site-packages/ply/cpp.py:${PORTSDIR}/devel/py-ply \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
 		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids
 
