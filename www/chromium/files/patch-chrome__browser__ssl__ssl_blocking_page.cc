@@ -5,7 +5,7 @@
    NOTREACHED();
  
 -#elif defined(OS_LINUX)
-+#elif defined(OS_LINUX) || dewfined(OS_BSD)
++#elif defined(OS_LINUX) || defined(OS_BSD)
    struct ClockCommand {
      const char* pathname;
      const char* argument;

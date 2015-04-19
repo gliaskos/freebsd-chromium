@@ -1,5 +1,5 @@
 --- chrome/browser/ui/webui/about_ui.cc.orig	2015-04-18 23:56:37.000000000 +0200
-+++ chrome/browser/ui/webui/about_ui.cc	2015-04-19 00:01:13.000000000 +0200
++++ chrome/browser/ui/webui/about_ui.cc	2015-04-20 19:06:22.000000000 +0200
 @@ -64,7 +64,7 @@
  #include "chrome/browser/ui/webui/theme_source.h"
  #endif
@@ -48,7 +48,7 @@
      return;
  #endif
 -#if defined(OS_LINUX) || defined(OS_OPENBSD)
-+#if defined(OS_LINUX) || defined(OS_BSD)
++#if (defined(OS_LINUX) || defined(OS_BSD)) && !defined(OS_FREEBSD)
    } else if (source_name_ == chrome::kChromeUISandboxHost) {
      response = AboutSandbox();
  #endif
