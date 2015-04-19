@@ -1,7 +1,7 @@
 --- content/content_tests.gypi.orig	2014-10-10 09:15:31 UTC
 +++ content/content_tests.gypi
-@@ -996,6 +996,15 @@
-             'browser/webui/url_data_manager_backend_unittest.cc',
+@@ -923,6 +923,15 @@
+             'browser/geolocation/wifi_data_provider_linux_unittest.cc',
            ],
          }],
 +        ['OS == "freebsd"', {

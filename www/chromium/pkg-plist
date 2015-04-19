@@ -5,10 +5,8 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/chrome-wrapper
 %%DATADIR%%/chrome_100_percent.pak
 %%DATADIR%%/content_resources.pak
-%%DATADIR%%/icudtl.dat
 %%DATADIR%%/keyboard_resources.pak
 %%DATADIR%%/libffmpegsumo.so
-%%DATADIR%%/libpdf.so
 %%DATADIR%%/locales/am.pak
 %%DATADIR%%/locales/ar.pak
 %%DATADIR%%/locales/bg.pak
@@ -66,7 +64,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources.pak
 %%DATADIR%%/resources/extension/demo/library.js
 %%DATADIR%%/resources/inspector/Images/applicationCache.png
-%%DATADIR%%/resources/inspector/Images/back.png
 %%DATADIR%%/resources/inspector/Images/breakpoint.png
 %%DATADIR%%/resources/inspector/Images/breakpointConditional.png
 %%DATADIR%%/resources/inspector/Images/breakpointConditional_2x.png
@@ -138,6 +135,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/InspectorBackendCommands.js
 %%DATADIR%%/resources/inspector/SupportedCSSProperties.js
 %%DATADIR%%/resources/inspector/audits_module.js
+%%DATADIR%%/resources/inspector/components_lazy_module.js
 %%DATADIR%%/resources/inspector/console_module.js
 %%DATADIR%%/resources/inspector/devices_module.js
 %%DATADIR%%/resources/inspector/devtools.css
@@ -163,9 +161,31 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/toolbox.css
 %%DATADIR%%/resources/inspector/toolbox.html
 %%DATADIR%%/resources/inspector/toolbox.js
+%%DATADIR%%/resources/inspector/ui_lazy_module.js
 share/icons/hicolor/128x128/apps/chrome.png
 share/icons/hicolor/22x22/apps/chrome.png
 share/icons/hicolor/24x24/apps/chrome.png
 share/icons/hicolor/256x256/apps/chrome.png
 share/icons/hicolor/48x48/apps/chrome.png
 share/icons/hicolor/64x64/apps/chrome.png
+@dir %%DATADIR%%/locales
+@dir %%DATADIR%%/resources/extension/demo
+@dir %%DATADIR%%/resources/extension
+@dir %%DATADIR%%/resources/inspector/Images
+@dir %%DATADIR%%/resources/inspector
+@dir %%DATADIR%%/resources
+@dir %%DATADIR%%
+@dir share/icons/hicolor/128x128/apps
+@dir share/icons/hicolor/128x128
+@dir share/icons/hicolor/22x22/apps
+@dir share/icons/hicolor/22x22
+@dir share/icons/hicolor/24x24/apps
+@dir share/icons/hicolor/24x24
+@dir share/icons/hicolor/256x256/apps
+@dir share/icons/hicolor/256x256
+@dir share/icons/hicolor/48x48/apps
+@dir share/icons/hicolor/48x48
+@dir share/icons/hicolor/64x64/apps
+@dir share/icons/hicolor/64x64
+@dir share/icons/hicolor
+@dir share/icons

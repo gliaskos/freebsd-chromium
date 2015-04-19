@@ -1,6 +1,6 @@
---- chrome/browser/ssl/ssl_blocking_page.cc.orig	2015-01-21 20:28:15 UTC
-+++ chrome/browser/ssl/ssl_blocking_page.cc
-@@ -236,7 +236,7 @@
+--- chrome/browser/ssl/ssl_blocking_page.cc.orig	2015-04-18 23:34:15.000000000 +0200
++++ chrome/browser/ssl/ssl_blocking_page.cc	2015-04-18 23:40:51.000000000 +0200
+@@ -132,7 +132,7 @@
    // iOS does not have a way to launch the date and time settings.
    NOTREACHED();
  

@@ -1,6 +1,6 @@
 --- chrome/browser/ui/views/chrome_views_delegate.cc.orig	2014-10-10 08:54:11 UTC
 +++ chrome/browser/ui/views/chrome_views_delegate.cc
-@@ -44,7 +44,7 @@
+@@ -45,7 +45,7 @@
  #include "ui/views/widget/native_widget_aura.h"
  #endif
  
@@ -9,7 +9,7 @@
  #include "ui/views/linux_ui/linux_ui.h"
  #endif
  
-@@ -238,7 +238,7 @@
+@@ -235,7 +235,7 @@
    return chrome::IsNativeViewInAsh(window);
  }
  
@@ -18,7 +18,7 @@
  gfx::ImageSkia* ChromeViewsDelegate::GetDefaultWindowIcon() const {
    ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
    return rb.GetImageSkiaNamed(IDR_PRODUCT_LOGO_64);
-@@ -377,7 +377,7 @@
+@@ -374,7 +374,7 @@
  #endif
  }
  

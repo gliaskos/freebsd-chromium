@@ -1,6 +1,6 @@
 --- chrome/browser/ui/views/apps/chrome_native_app_window_views.cc.orig	2014-10-10 09:15:30 UTC
 +++ chrome/browser/ui/views/apps/chrome_native_app_window_views.cc
-@@ -30,7 +30,7 @@
+@@ -29,7 +29,7 @@
  #include "ui/wm/core/easy_resize_window_targeter.h"
  #include "ui/wm/core/shadow_types.h"
  
@@ -9,7 +9,7 @@
  #include "chrome/browser/shell_integration_linux.h"
  #endif
  
-@@ -223,7 +223,7 @@
+@@ -219,7 +219,7 @@
    init_params.visible_on_all_workspaces =
        create_params.visible_on_all_workspaces;
  

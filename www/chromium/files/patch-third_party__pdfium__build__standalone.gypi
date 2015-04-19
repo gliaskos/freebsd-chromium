@@ -18,7 +18,7 @@
                'host_arch%': 'ia32',
              }],
            ],
-@@ -269,4 +269,4 @@
+@@ -259,4 +259,4 @@
      # See comment in Chromium's common.gypi for why this is needed.
      'SYMROOT': '<(DEPTH)/xcodebuild',
    }

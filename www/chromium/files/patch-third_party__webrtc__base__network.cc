@@ -9,7 +9,7 @@
  #include <linux/if.h>
  #include <linux/route.h>
  #elif !defined(__native_client__)
-@@ -472,7 +472,7 @@
+@@ -479,7 +479,7 @@
  }
  #endif  // WEBRTC_WIN
  
@@ -18,8 +18,8 @@
  bool IsDefaultRoute(const std::string& network_name) {
    FileStream fs;
    if (!fs.Open("/proc/net/route", "r", NULL)) {
-@@ -514,7 +514,7 @@
-       strncmp(network.name().c_str(), "vboxnet", 7) == 0) {
+@@ -519,7 +519,7 @@
+       strncmp(network.name().c_str(), "vnic", 4) == 0) {
      return true;
    }
 -#if defined(WEBRTC_LINUX)

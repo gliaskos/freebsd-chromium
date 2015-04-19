@@ -1,6 +1,6 @@
 --- media/media.gyp.orig	2014-10-10 09:15:31 UTC
 +++ media/media.gyp
-@@ -746,7 +746,7 @@
+@@ -690,7 +690,7 @@
              'audio/openbsd/audio_manager_openbsd.h',
            ],
          }],
@@ -9,7 +9,7 @@
            'conditions': [
              ['use_x11==1', {
                'dependencies': [
-@@ -1056,7 +1056,7 @@
+@@ -998,7 +998,7 @@
              'base/simd/convert_yuv_to_rgb_x86.cc',
            ],
          }],

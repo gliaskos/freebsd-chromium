@@ -1,5 +1,5 @@
---- net/quic/congestion_control/rtt_stats.cc.orig	2014-10-10 08:54:16 UTC
-+++ net/quic/congestion_control/rtt_stats.cc
+--- net/quic/congestion_control/rtt_stats.cc.orig	2015-04-19 16:49:03.000000000 +0200
++++ net/quic/congestion_control/rtt_stats.cc	2015-04-19 16:49:19.000000000 +0200
 @@ -81,7 +81,7 @@
    } else {
      mean_deviation_ = QuicTime::Delta::FromMicroseconds(static_cast<int64>(

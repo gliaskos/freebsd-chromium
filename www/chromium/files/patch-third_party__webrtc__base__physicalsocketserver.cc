@@ -1,6 +1,6 @@
 --- third_party/webrtc/base/physicalsocketserver.cc.orig	2014-10-10 09:16:13 UTC
 +++ third_party/webrtc/base/physicalsocketserver.cc
-@@ -244,7 +244,7 @@
+@@ -240,7 +240,7 @@
      socklen_t optlen = sizeof(*value);
      int ret = ::getsockopt(s_, slevel, sopt, (SockOptArg)value, &optlen);
      if (ret != -1 && opt == OPT_DONTFRAGMENT) {
@@ -9,7 +9,7 @@
        *value = (*value != IP_PMTUDISC_DONT) ? 1 : 0;
  #endif
      }
-@@ -257,7 +257,7 @@
+@@ -253,7 +253,7 @@
      if (TranslateOption(opt, &slevel, &sopt) == -1)
        return -1;
      if (opt == OPT_DONTFRAGMENT) {
@@ -18,7 +18,7 @@
        value = (value) ? IP_PMTUDISC_DO : IP_PMTUDISC_DONT;
  #endif
      }
-@@ -507,10 +507,10 @@
+@@ -503,10 +503,10 @@
          *slevel = IPPROTO_IP;
          *sopt = IP_DONTFRAGMENT;
          break;

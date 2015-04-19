@@ -1,5 +1,5 @@
---- build/common.gypi.orig	2014-10-10 09:15:29 UTC
-+++ build/common.gypi
+--- build/common.gypi.orig	2015-04-18 22:35:23.000000000 +0200
++++ build/common.gypi	2015-04-18 22:42:51.000000000 +0200
 @@ -94,7 +94,7 @@
  
            'conditions': [
@@ -9,7 +9,7 @@
                'use_ash%': 1,
                'use_aura%': 1,
              }],
-@@ -691,7 +691,7 @@
+@@ -694,7 +694,7 @@
          }],
  
          # DBus usage.
@@ -18,7 +18,7 @@
            'use_dbus%': 1,
          }, {
            'use_dbus%': 0,
-@@ -941,7 +941,7 @@
+@@ -944,7 +944,7 @@
          }, {
            'use_openmax_dl_fft%': 0,
          }],
@@ -27,24 +27,33 @@
              'enable_mdns%' : 1,
          }],
  
-@@ -1215,6 +1215,10 @@
+@@ -968,7 +968,7 @@
+         # except when building Android WebView.
+         # TODO(jshin): Handle 'use_system_icu' on Linux (Chromium).
+         # Set the data reduction proxy origin for Android Webview.
+-        ['android_webview_build==0', {
++        ['android_webview_build==0 and OS!="freebsd" and OS!="openbsd"', {
+           'icu_use_data_file_flag%' : 1,
+         }, {
+           'icu_use_data_file_flag%' : 0,
+@@ -1216,6 +1216,10 @@
      # able to turn it off for various reasons.
      'linux_disable_pie%': 0,
  
 +    # XXX(rene) More options, keep them?
 +    'os_ver%': 0,
-+    'use_system_libjpeg%': 0,    
++    'use_system_libjpeg%': 0,
 +
      # The release channel that this build targets. This is used to restrict
      # channel-specific build options, like which installer packages to create.
      # The default is 'all', which does no channel-specific filtering.
-@@ -4465,6 +4469,13 @@
+@@ -4479,6 +4483,13 @@
          'ldflags': [
            '-Wl,--no-keep-memory',
          ],
 +        'ldflags!': [
 +          '-ldl',
-+          '-pie',
++          '-pie'
 +        ],
 +        'libraries!': [
 +          '-ldl',

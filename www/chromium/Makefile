@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 379471 2015-02-20 23:27:20Z rene $
+# $FreeBSD: head/www/chromium/Makefile 372253 2014-11-07 10:51:33Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	41.0.2272.118
+PORTVERSION=	42.0.2311.90
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -19,10 +19,9 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
 		yasm:${PORTSDIR}/devel/yasm \
 		flock:${PORTSDIR}/sysutils/flock \
-		${LOCALBASE}/lib/python2.7/site-packages/ply/cpp.py:${PORTSDIR}/devel/py-ply \
-		${LOCALBASE}/lib/python2.7/site-packages/jinja2/__init__.py:${PORTSDIR}/devel/py-Jinja2 \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
-		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids
+		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids \
+		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
@@ -112,7 +111,8 @@ GYP_DEFINES+=	\
 		use_system_snappy=1 \
 		use_system_speex=1 \
 		use_system_xdg_utils=1 \
-		use_system_yasm=1
+		use_system_yasm=1 \
+		v8_use_external_startup_data=0
 # allow removal of third_party/adobe
 GYP_DEFINES+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
 
@@ -240,8 +240,6 @@ post-patch:
 		${WRKSRC}/base/base.gyp
 
 pre-configure:
-	# copy icudtl.dat for post-build
-	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	cd ${WRKSRC} && ${PYTHON_CMD} \
@@ -263,6 +261,7 @@ pre-configure:
 		'net/third_party/mozilla_security_manager' \
 		'net/third_party/nss' \
 		'third_party/WebKit' \
+		'third_party/analytics' \
 		'third_party/angle' \
 		'third_party/angle/src/third_party' \
 		'third_party/blanketjs' \
@@ -300,6 +299,7 @@ pre-configure:
 		'third_party/lzma_sdk' \
 		'third_party/markupsafe' \
 		'third_party/mesa' \
+		'third_party/mojo' \
 		'third_party/modp_b64' \
 		'third_party/mt19937ar' \
 		'third_party/npapi' \
@@ -327,6 +327,7 @@ pre-configure:
 		'third_party/trace-viewer/third_party/tvcm/third_party' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
+		'third_party/web-animations-js' \
 		'third_party/webdriver' \
 		'third_party/webrtc' \
 		'third_party/widevine' \
@@ -371,10 +372,6 @@ do-install:
 		${STAGEDIR}${DATADIR}
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libffmpegsumo.so \
 		${STAGEDIR}${DATADIR}
-	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libpdf.so \
-		${STAGEDIR}${DATADIR}
-	${INSTALL_DATA} ${WRKSRC}/icudtl.dat \
-	    ${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
 	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}

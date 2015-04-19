@@ -1,6 +1,6 @@
 --- third_party/webrtc/voice_engine/voice_engine_defines.h.orig	2014-10-10 09:16:13 UTC
 +++ third_party/webrtc/voice_engine/voice_engine_defines.h
-@@ -217,7 +217,7 @@
+@@ -237,7 +237,7 @@
  #include <pthread.h>
  #include <sys/socket.h>
  #include <sys/types.h>
