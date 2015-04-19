@@ -1,6 +1,6 @@
 --- chrome/common/pref_names.cc.orig	2015-01-21 20:28:16 UTC
 +++ chrome/common/pref_names.cc
-@@ -895,7 +895,7 @@
+@@ -896,7 +896,7 @@
  // supervised users.
  const char kRecordHistory[] = "settings.history_recorded";
  
@@ -9,7 +9,7 @@
  // Linux specific preference on whether we should match the system theme.
  const char kUsesSystemTheme[] = "extensions.theme.use_system";
  #endif
-@@ -1425,7 +1425,7 @@
+@@ -1428,7 +1428,7 @@
  // upgrade a unsafe location to a safe location.
  const char kDownloadDirUpgraded[] = "download.directory_upgrade";
  

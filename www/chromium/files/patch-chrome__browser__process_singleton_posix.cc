@@ -23,7 +23,7 @@
    base::string16 relaunch_button_text = l10n_util::GetStringUTF16(
        IDS_PROFILE_IN_USE_LINUX_RELAUNCH);
    return ShowProcessSingletonDialog(error, relaunch_button_text);
-@@ -880,7 +880,7 @@
+@@ -878,7 +878,7 @@
      // The other process is shutting down, it's safe to start a new process.
      return PROCESS_NONE;
    } else if (strncmp(buf, kACKToken, arraysize(kACKToken) - 1) == 0) {

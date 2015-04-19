@@ -1,7 +1,7 @@
 --- skia/skia_chrome.gypi.orig	2015-01-21 20:28:18 UTC
 +++ skia/skia_chrome.gypi
-@@ -87,6 +87,11 @@
-     'ext/vector_platform_device_skia.h',
+@@ -82,6 +82,11 @@
+     'ext/vector_platform_device_emf_win.h',
    ],
    'conditions': [
 +    [ 'use_cairo == 1', {

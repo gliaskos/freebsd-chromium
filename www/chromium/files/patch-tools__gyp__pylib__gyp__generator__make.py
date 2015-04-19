@@ -39,7 +39,7 @@
  
  # Define a dir function that can handle spaces.
  # http://www.gnu.org/software/make/manual/make.html#Syntax-of-Functions
-@@ -1824,7 +1824,7 @@
+@@ -1827,7 +1827,7 @@
        return modules
  
      # Retrieve the default value of 'SHARED_LIB_SUFFIX'

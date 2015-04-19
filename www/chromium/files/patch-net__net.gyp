@@ -1,7 +1,7 @@
 --- net/net.gyp.orig	2014-10-10 09:15:31 UTC
 +++ net/net.gyp
-@@ -316,9 +316,10 @@
-               }],
+@@ -326,9 +326,10 @@
+             'conditions': [
                ['os_bsd==1', {
                  'sources!': [
 +                  'base/address_tracker_linux.cc',
@@ -12,7 +12,7 @@
                  ],
                },{
                  'dependencies': [
-@@ -551,7 +552,7 @@
+@@ -546,7 +547,7 @@
          '<@(net_test_sources)',
        ],
        'conditions': [
@@ -21,7 +21,7 @@
            'dependencies': [
              'epoll_server',
              'flip_in_mem_edsm_server_base',
-@@ -1033,6 +1034,11 @@
+@@ -1029,6 +1030,11 @@
                'test/cert_test_util_nss.cc',
              ],
          }],

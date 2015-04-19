@@ -1,7 +1,7 @@
 --- chrome/browser/memory_details.cc.orig	2014-10-10 08:54:10 UTC
 +++ chrome/browser/memory_details.cc
-@@ -26,7 +26,7 @@
- #include "content/public/common/bindings_policy.h"
+@@ -27,7 +27,7 @@
+ #include "content/public/common/content_constants.h"
  #include "ui/base/l10n/l10n_util.h"
  
 -#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_ANDROID)

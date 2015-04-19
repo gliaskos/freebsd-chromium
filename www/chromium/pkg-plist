@@ -5,6 +5,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/chrome-wrapper
 %%DATADIR%%/chrome_100_percent.pak
 %%DATADIR%%/content_resources.pak
+%%DATADIR%%/icudtl.dat
 %%DATADIR%%/keyboard_resources.pak
 %%DATADIR%%/libffmpegsumo.so
 %%DATADIR%%/libpdf.so
@@ -97,6 +98,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/navigationControls.png
 %%DATADIR%%/resources/inspector/Images/navigationControls_2x.png
 %%DATADIR%%/resources/inspector/Images/paneAddButtons.png
+%%DATADIR%%/resources/inspector/Images/paneAnimationsButtons.png
 %%DATADIR%%/resources/inspector/Images/paneElementStateButtons.png
 %%DATADIR%%/resources/inspector/Images/paneFilterButtons.png
 %%DATADIR%%/resources/inspector/Images/paneRefreshButtons.png
@@ -133,8 +135,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/toolbarItemSelected.png
 %%DATADIR%%/resources/inspector/Images/touchCursor.png
 %%DATADIR%%/resources/inspector/Images/touchCursor_2x.png
-%%DATADIR%%/resources/inspector/Images/transformControls.png
-%%DATADIR%%/resources/inspector/Images/transformControls_2x.png
 %%DATADIR%%/resources/inspector/InspectorBackendCommands.js
 %%DATADIR%%/resources/inspector/SupportedCSSProperties.js
 %%DATADIR%%/resources/inspector/audits_module.js
@@ -144,9 +144,11 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/devtools.html
 %%DATADIR%%/resources/inspector/devtools.js
 %%DATADIR%%/resources/inspector/devtools_extension_api.js
-%%DATADIR%%/resources/inspector/documentation_module.js
 %%DATADIR%%/resources/inspector/elements_module.js
 %%DATADIR%%/resources/inspector/heap_snapshot_worker_module.js
+%%DATADIR%%/resources/inspector/inspector.css
+%%DATADIR%%/resources/inspector/inspector.html
+%%DATADIR%%/resources/inspector/inspector.js
 %%DATADIR%%/resources/inspector/layers_module.js
 %%DATADIR%%/resources/inspector/network_module.js
 %%DATADIR%%/resources/inspector/profiler_module.js
@@ -167,24 +169,3 @@ share/icons/hicolor/24x24/apps/chrome.png
 share/icons/hicolor/256x256/apps/chrome.png
 share/icons/hicolor/48x48/apps/chrome.png
 share/icons/hicolor/64x64/apps/chrome.png
-@dir %%DATADIR%%/locales
-@dir %%DATADIR%%/resources/extension/demo
-@dir %%DATADIR%%/resources/extension
-@dir %%DATADIR%%/resources/inspector/Images
-@dir %%DATADIR%%/resources/inspector
-@dir %%DATADIR%%/resources
-@dir %%DATADIR%%
-@dir share/icons/hicolor/128x128/apps
-@dir share/icons/hicolor/128x128
-@dir share/icons/hicolor/22x22/apps
-@dir share/icons/hicolor/22x22
-@dir share/icons/hicolor/24x24/apps
-@dir share/icons/hicolor/24x24
-@dir share/icons/hicolor/256x256/apps
-@dir share/icons/hicolor/256x256
-@dir share/icons/hicolor/48x48/apps
-@dir share/icons/hicolor/48x48
-@dir share/icons/hicolor/64x64/apps
-@dir share/icons/hicolor/64x64
-@dir share/icons/hicolor
-@dir share/icons

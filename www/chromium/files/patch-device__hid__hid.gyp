@@ -1,6 +1,6 @@
 --- device/hid/hid.gyp.orig	2014-10-10 08:54:15 UTC
 +++ device/hid/hid.gyp
-@@ -63,6 +63,18 @@
+@@ -66,6 +66,18 @@
              'input_service_linux.h',
            ],
          }],

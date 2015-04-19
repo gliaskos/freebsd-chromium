@@ -1,0 +1,11 @@
+--- chrome/browser/ui/browser.cc.orig.port	Tue Mar 10 23:41:40 2015
++++ chrome/browser/ui/browser.cc	Wed Mar 11 07:22:50 2015
+@@ -1288,7 +1288,7 @@ void Browser::OnWindowDidShow() {
+   window_has_shown_ = true;
+ 
+ // CurrentProcessInfo::CreationTime() is missing on some platforms.
+-#if defined(OS_MACOSX) || defined(OS_WIN) || defined(OS_LINUX)
++#if defined(OS_MACOSX) || defined(OS_WIN) || defined(OS_LINUX) || defined(OS_BSD)
+   // Measure the latency from startup till the first browser window becomes
+   // visible.
+   static bool is_first_browser_window = true;

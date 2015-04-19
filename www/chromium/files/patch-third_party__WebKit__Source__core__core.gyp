@@ -1,6 +1,6 @@
 --- third_party/WebKit/Source/core/core.gyp.orig	2014-10-10 09:34:37 UTC
 +++ third_party/WebKit/Source/core/core.gyp
-@@ -587,7 +587,7 @@
+@@ -589,7 +589,7 @@
            # Due to a bug in gcc 4.6 in android NDK, we get warnings about uninitialized variable.
            'cflags': ['-Wno-uninitialized'],
          }],
@@ -9,8 +9,8 @@
            'sources/': [
              ['exclude', 'Linux\\.cpp$'],
            ],
-@@ -625,7 +625,7 @@
-         ['OS=="win" and buildtype=="Official"', {
+@@ -627,7 +627,7 @@
+         ['OS=="win" and (buildtype=="Official" or (fastbuild==0 and win_z7==1))', {
            'msvs_shard': 19,
          }],
 -        ['OS != "linux"', {

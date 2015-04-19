@@ -1,5 +1,5 @@
---- chrome/browser/ui/views/tabs/tab_drag_controller.cc.orig	2015-01-26 10:43:43 UTC
-+++ chrome/browser/ui/views/tabs/tab_drag_controller.cc
+--- chrome/browser/ui/views/tabs/tab_drag_controller.cc.orig	2015-04-15 17:04:33.726356000 -0400
++++ chrome/browser/ui/views/tabs/tab_drag_controller.cc	2015-04-15 17:05:20.940139000 -0400
 @@ -266,7 +266,7 @@
    //     synchronous on desktop Linux, so use that.
    // - Ash

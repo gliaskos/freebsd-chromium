@@ -10,7 +10,7 @@
  #include <sys/resource.h>
  #include <sys/syscall.h>
  #include <sys/time.h>
-@@ -50,7 +52,7 @@
+@@ -52,7 +54,7 @@
    ThreadIdNameManager::GetInstance()->SetName(CurrentId(), name);
    tracked_objects::ThreadData::InitializeThreadContext(name);
  

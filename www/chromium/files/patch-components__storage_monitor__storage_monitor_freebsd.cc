@@ -64,7 +64,7 @@
 +  if (!base::WaitForExitCodeWithTimeout(handle, &exit_code,
 +      base::TimeDelta::FromMilliseconds(3000))) {
 +    base::KillProcess(handle, -1, false);
-+    base::EnsureProcessTerminated(handle);
++    base::EnsureProcessTerminated(base::Process(handle));
 +    return StorageMonitor::EJECT_FAILURE;
 +  }
 +
