@@ -9,7 +9,7 @@
                'use_ash%': 1,
                'use_aura%': 1,
              }],
-@@ -691,7 +691,7 @@
+@@ -694,7 +694,7 @@
          }],
  
          # DBus usage.
@@ -18,7 +18,7 @@
            'use_dbus%': 1,
          }, {
            'use_dbus%': 0,
-@@ -941,7 +941,7 @@
+@@ -944,7 +944,7 @@
          }, {
            'use_openmax_dl_fft%': 0,
          }],
@@ -27,7 +27,7 @@
              'enable_mdns%' : 1,
          }],
  
-@@ -1215,6 +1215,10 @@
+@@ -1216,6 +1216,10 @@
      # able to turn it off for various reasons.
      'linux_disable_pie%': 0,
  
@@ -38,7 +38,16 @@
      # The release channel that this build targets. This is used to restrict
      # channel-specific build options, like which installer packages to create.
      # The default is 'all', which does no channel-specific filtering.
-@@ -4465,6 +4469,13 @@
+@@ -1964,7 +1968,7 @@
+         'use_cups%': 0,
+       }],
+ 
+-      ['enable_plugins==1 and (OS=="linux" or OS=="mac" or OS=="win")', {
++      ['enable_plugins==1 and (OS=="linux" or OS=="mac" or OS=="win" or os_bsd==1)', {
+         'enable_pepper_cdms%': 1,
+       }, {
+         'enable_pepper_cdms%': 0,
+@@ -4479,6 +4483,13 @@
          'ldflags': [
            '-Wl,--no-keep-memory',
          ],
