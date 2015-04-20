@@ -21,6 +21,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		flock:${PORTSDIR}/sysutils/flock \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
 		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids \
+		${LOCALBASE}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
 		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
@@ -282,7 +283,6 @@ pre-configure:
 		'third_party/hunspell' \
 		'third_party/iccjpeg' \
 		'third_party/icu/icu.isolate' \
-		'third_party/jinja2' \
 		'third_party/jstemplate' \
 		'third_party/khronos' \
 		'third_party/leveldatabase' \
