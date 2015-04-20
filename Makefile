@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 379471 2015-02-20 23:27:20Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	41.0.2272.118
+PORTVERSION=	42.0.2311.90
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -240,7 +240,7 @@ post-patch:
 
 pre-configure:
     # copy icudtl.dat for post-build
-	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
+#	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	cd ${WRKSRC} && ${PYTHON_CMD} \
@@ -262,6 +262,7 @@ pre-configure:
 		'net/third_party/mozilla_security_manager' \
 		'net/third_party/nss' \
 		'third_party/WebKit' \
+		'third_party/analytics' \
 		'third_party/angle' \
 		'third_party/angle/src/third_party' \
 		'third_party/blanketjs' \
@@ -300,6 +301,7 @@ pre-configure:
 		'third_party/markupsafe' \
 		'third_party/mesa' \
 		'third_party/modp_b64' \
+		'third_party/mojo' \
 		'third_party/mt19937ar' \
 		'third_party/npapi' \
 		'third_party/openmax_dl' \
@@ -326,6 +328,7 @@ pre-configure:
 		'third_party/trace-viewer/third_party/tvcm/third_party' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
+		'third_party/web-animations-js' \
 		'third_party/webdriver' \
 		'third_party/webrtc' \
 		'third_party/widevine' \
@@ -370,8 +373,8 @@ do-install:
 		${STAGEDIR}${DATADIR}
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libffmpegsumo.so \
 		${STAGEDIR}${DATADIR}
-	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libpdf.so \
-		${STAGEDIR}${DATADIR}
+#	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libpdf.so \
+#		${STAGEDIR}${DATADIR}
 	${INSTALL_DATA} ${WRKSRC}/icudtl.dat \
 	    ${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \

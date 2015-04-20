@@ -235,7 +235,7 @@
  
 --- third_party/webrtc/modules/audio_coding/main/acm2/audio_coding_module_impl.cc.orig	2015-01-25 14:52:44 UTC
 +++ third_party/webrtc/modules/audio_coding/main/acm2/audio_coding_module_impl.cc
-@@ -2059,7 +2059,7 @@
+@@ -1754,7 +1754,7 @@
  
  const AudioEncoder* AudioCodingImpl::GetSenderInfo() const {
    FATAL() << "Not implemented yet.";
@@ -244,7 +244,7 @@
  }
  
  const CodecInst* AudioCodingImpl::GetSenderCodecInst() {
-@@ -2078,7 +2078,7 @@
+@@ -1773,7 +1773,7 @@
  
  const ReceiverInfo* AudioCodingImpl::GetReceiverInfo() const {
    FATAL() << "Not implemented yet.";
@@ -253,14 +253,3 @@
  }
  
  bool AudioCodingImpl::RegisterReceiveCodec(AudioDecoder* receive_codec) {
---- v8/src/debug.cc.orig	2015-01-25 14:39:37 UTC
-+++ v8/src/debug.cc
-@@ -573,7 +573,7 @@
-   thread_local_.step_out_fp_ = 0;
-   // TODO(isolates): frames_are_dropped_?
-   base::NoBarrier_Store(&thread_local_.current_debug_scope_,
--                        static_cast<base::AtomicWord>(0));
-+                        reinterpret_cast<base::AtomicWord>(0));
-   thread_local_.restarter_frame_function_pointer_ = NULL;
- }
- 

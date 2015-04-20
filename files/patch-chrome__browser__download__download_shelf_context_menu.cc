@@ -18,10 +18,10 @@
      (defined(OS_MACOSX) && !defined(OS_IOS))
        if (CanOpenPdfInSystemViewer()) {
          prefs->SetShouldOpenPdfInSystemReader(!is_checked);
-@@ -390,14 +390,14 @@
- #if defined(OS_WIN)
-   if (CanOpenPdfInSystemViewer())
-     return IDS_DOWNLOAD_MENU_ALWAYS_OPEN_PDF_IN_READER;
+@@ -392,14 +392,14 @@
+     return IsAdobeReaderDefaultPDFViewer()
+                ? IDS_DOWNLOAD_MENU_ALWAYS_OPEN_PDF_IN_READER
+                : IDS_DOWNLOAD_MENU_PLATFORM_OPEN_ALWAYS;
 -#elif defined(OS_MACOSX) || defined(OS_LINUX)
 +#elif defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_BSD)
    if (CanOpenPdfInSystemViewer())
@@ -35,7 +35,7 @@
  bool DownloadShelfContextMenu::IsDownloadPdf() const {
    base::FilePath path = download_item_->GetTargetFilePath();
    return path.MatchesExtension(FILE_PATH_LITERAL(".pdf"));
-@@ -409,7 +409,7 @@
+@@ -411,7 +411,7 @@
    return IsDownloadPdf() &&
           (IsAdobeReaderDefaultPDFViewer() ? is_adobe_pdf_reader_up_to_date_ :
                                              true);

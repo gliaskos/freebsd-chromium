@@ -4,7 +4,7 @@
  
  #include <X11/Xlib.h>
  
-+#include "base/debug/trace_event.h"
++#include "base/trace_event/trace_event.h"
  #include "base/logging.h"
  #include "gpu/config/gpu_info_collector_linux.h"
  #include "third_party/libXNVCtrl/NVCtrl.h"
@@ -23,11 +23,10 @@
  namespace gpu {
  
  // Use NVCtrl extention to query NV driver version.
-@@ -39,5 +49,42 @@
-   }
+@@ -40,4 +50,42 @@
    return std::string();
  }
-+
+ 
 +CollectInfoResult CollectMesaCardInfo(GPUInfo* gpu_info) {
 +  unsigned int vid[3], did[3];
 +
@@ -43,6 +42,7 @@
 +  if (!initialized)
 +    return kCollectInfoNonFatalFailure;
 +
++/*
 +  PFNGLXQUERYRENDERERINTEGERMESAPROC queryInteger =
 +      (PFNGLXQUERYRENDERERINTEGERMESAPROC) glXGetProcAddressARB((const GLubyte *)
 +      "glXQueryRendererIntegerMESA");
@@ -58,12 +58,11 @@
 +    gpu.device_id = did[0];
 +    gpu_info->gpu = gpu;
 +  }
-+
++*/
 +  if (initialized)
 +    gfx::ClearGLBindings();
 +
 +  return kCollectInfoSuccess;
 + }
- 
++
  }  // namespace gpu
-

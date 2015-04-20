@@ -9,10 +9,10 @@
  #include "content/public/common/child_process_sandbox_support_linux.h"
  #endif
  
-@@ -25,14 +25,14 @@
+@@ -24,14 +24,14 @@
+     const ppapi::proxy::SerializedFontDescription& description,
      PP_PrivateFontCharset charset)
-     : ResourceHost(host->GetPpapiHost(), instance, resource),
-       renderer_ppapi_host_(host) {
+     : ResourceHost(host->GetPpapiHost(), instance, resource) {
 -#if defined(OS_LINUX) || defined(OS_OPENBSD)
 +#if defined(OS_LINUX) || defined(OS_BSD)
    fd_.reset(content::MatchFontWithFallback(
@@ -26,7 +26,7 @@
  }
  
  PepperFlashFontFileHost::~PepperFlashFontFileHost() {}
-@@ -52,7 +52,7 @@
+@@ -51,7 +51,7 @@
      uint32_t table) {
    std::string contents;
    int32_t result = PP_ERROR_FAILED;
@@ -35,7 +35,7 @@
    int fd = fd_.get();
    if (fd != -1) {
      size_t length = 0;
-@@ -68,7 +68,7 @@
+@@ -67,7 +67,7 @@
        }
      }
    }

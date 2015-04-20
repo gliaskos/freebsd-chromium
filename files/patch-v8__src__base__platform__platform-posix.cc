@@ -13,10 +13,10 @@
 +#include <lwp.h>       // for _lwp_self
 +#endif
 +
- #if !V8_OS_NACL
+ #if !defined(V8_OS_NACL) && !defined(_AIX)
  #include <sys/syscall.h>
  #endif
-@@ -260,6 +269,18 @@
+@@ -271,6 +280,18 @@
    return static_cast<int>(syscall(__NR_gettid));
  #elif V8_OS_ANDROID
    return static_cast<int>(gettid());
@@ -32,6 +32,6 @@
 +#  endif
 +#elif V8_OS_NETBSD
 +  return static_cast<int>(_lwp_self());
+ #elif V8_OS_AIX
+   return static_cast<int>(thread_self());
  #elif V8_OS_SOLARIS
-   return static_cast<int>(pthread_self());
- #else

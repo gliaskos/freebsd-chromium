@@ -1,9 +1,9 @@
 --- chrome/browser/ui/webui/options/browser_options_handler.cc.orig	2015-01-21 20:28:16 UTC
 +++ chrome/browser/ui/webui/options/browser_options_handler.cc
-@@ -368,7 +368,7 @@
-     { "toolbarShowHomeButton", IDS_OPTIONS_TOOLBAR_SHOW_HOME_BUTTON },
-     { "translateEnableTranslate",
-       IDS_OPTIONS_TRANSLATE_ENABLE_TRANSLATE },
+@@ -470,7 +470,7 @@
+     { "syncButtonTextStart", IDS_SYNC_SETUP_BUTTON_LABEL },
+ #endif  // defined(OS_CHROMEOS)
+ 
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if defined(OS_POSIX) && !defined(OS_CHROMEOS)
      { "showWindowDecorations", IDS_SHOW_WINDOW_DECORATIONS },
@@ -18,7 +18,7 @@
    web_ui()->RegisterMessageCallback(
        "themesSetNative",
        base::Bind(&BrowserOptionsHandler::ThemesSetNative,
-@@ -1372,7 +1372,7 @@
+@@ -1384,7 +1384,7 @@
    ThemeService* theme_service = ThemeServiceFactory::GetForProfile(profile);
    bool is_system_theme = false;
  
@@ -27,7 +27,7 @@
    bool profile_is_supervised = profile->IsSupervised();
    is_system_theme = theme_service->UsingSystemTheme();
    base::FundamentalValue native_theme_enabled(!is_system_theme &&
-@@ -1394,7 +1394,7 @@
+@@ -1406,7 +1406,7 @@
    ThemeServiceFactory::GetForProfile(profile)->UseDefaultTheme();
  }
  
