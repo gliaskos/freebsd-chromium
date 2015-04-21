@@ -61,7 +61,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/locales/zh-CN.pak
 %%DATADIR%%/locales/zh-TW.pak
 %%DATADIR%%/mksnapshot
-%%DATADIR%%/natives_blob.bin
 %%DATADIR%%/resources.pak
 %%DATADIR%%/resources/extension/demo/library.js
 %%DATADIR%%/resources/inspector/Images/applicationCache.png
@@ -163,7 +162,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/toolbox.html
 %%DATADIR%%/resources/inspector/toolbox.js
 %%DATADIR%%/resources/inspector/ui_lazy_module.js
-%%DATADIR%%/snapshot_blob.bin
 share/icons/hicolor/128x128/apps/chrome.png
 share/icons/hicolor/22x22/apps/chrome.png
 share/icons/hicolor/24x24/apps/chrome.png

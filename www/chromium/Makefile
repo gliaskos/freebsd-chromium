@@ -111,7 +111,8 @@ GYP_DEFINES+=	\
 		use_system_snappy=1 \
 		use_system_speex=1 \
 		use_system_xdg_utils=1 \
-		use_system_yasm=1
+		use_system_yasm=1 \
+		v8_use_external_startup_data=0
 # allow removal of third_party/adobe
 GYP_DEFINES+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
 
@@ -370,10 +371,6 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chrome \
 		${STAGEDIR}${DATADIR}
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libffmpegsumo.so \
-		${STAGEDIR}${DATADIR}
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/natives_blob.bin \
-		${STAGEDIR}${DATADIR}
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/snapshot_blob.bin \
 		${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
