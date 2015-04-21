@@ -372,10 +372,6 @@ do-install:
 		${STAGEDIR}${DATADIR}
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libffmpegsumo.so \
 		${STAGEDIR}${DATADIR}
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/natives_blob.bin \
-		${STAGEDIR}${DATADIR}
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/snapshot_blob.bin \
-		${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
 		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
 	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}
