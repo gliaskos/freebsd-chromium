@@ -92,6 +92,7 @@ GYP_DEFINES+=	\
 		libspeechd_h_prefix=speech-dispatcher/ \
 		usb_ids_path=${LOCALBASE}/share/usbids/usb.ids \
 		want_separate_host_toolset=0 \
+		use_aura=1 \
 		use_system_bzip2=1 \
 		use_system_flac=1 \
 		use_system_harfbuzz=1 \
@@ -240,7 +241,7 @@ post-patch:
 
 pre-configure:
     # copy icudtl.dat for post-build
-#	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
+	cp ${WRKSRC}/third_party/icu/source/data/in/icudtl.dat ${WRKSRC}/icudtl.dat
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	cd ${WRKSRC} && ${PYTHON_CMD} \
