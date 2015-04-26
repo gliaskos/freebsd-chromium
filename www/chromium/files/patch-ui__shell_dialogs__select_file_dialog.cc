@@ -9,7 +9,7 @@
  #include "ui/shell_dialogs/linux_shell_dialog.h"
  #endif
  
-@@ -79,7 +79,7 @@
+@@ -75,7 +75,7 @@
        return dialog;
    }
  

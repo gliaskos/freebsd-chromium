@@ -1,6 +1,6 @@
 --- device/usb/usb.gyp.orig	2014-10-10 08:54:15 UTC
 +++ device/usb/usb.gyp
-@@ -66,6 +66,11 @@
+@@ -65,6 +65,11 @@
              '../../build/linux/system.gyp:udev',
            ],
          }],

@@ -1,6 +1,6 @@
 --- chrome/browser/chrome_content_browser_client.h.orig	2015-01-21 20:28:15 UTC
 +++ chrome/browser/chrome_content_browser_client.h
-@@ -258,7 +258,7 @@
+@@ -262,7 +262,7 @@
    net::CookieStore* OverrideCookieStoreForRenderProcess(
        int render_process_id) override;
  

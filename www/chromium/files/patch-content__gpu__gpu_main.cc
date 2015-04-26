@@ -1,15 +1,15 @@
---- content/gpu/gpu_main.cc.orig	2015-01-21 20:28:16 UTC
-+++ content/gpu/gpu_main.cc
-@@ -76,7 +76,7 @@
+--- content/gpu/gpu_main.cc.orig	2015-04-19 00:48:39.000000000 +0200
++++ content/gpu/gpu_main.cc	2015-04-19 00:51:41.000000000 +0200
+@@ -73,7 +73,7 @@
+                                const base::CommandLine& command_line);
+ bool WarmUpSandbox(const base::CommandLine& command_line);
+ 
+-#if !defined(OS_MACOSX)
++#if !defined(OS_MACOSX) && !defined(OS_FREEBSD) //XXX(rene) added !FreeBSD
  bool CollectGraphicsInfo(gpu::GPUInfo& gpu_info);
  #endif
  
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
- #if !defined(OS_CHROMEOS)
- bool CanAccessNvidiaDeviceFile();
- #endif
-@@ -161,13 +161,13 @@
+@@ -162,13 +162,13 @@
      message_loop_type = base::MessageLoop::TYPE_UI;
    }
    base::MessageLoop main_message_loop(message_loop_type);
@@ -25,50 +25,21 @@
    base::MessageLoop main_message_loop(base::MessageLoop::TYPE_DEFAULT);
  #elif defined(OS_MACOSX)
    // This is necessary for CoreAnimation layers hosted in the GPU process to be
-@@ -234,6 +234,10 @@
-       initialized_sandbox = true;
-     }
- #endif  // defined(OS_LINUX)
-+#if defined(OS_BSD)
-+    bool initialized_gl_context = false;
-+    bool should_initialize_gl_context = false;
-+#endif
+@@ -269,7 +269,7 @@
+       // and we already registered them through SetGpuInfo() above.
+       base::TimeTicks before_collect_context_graphics_info =
+           base::TimeTicks::Now();
+-#if !defined(OS_MACOSX)
++#if !defined(OS_MACOSX) && !defined(OS_FREEBSD) //XXX(rene) added !FreeBSD
+       if (!CollectGraphicsInfo(gpu_info))
+         dead_on_arrival = true;
  
-     base::TimeTicks before_initialize_one_off = base::TimeTicks::Now();
- 
-@@ -281,7 +285,7 @@
-       }
- #endif
- 
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
-       initialized_gl_context = true;
- #if !defined(OS_CHROMEOS)
-       if (gpu_info.gpu.vendor_id == 0x10de &&  // NVIDIA
-@@ -316,14 +320,16 @@ int GpuMain(const MainFunctionParams& parameters) {
-       watchdog_thread = NULL;
-     }
- 
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
-     should_initialize_gl_context = !initialized_gl_context &&
-                                    !dead_on_arrival;
- 
-+#if !defined(OS_BSD)
-     if (!initialized_sandbox) {
-       gpu_info.sandboxed = StartSandboxLinux(gpu_info, watchdog_thread.get(),
-                                              should_initialize_gl_context);
-     }
-+#endif
- #elif defined(OS_WIN)
-     gpu_info.sandboxed = StartSandboxWindows(parameters.sandbox_info);
- #elif defined(OS_MACOSX)
-@@ -424,7 +430,7 @@ bool CollectGraphicsInfo(gpu::GPUInfo& gpu_info) {
+@@ -402,7 +402,7 @@
+   return true;
  }
- #endif
  
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
- #if !defined(OS_CHROMEOS)
- bool CanAccessNvidiaDeviceFile() {
+-#if !defined(OS_MACOSX)
++#if !defined(OS_MACOSX) && !defined(OS_FREEBSD)//XXX(rene) added !FreeBSD
+ bool CollectGraphicsInfo(gpu::GPUInfo& gpu_info) {
    bool res = true;
+   gpu::CollectInfoResult result = gpu::CollectContextGraphicsInfo(&gpu_info);

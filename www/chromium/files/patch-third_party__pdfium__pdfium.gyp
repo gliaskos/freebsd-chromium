@@ -1,6 +1,6 @@
 --- third_party/pdfium/pdfium.gyp.orig	2014-10-10 09:15:55 UTC
 +++ third_party/pdfium/pdfium.gyp
-@@ -16,7 +16,7 @@
+@@ -13,7 +13,7 @@
        ['pdf_use_skia==1', {
          'defines': ['_SKIA_SUPPORT_'],
        }],

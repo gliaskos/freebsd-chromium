@@ -1,6 +1,6 @@
 --- device/serial/serial.gyp.orig	2014-10-10 09:15:31 UTC
 +++ device/serial/serial.gyp
-@@ -39,6 +39,12 @@
+@@ -38,6 +38,12 @@
              'serial_device_enumerator_linux.h',
            ],
          }],

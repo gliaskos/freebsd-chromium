@@ -1,6 +1,6 @@
 --- chrome/chrome_browser.gypi.orig	2014-10-10 09:15:30 UTC
 +++ chrome/chrome_browser.gypi
-@@ -3245,7 +3245,7 @@
+@@ -3123,7 +3123,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
          }],
@@ -9,7 +9,7 @@
            'dependencies': [
              '../build/linux/system.gyp:libspeechd',
            ],
-@@ -3302,7 +3302,7 @@
+@@ -3180,7 +3180,7 @@
              }],
            ],
          }],
@@ -18,9 +18,9 @@
            'sources': [
              'app/chrome_crash_reporter_client.cc',
              'app/chrome_crash_reporter_client.h',
-@@ -3391,6 +3391,13 @@
-           ],
-           'sources': [ '<@(chrome_browser_android_sources)' ],
+@@ -3267,6 +3267,13 @@
+         }, {  # Non-Android.
+           'sources': [ '<@(chrome_browser_non_android_sources)' ],
          }],
 +        ['os_bsd==1', {
 +          'sources/': [
@@ -32,7 +32,7 @@
          ['OS=="mac"', {
            'dependencies': [
              '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',
-@@ -3474,7 +3481,7 @@
+@@ -3343,7 +3350,7 @@
              }],
            ],
          }],
