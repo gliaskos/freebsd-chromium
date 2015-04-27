@@ -21,6 +21,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		flock:${PORTSDIR}/sysutils/flock \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
 		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids \
+		${PYTHON_PKGNAMEPREFIX}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
 		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
