@@ -87,7 +87,7 @@
  #include <vector>
  
 --- v8/src/compiler/graph-visualizer.cc.orig	2015-04-28 22:29:10.000000000 +0200
-+++ v8/src/compiler/graph-visualizer.cc	2015-05-02 11:03:06.070307000 +0200
++++ v8/src/compiler/graph-visualizer.cc	2015-05-02 21:01:32.086593000 +0200
 @@ -5,6 +5,7 @@
  #include "src/compiler/graph-visualizer.h"
  
@@ -96,3 +96,12 @@
  #include <string>
  
  #include "src/code-stubs.h"
+@@ -25,7 +26,7 @@
+ namespace compiler {
+ 
+ 
+-FILE* OpenVisualizerLogFile(CompilationInfo* info, const char* phase,
++std::FILE* OpenVisualizerLogFile(CompilationInfo* info, const char* phase,
+                             const char* suffix, const char* mode) {
+   EmbeddedVector<char, 256> filename;
+   SmartArrayPointer<char> function_name;
