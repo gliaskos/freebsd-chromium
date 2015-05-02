@@ -86,3 +86,13 @@
  #include <string>
  #include <vector>
  
+--- v8/src/compiler/graph-visualizer.cc.orig	2015-04-28 22:29:10.000000000 +0200
++++ v8/src/compiler/graph-visualizer.cc	2015-05-02 11:03:06.070307000 +0200
+@@ -5,6 +5,7 @@
+ #include "src/compiler/graph-visualizer.h"
+ 
+ #include <sstream>
++#include <stdio>
+ #include <string>
+ 
+ #include "src/code-stubs.h"
