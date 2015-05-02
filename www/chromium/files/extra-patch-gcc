@@ -92,7 +92,7 @@
  #include "src/compiler/graph-visualizer.h"
  
  #include <sstream>
-+#include <stdio>
++#include <cstdio>
  #include <string>
  
  #include "src/code-stubs.h"
