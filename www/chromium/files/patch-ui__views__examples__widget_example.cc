@@ -1,11 +1,12 @@
---- ui/views/examples/widget_example.cc.orig	2015-04-28 07:53:23.339391000 -0400
-+++ ui/views/examples/widget_example.cc	2015-04-28 07:53:42.657943000 -0400
-@@ -70,7 +70,7 @@
-   container->SetLayoutManager(new BoxLayout(BoxLayout::kHorizontal, 0, 0, 10));
+--- ui/views/examples/widget_example.cc.orig	2015-05-13 18:23:12.000000000 -0400
++++ ui/views/examples/widget_example.cc	2015-05-20 17:45:57.913297000 -0400
+@@ -82,7 +82,7 @@
    BuildButton(container, "Popup widget", POPUP);
    BuildButton(container, "Dialog widget", DIALOG);
+   BuildButton(container, "Modal Dialog", MODAL_DIALOG);
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_BSD)
    // Windows does not support TYPE_CONTROL top-level widgets.
    BuildButton(container, "Child widget", CHILD);
  #endif
+

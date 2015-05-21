@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 372253 2014-11-07 10:51:33Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	42.0.2311.135
+PORTVERSION=	43.0.2357.65
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -13,7 +13,7 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-isystem${LOCALBASE}/include
+CFLAGS+=	-isystem${LOCALBASE}/include -I${LOCALBASE}/include/atk-1.0
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
@@ -24,7 +24,8 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
 		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
-LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
+LIB_DEPENDS=	libatk-1.0.so:${PORTSDIR}/accessibility/atk \
+        libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libasound.so:${PORTSDIR}/audio/alsa-lib \
@@ -272,7 +273,7 @@ pre-configure:
 		'third_party/cld' \
 		'third_party/cros_system_api' \
 		'third_party/dom_distiller_js' \
-		'third_party/dom_distiller_js/package/proto_gen/third_party/dom_distiller_js' \
+		'third_party/dom_distiller_js/dist/proto_gen/third_party/dom_distiller_js' \
 		'third_party/ffmpeg' \
 		'third_party/gardiner_mod' \
 		'third_party/fips181' \
