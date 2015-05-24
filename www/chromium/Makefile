@@ -13,7 +13,7 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-isystem${LOCALBASE}/include
+CFLAGS+=	-isystem${LOCALBASE}/include -I${PREFIX}/include/atk-1.0
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		bash:${PORTSDIR}/shells/bash \
@@ -24,8 +24,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
 		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
-LIB_DEPENDS=	libatk-1.0.so:${PORTSDIR}/accessibility/atk \
-        libcairo.so:${PORTSDIR}/graphics/cairo \
+LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libasound.so:${PORTSDIR}/audio/alsa-lib \
@@ -63,7 +62,7 @@ CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
 USE_PERL5=	build
 USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
-USE_GNOME=	glib20 gtk20 dconf libxslt
+USE_GNOME=	atk glib20 gtk20 dconf libxslt
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
