@@ -24,8 +24,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
 		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
 
-LIB_DEPENDS=	libatk-1.0.so:${PORTSDIR}/accessibility/atk \
-        libcairo.so:${PORTSDIR}/graphics/cairo \
+LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libasound.so:${PORTSDIR}/audio/alsa-lib \
