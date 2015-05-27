@@ -9,6 +9,15 @@
  #include "base/prefs/pref_service.h"
  #include "chrome/browser/profiles/profile.h"
  #include "chrome/common/pref_names.h"
+@@ -72,7 +72,7 @@ chrome::HostDesktopType GetInitialDesktop() {
+       command_line->HasSwitch(switches::kViewerLaunchViaAppId)) {
+     return chrome::HOST_DESKTOP_TYPE_ASH;
+   }
+-#elif defined(OS_LINUX)
++#elif defined(OS_LINUX) || defined(OS_BSD)
+   const base::CommandLine* command_line =
+       base::CommandLine::ForCurrentProcess();
+   if (command_line->HasSwitch(switches::kOpenAsh))
 @@ -137,7 +137,7 @@
  }
  
