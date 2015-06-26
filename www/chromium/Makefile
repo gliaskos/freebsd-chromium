@@ -137,6 +137,8 @@ PULSEAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
 
 TEST_DISTFILES=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 
+BROKEN_FreeBSD_8=	Does not compile, missing locale
+
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCODECS}
