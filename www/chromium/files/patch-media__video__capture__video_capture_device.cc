@@ -1,5 +1,5 @@
---- media/video/capture/video_capture_device.cc.orig	2015-06-19 21:26:28 UTC
-+++ media/video/capture/video_capture_device.cc
+--- media/video/capture/video_capture_device.cc.orig	2015-06-21 10:54:00.849151000 -0400
++++ media/video/capture/video_capture_device.cc	2015-06-21 10:55:18.302866000 -0400
 @@ -9,6 +9,10 @@
  
  namespace media {

@@ -1,5 +1,5 @@
---- media/video/capture/file_video_capture_device_factory.cc.orig	2015-06-19 21:29:29 UTC
-+++ media/video/capture/file_video_capture_device_factory.cc
+--- media/video/capture/file_video_capture_device_factory.cc.orig	2015-06-21 10:53:12.146199000 -0400
++++ media/video/capture/file_video_capture_device_factory.cc	2015-06-21 10:53:41.233007000 -0400
 @@ -51,7 +51,7 @@
        command_line_file_path.value(),
        kFileVideoCaptureDeviceName,

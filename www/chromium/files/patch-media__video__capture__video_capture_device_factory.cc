@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+--- media/video/capture/video_capture_device_factory.cc.orig	2015-06-21 10:57:08.373275000 -0400
++++ media/video/capture/video_capture_device_factory.cc	2015-06-21 10:59:31.713535000 -0400
+=======
 --- media/video/capture/video_capture_device_factory.cc.orig	2015-06-19 21:33:03 UTC
 +++ media/video/capture/video_capture_device_factory.cc
+>>>>>>> upstream/master
 @@ -14,6 +14,10 @@
  // static
  scoped_ptr<VideoCaptureDeviceFactory> VideoCaptureDeviceFactory::CreateFactory(
