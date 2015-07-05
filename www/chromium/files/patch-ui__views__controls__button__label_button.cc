@@ -9,16 +9,16 @@
  #include "ui/views/linux_ui/linux_ui.h"
  #endif
  
- @@ -26,7 +26,7 @@ namespace {
+@@ -26,7 +26,7 @@
  // The default spacing between the icon and text.
  const int kSpacing = 5;
-
+ 
 -#if !(defined(OS_LINUX) && !defined(OS_CHROMEOS))
 +#if !((defined(OS_LINUX) || defined(OS_BSD)) && !defined(OS_CHROMEOS))
  // Default text and shadow colors for STYLE_BUTTON.
  const SkColor kStyleButtonTextColor = SK_ColorBLACK;
  const SkColor kStyleButtonShadowColor = SK_ColorWHITE;
-@@ -406,7 +406,7 @@ void LabelButton::ResetColorsFromNativeTheme() {
+@@ -406,7 +406,7 @@
      // confusion. These details should either be pushed into ui::NativeThemeWin
      // or should be obsoleted by rendering buttons with paint calls instead of
      // with static assets. http://crbug.com/350498
@@ -27,7 +27,7 @@
      constant_text_color = true;
      colors[STATE_NORMAL] = kStyleButtonTextColor;
      label_->SetBackgroundColor(theme->GetSystemColor(
-@@ -443,7 +443,7 @@ void LabelButton::UpdateThemedBorder() {
+@@ -443,7 +443,7 @@
  
    scoped_ptr<LabelButtonBorder> label_button_border = CreateDefaultBorder();
  
