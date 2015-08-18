@@ -128,10 +128,12 @@ GYP_DEFINES+=	google_api_key=AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8 \
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO TEST KERBEROS DEBUG
+OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO TEST KERBEROS DEBUG DRIVER
 CODECS_DESC=	Compile and enable patented codecs like H.264
+DRIVER_DESC=	Install chromedriver
 
 OPTIONS_DEFAULT=	CODECS GCONF KERBEROS
+OPTIONS_SUB=	yes
 
 GCONF_USE=	GNOME=gconf2
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
@@ -193,6 +195,9 @@ CONFIGURE_ENV+=	CC="${CC}" \
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF="${LOCALBASE}/bin/gperf"
 MAKE_ARGS=	-C out/${BUILDTYPE}
+.if ${PORT_OPTIONS:MDRIVER}
+MAKE_ARGS+=	chromedriver
+.endif
 
 .include <bsd.port.pre.mk>
 
@@ -378,5 +383,9 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/chrome ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/mksnapshot \
 		${STAGEDIR}${DATADIR}/mksnapshot
+.if ${PORT_OPTIONS:MDRIVER}
+	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
+		${STAGEDIR}${PREFIX}/bin
+.endif
 
 .include <bsd.port.post.mk>
