@@ -382,7 +382,7 @@ do-install:
 		${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_SCRIPT} ${WRKDIR}/chrome ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/mksnapshot \
-		${STAGEDIR}${DATADIR}/mksnapshot
+		${STAGEDIR}${DATADIR}
 .if ${PORT_OPTIONS:MDRIVER}
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
 		${STAGEDIR}${PREFIX}/bin
