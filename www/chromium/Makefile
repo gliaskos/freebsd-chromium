@@ -195,9 +195,7 @@ CONFIGURE_ENV+=	CC="${CC}" \
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF="${LOCALBASE}/bin/gperf"
 MAKE_ARGS=	-C out/${BUILDTYPE}
-.if ${PORT_OPTIONS:MDRIVER}
-MAKE_ARGS+=	chromedriver
-.endif
+DRIVER_MAKE_ARGS=chromedriver
 
 .include <bsd.port.pre.mk>
 
