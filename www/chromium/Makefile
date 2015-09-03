@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 395024 2015-08-22 09:29:14Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	44.0.2403.157
+PORTVERSION=    45.0.2454.85	
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -205,7 +205,7 @@ CFLAGS+=	-fno-stack-protector # gcc 4.8 cannot find __stack_chk_fail_local
 .else
 GYP_DEFINES+=	clang=1
 CFLAGS+=	-Wno-unknown-warning-option
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+#EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 CONFIGURE_ENV+=	AR=/usr/bin/ar
 .endif
 
@@ -281,7 +281,7 @@ pre-configure:
 		'third_party/google_input_tools' \
 		'third_party/google_input_tools/third_party/closure_library' \
 		'third_party/google_input_tools/third_party/closure_library/third_party/closure' \
-		'third_party/hunspell_new' \
+		'third_party/hunspell' \
 		'third_party/iccjpeg' \
 		'third_party/icu/icu.isolate' \
 		'third_party/jinja2' \
@@ -325,9 +325,10 @@ pre-configure:
 		'third_party/tcmalloc' \
 		'third_party/tlslite' \
 		'third_party/trace-viewer' \
-		'third_party/trace-viewer/third_party' \
-		'third_party/trace-viewer/third_party/tvcm/third_party' \
-		'third_party/undoview' \
+		'third_party/trace-viewer/tracing' \
+		'third_party/trace-viewer/tracing/third_party' \
+		'third_party/trace-viewer/tracing/third_party/tvcm/third_party' \
+		'third_party/trace-viewer/tracing/third_party/tvcm/tvcm' \
 		'third_party/usrsctp' \
 		'third_party/web-animations-js' \
 		'third_party/webdriver' \
