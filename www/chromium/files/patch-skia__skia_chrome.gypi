@@ -1,7 +1,7 @@
---- skia/skia_chrome.gypi.orig	2015-01-21 20:28:18 UTC
-+++ skia/skia_chrome.gypi
-@@ -87,6 +87,11 @@
-     'ext/vector_platform_device_skia.h',
+--- skia/skia_chrome.gypi.orig	2015-10-13 15:04:33.000000000 -0400
++++ skia/skia_chrome.gypi	2015-10-14 11:46:34.142959000 -0400
+@@ -55,6 +55,11 @@
+     'ext/skia_utils_win.cc',
    ],
    'conditions': [
 +    [ 'use_cairo == 1', {
@@ -9,6 +9,6 @@
 +        '../build/linux/system.gyp:pangocairo',
 +      ],
 +    }],
-     [ 'OS == "android" and '
-       'enable_basic_printing==0 and enable_print_preview==0', {
+     [ 'OS == "ios"', {
        'sources!': [
+         'ext/platform_canvas.cc',

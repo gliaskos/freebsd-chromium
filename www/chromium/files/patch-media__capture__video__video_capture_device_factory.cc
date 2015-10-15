@@ -1,5 +1,5 @@
---- media/video/capture/video_capture_device_factory.cc.orig	2015-06-19 21:33:03 UTC
-+++ media/video/capture/video_capture_device_factory.cc
+--- media/capture/video/video_capture_device_factory.cc.orig	2015-10-14 11:42:17.044891000 -0400
++++ media/capture/video/video_capture_device_factory.cc	2015-10-14 11:43:44.770286000 -0400
 @@ -14,6 +14,10 @@
  // static
  scoped_ptr<VideoCaptureDeviceFactory> VideoCaptureDeviceFactory::CreateFactory(
@@ -15,7 +15,7 @@
      return scoped_ptr<VideoCaptureDeviceFactory>(
          CreateVideoCaptureDeviceFactory(ui_task_runner));
    }
-+#endif
++#endif 
  }
  
  VideoCaptureDeviceFactory::VideoCaptureDeviceFactory() {

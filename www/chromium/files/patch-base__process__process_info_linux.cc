@@ -1,5 +1,5 @@
---- base/process/process_info_linux.cc.orig	2015-06-20 15:12:38
-+++ base/process/process_info_linux.cc
+--- base/process/process_info_linux.cc.orig	2015-10-06 22:42:06.000000000 -0400
++++ base/process/process_info_linux.cc	2015-10-14 08:06:38.761855000 -0400
 @@ -10,10 +10,28 @@
  #include "base/process/process_handle.h"
  #include "base/time/time.h"
@@ -12,7 +12,7 @@
 +
  namespace base {
  
- //static
+ // static
  const Time CurrentProcessInfo::CreationTime() {
 +#if defined(__FreeBSD__) || defined(__DragonFly__)
 +  int mib[] = { CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid() };

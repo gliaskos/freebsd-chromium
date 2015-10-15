@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 397393 2015-09-20 19:38:24Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=    45.0.2454.101
+PORTVERSION=    46.0.2490.71 
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -242,6 +242,9 @@ post-patch:
 		${WRKSRC}/base/base.gyp
 
 pre-configure:
+.if ! ${PORT_OPTIONS:MTEST}
+	${ECHO_CMD} > ${WRKSRC}/chrome/test/data/webui/i18n_process_css_test.html
+.endif
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
 	cd ${WRKSRC} && ${PYTHON_CMD} \
@@ -296,6 +299,9 @@ pre-configure:
 		'third_party/libvpx/source/libvpx/third_party/x86inc' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
+                'third_party/libwebm' \
+                'third_party/libwebm/source' \
+                'third_party/libwebm/source/common' \
 		'third_party/libyuv' \
 		'third_party/lss' \
 		'third_party/lzma_sdk' \
@@ -324,11 +330,14 @@ pre-configure:
 		'third_party/sqlite' \
 		'third_party/tcmalloc' \
 		'third_party/tlslite' \
-		'third_party/trace-viewer' \
-		'third_party/trace-viewer/tracing' \
-		'third_party/trace-viewer/tracing/third_party' \
-		'third_party/trace-viewer/tracing/third_party/tvcm/third_party' \
-		'third_party/trace-viewer/tracing/third_party/tvcm/tvcm' \
+		'third_party/catapult' \
+		'third_party/catapult/tracing' \
+		'third_party/catapult/tracing/third_party' \
+		'third_party/catapult/tracing/third_party/tvcm/third_party' \
+                'third_party/catapult/tracing/third_party/tvcm/third_party/beautifulsoup' \
+                'third_party/catapult/tracing/third_party/tvcm/third_party/rcssmin' \
+                'third_party/catapult/tracing/third_party/tvcm/third_party/rjsmin' \
+		'third_party/catapult/tracing/third_party/tvcm/tvcm' \
 		'third_party/usrsctp' \
 		'third_party/web-animations-js' \
 		'third_party/webdriver' \
