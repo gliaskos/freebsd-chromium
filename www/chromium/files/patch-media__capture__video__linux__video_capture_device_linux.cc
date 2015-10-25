@@ -1,11 +1,11 @@
---- media/capture/video/linux/video_capture_device_linux.cc.orig	2015-10-13 15:04:33.000000000 -0400
-+++ media/capture/video/linux/video_capture_device_linux.cc	2015-10-14 15:00:03.075591000 -0400
+--- media/capture/video/linux/video_capture_device_linux.cc.orig	2015-10-21 18:00:38.000000000 -0400
++++ media/capture/video/linux/video_capture_device_linux.cc	2015-10-23 12:49:31.985359000 -0400
 @@ -43,6 +43,7 @@
  
  // Translates Video4Linux pixel formats to Chromium pixel formats.
  // static
 +#if !defined(OS_FREEBSD)
- VideoCapturePixelFormat
+ VideoPixelFormat
  VideoCaptureDeviceLinux::V4l2FourCcToChromiumPixelFormat(uint32 v4l2_fourcc) {
    return V4L2CaptureDelegate::V4l2FourCcToChromiumPixelFormat(v4l2_fourcc);
 @@ -54,6 +55,7 @@

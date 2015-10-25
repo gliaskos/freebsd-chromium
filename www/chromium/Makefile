@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 397393 2015-09-20 19:38:24Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=    46.0.2490.71 
+PORTVERSION=    47.0.2526.27 
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -22,7 +22,8 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat \
 		${LOCALBASE}/share/usbids/usb.ids:${PORTSDIR}/misc/usbids \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:${PORTSDIR}/devel/py-Jinja2 \
-		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply
+		${PYTHON_PKGNAMEPREFIX}ply>0:${PORTSDIR}/devel/py-ply \
+		${PYTHON_PKGNAMEPREFIX}beautifulsoup:${PORTSDIR}/www/py-beautifulsoup
 
 LIB_DEPENDS=	libcairo.so:${PORTSDIR}/graphics/cairo \
 		libdbus-1.so:${PORTSDIR}/devel/dbus \
@@ -295,8 +296,8 @@ pre-configure:
 		'third_party/libjingle' \
 		'third_party/libphonenumber' \
 		'third_party/libsrtp' \
-		'third_party/libvpx' \
-		'third_party/libvpx/source/libvpx/third_party/x86inc' \
+		'third_party/libvpx_new' \
+		'third_party/libvpx_new/source/libvpx/third_party/x86inc' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
                 'third_party/libwebm' \
@@ -334,7 +335,6 @@ pre-configure:
 		'third_party/catapult/tracing' \
 		'third_party/catapult/tracing/third_party' \
 		'third_party/catapult/tracing/third_party/tvcm/third_party' \
-                'third_party/catapult/tracing/third_party/tvcm/third_party/beautifulsoup' \
                 'third_party/catapult/tracing/third_party/tvcm/third_party/rcssmin' \
                 'third_party/catapult/tracing/third_party/tvcm/third_party/rjsmin' \
 		'third_party/catapult/tracing/third_party/tvcm/tvcm' \
