@@ -1,2 +1,4 @@
 SHA256 (chromium-47.0.2526.73.tar.xz) = 6d66d01c8ddff6562ff13d30ed65ef0cdc2888d9e4924be615d576b7eb15f4f5
 SIZE (chromium-47.0.2526.73.tar.xz) = 394631144
+SHA256 (chromium-47.0.2526.73-testdata.tar.xz) = b7a3d7d77a2161f33728c357e62f746b29330d23920dc1b42dd86e3f1948805a
+SIZE (chromium-47.0.2526.73-testdata.tar.xz) = 117390036
