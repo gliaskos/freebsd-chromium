@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 397393 2015-09-20 19:38:24Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=    47.0.2526.49 
+PORTVERSION=    47.0.2526.73 
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -206,7 +206,7 @@ CFLAGS+=	-fno-stack-protector # gcc 4.8 cannot find __stack_chk_fail_local
 .else
 GYP_DEFINES+=	clang=1
 CFLAGS+=	-Wno-unknown-warning-option
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+#EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 CONFIGURE_ENV+=	AR=/usr/bin/ar
 .endif
 
