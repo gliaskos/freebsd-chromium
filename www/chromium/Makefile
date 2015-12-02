@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 397393 2015-09-20 19:38:24Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=    47.0.2526.73 
+PORTVERSION=	47.0.2526.73
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -300,9 +300,9 @@ pre-configure:
 		'third_party/libvpx_new/source/libvpx/third_party/x86inc' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
-                'third_party/libwebm' \
-                'third_party/libwebm/source' \
-                'third_party/libwebm/source/common' \
+		'third_party/libwebm' \
+		'third_party/libwebm/source' \
+		'third_party/libwebm/source/common' \
 		'third_party/libyuv' \
 		'third_party/lss' \
 		'third_party/lzma_sdk' \
@@ -335,8 +335,8 @@ pre-configure:
 		'third_party/catapult/tracing' \
 		'third_party/catapult/tracing/third_party' \
 		'third_party/catapult/tracing/third_party/tvcm/third_party' \
-                'third_party/catapult/tracing/third_party/tvcm/third_party/rcssmin' \
-                'third_party/catapult/tracing/third_party/tvcm/third_party/rjsmin' \
+		'third_party/catapult/tracing/third_party/tvcm/third_party/rcssmin' \
+		'third_party/catapult/tracing/third_party/tvcm/third_party/rjsmin' \
 		'third_party/catapult/tracing/third_party/tvcm/tvcm' \
 		'third_party/usrsctp' \
 		'third_party/web-animations-js' \
