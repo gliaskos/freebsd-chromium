@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 407459 2016-01-29 08:13:57Z rene $
+# $FreeBSD: head/www/chromium/Makefile 408307 2016-02-06 17:55:52Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	48.0.2564.103
+PORTVERSION=	48.0.2564.109
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
