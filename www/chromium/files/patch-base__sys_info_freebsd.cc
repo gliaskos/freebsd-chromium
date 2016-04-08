@@ -9,13 +9,13 @@
 +  unsigned pgfree, pginact, pgcache;
 +  size_t size = sizeof(page_size);
 +  size_t szpg = sizeof(pgfree);
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_page_size", &page_size, &size, NULL, 0);
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_free_count", &pgfree, &szpg, NULL, 0);
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_inactive_count", &pginact, &szpg, NULL, 0);
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_cache_count", &pgcache, &szpg, NULL, 0);
 +  if (r == -1) {
 +    NOTREACHED();
@@ -31,9 +31,9 @@
 -  sysctlbyname("vm.stats.vm.v_page_count", &pages, &size, NULL, 0);
 -  sysctlbyname("vm.stats.vm.v_page_size", &page_size, &size, NULL, 0);
 -  if (pages == -1 || page_size == -1) {
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_page_count", &pages, &size, NULL, 0);
-+  if(!r)
++  if(r == 0)
 +    r = sysctlbyname("vm.stats.vm.v_page_size", &page_size, &size, NULL, 0);
 +  if (r == -1) {
      NOTREACHED();
