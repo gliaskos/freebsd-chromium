@@ -1,14 +1,30 @@
 --- build/common.gypi.orig	2015-09-01 16:10:41.000000000 -0400
 +++ build/common.gypi	2015-09-03 09:38:09.528529000 -0400
-@@ -105,7 +105,7 @@
+@@ -112,7 +112,7 @@
  
            'conditions': [
-             # Windows and Linux (including Chrome OS) use Aura and Ash.
+             # Windows and Linux use Aura, but not Ash.
 -            ['OS=="win" or OS=="linux"', {
 +            ['OS=="win" or OS=="linux" or OS=="freebsd" or OS=="openbsd"', {
-               'use_ash%': 1,
                'use_aura%': 1,
              }],
+   
+@@ -254,13 +254,13 @@
+           }],
+ 
+           # Enable HiDPI on Mac OS, Windows and Linux (including Chrome OS).
+-          ['OS=="mac" or OS=="win" or OS=="linux"', {
++          ['OS=="mac" or OS=="win" or OS=="linux" or OS=="freebsd" or OS=="openbsd"', {
+             'enable_hidpi%': 1,
+           }],
+ 
+           # Enable Top Chrome Material Design on Chrome OS, Windows, and Linux,
+           # and Mac.
+-          ['chromeos==1 or OS=="win" or OS=="linux" or OS=="mac"', {
++          ['chromeos==1 or OS=="win" or OS=="linux" or OS=="mac" or OS=="freebsd" or OS=="openbsd"', {
+             'enable_topchrome_md%': 1,
+           }],
+ 
 @@ -729,6 +729,12 @@
            'os_bsd%': 0,
          }],
@@ -22,7 +38,7 @@
          # NSS usage.
          ['(OS=="linux" or OS=="freebsd" or OS=="openbsd" or OS=="solaris")', {
            'use_nss_certs%': 1,
-@@ -767,7 +773,7 @@
+@@ -778,7 +784,7 @@
          }],
  
          # DBus usage.
@@ -31,7 +47,16 @@
            'use_dbus%': 1,
          }, {
            'use_dbus%': 0,
-@@ -1011,7 +1011,7 @@
+@@ -881,7 +881,7 @@
+ 
+         # Use GPU accelerated cross process image transport by default
+         # on linux builds with the Aura window manager
+-        ['use_aura==1 and OS=="linux"', {
++        ['use_aura==1 and (OS=="linux" or OS=="freebsd" or OS=="openbsd")', {
+           'ui_compositor_image_transport%': 1,
+         }, {
+           'ui_compositor_image_transport%': 0,
+@@ -1003,7 +1003,7 @@
          }, {
            'use_openmax_dl_fft%': 0,
          }],

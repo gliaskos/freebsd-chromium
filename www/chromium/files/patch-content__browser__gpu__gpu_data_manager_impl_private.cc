@@ -1,6 +1,6 @@
---- content/browser/gpu/gpu_data_manager_impl_private.cc.orig	2016-03-04 22:36:56.082636647 +0100
-+++ content/browser/gpu/gpu_data_manager_impl_private.cc	2016-03-04 22:37:11.778635557 +0100
-@@ -483,8 +483,10 @@
+--- content/browser/gpu/gpu_data_manager_impl_private.cc.orig	2016-05-11 15:02:20.000000000 -0400
++++ content/browser/gpu/gpu_data_manager_impl_private.cc	2016-05-19 20:20:30.622995000 -0400
+@@ -486,8 +486,10 @@
    gpu_info.gl_renderer = gl_renderer;
    gpu_info.gl_version = gl_version;
  
@@ -11,7 +11,7 @@
  
    UpdateGpuInfo(gpu_info);
    UpdateGpuSwitchingManager(gpu_info);
-@@ -513,10 +515,12 @@
+@@ -529,10 +531,12 @@
      // Also declare the driver_vendor to be osmesa to be able to specify
      // exceptions based on driver_vendor==osmesa for some blacklist rules.
      gpu_info.driver_vendor = gfx::kGLImplementationOSMesaName;
@@ -21,10 +21,10 @@
        "GpuDataManagerImpl::Initialize:CollectBasicGraphicsInfo");
      gpu::CollectBasicGraphicsInfo(&gpu_info);
 +#endif
-   }
- #if defined(ARCH_CPU_X86_FAMILY)
-   if (!gpu_info.gpu.vendor_id || !gpu_info.gpu.device_id) {
-@@ -575,7 +579,9 @@
+ 
+     if (command_line->HasSwitch(switches::kGpuTestingVendorId) &&
+         command_line->HasSwitch(switches::kGpuTestingDeviceId)) {
+@@ -631,7 +635,9 @@
      return;
  
    bool was_info_available = IsCompleteGpuInfoAvailable();

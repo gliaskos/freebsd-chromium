@@ -1,15 +1,15 @@
---- chrome/browser/ui/views/tabs/tab_drag_controller.cc.orig	2015-01-26 10:43:43 UTC
-+++ chrome/browser/ui/views/tabs/tab_drag_controller.cc
-@@ -266,7 +266,7 @@
+--- chrome/browser/ui/views/tabs/tab_drag_controller.cc.orig	2016-05-11 15:02:16.000000000 -0400
++++ chrome/browser/ui/views/tabs/tab_drag_controller.cc	2016-05-19 19:59:40.742464000 -0400
+@@ -268,7 +268,7 @@
    //     synchronous on desktop Linux, so use that.
    // - Ash
    //     Releasing capture on Ash cancels gestures so avoid it.
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
+-#if defined(OS_LINUX) || defined(USE_ASH)
++#if defined(OS_LINUX) || defined(OS_BSD) || defined(USE_ASH)
    can_release_capture_ = false;
- #else
-   can_release_capture_ =
-@@ -621,7 +621,7 @@
+ #endif
+   start_point_in_screen_ = gfx::Point(source_tab_offset, mouse_offset.y());
+@@ -618,7 +618,7 @@
      // that to effect the position of any windows.
      SetWindowPositionManaged(browser_widget->GetNativeWindow(), false);
  
@@ -18,7 +18,7 @@
      // EndMoveLoop is going to snap the window back to its original location.
      // Hide it so users don't see this. Hiding a window in Linux aura causes
      // it to lose capture so skip it.
-@@ -1806,7 +1806,7 @@
+@@ -1791,7 +1791,7 @@
      if (dragged_window)
        exclude.insert(dragged_window);
    }

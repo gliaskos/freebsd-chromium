@@ -118,8 +118,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/resourcePlainIcon.png
 %%DATADIR%%/resources/inspector/Images/resourcePlainIconSmall.png
 %%DATADIR%%/resources/inspector/Images/resourcesTimeGraphIcon.png
-%%DATADIR%%/resources/inspector/Images/responsiveDesign.png
-%%DATADIR%%/resources/inspector/Images/responsiveDesign_2x.png
 %%DATADIR%%/resources/inspector/Images/searchNext.png
 %%DATADIR%%/resources/inspector/Images/searchPrev.png
 %%DATADIR%%/resources/inspector/Images/securityPropertyInfo.svg
@@ -182,7 +180,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-1x.png
 %%DATADIR%%/resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-2x.png
 %%DATADIR%%/resources/inspector/heap_snapshot_worker_module.js
-%%DATADIR%%/resources/inspector/inspector.css
 %%DATADIR%%/resources/inspector/inspector.html
 %%DATADIR%%/resources/inspector/inspector.js
 %%DATADIR%%/resources/inspector/layers_module.js
@@ -200,7 +197,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/sources_module.js
 %%DATADIR%%/resources/inspector/temp_storage_shared_worker_module.js
 %%DATADIR%%/resources/inspector/timeline_module.js
-%%DATADIR%%/resources/inspector/toolbox.css
 %%DATADIR%%/resources/inspector/toolbox.html
 %%DATADIR%%/resources/inspector/toolbox.js
 %%DATADIR%%/resources/inspector/ui_lazy_module.js
