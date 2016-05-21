@@ -1,5 +1,5 @@
---- third_party/WebKit/Source/platform/blink_platform.gyp.orig	2015-09-01 16:10:53.000000000 -0400
-+++ third_party/WebKit/Source/platform/blink_platform.gyp	2015-09-03 11:17:44.822976000 -0400
+--- third_party/WebKit/Source/platform/blink_platform.gyp.orig	2016-05-11 15:02:33.000000000 -0400
++++ third_party/WebKit/Source/platform/blink_platform.gyp	2016-05-20 13:47:51.244144000 -0400
 @@ -38,6 +38,9 @@
    'targets': [{
      'target_name': 'blink_common',
@@ -10,7 +10,7 @@
      'variables': { 'enable_wexit_time_destructors': 1 },
      'dependencies': [
        '../config.gyp:config',
-@@ -251,7 +254,7 @@
+@@ -219,7 +222,7 @@
            ['include', 'graphics/cpu/x86/WebGLImageConversionSSE\\.h$'],
          ],
        }],
@@ -19,7 +19,7 @@
          'sources/': [
            # Cherry-pick files excluded by the broader regular expressions above.
            ['include', 'fonts/opentype/OpenTypeTypes\\.h$'],
-@@ -262,7 +265,7 @@
+@@ -230,7 +233,7 @@
          ],
        },
        ],
@@ -28,7 +28,7 @@
          'sources/': [
            ['include', 'fonts/linux/FontPlatformDataLinux\\.cpp$'],
          ]
-@@ -345,7 +348,7 @@
+@@ -315,7 +318,7 @@
            ['exclude', 'scroll/ScrollbarThemeMac'],
          ],
        }],
@@ -37,7 +37,7 @@
          'sources/': [
            ['exclude', 'VDMX[^/]+\\.(cpp|h)$'],
          ],
-@@ -388,7 +391,7 @@
+@@ -358,7 +361,7 @@
            ['exclude', 'Android\\.cpp$'],
          ],
        }],
@@ -46,3 +46,15 @@
          'dependencies': [
            '<(DEPTH)/build/linux/system.gyp:fontconfig',
          ],
+@@ -371,6 +374,11 @@
+           ['exclude', 'scroll/ScrollbarThemeAura\\.(cpp|h)'],
+         ],
+       }],
++      ['use_system_icu==1', {
++        'defines': [
++          'USING_SYSTEM_ICU',
++        ],
++      }],
+       ['"WTF_USE_WEBAUDIO_FFMPEG=1" in feature_defines', {
+         'include_dirs': [
+           '<(DEPTH)/third_party/ffmpeg',

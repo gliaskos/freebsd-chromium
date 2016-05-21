@@ -1,20 +1,6 @@
---- chrome/chrome_browser.gypi.orig	2015-12-04 22:23:49.106516000 +0100
-+++ chrome/chrome_browser.gypi	2015-12-04 22:27:43.886261000 +0100
-@@ -3369,6 +3369,13 @@
-             'browser/download/download_dir_policy_handler.h',
-           ],
-         }],
-+        ['os_bsd==1', {
-+          'sources/': [
-+            ['exclude', '^browser/chrome_browser_main_linux.cc'],
-+            ['exclude', '^browser/chrome_browser_main_linux.h'],
-+            ['exclude', '^browser/media_galleries/linux/'],
-+          ],
-+        }],
-         ['OS=="mac"', {
-           'dependencies': [
-             'app_shim',
-@@ -3522,7 +3529,7 @@
+--- chrome/chrome_browser.gypi.orig	2016-05-11 15:02:17.000000000 -0400
++++ chrome/chrome_browser.gypi	2016-05-21 12:21:52.233339000 -0400
+@@ -3638,7 +3638,7 @@
              '../device/media_transfer_protocol/media_transfer_protocol.gyp:device_media_transfer_protocol',
            ],
          }],
@@ -23,16 +9,29 @@
            'dependencies': [
              '../build/linux/system.gyp:libspeechd',
            ],
-@@ -3576,7 +3583,7 @@
+@@ -3702,7 +3702,7 @@
          ['use_x11==1', {
            'sources': [ '<@(chrome_browser_x11_sources)' ],
          }],
 -        ['os_posix == 1 and OS != "mac" and OS != "ios"', {
-+        ['os_posix == 1 and os_bsd != 1 and OS != "mac" and OS != "ios"', {
++        ['os_posix == 1 and OS != "mac" and OS != "ios" and os_bsd != 1', {
            'sources': [
              'app/chrome_crash_reporter_client.cc',
              'app/chrome_crash_reporter_client.h',
-@@ -3817,7 +3824,7 @@
+@@ -3834,6 +3834,12 @@
+             }],
+           ],
+         }],
++        ['os_bsd==1', {
++          'sources/': [
++            ['exclude', '^browser/media_galleries/linux/'],
++            ['exclude', '^browser/memory/system_memory_stats_recorder_linux.cc'],
++          ],
++        }],
+         ['OS=="mac"', {
+           'dependencies': [
+             '../third_party/google_toolbox_for_mac/google_toolbox_for_mac.gyp:google_toolbox_for_mac',
+@@ -3943,7 +3949,7 @@
              }],
            ],
          }],
@@ -41,3 +40,12 @@
            'conditions': [
              ['use_aura==1', {
                'dependencies': [
+@@ -3962,7 +3968,7 @@
+             }],
+           ],
+         }],
+-        ['OS=="linux" or OS=="win"', {
++        ['OS=="linux" or OS=="win" or os_bsd==1', {
+             'sources': [ '<@(chrome_browser_non_mac_desktop_sources)' ],
+         }],
+         ['desktop_linux==1', {

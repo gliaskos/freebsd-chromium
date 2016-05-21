@@ -9,7 +9,25 @@
        'browser/geolocation/wifi_data_provider_linux.cc',
        'browser/geolocation/wifi_data_provider_linux.h',
        'browser/geolocation/wifi_data_provider_mac.cc',
-@@ -1818,8 +1820,18 @@
+@@ -1988,7 +1988,7 @@
+         },
+       },
+     }],
+-    ['OS=="linux" and chromeos==0 and use_x11==1', {
++    ['(os_bsd==1 or OS=="linux") and chromeos==0 and use_x11==1', {
+       'dependencies': [
+         '../build/linux/system.gyp:atk',
+         '../build/linux/system.gyp:gconf',
+@@ -2014,7 +2014,7 @@
+         'browser/gamepad/gamepad_platform_data_fetcher_linux.cc',
+       ],
+     }],
+-    ['OS=="linux" and use_aura==1', {
++    ['(os_bsd==1 or OS=="linux") and use_aura==1', {
+       'dependencies': [
+         '../build/linux/system.gyp:fontconfig',
+       ],
+@@ -2109,9 +2109,25 @@
        ],
      }],
      ['os_bsd==1', {
@@ -17,6 +35,9 @@
 -        ['exclude', '^browser/gamepad/gamepad_platform_data_fetcher_linux\\.cc$'],
 +      'sources!': [
 +        'public/browser/zygote_host_linux.h',
++        'browser/zygote_host/zygote_communication_linux.cc',
++        'browser/zygote_host/zygote_communication_linux.h',
++        'browser/zygote_host/zygote_handle_linux.cc',
 +        'browser/zygote_host/zygote_host_impl_linux.cc',
 +        'browser/zygote_host/zygote_host_impl_linux.h',
 +        'zygote/zygote_linux.cc',
@@ -28,14 +49,29 @@
 +        'browser/geolocation/wifi_data_provider_linux.cc',
 +        'browser/udev_linux.cc',
        ],
++      'dependencies': [
++        '../build/linux/system.gyp:dbus',
++      ],
      }],
      ['use_aura==1', {
-@@ -1867,7 +1879,7 @@
+       'dependencies': [
+@@ -2159,10 +2175,7 @@
          'browser/geolocation/empty_wifi_data_provider.cc',
        ],
      }],
 -    ['OS == "linux" and use_dbus==1', {
+-      'sources!': [
+-        'browser/geolocation/empty_wifi_data_provider.cc',
+-      ],
 +    ['(OS == "linux" or os_bsd==1) and use_dbus==1', {
-       'sources!': [
-         'browser/battery_status/battery_status_manager_default.cc',
-         'browser/geolocation/empty_wifi_data_provider.cc',
+       'dependencies': [
+         '../build/linux/system.gyp:dbus',
+         '../dbus/dbus.gyp:dbus',
+@@ -2178,7 +2191,7 @@
+         'browser/media/cdm/browser_cdm_manager.h',
+       ],
+     }],
+-    ['OS == "linux"', {
++    ['(os_bsd==1 or OS == "linux")', {
+       'dependencies': [
+         '../third_party/boringssl/boringssl.gyp:boring
