@@ -175,7 +175,7 @@ GYP_DEFINES+=	use_pulseaudio=1
 GYP_DEFINES+=	use_pulseaudio=0
 .endif
 
-.if ! ${MACHINE_CPU:Msse2}
+.if empty(${MACHINE_CPU:Msse2})
 GYP_DEFINES+=	disable_sse2=1
 .endif
 
