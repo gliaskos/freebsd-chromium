@@ -1,6 +1,6 @@
---- third_party/libjingle/libjingle.gyp.orig	2016-05-11 19:02:34 UTC
-+++ third_party/libjingle/libjingle.gyp
-@@ -128,6 +128,8 @@
+--- third_party/libjingle/libjingle.gyp.orig	2016-05-25 15:01:12.000000000 -0400
++++ third_party/libjingle/libjingle.gyp	2016-05-27 11:30:30.507965000 -0400
+@@ -121,6 +121,8 @@
          ['os_bsd==1', {
            'defines': [
              'BSD',
@@ -9,7 +9,7 @@
            ],
          }],
          ['OS=="openbsd"', {
-@@ -198,6 +200,8 @@
+@@ -191,6 +193,8 @@
        ['os_bsd==1', {
          'defines': [
            'BSD',
@@ -18,12 +18,3 @@
          ],
        }],
        ['OS=="openbsd"', {
-@@ -397,7 +401,7 @@
-           ],
-           'conditions': [
-             # TODO(mallinath) - Enable SCTP for iOS.
--            ['OS!="ios"', {
-+            ['OS!="ios" and os_bsd!=1', {
-               'defines': [
-                 'HAVE_SCTP',
-               ],
