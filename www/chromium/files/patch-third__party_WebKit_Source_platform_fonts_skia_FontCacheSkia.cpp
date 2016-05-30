@@ -1,11 +1,29 @@
---- third_party/WebKit/Source/platform/fonts/skia/FontCacheSkia.cpp.orig	2016-05-21 01:26:09 UTC
-+++ third_party/WebKit/Source/platform/fonts/skia/FontCacheSkia.cpp
-@@ -65,7 +65,7 @@ const char* kColorEmojiFonts[] = { "56##
- const char* kTextEmojiFonts[] = { "Droid Sans Fallback" };
- const char* kSymbolsFonts[] = { "Droid Sans Fallback" };
- const char* kMathFonts[] = { "Droid Sans Fallback" };
--#elif OS(LINUX)
-+#elif OS(LINUX) || OS(FREEBSD) || OS(OPENBSD)
- const char* kColorEmojiFonts[] = { "Noto Color Emoji", "Noto Sans Symbols", "Symbola", "DejaVu Sans" };
- const char* kTextEmojiFonts[] = { "Noto Sans Symbols", "Symbola", "Droid Sans Fallback", "DejaVu Sans" };
- const char* kSymbolsFonts[] = { "FreeSerif", "FreeMono", "Droid Sans Fallback", "DejaVu Sans" };
+--- third_party/WebKit/Source/platform/fonts/skia/FontCacheSkia.cpp.orig	2016-05-25 15:01:11.000000000 -0400
++++ third_party/WebKit/Source/platform/fonts/skia/FontCacheSkia.cpp	2016-05-27 11:26:01.202711000 -0400
+@@ -60,7 +60,7 @@
+ 
+ namespace blink {
+ 
+-#if OS(ANDROID) || OS(LINUX)
++#if OS(ANDROID) || OS(LINUX) || OS(FREEBSD)
+ // Android special locale for retrieving the color emoji font
+ // based on the proposed changes in UTR #51 for introducing
+ // an Emoji script code:
+@@ -171,7 +171,7 @@
+     return fontDataFromFontPlatformData(fontPlatformData, shouldRetain);
+ }
+ 
+-#if OS(WIN) || OS(LINUX)
++#if OS(WIN) || OS(LINUX) || OS(FREEBSD)
+ static inline SkFontStyle fontStyle(const FontDescription& fontDescription)
+ {
+     int width = static_cast<int>(fontDescription.stretch());
+@@ -232,7 +232,7 @@
+     }
+ #endif
+ 
+-#if OS(LINUX)
++#if OS(LINUX) || OS(FREEBSD)
+     // On linux if the fontManager has been overridden then we should be calling the embedder
+     // provided font Manager rather than calling SkTypeface::CreateFromName which may redirect the
+     // call to the default font Manager.
