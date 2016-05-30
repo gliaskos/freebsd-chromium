@@ -1,15 +1,6 @@
---- chrome/common/chrome_switches.h.orig	2016-05-11 19:02:17 UTC
-+++ chrome/common/chrome_switches.h
-@@ -323,7 +323,7 @@ extern const char kHelpShort[];
- extern const char kPasswordStore[];
- #endif
- 
--#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
-+#if (defined(OS_LINUX) || defined(OS_FREEBSD)) && !defined(OS_CHROMEOS)
- extern const char kMigrateDataDirForSxS[];
- #endif
- 
-@@ -394,7 +394,7 @@ extern const char kDisableNewTaskManager
+--- chrome/common/chrome_switches.h.orig	2016-05-25 15:00:58.000000000 -0400
++++ chrome/common/chrome_switches.h	2016-05-27 10:00:47.232609000 -0400
+@@ -387,7 +387,7 @@
  extern const char kEnableWaylandServer[];
  #endif
  

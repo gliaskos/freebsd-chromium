@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 412351 2016-04-01 14:33:55Z mat $
 
 PORTNAME=	chromium
-PORTVERSION=    50.0.2661.102
+PORTVERSION=    51.0.2704.63 
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -92,7 +92,7 @@ GYP_DEFINES+=	\
 		enable_extensions=1 \
 		enable_one_click_signin=1 \
 		enable_openmax=1 \
-		enable_webrtc=1 \
+		enable_webrtc=0 \
 		werror= \
 		no_gc_sections=1 \
 		os_ver=${OSVERSION} \
@@ -313,8 +313,8 @@ pre-configure:
 		'third_party/libjingle' \
 		'third_party/libphonenumber' \
 		'third_party/libsrtp' \
-		'third_party/libvpx_new' \
-		'third_party/libvpx_new/source/libvpx/third_party/x86inc' \
+		'third_party/libvpx' \
+		'third_party/libvpx/source/libvpx/third_party/x86inc' \
 		'third_party/libwebm' \
 		'third_party/libxml/chromium' \
 		'third_party/libXNVCtrl' \
@@ -325,7 +325,6 @@ pre-configure:
 		'third_party/mesa' \
 		'third_party/modp_b64' \
 		'third_party/mt19937ar' \
-		'third_party/npapi' \
 		'third_party/openh264' \
 		'third_party/openmax_dl' \
 		'third_party/opus' \
@@ -395,7 +394,7 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chrome \
 		${STAGEDIR}${DATADIR}
 	cd ${WRKSRC}/out/${BUILDTYPE} && \
-		${COPYTREE_SHARE} "locales resources" ${STAGEDIR}${DATADIR}
+		${COPYTREE_SHARE} "locales pseudo_locales resources" ${STAGEDIR}${DATADIR}
 	@${MKDIR} ${STAGEDIR}${DESKTOPDIR}
 	${INSTALL_DATA} ${WRKDIR}/chromium-browser.desktop \
 		${STAGEDIR}${DESKTOPDIR}

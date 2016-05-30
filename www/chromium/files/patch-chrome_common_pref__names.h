@@ -1,15 +1,15 @@
---- chrome/common/pref_names.h.orig	2016-05-11 19:02:17 UTC
-+++ chrome/common/pref_names.h
-@@ -295,7 +295,7 @@ extern const char kForceYouTubeSafetyMod
- extern const char kRecordHistory[];
+--- chrome/common/pref_names.h.orig	2016-05-25 15:00:58.000000000 -0400
++++ chrome/common/pref_names.h	2016-05-27 10:03:13.560677000 -0400
+@@ -307,7 +307,7 @@
  extern const char kDeleteTimePeriod[];
  extern const char kLastClearBrowsingDataTime[];
+ extern const char kClearBrowsingDataHistoryNoticeShownTimes[];
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)
  extern const char kUsesSystemTheme[];
  #endif
  extern const char kCurrentThemePackFilename[];
-@@ -464,7 +464,7 @@ extern const char kAppWindowPlacement[];
+@@ -477,7 +477,7 @@
  extern const char kDownloadDefaultDirectory[];
  extern const char kDownloadExtensionsToOpen[];
  extern const char kDownloadDirUpgraded[];
