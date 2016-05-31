@@ -25,31 +25,33 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply \
 		${PYTHON_PKGNAMEPREFIX}html5lib>0:www/py-html5lib
 
-LIB_DEPENDS=	libcairo.so:graphics/cairo \
+LIB_DEPENDS=	libasound.so:audio/alsa-lib \
+		libcairo.so:graphics/cairo \
+		libcups.so:print/cups \
 		libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
-		libasound.so:audio/alsa-lib \
-		libfreetype.so:print/freetype2 \
-		libnss3.so:security/nss \
+		libdrm.so:graphics/libdrm \
+		libexpat.so:textproc/expat2 \
 		libFLAC.so:audio/flac \
+		libfreetype.so:print/freetype2 \
 		libgnome-keyring.so:security/libgnome-keyring \
 		libharfbuzz.so:print/harfbuzz \
-		libcups.so:print/cups \
 		libevent.so:devel/libevent2 \
 		libexif.so:graphics/libexif \
+		libfontconfig.so:x11-fonts/fontconfig \
 		libgcrypt.so:security/libgcrypt \
-		libpci.so:devel/libpci \
-		libdrm.so:graphics/libdrm \
 		libicuuc.so:devel/icu \
 		libjsoncpp.so:devel/jsoncpp \
 		libnspr4.so:devel/nspr \
+		libnss3.so:security/nss \
+		libpci.so:devel/libpci \
 		libpng.so:graphics/png \
 		libre2.so:devel/re2 \
 		libsnappy.so:archivers/snappy \
 		libspeechd.so:accessibility/speech-dispatcher \
 		libspeex.so:audio/speex \
-		libxml2.so:textproc/libxml2 \
-		libwebp.so:graphics/webp
+		libwebp.so:graphics/webp \
+		libxml2.so:textproc/libxml2
 
 RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins \
 		droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf \
@@ -72,14 +74,16 @@ USES+=	compiler:c++11-lib
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
 USE_PERL5=	build
-USE_XORG=	scrnsaverproto x11 xproto xscrnsaver xtst
+USE_XORG=	scrnsaverproto x11 xcomposite xcursor xext xdamage xfixes xi \
+		xproto xrandr xrender xscrnsaver xtst
 USE_GNOME=	atk glib20 gtk20 dconf libxslt
 MAKE_ARGS=	-C out/${BUILDTYPE}
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
-#TODO bz@ : if you do undestand the gyp stuff, third_party/widevine/cdm/widevine_cdm.gyp talks about it (plz install libwidevinecdm.so)
+#TODO bz@ : install libwidevinecdm.so (see
+#   third_party/widevine/cdm/widevine_cdm.gyp)
 # See build/common.gypi for all the available variables.
 GYP_DEFINES+=	\
 		clang_use_chrome_plugins=0 \
