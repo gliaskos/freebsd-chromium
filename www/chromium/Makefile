@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 412351 2016-04-01 14:33:55Z mat $
 
 PORTNAME=	chromium
-PORTVERSION=	51.0.2704.63
+PORTVERSION=	51.0.2704.79
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -92,9 +92,10 @@ GYP_DEFINES+=	\
 		enable_extensions=1 \
 		enable_one_click_signin=1 \
 		enable_openmax=1 \
-		enable_webrtc=0 \
+		enable_webrtc=1 \
 		werror= \
 		no_gc_sections=1 \
+                OS=freebsd \
 		os_ver=${OSVERSION} \
 		prefix_dir=${LOCALBASE} \
 		python_ver=${PYTHON_VER} \
