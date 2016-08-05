@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 417184 2016-06-21 06:02:32Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	51.0.2704.106
+PORTVERSION=	52.0.2743.116
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -254,8 +254,8 @@ pre-everything::
 post-patch:
 	@${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|" \
 		${WRKSRC}/crypto/crypto.gyp \
-		${WRKSRC}/v8/tools/gyp/v8.gyp \
-		${WRKSRC}/v8/build/toolchain.gypi
+		${WRKSRC}/v8/src/v8.gyp \
+		${WRKSRC}/v8/gypfiles/toolchain.gypi
 	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
 		${WRKSRC}/chrome/common/chrome_paths.cc \
 		${WRKSRC}/base/base.gyp
@@ -278,7 +278,6 @@ pre-configure:
 		'chrome/third_party/mock4js' \
 		'chrome/third_party/mozilla_security_manager' \
 		'courgette/third_party' \
-		'crypto/third_party/nss' \
 		'net/third_party/mozilla_security_manager' \
 		'net/third_party/nss' \
 		'third_party/WebKit' \
@@ -290,7 +289,7 @@ pre-configure:
 		'third_party/boringssl' \
 		'third_party/cacheinvalidation' \
 		'third_party/catapult' \
-		'third_party/catapult/third_party/beautifulsoup' \
+		'third_party/catapult/third_party/beautifulsoup4' \
 		'third_party/catapult/third_party/py_vulcanize' \
 		'third_party/catapult/third_party/py_vulcanize/py_vulcanize' \
 		'third_party/catapult/third_party/py_vulcanize/third_party/rcssmin' \
@@ -340,6 +339,8 @@ pre-configure:
 		'third_party/ply' \
 		'third_party/polymer' \
 		'third_party/protobuf' \
+                'third_party/protobuf/third_party' \
+                'third_party/protobuf/third_party/six' \
 		'third_party/pywebsocket' \
 		'third_party/qcms' \
 		'third_party/qunit' \
