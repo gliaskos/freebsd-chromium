@@ -1,0 +1,13 @@
+--- build/config/linux/BUILD.gn.orig	2016-10-06 04:02:08.000000000 +0300
++++ build/config/linux/BUILD.gn	2016-10-13 10:37:58.193748000 +0300
+@@ -84,6 +84,10 @@
+   libs = [ "resolv" ]
+ }
+ 
++pkg_config("libpci") {
++  packages = [ "libpci" ]
++}
++
+ if (use_glib) {
+   pkg_config("glib") {
+     packages = [

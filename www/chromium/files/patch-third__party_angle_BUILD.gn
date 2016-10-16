@@ -1,0 +1,36 @@
+--- third_party/angle/BUILD.gn.orig	2016-10-06 04:04:51.000000000 +0300
++++ third_party/angle/BUILD.gn	2016-10-13 08:27:42.717466000 +0300
+@@ -37,7 +37,7 @@
+ # This config is exported to dependent targets (and also applied to internal
+ # ones).
+ config("external_config") {
+-  include_dirs = [ "include" ]
++  include_dirs = [ "include", "/usr/local/include" ]
+ }
+ 
+ # This config is applied to internal Angle targets (not pushed to dependents).
+@@ -45,6 +45,7 @@
+   include_dirs = [
+     "include",
+     "src",
++    "/usr/local/include"
+   ]
+ }
+ 
+@@ -355,6 +356,7 @@
+         "Xi",
+         "Xext",
+       ]
++      lib_dirs = ["/usr/local/lib"]
+     }
+     if (is_mac) {
+       sources += rebase_path(gles_gypi.libangle_gl_cgl_sources, ".", "src")
+@@ -492,7 +494,7 @@
+ 
+ config("angle_util_config") {
+   include_dirs = [ "util" ]
+-  if (is_linux && use_x11) {
++  if ((is_linux || is_bsd) && use_x11) {
+     libs = [ "X11" ]
+   }
+ }

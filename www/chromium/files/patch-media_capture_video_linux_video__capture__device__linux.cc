@@ -1,44 +1,44 @@
---- media/capture/video/linux/video_capture_device_linux.cc.orig	2016-05-11 19:02:23 UTC
-+++ media/capture/video/linux/video_capture_device_linux.cc
-@@ -44,6 +44,7 @@ static bool ReadIdFile(const std::string
-   return true;
- }
+--- media/capture/video/linux/video_capture_device_linux.cc.orig	2016-10-06 04:02:21.000000000 +0300
++++ media/capture/video/linux/video_capture_device_linux.cc	2016-10-13 09:50:59.750346000 +0300
+@@ -21,6 +21,7 @@
+ 
+ namespace media {
  
 +#if !defined(OS_FREEBSD)
  // Translates Video4Linux pixel formats to Chromium pixel formats.
  // static
  VideoPixelFormat VideoCaptureDeviceLinux::V4l2FourCcToChromiumPixelFormat(
-@@ -57,6 +58,7 @@ std::list<uint32_t> VideoCaptureDeviceLi
+@@ -34,6 +35,7 @@
      bool favour_mjpeg) {
    return V4L2CaptureDelegate::GetListOfUsableFourCcs(favour_mjpeg);
  }
 +#endif // !defined(OS_FREEBSD)
  
- const std::string VideoCaptureDevice::Name::GetModel() const {
-   // |unique_id| is of the form "/dev/video2".  |file_name| is "video2".
-@@ -90,6 +92,7 @@ VideoCaptureDeviceLinux::~VideoCaptureDe
+ VideoCaptureDeviceLinux::VideoCaptureDeviceLinux(
+     const VideoCaptureDeviceDescriptor& device_descriptor)
+@@ -47,6 +49,7 @@
    v4l2_thread_.Stop();
  }
  
 +#if !defined(OS_FREEBSD)
  void VideoCaptureDeviceLinux::AllocateAndStart(
      const VideoCaptureParams& params,
-     scoped_ptr<VideoCaptureDevice::Client> client) {
-@@ -113,7 +116,13 @@ void VideoCaptureDeviceLinux::AllocateAn
+     std::unique_ptr<VideoCaptureDevice::Client> client) {
+@@ -70,7 +73,13 @@
                   params.requested_format.frame_size.height(),
                   params.requested_format.frame_rate, base::Passed(&client)));
  }
 +#else // !defined(OS_FREEBSD)
 +void VideoCaptureDeviceLinux::AllocateAndStart(
 +    const VideoCaptureParams& params,
-+    scoped_ptr<VideoCaptureDevice::Client> client) {}
++    std::unique_ptr<VideoCaptureDevice::Client> client) {}
 +#endif // !defined(OS_FREEBSD)
  
 +#if !defined(OS_FREEBSD)
  void VideoCaptureDeviceLinux::StopAndDeAllocate() {
    if (!v4l2_thread_.IsRunning())
      return;  // Wrong state.
-@@ -124,7 +133,11 @@ void VideoCaptureDeviceLinux::StopAndDeA
+@@ -81,7 +90,11 @@
  
    capture_impl_ = NULL;
  }
@@ -49,8 +49,8 @@
 +#if !defined(OS_FREEBSD)
  void VideoCaptureDeviceLinux::SetRotation(int rotation) {
    if (v4l2_thread_.IsRunning()) {
-     v4l2_thread_.message_loop()->PostTask(
-@@ -132,6 +145,9 @@ void VideoCaptureDeviceLinux::SetRotatio
+     v4l2_thread_.task_runner()->PostTask(
+@@ -89,6 +102,9 @@
          base::Bind(&V4L2CaptureDelegate::SetRotation, capture_impl_, rotation));
    }
  }

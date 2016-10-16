@@ -1,0 +1,38 @@
+--- content/test/BUILD.gn.orig	2016-08-03 22:02:18.000000000 +0300
++++ content/test/BUILD.gn	2016-09-03 00:09:23.205631000 +0300
+@@ -393,7 +393,7 @@
+                         ".",
+                         "//content")
+ 
+-  if (is_android || is_linux || is_mac || is_win) {
++  if (is_android || is_linux || is_bsd || is_mac || is_win) {
+     data = [
+       "$root_out_dir/content_shell.pak",
+       "data/",
+@@ -617,7 +617,7 @@
+                         ".",
+                         "//content")
+ 
+-  if (is_android || is_linux || is_mac || is_win) {
++  if (is_android || is_linux || is_bsd || is_mac || is_win) {
+     data = [
+       "$root_out_dir/content_shell.pak",
+       "data/",
+@@ -735,7 +735,7 @@
+       "//ui/shell_dialogs:shell_dialogs",
+     ]
+ 
+-    if (is_linux || is_mac || is_win) {
++    if (is_linux || is_bsd || is_mac || is_win) {
+       sources +=
+           [ "../browser/media/capture/desktop_capture_device_unittest.cc" ]
+       deps += [ "//third_party/webrtc/modules/desktop_capture" ]
+@@ -769,7 +769,7 @@
+                     "//content")
+   }
+ 
+-  if (is_linux) {
++  if (is_linux || is_bsd) {
+     if (use_dbus) {
+       deps += [ "//dbus:test_support" ]
+     } else {

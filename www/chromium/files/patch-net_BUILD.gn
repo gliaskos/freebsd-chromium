@@ -1,0 +1,72 @@
+--- net/BUILD.gn.orig	2016-08-03 22:02:21.000000000 +0300
++++ net/BUILD.gn	2016-10-01 00:36:06.909667000 +0300
+@@ -171,6 +171,11 @@
+       ]
+       if (is_android) {
+         sources -= [ "base/openssl_private_key_store_android.cc" ]
++      } else if (is_bsd) {
++        sources -= [
++          "base/address_tracker_linux.cc",
++          "base/address_tracker_linux.h",
++        ]
+       }
+     } else {
+       if (is_android) {
+@@ -1006,7 +1011,7 @@
+   }
+ }
+ 
+-if (is_linux || is_mac) {
++if (is_linux || is_bsd || is_mac) {
+   executable("cachetool") {
+     testonly = true
+     sources = [
+@@ -1035,7 +1040,7 @@
+   }
+ }
+ 
+-if (is_linux) {
++if (is_linux || is_bsd) {
+   static_library("epoll_server") {
+     sources = [
+       "tools/epoll_server/epoll_server.cc",
+@@ -1221,7 +1226,7 @@
+   }
+ }
+ 
+-if (is_android || is_linux) {
++if (is_android || is_linux || is_bsd) {
+   executable("disk_cache_memory_test") {
+     testonly = true
+     sources = [
+@@ -1413,7 +1418,7 @@
+     "third_party/nist-pkits/",
+   ]
+ 
+-  if (is_linux || is_mac || is_win) {
++  if (is_linux || is_bsd || is_mac || is_win) {
+     deps += [
+       "//third_party/pyftpdlib/",
+       "//third_party/pywebsocket/",
+@@ -1436,7 +1441,7 @@
+   if (is_desktop_linux) {
+     deps += [ ":epoll_quic_tools" ]
+   }
+-  if (is_linux) {
++  if (is_linux || is_bsd) {
+     sources += gypi_values.net_linux_test_sources
+     deps += [
+       ":epoll_quic_tools",
+@@ -1453,6 +1458,12 @@
+     sources -= [ "proxy/proxy_config_service_linux_unittest.cc" ]
+   }
+ 
++  if (is_bsd) {
++    sources -= [
++      "base/address_tracker_linux_unittest.cc",
++    ]
++  }
++
+   if (v8_use_external_startup_data) {
+     deps += [ "//gin" ]
+   }

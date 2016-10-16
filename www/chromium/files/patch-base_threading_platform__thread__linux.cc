@@ -1,16 +1,16 @@
---- base/threading/platform_thread_linux.cc.orig	2016-04-08 16:02:06 UTC
-+++ base/threading/platform_thread_linux.cc
-@@ -17,7 +17,9 @@
+--- base/threading/platform_thread_linux.cc.orig	2016-10-06 04:02:08.000000000 +0300
++++ base/threading/platform_thread_linux.cc	2016-10-13 04:35:48.238006000 +0300
+@@ -19,7 +19,9 @@
  
  #if !defined(OS_NACL)
  #include <pthread.h>
 +#if !defined(OS_BSD)
  #include <sys/prctl.h>
 +#endif
+ #include <sys/resource.h>
+ #include <sys/time.h>
  #include <sys/types.h>
- #include <unistd.h>
- #endif
-@@ -70,7 +72,7 @@ void PlatformThread::SetName(const std::
+@@ -110,7 +112,7 @@
    ThreadIdNameManager::GetInstance()->SetName(CurrentId(), name);
    tracked_objects::ThreadData::InitializeThreadContext(name);
  

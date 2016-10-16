@@ -1,0 +1,12 @@
+--- third_party/BUILD.gn.orig	2016-08-03 22:02:22.000000000 +0300
++++ third_party/BUILD.gn	2016-09-25 02:36:59.805893000 +0300
+@@ -18,6 +18,9 @@
+ config("system_libjpeg_config") {
+   libs = [ "jpeg" ]
+   defines = [ "USE_SYSTEM_LIBJPEG" ]
++  if (is_bsd) {
++    include_dirs = ["/usr/local/include"]
++  }
+ }
+ 
+ config("libjpeg_turbo_config") {

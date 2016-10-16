@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 417184 2016-06-21 06:02:32Z rene $
+# $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	51.0.2704.106
+PORTVERSION=	54.0.2840.50
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -13,7 +13,7 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-CFLAGS+=	-isystem${LOCALBASE}/include -I${PREFIX}/include/atk-1.0
+BROKEN_FreeBSD_9=does not patch
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		bash:shells/bash \
@@ -36,7 +36,6 @@ LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libfreetype.so:print/freetype2 \
 		libgnome-keyring.so:security/libgnome-keyring \
 		libharfbuzz.so:print/harfbuzz \
-		libevent.so:devel/libevent2 \
 		libexif.so:graphics/libexif \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libgcrypt.so:security/libgcrypt \
@@ -85,64 +84,36 @@ INSTALLS_ICONS=	yes
 
 #TODO bz@ : install libwidevinecdm.so (see
 #   third_party/widevine/cdm/widevine_cdm.gyp)
-# See build/common.gypi for all the available variables.
-GYP_DEFINES+=	\
-		clang_use_chrome_plugins=0 \
-		linux_breakpad=0 \
-		linux_use_heapchecker=0 \
-		linux_strip_binary=1 \
-		use_aura=1 \
-		test_isolation_mode=noop \
-		disable_nacl=1 \
-		enable_extensions=1 \
-		enable_one_click_signin=1 \
-		enable_openmax=1 \
-		enable_webrtc=1 \
-		werror= \
-		no_gc_sections=1 \
-                OS=freebsd \
-		os_ver=${OSVERSION} \
-		prefix_dir=${LOCALBASE} \
-		python_ver=${PYTHON_VER} \
-		use_allocator=none \
-		use_cups=1 \
-		linux_link_gsettings=1 \
-		linux_link_libpci=1 \
-		linux_link_libspeechd=1 \
-		libspeechd_h_prefix=speech-dispatcher/ \
-		usb_ids_path=${LOCALBASE}/share/usbids/usb.ids \
-		want_separate_host_toolset=0 \
-		use_system_bzip2=1 \
-		use_system_flac=1 \
-		use_system_harfbuzz=1 \
-		use_system_icu=1 \
-		use_system_jsoncpp=1 \
-		use_system_libevent=1 \
-		use_system_libexif=1 \
-		use_system_libjpeg=1 \
-		use_system_libpng=1 \
-		use_system_libusb=1 \
-		use_system_libwebp=1 \
-		use_system_libxml=1 \
-		use_system_libxslt=1 \
-		use_system_nspr=1 \
-		use_system_protobuf=0 \
-		use_system_re2=1 \
-		use_system_snappy=1 \
-		use_system_speex=1 \
-		use_system_xdg_utils=1 \
-		use_system_yasm=1 \
-		v8_use_external_startup_data=0
-# allow removal of third_party/adobe
-GYP_DEFINES+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
+# See ./out_bootstrap/gn args out/Release --list for all the variables.
+GN_ARGS+=	\
+		clang_use_chrome_plugins=false \
+		enable_hevc_demuxing=true \
+		enable_media_router=true \
+		enable_nacl=false \
+		enable_remoting=false \
+		toolkit_views=true \
+		use_allocator="none" \
+		use_alsa=false \
+		use_aura=true \
+		use_experimental_allocator_shim=true \
+		treat_warnings_as_errors=false \
+		use_sysroot=false \
+		use_system_libjpeg=true \
+		use_system_sqlite=false   # chrome has additional patches
+		# use_system_libusb=true \
+		#use_system_icu           # when devel/icu would be >= 56
+		#use_system_harfbuzz
+		#use_system_minigbm
+# 		werror=
+# GN_ARGS+=	flapper_version_h_file='${WRKSRC}/flapper_version.h'
 
 # FreeBSD Chromium Api Key
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
 # Note: these are for FreeBSD use ONLY. For your own distribution,
 # please get your own set of keys.
-GYP_DEFINES+=	google_api_key=AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8 \
-		google_default_client_id=996322985003.apps.googleusercontent.com \
-		google_default_client_secret=IR1za9-1VK0zZ0f_O8MVFicn
+GN_ARGS+=	google_api_key="AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8" \
+		google_default_client_id="996322985003.apps.googleusercontent.com" \
+		google_default_client_secret="IR1za9-1VK0zZ0f_O8MVFicn"
 
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
@@ -162,11 +133,11 @@ TEST_DISTFILES=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCODECS}
-GYP_DEFINES+=	ffmpeg_branding=Chrome
-GYP_DEFINES+=	proprietary_codecs=1
+GN_ARGS+=	ffmpeg_branding="Chrome"
+GN_ARGS+=	proprietary_codecs=true
 .else
-GYP_DEFINES+=	ffmpeg_branding=Chromium
-GYP_DEFINES+=	proprietary_codecs=0
+GN_ARGS+=	ffmpeg_branding="Chromium"
+GN_ARGS+=	proprietary_codecs=false
 .endif
 
 .if ${PORT_OPTIONS:MGCONF}
@@ -203,14 +174,16 @@ ALL_TARGET+=	${TEST_TARGETS}
 DEBUG_MAKE_ENV=	V=1
 .if ${PORT_OPTIONS:MDEBUG}
 BUILDTYPE=	Debug
+GN_ARGS+=	is_debug=true
+#GN_ARGS+=	is_component_build = true
 .else
 BUILDTYPE=	Release
+GN_ARGS+=	use_lld=true # harder, better, faster, stronger
+GN_ARGS+=	is_debug=false
+GN_ARGS+=	symbol_level=0
+GN_ARGS+=	remove_webcore_debug_symbols=true
 .endif
 
-CONFIGURE_ENV+=	CC="${CC}" \
-		CXX="${CXX}" \
-		GYP_GENERATORS=ninja \
-		GYP_DEFINES="${GYP_DEFINES}"
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE} \
 		GPERF="${LOCALBASE}/bin/gperf"
 
@@ -221,7 +194,13 @@ GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-gcc
 CFLAGS+=	-fno-stack-protector # gcc 4.8 cannot find __stack_chk_fail_local
 .else
-GYP_DEFINES+=	clang=1
+BUILD_DEPENDS+=	clang39:devel/llvm39
+CC=		clang39
+CXX=		clang++39
+# /usr/local/include unlike gcc isn't clang's default
+MAKE_ENV+=	C_INCLUDE_PATH=/usr/local/include \
+		CPLUS_INCLUDE_PATH=/usr/local/include
+GN_ARGS+=	is_clang=true
 CFLAGS+=	-Wno-unknown-warning-option \
 			-D_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1 # work around base r261801
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
@@ -252,130 +231,137 @@ pre-everything::
 	@${ECHO_MSG} "(default in python27-2.7.8 since r361735)"
 
 post-patch:
-	@${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|" \
-		${WRKSRC}/crypto/crypto.gyp \
-		${WRKSRC}/v8/tools/gyp/v8.gyp \
-		${WRKSRC}/v8/build/toolchain.gypi
-	@${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
-		${WRKSRC}/chrome/common/chrome_paths.cc \
-		${WRKSRC}/base/base.gyp
+	# @${REINPLACE_CMD} -e "s|/usr/local|${LOCALBASE}|" \
+	# 	${WRKSRC}/crypto/crypto.gyp \
+	# 	${WRKSRC}/v8/src/v8.gyp \
+	# 	${WRKSRC}/v8/gypfiles/toolchain.gypi
+	# @${REINPLACE_CMD} -e "s|/usr/local|${PREFIX}|" \
+	# 	${WRKSRC}/chrome/common/chrome_paths.cc \
 
 pre-configure:
 	# phajdan-jr: list of things *not* to remove, so maybe the script
 	#             should be called "keep_bundled_libraries.py"
+	# cd ${WRKSRC} && ${PYTHON_CMD} \
+	# 	./build/linux/unbundle/remove_bundled_libraries.py \
+	# 	'base/third_party/dmg_fp' \
+	# 	'base/third_party/dynamic_annotations' \
+	# 	'base/third_party/icu' \
+	# 	'base/third_party/nspr' \
+	# 	'base/third_party/superfasthash' \
+	# 	'base/third_party/symbolize' \
+	# 	'base/third_party/valgrind' \
+	# 	'base/third_party/xdg_mime' \
+	# 	'base/third_party/xdg_user_dirs' \
+	# 	'breakpad/src/third_party/curl' \
+	# 	'chrome/third_party/mock4js' \
+	# 	'chrome/third_party/mozilla_security_manager' \
+	# 	'courgette/third_party' \
+	# 	'net/third_party/mozilla_security_manager' \
+	# 	'net/third_party/nss' \
+	# 	'third_party/WebKit' \
+	# 	'third_party/analytics' \
+	# 	'third_party/angle' \
+	# 	'third_party/angle/src/third_party' \
+	# 	'third_party/blanketjs' \
+	# 	'third_party/brotli' \
+	# 	'third_party/boringssl' \
+	# 	'third_party/cacheinvalidation' \
+	# 	'third_party/catapult' \
+	# 	'third_party/catapult/third_party/beautifulsoup4' \
+	# 	'third_party/catapult/third_party/py_vulcanize' \
+	# 	'third_party/catapult/third_party/py_vulcanize/py_vulcanize' \
+	# 	'third_party/catapult/third_party/py_vulcanize/third_party/rcssmin' \
+	# 	'third_party/catapult/third_party/py_vulcanize/third_party/rjsmin' \
+	# 	'third_party/catapult/tracing' \
+	# 	'third_party/catapult/tracing/third_party' \
+	# 	'third_party/cld' \
+	# 	'third_party/cros_system_api' \
+	# 	'third_party/dom_distiller_js' \
+	# 	'third_party/dom_distiller_js/dist/proto_gen/third_party/dom_distiller_js' \
+	# 	'third_party/ffmpeg' \
+	# 	'third_party/gardiner_mod' \
+	# 	'third_party/fips181' \
+	# 	'third_party/flot' \
+	# 	'third_party/google_input_tools' \
+	# 	'third_party/google_input_tools/third_party/closure_library' \
+	# 	'third_party/google_input_tools/third_party/closure_library/third_party/closure' \
+	# 	'third_party/hunspell' \
+	# 	'third_party/iccjpeg' \
+	# 	'third_party/icu/icu.isolate' \
+	# 	'third_party/jinja2' \
+	# 	'third_party/jstemplate' \
+	# 	'third_party/khronos' \
+	# 	'third_party/leveldatabase' \
+	# 	'third_party/libaddressinput' \
+	# 	'third_party/libjingle' \
+	# 	'third_party/libphonenumber' \
+	# 	'third_party/libsrtp' \
+	# 	'third_party/libvpx' \
+	# 	'third_party/libvpx/source/libvpx/third_party/x86inc' \
+	# 	'third_party/libwebm' \
+	# 	'third_party/libxml/chromium' \
+	# 	'third_party/libXNVCtrl' \
+	# 	'third_party/libyuv' \
+	# 	'third_party/lss' \
+	# 	'third_party/lzma_sdk' \
+	# 	'third_party/markupsafe' \
+	# 	'third_party/mesa' \
+	# 	'third_party/modp_b64' \
+	# 	'third_party/mt19937ar' \
+	# 	'third_party/openh264' \
+	# 	'third_party/openmax_dl' \
+	# 	'third_party/opus' \
+	# 	'third_party/ots' \
+	# 	'third_party/pdfium' \
+	# 	'third_party/pdfium/third_party' \
+	# 	'third_party/ply' \
+	# 	'third_party/polymer' \
+	# 	'third_party/protobuf' \
+	# 	'third_party/protobuf/third_party' \
+	# 	'third_party/protobuf/third_party/six' \
+	# 	'third_party/pywebsocket' \
+	# 	'third_party/qcms' \
+	# 	'third_party/qunit' \
+	# 	'third_party/sfntly' \
+	# 	'third_party/sinonjs' \
+	# 	'third_party/skia' \
+	# 	'third_party/smhasher' \
+	# 	'third_party/sqlite' \
+	# 	'third_party/tcmalloc' \
+	# 	'third_party/tlslite' \
+	# 	'third_party/usrsctp' \
+	# 	'third_party/web-animations-js' \
+	# 	'third_party/webdriver' \
+	# 	'third_party/webrtc' \
+	# 	'third_party/widevine' \
+	# 	'third_party/woff2' \
+	# 	'third_party/x86inc' \
+	# 	'third_party/yasm' \
+	# 	'third_party/zlib' \
+	# 	'url/third_party/mozilla' \
+	# 	'v8/src/third_party/valgrind' \
+	# 	'v8/src/third_party/fdlibm' \
+	# 	--do-remove || ${FALSE}
+	# cd ${WRKSRC} && ${PYTHON_CMD} \
+	# 	./build/linux/unbundle/replace_gyp_files.py \
+	# 	${GYP_DEFINES:C/^/-D/} || ${FALSE}
 	cd ${WRKSRC} && ${PYTHON_CMD} \
-		./build/linux/unbundle/remove_bundled_libraries.py \
-		'base/third_party/dmg_fp' \
-		'base/third_party/dynamic_annotations' \
-		'base/third_party/icu' \
-		'base/third_party/nspr' \
-		'base/third_party/superfasthash' \
-		'base/third_party/symbolize' \
-		'base/third_party/valgrind' \
-		'base/third_party/xdg_mime' \
-		'base/third_party/xdg_user_dirs' \
-		'breakpad/src/third_party/curl' \
-		'chrome/third_party/mock4js' \
-		'chrome/third_party/mozilla_security_manager' \
-		'courgette/third_party' \
-		'crypto/third_party/nss' \
-		'net/third_party/mozilla_security_manager' \
-		'net/third_party/nss' \
-		'third_party/WebKit' \
-		'third_party/analytics' \
-		'third_party/angle' \
-		'third_party/angle/src/third_party' \
-		'third_party/blanketjs' \
-		'third_party/brotli' \
-		'third_party/boringssl' \
-		'third_party/cacheinvalidation' \
-		'third_party/catapult' \
-		'third_party/catapult/third_party/beautifulsoup' \
-		'third_party/catapult/third_party/py_vulcanize' \
-		'third_party/catapult/third_party/py_vulcanize/py_vulcanize' \
-		'third_party/catapult/third_party/py_vulcanize/third_party/rcssmin' \
-		'third_party/catapult/third_party/py_vulcanize/third_party/rjsmin' \
-		'third_party/catapult/tracing' \
-		'third_party/catapult/tracing/third_party' \
-		'third_party/cld' \
-		'third_party/cros_system_api' \
-		'third_party/dom_distiller_js' \
-		'third_party/dom_distiller_js/dist/proto_gen/third_party/dom_distiller_js' \
-		'third_party/ffmpeg' \
-		'third_party/gardiner_mod' \
-		'third_party/fips181' \
-		'third_party/flot' \
-		'third_party/google_input_tools' \
-		'third_party/google_input_tools/third_party/closure_library' \
-		'third_party/google_input_tools/third_party/closure_library/third_party/closure' \
-		'third_party/hunspell' \
-		'third_party/iccjpeg' \
-		'third_party/icu/icu.isolate' \
-		'third_party/jinja2' \
-		'third_party/jstemplate' \
-		'third_party/khronos' \
-		'third_party/leveldatabase' \
-		'third_party/libaddressinput' \
-		'third_party/libjingle' \
-		'third_party/libphonenumber' \
-		'third_party/libsrtp' \
-		'third_party/libvpx' \
-		'third_party/libvpx/source/libvpx/third_party/x86inc' \
-		'third_party/libwebm' \
-		'third_party/libxml/chromium' \
-		'third_party/libXNVCtrl' \
-		'third_party/libyuv' \
-		'third_party/lss' \
-		'third_party/lzma_sdk' \
-		'third_party/markupsafe' \
-		'third_party/mesa' \
-		'third_party/modp_b64' \
-		'third_party/mt19937ar' \
-		'third_party/openh264' \
-		'third_party/openmax_dl' \
-		'third_party/opus' \
-		'third_party/ots' \
-		'third_party/pdfium' \
-		'third_party/pdfium/third_party' \
-		'third_party/ply' \
-		'third_party/polymer' \
-		'third_party/protobuf' \
-		'third_party/pywebsocket' \
-		'third_party/qcms' \
-		'third_party/qunit' \
-		'third_party/sfntly' \
-		'third_party/sinonjs' \
-		'third_party/skia' \
-		'third_party/smhasher' \
-		'third_party/sqlite' \
-		'third_party/tcmalloc' \
-		'third_party/tlslite' \
-		'third_party/usrsctp' \
-		'third_party/web-animations-js' \
-		'third_party/webdriver' \
-		'third_party/webrtc' \
-		'third_party/widevine' \
-		'third_party/woff2' \
-		'third_party/x86inc' \
-		'third_party/yasm' \
-		'third_party/zlib' \
-		'url/third_party/mozilla' \
-		'v8/src/third_party/valgrind' \
-		'v8/src/third_party/fdlibm' \
-		--do-remove || ${FALSE}
-	cd ${WRKSRC} && ${PYTHON_CMD} \
-		./build/linux/unbundle/replace_gyp_files.py \
-		${GYP_DEFINES:C/^/-D/} || ${FALSE}
+		./build/linux/unbundle/replace_gn_files.py --system-libraries \
+		flac harfbuzz-ng libwebp libxml libxslt snappy yasm  \
+		|| ${FALSE}
 	# allow removal of third_party/adobe
-	${ECHO_CMD} > ${WRKSRC}/flapper_version.h
+	# ${ECHO_CMD} > ${WRKSRC}/flapper_version.h
 	# missing file: file is in -testdata only, but configure stage
 	# will fail if it's not there. do not break TESTS build while
 	# allowing regular build without pulling in -testdata.
-	${TOUCH} ${WRKSRC}/chrome/test/data/webui/i18n_process_css_test.html
+	# ${TOUCH} ${WRKSRC}/chrome/test/data/webui/i18n_process_css_test.html
 
 do-configure:
-	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
-		./build/gyp_chromium chrome/chrome.gyp --depth .
+	# GN generator
+	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} ${PYTHON_CMD} \
+		./tools/gn/bootstrap/bootstrap.py --no-clean --no-rebuild
+	cd ${WRKSRC} && CC=${CC} CXX=${CXX} ./out/${BUILDTYPE}/gn \
+		gen --args='${GN_ARGS}' out/${BUILDTYPE}
 
 test regression-test: build
 .for t in ${TEST_TARGETS}
