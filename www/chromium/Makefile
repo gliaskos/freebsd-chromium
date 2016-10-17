@@ -204,7 +204,7 @@ pre-configure:
 
 do-configure:
 	# GN generator bootstrapping and generating ninja files
-	cd ${WRKSRC} && ${SETENV} ${PYTHON_CMD} \
+	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} ${PYTHON_CMD} \
 		./tools/gn/bootstrap/bootstrap.py --no-clean --no-rebuild
 	cd ${WRKSRC} && ${SETENV} ./out/${BUILDTYPE}/gn \
 		gen --args='${GN_ARGS}' out/${BUILDTYPE}
