@@ -58,7 +58,7 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-pl
 		xdg-open:devel/xdg-utils
 
 ONLY_FOR_ARCHS=	i386 amd64
-USES=		bison cpe desktop-file-utils execinfo jpeg \
+USES=		compiler bison cpe desktop-file-utils execinfo jpeg \
 		ninja perl5 pkgconfig python:2,build shebangfix tar:xz
 
 CPE_VENDOR=	google
