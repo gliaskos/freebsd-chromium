@@ -1,14 +1,5 @@
 --- build/config/compiler/BUILD.gn.orig	2016-10-06 04:02:08.000000000 +0300
-+++ build/config/compiler/BUILD.gn	2016-10-17 22:22:42.290112000 +0300
-@@ -38,7 +38,7 @@
-   # only two architectures that are currently checked in). Turn this off when
-   # you are using a custom toolchain and need to control -B in cflags.
-   linux_use_bundled_binutils =
--      is_linux && (current_cpu == "x64" || current_cpu == "x86")
-+      (is_linux || is_bsd) && (current_cpu == "x64" || current_cpu == "x86")
-   binutils_path = rebase_path("//third_party/binutils/Linux_x64/Release/bin",
-                               root_build_dir)
- 
++++ build/config/compiler/BUILD.gn	2016-10-19 15:05:33.324320000 +0300
 @@ -141,7 +141,7 @@
      configs += [ "//build/config/win:compiler" ]
    } else if (is_android) {
@@ -89,14 +80,8 @@
        ]
      }
    }
-@@ -1062,9 +1062,13 @@
-       "__STDC_CONSTANT_MACROS",
-       "__STDC_FORMAT_MACROS",
+@@ -1064,7 +1064,7 @@
      ]
-+    # Work around base r261801
-+    if (is_bsd) {
-+      defines += ["_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"]
-+    }
  
      if (!is_debug && !using_sanitizer &&
 -        (!is_linux || !is_clang || is_official_build)) {
@@ -104,7 +89,7 @@
        # _FORTIFY_SOURCE isn't really supported by Clang now, see
        # http://llvm.org/bugs/show_bug.cgi?id=16821.
        # It seems to work fine with Ubuntu 12 headers though, so use it in
-@@ -1124,7 +1128,7 @@
+@@ -1124,7 +1124,7 @@
      ]
    }
  
