@@ -1,13 +1,13 @@
 --- base/strings/safe_sprintf_unittest.cc.orig	2016-10-06 04:02:08.000000000 +0300
-+++ base/strings/safe_sprintf_unittest.cc	2016-10-13 10:07:08.917150000 +0300
-@@ -730,6 +730,7 @@
++++ base/strings/safe_sprintf_unittest.cc	2016-10-25 21:42:28.951114000 +0300
+@@ -728,6 +728,7 @@
+ }
+
  TEST(SafeSPrintfTest, EmitNULL) {
++/* Avoid compiler error: http://pastebin.com/1edWUE84
    char buf[40];
  #if defined(__GNUC__)
-+/* Avoid compiler error: http://pastebin.com/1edWUE84
  #pragma GCC diagnostic push
- #pragma GCC diagnostic ignored "-Wconversion-null"
- #endif
 @@ -739,6 +740,7 @@
    EXPECT_EQ("0x0", std::string(buf));
    EXPECT_EQ(6, SafeSPrintf(buf, "%s", NULL));

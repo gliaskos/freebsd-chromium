@@ -1,5 +1,5 @@
 --- build/config/compiler/BUILD.gn.orig	2016-10-06 04:02:08.000000000 +0300
-+++ build/config/compiler/BUILD.gn	2016-10-19 15:05:33.324320000 +0300
++++ build/config/compiler/BUILD.gn	2016-10-24 23:25:32.101459000 +0300
 @@ -141,7 +141,7 @@
      configs += [ "//build/config/win:compiler" ]
    } else if (is_android) {

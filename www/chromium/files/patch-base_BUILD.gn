@@ -1,5 +1,5 @@
 --- base/BUILD.gn.orig	2016-10-06 04:02:08.000000000 +0300
-+++ base/BUILD.gn	2016-10-14 04:55:34.470209000 +0300
++++ base/BUILD.gn	2016-10-25 21:49:35.259700000 +0300
 @@ -1051,6 +1051,35 @@
      public_deps += [ "//base/allocator:unified_allocator_shim" ]
    }
@@ -68,3 +68,16 @@
    # iOS
    if (is_ios) {
      set_sources_assignment_filter([])
+@@ -2117,6 +2153,12 @@
+     set_sources_assignment_filter(sources_assignment_filter)
+   }
+ 
++  if (is_bsd) {
++    sources -= [
++      "debug/proc_maps_linux_unittest.cc",
++    ]
++  }
++
+   if (is_win) {
+     deps += [ "//base:scoped_handle_test_dll" ]
+     if (current_cpu == "x64") {
