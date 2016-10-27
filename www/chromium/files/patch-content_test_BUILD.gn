@@ -1,6 +1,6 @@
---- content/test/BUILD.gn.orig	2016-08-03 22:02:18.000000000 +0300
-+++ content/test/BUILD.gn	2016-09-03 00:09:23.205631000 +0300
-@@ -393,7 +393,7 @@
+--- content/test/BUILD.gn.orig	2016-10-06 04:02:19.000000000 +0300
++++ content/test/BUILD.gn	2016-10-27 21:01:00.854720000 +0300
+@@ -377,7 +377,7 @@
                          ".",
                          "//content")
  
@@ -9,7 +9,7 @@
      data = [
        "$root_out_dir/content_shell.pak",
        "data/",
-@@ -617,7 +617,7 @@
+@@ -615,7 +615,7 @@
                          ".",
                          "//content")
  
@@ -18,7 +18,7 @@
      data = [
        "$root_out_dir/content_shell.pak",
        "data/",
-@@ -735,7 +735,7 @@
+@@ -738,7 +738,7 @@
        "//ui/shell_dialogs:shell_dialogs",
      ]
  
@@ -27,7 +27,7 @@
        sources +=
            [ "../browser/media/capture/desktop_capture_device_unittest.cc" ]
        deps += [ "//third_party/webrtc/modules/desktop_capture" ]
-@@ -769,7 +769,7 @@
+@@ -772,7 +772,7 @@
                      "//content")
    }
  
@@ -35,4 +35,15 @@
 +  if (is_linux || is_bsd) {
      if (use_dbus) {
        deps += [ "//dbus:test_support" ]
-     } else {
+     }
+@@ -855,6 +855,10 @@
+     sources -= [ "../common/plugin_list_unittest.cc" ]
+   }
+ 
++  if (is_bsd) {
++    sources -= [ "../browser/download/file_metadata_unittest_linux.cc"]
++  }
++
+   if (use_ozone) {
+     deps += [ "//ui/ozone" ]
+   } else {

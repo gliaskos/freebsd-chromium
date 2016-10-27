@@ -90,10 +90,10 @@ GN_ARGS+=	\
 		use_sysroot=false \
 		use_system_libjpeg=true \
 		use_system_sqlite=false   # chrome has additional patches
-		# use_system_libusb=true \
-		#use_system_icu           # when devel/icu would be >= 56
+		#use_system_icu           # TODO: make it work nicely
 		#use_system_harfbuzz
 		#use_system_minigbm
+GN_BOOTSTRAP_FLAGS=	--no-clean --no-rebuild
 
 # FreeBSD Chromium Api Key
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
@@ -149,6 +149,7 @@ DEBUG_MAKE_ENV=	V=1
 .if ${PORT_OPTIONS:MDEBUG}
 BUILDTYPE=	Debug
 GN_ARGS+=	is_debug=true
+GN_BOOTSTRAP_FLAGS+=	--debug
 #GN_ARGS+=	is_component_build = true
 .else
 BUILDTYPE=	Release
@@ -183,15 +184,17 @@ GN_ARGS+=	use_kerberos=true
 
 pre-everything::
 	@${ECHO_MSG}
-	@${ECHO_MSG} "To build Chromium, you should have around 2 GB of memory"
+	@${ECHO_MSG} "To build Chromium, you should have around 2GB of memory,"
 .if ${PORT_OPTIONS:MDEBUG}
-	@${ECHO_MSG} "and lots of free diskspace (~ 8.5GB)."
+	@${ECHO_MSG} "lots of free diskspace (~ 40GB)"
+	@${ECHO_MSG} "and no less then 16GB of memory for linking."
 .else
 	@${ECHO_MSG} "and a fair amount of free diskspace (~ 3.7GB)."
 .endif
 	@${ECHO_MSG}
 	@${ECHO_MSG} "Make sure you have Python build with the SEM option ON"
 	@${ECHO_MSG} "(default in python27-2.7.8 since r361735)"
+	@${ECHO_MSG}
 
 pre-configure:
 	# We used to remove bundled libraries to be sure that chromium uses
@@ -205,7 +208,7 @@ pre-configure:
 do-configure:
 	# GN generator bootstrapping and generating ninja files
 	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} ${PYTHON_CMD} \
-		./tools/gn/bootstrap/bootstrap.py --no-clean --no-rebuild
+		./tools/gn/bootstrap/bootstrap.py ${GN_BOOTSTRAP_FLAGS}
 	cd ${WRKSRC} && ${SETENV} ./out/${BUILDTYPE}/gn \
 		gen --args='${GN_ARGS}' out/${BUILDTYPE}
 
@@ -225,7 +228,7 @@ do-install:
 .endfor
 	${INSTALL_SCRIPT} ${WRKSRC}/chrome/tools/build/linux/chrome-wrapper \
 		${STAGEDIR}${DATADIR}
-.for p in chrome_100_percent chrome_200_percent content_resources keyboard_resources resources
+.for p in chrome_100_percent chrome_200_percent keyboard_resources resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak \
 		${STAGEDIR}${DATADIR}
 .endfor
