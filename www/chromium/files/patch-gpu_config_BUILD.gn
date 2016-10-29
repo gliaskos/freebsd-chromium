@@ -1,5 +1,5 @@
---- gpu/config/BUILD.gn.orig	2016-08-03 22:02:19.000000000 +0300
-+++ gpu/config/BUILD.gn	2016-09-25 07:44:51.146837000 +0300
+--- gpu/config/BUILD.gn.orig	2016-10-06 04:02:20.000000000 +0300
++++ gpu/config/BUILD.gn	2016-10-29 18:18:32.848959000 +0300
 @@ -8,7 +8,8 @@
  
  declare_args() {
@@ -25,14 +25,3 @@
    if (is_mac) {
      libs = [
        "IOKit.framework",
-@@ -105,7 +114,9 @@
-   }
-   if (use_libpci) {
-     defines = [ "USE_LIBPCI=1" ]
--    deps += [ "//build/linux/libpci" ]
-+    configs += [
-+      "//build/config/linux:libpci",
-+    ]
-   }
-   if (is_linux && use_x11) {
-     configs += [

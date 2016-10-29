@@ -1,5 +1,5 @@
---- /net/mbsd/media/chromium-52.0.2743.82/tools/gn/bootstrap/bootstrap.py	2016-07-20 22:03:45.000000000 +0300
-+++ tools/gn/bootstrap/bootstrap.py	2016-08-14 19:34:02.001442000 +0300
+--- tools/gn/bootstrap/bootstrap.py.orig	2016-10-06 04:02:43.000000000 +0300
++++ tools/gn/bootstrap/bootstrap.py	2016-10-29 18:44:43.666315000 +0300
 @@ -23,6 +23,7 @@
  import shutil
  import subprocess
@@ -8,9 +8,9 @@
  import tempfile
 
  BOOTSTRAP_DIR = os.path.dirname(os.path.abspath(__file__))
-@@ -30,8 +31,9 @@
- SRC_ROOT = os.path.dirname(os.path.dirname(GN_ROOT))
+@@ -31,8 +32,9 @@
 
+ is_win = sys.platform.startswith('win')
  is_linux = sys.platform.startswith('linux')
 +is_bsd = platform.system().lower().endswith('bsd')
  is_mac = sys.platform.startswith('darwin')
@@ -19,55 +19,7 @@
 
  def check_call(cmd, **kwargs):
    logging.debug('Running: %s', ' '.join(cmd))
-@@ -363,26 +365,27 @@
-         'base/time/time_posix.cc',
-         'base/trace_event/heap_profiler_allocation_register_posix.cc',
-     ])
--    static_libraries['libevent'] = {
--        'sources': [
--            'base/third_party/libevent/buffer.c',
--            'base/third_party/libevent/evbuffer.c',
--            'base/third_party/libevent/evdns.c',
--            'base/third_party/libevent/event.c',
--            'base/third_party/libevent/event_tagging.c',
--            'base/third_party/libevent/evrpc.c',
--            'base/third_party/libevent/evutil.c',
--            'base/third_party/libevent/http.c',
--            'base/third_party/libevent/log.c',
--            'base/third_party/libevent/poll.c',
--            'base/third_party/libevent/select.c',
--            'base/third_party/libevent/signal.c',
--            'base/third_party/libevent/strlcpy.c',
--        ],
--        'tool': 'cc',
--        'include_dirs': [],
--        'cflags': cflags + ['-DHAVE_CONFIG_H'],
--    }
-+    if not is_bsd:
-+      static_libraries['libevent'] = {
-+          'sources': [
-+              'base/third_party/libevent/buffer.c',
-+              'base/third_party/libevent/evbuffer.c',
-+              'base/third_party/libevent/evdns.c',
-+              'base/third_party/libevent/event.c',
-+              'base/third_party/libevent/event_tagging.c',
-+              'base/third_party/libevent/evrpc.c',
-+              'base/third_party/libevent/evutil.c',
-+              'base/third_party/libevent/http.c',
-+              'base/third_party/libevent/log.c',
-+              'base/third_party/libevent/poll.c',
-+              'base/third_party/libevent/select.c',
-+              'base/third_party/libevent/signal.c',
-+              'base/third_party/libevent/strlcpy.c',
-+          ],
-+          'tool': 'cc',
-+          'include_dirs': [],
-+          'cflags': cflags + ['-DHAVE_CONFIG_H'],
-+      }
-
-
-   if is_linux:
-@@ -417,6 +420,32 @@
+@@ -594,6 +596,39 @@
          'base/third_party/libevent/epoll.c',
      ])
 
@@ -96,7 +48,14 @@
 +        'base/threading/platform_thread_' + platform.system().lower() + '.cc',
 +        # 'base/trace_event/malloc_dump_provider.cc',
 +    ])
-+
++    static_libraries['libevent']['include_dirs'].extend([
++        os.path.join(SRC_ROOT, 'base', 'third_party', 'libevent', 'freebsd')
++    ])
++    static_libraries['libevent']['sources'].extend([
++        'base/third_party/libevent/kqueue.c',
++    ])
++    # Suppressing warnings
++    cflags.extend(['-Wno-deprecated-register', '-Wno-parentheses-equality'])
 
    if is_mac:
      static_libraries['base']['sources'].extend([

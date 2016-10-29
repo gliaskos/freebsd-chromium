@@ -72,9 +72,12 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
-#TODO bz@ : install libwidevinecdm.so (see
-#   third_party/widevine/cdm/widevine_cdm.gyp)
-# See ./out/Release/gn args out/Release --list for all the variables.
+# TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
+#
+# Run "./out/${BUILDTYPE}/gn args out/${BUILDTYPE} --list" for all the variables.
+# Some parts don't have use_system_* flag, and can be turned on/off by using
+# replace_gn_files.py script, some parts just turned on/off for target host
+# OS "target_os == is_bsd", like libusb, libpci.
 GN_ARGS+=	\
 		clang_use_chrome_plugins=false \
 		enable_hevc_demuxing=true \
@@ -90,9 +93,9 @@ GN_ARGS+=	\
 		use_sysroot=false \
 		use_system_libjpeg=true \
 		use_system_sqlite=false   # chrome has additional patches
-		#use_system_icu           # TODO: make it work nicely
-		#use_system_harfbuzz
-		#use_system_minigbm
+		#use_system_icu           # TODO: make it work nicely,
+		#use_system_harfbuzz      # TODO: investigate building
+		#use_system_minigbm       # TODO: with those options
 GN_BOOTSTRAP_FLAGS=	--no-clean --no-rebuild
 
 # FreeBSD Chromium Api Key
