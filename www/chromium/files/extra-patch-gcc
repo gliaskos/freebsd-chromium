@@ -257,34 +257,12 @@
                                         active_params_.GetBytesPerFrame());
 
    return active_render_callback_->Render(dest, frames_delayed, frames_skipped);
---- media/base/audio_renderer_mixer_input.cc.orig	2016-06-06 21:05:19.000000000 +0200
-+++ media/base/audio_renderer_mixer_input.cc	2016-06-12 20:50:35.000000000 +0200
-@@ -164,7 +164,7 @@
-   // TODO(chcunningham): Delete this conversion and change ProvideInput to more
-   // precisely describe delay as a count of frames delayed instead of TimeDelta.
-   // See http://crbug.com/587522.
--  uint32_t frames_delayed = std::round(buffer_delay.InMicroseconds() /
-+  uint32_t frames_delayed = round(buffer_delay.InMicroseconds() /
-                                        params_.GetMicrosecondsPerFrame());
-
-   int frames_filled = callback_->Render(audio_bus, frames_delayed, 0);
---- media/base/audio_renderer_mixer.cc.orig	2016-06-06 21:05:19.000000000 +0200
-+++ media/base/audio_renderer_mixer.cc	2016-06-12 20:52:34.000000000 +0200
-@@ -138,7 +138,7 @@
-   // expect a count of frames delayed instead of TimeDelta (less precise).
-   // See http://crbug.com/587522.
-   base::TimeDelta audio_delay = base::TimeDelta::FromMicroseconds(
--      std::round(frames_delayed * output_params_.GetMicrosecondsPerFrame()));
-+      round(frames_delayed * output_params_.GetMicrosecondsPerFrame()));
-
-   master_converter_.ConvertWithDelay(audio_delay, audio_bus);
-   return audio_bus->frames();
 --- third_party/WebKit/Source/modules/battery/battery_status.h.orig	2016-06-06 21:05:36.000000000 +0200
 +++ third_party/WebKit/Source/modules/battery/battery_status.h	2016-06-13 20:21:31.000000000 +0200
 @@ -46,7 +46,7 @@
      // of reducing the possibility of fingerprinting and triggers less level
      // change events on platforms where the granularity is high.
-     ASSERT(level >= 0 && level <= 1);
+     DCHECK(level >= 0 && level <= 1);
 -    return std::round(level * 100) / 100.f;
 +    return round(level * 100) / 100.f;
    }
