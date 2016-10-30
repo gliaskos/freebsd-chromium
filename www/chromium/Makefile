@@ -13,8 +13,6 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-BROKEN_FreeBSD_9=does not patch
-
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		bash:shells/bash \
 		yasm:devel/yasm \
@@ -93,9 +91,8 @@ GN_ARGS+=	\
 		use_sysroot=false \
 		use_system_libjpeg=true \
 		use_system_sqlite=false   # chrome has additional patches
-		#use_system_icu           # TODO: make it work nicely,
-		#use_system_harfbuzz      # TODO: investigate building
-		#use_system_minigbm       # TODO: with those options
+# TODO: investigate building with these options:
+# use_system_icu use_system_harfbuzz use_system_minigbm
 GN_BOOTSTRAP_FLAGS=	--no-clean --no-rebuild
 
 # FreeBSD Chromium Api Key
