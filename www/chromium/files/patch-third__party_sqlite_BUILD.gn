@@ -1,5 +1,5 @@
---- third_party/sqlite/BUILD.gn.orig	2016-08-03 22:02:39.000000000 +0300
-+++ third_party/sqlite/BUILD.gn	2016-09-27 09:46:40.502058000 +0300
+--- third_party/sqlite/BUILD.gn.orig	2016-10-06 04:02:42.000000000 +0300
++++ third_party/sqlite/BUILD.gn	2016-10-30 23:32:40.983715000 +0200
 @@ -20,7 +20,7 @@
        # sqlite3Fts3InitTok).
        cflags += [ "-Wno-unused-function" ]
@@ -9,15 +9,6 @@
        cflags += [
          # SQLite doesn"t believe in compiler warnings,
          # preferring testing.
-@@ -116,7 +116,7 @@
-         "USE_PREAD=1",
-       ]
-     }
--    if (is_linux || is_android) {
-+    if (is_linux || is_bsd || is_android) {
-       defines += [
-         # Linux provides fdatasync(), a faster equivalent of fsync().
-         "fdatasync=fdatasync",
 @@ -177,7 +177,7 @@
      public_configs = [ ":sqlite_export" ]
    }

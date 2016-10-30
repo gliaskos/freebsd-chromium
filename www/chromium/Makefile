@@ -178,9 +178,6 @@ GN_ARGS+=	is_clang=true
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 .endif
 
-.if ${OSVERSION} < 1200000
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-11
-.endif
 .if ${OSVERSION} < 1100000
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
