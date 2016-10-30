@@ -172,8 +172,8 @@ BUILD_DEPENDS+=	clang39:devel/llvm39
 CC=		clang39
 CXX=		clang++39
 # /usr/local/include unlike gcc isn't clang's default
-MAKE_ENV+=	C_INCLUDE_PATH=/usr/local/include \
-		CPLUS_INCLUDE_PATH=/usr/local/include
+MAKE_ENV+=	C_INCLUDE_PATH=${LOCALBASE}/include \
+		CPLUS_INCLUDE_PATH=${LOCALBASE}/include
 GN_ARGS+=	is_clang=true
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 .endif
