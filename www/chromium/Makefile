@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	54.0.2840.50
+PORTVERSION=	54.0.2840.71
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -179,6 +179,13 @@ MAKE_ENV+=	C_INCLUDE_PATH=/usr/local/include \
 		CPLUS_INCLUDE_PATH=/usr/local/include
 GN_ARGS+=	is_clang=true
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+.endif
+
+.if ${OSVERSION} < 1200000
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-11
+.endif
+.if ${OSVERSION} < 1100000
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
 
 .if ! ${PORT_OPTIONS:MKERBEROS}

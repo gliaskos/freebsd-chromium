@@ -1,0 +1,11 @@
+--- third_party/sqlite/amalgamation/sqlite3.c.orig	2016-10-06 04:02:42.000000000 +0300
++++ third_party/sqlite/amalgamation/sqlite3.c	2016-10-30 02:23:37.638675000 +0300
+@@ -30513,7 +30513,7 @@
+   */
+   if( rc ) rc = fsync(fd);
+
+-#elif defined(__APPLE__)
++#elif defined(__APPLE__) || defined(OS_BSD)
+   /* fdatasync() on HFS+ doesn't yet flush the file size if it changed correctly
+   ** so currently we default to the macro that redefines fdatasync to fsync
+   */
