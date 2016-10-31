@@ -1,5 +1,5 @@
 --- tools/gn/bootstrap/bootstrap.py.orig	2016-10-06 04:02:43.000000000 +0300
-+++ tools/gn/bootstrap/bootstrap.py	2016-10-29 19:05:28.759134000 +0300
++++ tools/gn/bootstrap/bootstrap.py	2016-10-31 01:50:52.450019000 +0200
 @@ -23,6 +23,7 @@
  import shutil
  import subprocess
@@ -24,7 +24,7 @@
      ])
 
 +  if is_bsd:
-+    libs.extend(['-L/usr/local/lib', '-lexecinfo', '-lkvm'])
++    libs.extend(['-lexecinfo', '-lkvm'])
 +    ldflags.extend(['-pthread'])
 +
 +    static_libraries['xdg_user_dirs'] = {
@@ -34,8 +34,8 @@
 +        'tool': 'cxx',
 +    }
 +    static_libraries['base']['sources'].extend([
-+        # 'base/allocator/allocator_shim.cc',
-+        # 'base/allocator/allocator_shim_default_dispatch_to_glibc.cc',
++        'base/allocator/allocator_shim.cc',
++        'base/allocator/allocator_shim_default_dispatch_to_glibc.cc',
 +        'base/memory/shared_memory_posix.cc',
 +        'base/nix/xdg_util.cc',
 +        #'base/process/internal_linux.cc',
