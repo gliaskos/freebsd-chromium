@@ -6,23 +6,23 @@
  import sys
 +import platform
  import tempfile
- 
+
  BOOTSTRAP_DIR = os.path.dirname(os.path.abspath(__file__))
 @@ -31,8 +32,9 @@
- 
+
  is_win = sys.platform.startswith('win')
  is_linux = sys.platform.startswith('linux')
 +is_bsd = platform.system().lower().endswith('bsd')
  is_mac = sys.platform.startswith('darwin')
 -is_posix = is_linux or is_mac
 +is_posix = is_linux or is_mac or is_bsd
- 
+
  def check_call(cmd, **kwargs):
    logging.debug('Running: %s', ' '.join(cmd))
 @@ -594,6 +596,39 @@
          'base/third_party/libevent/epoll.c',
      ])
- 
+
 +  if is_bsd:
 +    libs.extend(['-lexecinfo', '-lkvm'])
 +    ldflags.extend(['-pthread'])
@@ -56,6 +56,6 @@
 +    ])
 +    # Suppressing warnings
 +    cflags.extend(['-Wno-deprecated-register', '-Wno-parentheses-equality'])
- 
+
    if is_mac:
      static_libraries['base']['sources'].extend([
