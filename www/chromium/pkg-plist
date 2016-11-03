@@ -209,6 +209,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/toolbox.html
 %%DATADIR%%/resources/inspector/toolbox.js
 %%DATADIR%%/resources/inspector/ui_lazy/ui_lazy_module.js
+%%DRIVER%%bin/chromedriver
 share/icons/hicolor/128x128/apps/chrome.png
 share/icons/hicolor/22x22/apps/chrome.png
 share/icons/hicolor/24x24/apps/chrome.png
