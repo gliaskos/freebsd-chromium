@@ -13,6 +13,8 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
+BROKEN_FreeBSD9=does not configure
+
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		bash:shells/bash \
 		yasm:devel/yasm \
