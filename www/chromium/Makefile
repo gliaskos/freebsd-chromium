@@ -160,7 +160,9 @@ GN_BOOTSTRAP_FLAGS+=	--debug
 #GN_ARGS+=	is_component_build = true
 .else
 BUILDTYPE=	Release
+.if ${ARCH} == amd64
 GN_ARGS+=	use_lld=true # harder, better, faster, stronger
+.endif
 GN_ARGS+=	is_debug=false
 GN_ARGS+=	symbol_level=0
 GN_ARGS+=	remove_webcore_debug_symbols=true
