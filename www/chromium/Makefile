@@ -17,6 +17,7 @@ BROKEN_FreeBSD_9=does not configure
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		bash:shells/bash \
+		python:lang/python \
 		yasm:devel/yasm \
 		flock:sysutils/flock \
 		${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat \
@@ -185,6 +186,11 @@ MAKE_ENV+=	C_INCLUDE_PATH=${LOCALBASE}/include \
 		CPLUS_INCLUDE_PATH=${LOCALBASE}/include
 GN_ARGS+=	is_clang=true
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
+.endif
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1002000
+BUILD_DEPENDS+=	${LOCALBASE}/lib/c++/libstdc++.so:devel/libc++
+CXXFLAGS+=	-stdlib=libc++ -isystem ${LOCALBASE}/include/c++/v1
 .endif
 
 .if ${OSVERSION} < 1100000
