@@ -187,11 +187,6 @@ MAKE_ENV+=	C_INCLUDE_PATH=${LOCALBASE}/include \
 # TODO: move this big extra to small ones
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1002000
-BUILD_DEPENDS+=	${LOCALBASE}/lib/c++/libstdc++.so:devel/libc++
-CXXFLAGS+=	-stdlib=libc++ -isystem ${LOCALBASE}/include/c++/v1
-.endif
-
 .if ${OSVERSION} < 1100000
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
