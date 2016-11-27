@@ -17,7 +17,6 @@ BROKEN_FreeBSD_9=does not configure
 
 BUILD_DEPENDS=	bash:shells/bash \
 		python:lang/python \
-		clang39:devel/llvm39 \
 		flock:sysutils/flock \
 		gperf:devel/gperf \
 		yasm:devel/yasm \
@@ -176,6 +175,10 @@ GN_ARGS+=	remove_webcore_debug_symbols=true
 .endif
 
 .include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 1200017
+BUILD_DEPENDS+=	clang39:devel/llvm39
+.endif
 
 CC=		clang39
 CXX=		clang++39
