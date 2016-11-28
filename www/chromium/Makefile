@@ -178,10 +178,10 @@ GN_ARGS+=	remove_webcore_debug_symbols=true
 
 .if ${OSVERSION} < 1200017
 BUILD_DEPENDS+=	clang39:devel/llvm39
-.endif
-
 CC=		clang39
 CXX=		clang++39
+.endif
+#optionally set AR, LD, NM, READELF ?
 
 # TODO: -isystem, would be just as ugly as this approach, but more reliably
 # build would fail without C_INCLUDE_PATH/CPLUS_INCLUDE_PATH env var set.
@@ -225,7 +225,8 @@ pre-configure:
 
 do-configure:
 	# GN generator bootstrapping and generating ninja files
-	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} ${PYTHON_CMD} \
+	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} LD=${CXX} \
+		READELF=${READELF} AR=${AR} NM=${NM} ${PYTHON_CMD} \
 		./tools/gn/bootstrap/bootstrap.py ${GN_BOOTSTRAP_FLAGS}
 	cd ${WRKSRC} && ${SETENV} ./out/${BUILDTYPE}/gn \
 		gen --args='${GN_ARGS}' out/${BUILDTYPE}
