@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	54.0.2840.71
+PORTVERSION=	54.0.2840.100
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -12,6 +12,8 @@ COMMENT=	Google web browser based on WebKit
 
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
+
+BROKEN_FreeBSD9=does not configure
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		bash:shells/bash \
@@ -23,8 +25,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply \
 		${PYTHON_PKGNAMEPREFIX}html5lib>0:www/py-html5lib
 
-LIB_DEPENDS=	libasound.so:audio/alsa-lib \
-		libcairo.so:graphics/cairo \
+LIB_DEPENDS=	libcairo.so:graphics/cairo \
 		libcups.so:print/cups \
 		libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
@@ -50,9 +51,7 @@ LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libwebp.so:graphics/webp \
 		libxml2.so:textproc/libxml2
 
-RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins \
-		alsa-lib>=1.1.1_1:audio/alsa-lib \
-		droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf \
+RUN_DEPENDS=	droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf \
 		xdg-open:devel/xdg-utils
 
 ONLY_FOR_ARCHS=	i386 amd64
@@ -84,7 +83,6 @@ GN_ARGS+=	\
 		enable_remoting=false \
 		toolkit_views=true \
 		use_allocator="none" \
-		use_alsa=false \
 		use_aura=true \
 		use_experimental_allocator_shim=true \
 		treat_warnings_as_errors=false \
@@ -106,7 +104,7 @@ GN_ARGS+=	google_api_key="AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8" \
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
 
-OPTIONS_DEFINE=	CODECS GCONF PULSEAUDIO TEST KERBEROS DEBUG DRIVER
+OPTIONS_DEFINE=	ALSA CODECS GCONF PULSEAUDIO TEST KERBEROS DEBUG DRIVER
 CODECS_DESC=	Compile and enable patented codecs like H.264
 DRIVER_DESC=	Install chromedriver
 
@@ -114,11 +112,20 @@ OPTIONS_DEFAULT=	CODECS GCONF KERBEROS
 OPTIONS_SUB=	yes
 
 GCONF_USE=	GNOME=gconf2
+ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
+ALSA_RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins \
+			alsa-lib>=1.1.1_1:audio/alsa-lib
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 DRIVER_MAKE_ARGS=chromedriver
 TEST_DISTFILES=	${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 
 .include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MALSA}
+GN_ARGS+=	use_alsa=true
+.else
+GN_ARGS+=	use_alsa=false
+.endif
 
 .if ${PORT_OPTIONS:MCODECS}
 GN_ARGS+=	ffmpeg_branding="Chrome"
@@ -153,7 +160,9 @@ GN_BOOTSTRAP_FLAGS+=	--debug
 #GN_ARGS+=	is_component_build = true
 .else
 BUILDTYPE=	Release
+.if ${ARCH} == amd64
 GN_ARGS+=	use_lld=true # harder, better, faster, stronger
+.endif
 GN_ARGS+=	is_debug=false
 GN_ARGS+=	symbol_level=0
 GN_ARGS+=	remove_webcore_debug_symbols=true
