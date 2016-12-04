@@ -1,0 +1,12 @@
+--- third_party/WebKit/Source/wtf/BUILD.gn.orig	2016-11-10 22:02:27.000000000 +0200
++++ third_party/WebKit/Source/wtf/BUILD.gn	2016-11-28 10:07:25.746510000 +0200
+@@ -87,6 +87,9 @@
+   if (is_linux) {
+     libs = [ "dl" ]
+   }
++  if (is_bsd) {
++    libs = [ "execinfo" ]
++  }
+ 
+   if (is_mac) {
+     libs = [
