@@ -179,9 +179,9 @@ GN_ARGS+=	remove_webcore_debug_symbols=true
 BUILD_DEPENDS+=	clang39:devel/llvm39
 CC=		clang39
 CXX=		clang++39
-GN_ARGS+=	toolprefix="${LOCALBASE}/llvm39/bin"
+GN_ARGS+=	clang_base_path="${LOCALBASE}/llvm39"
 .else
-GN_ARGS+=	toolprefix="/usr/bin"
+GN_ARGS+=	clang_base_path="/usr"
 .endif
 #optionally set AR, LD, NM, READELF ?
 
