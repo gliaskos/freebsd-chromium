@@ -13,8 +13,6 @@ COMMENT=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL
 LICENSE_COMB=	multi
 
-BROKEN_FreeBSD_9=does not configure
-
 BUILD_DEPENDS=	bash:shells/bash \
 		clang39:devel/llvm39 \
 		python:lang/python \
@@ -201,12 +199,6 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-old
 .else
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
-.endif
-
-.if ${OSVERSION} < 1002000
-BUILD_DEPENDS+=	${LOCALBASE}/lib/c++/libstdc++.so:devel/libc++
-GN_ARGS+=	extra_cxxflags="-stdlib=libc++ -isystem ${LOCALBASE}/include/c++/v1" \
-		extra_ldflags="-L${LOCALBASE}/lib"
 .endif
 
 pre-everything::
