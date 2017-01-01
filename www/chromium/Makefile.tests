@@ -1,13 +1,10 @@
-#$FreeBSD$
-# TODO(clutton): remove this comment when more tests would be fixed
-# DBUS: env DBUS_FATAL_WARNINGS=0
-# ubuntu builds dbus with DBUS_DISABLE_CHECKS and chromium assumes that this
-# behaviour is normal (it is not anyway, check the dbus maillist).
-# sync_unit_tests
+#$FreeBSD: head/www/chromium/Makefile.tests 368166 2014-09-14 10:16:28Z rene $
+#telemetry_unittests : unknown ninja target
 TEST_TARGETS=	base_unittests \
 		crypto_unittests \
 		cacheinvalidation_unittests \
 		gpu_unittests \
+		sync_unit_tests \
 		printing_unittests \
 		sql_unittests \
 		content_unittests \

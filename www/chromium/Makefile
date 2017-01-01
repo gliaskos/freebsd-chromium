@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	54.0.2840.100
+PORTVERSION=	55.0.2883.87
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -16,6 +16,7 @@ LICENSE_COMB=	multi
 BROKEN_FreeBSD_9=does not configure
 
 BUILD_DEPENDS=	bash:shells/bash \
+		clang39:devel/llvm39 \
 		python:lang/python \
 		flock:sysutils/flock \
 		gperf:devel/gperf \
@@ -62,7 +63,7 @@ USES=		compiler bison cpe desktop-file-utils execinfo jpeg \
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
 USE_PERL5=	build
-USE_XORG=	scrnsaverproto x11 xcomposite xcursor xext xdamage xfixes xi \
+USE_XORG=	scrnsaverproto x11 xcb xcomposite xcursor xext xdamage xfixes xi \
 		xproto xrandr xrender xscrnsaver xtst
 USE_GNOME=	atk glib20 gtk20 dconf libxslt libxml2
 MAKE_ARGS=	-C out/${BUILDTYPE}
@@ -140,10 +141,32 @@ GN_ARGS+=	proprietary_codecs=false
 GN_ARGS+=	enable_hevc_demuxing=false
 .endif
 
+DEBUG_MAKE_ENV=	V=1
+.if ${PORT_OPTIONS:MDEBUG}
+BUILDTYPE=	Debug
+GN_ARGS+=	is_debug=true
+GN_BOOTSTRAP_FLAGS+=	--debug
+#GN_ARGS+=	is_component_build=true
+.else
+BUILDTYPE=	Release
+.if ${ARCH} == amd64
+GN_ARGS+=	use_lld=true # harder, better, faster, stronger
+.endif
+GN_ARGS+=	is_debug=false
+GN_ARGS+=	symbol_level=0
+GN_ARGS+=	remove_webcore_debug_symbols=true
+.endif
+
 .if ${PORT_OPTIONS:MGCONF}
 GN_ARGS+=	use_gconf=true
 .else
 GN_ARGS+=	use_gconf=false
+.endif
+
+.if ${PORT_OPTIONS:MKERBEROS}
+GN_ARGS+=	use_kerberos=true
+.else
+GN_ARGS+=	use_kerberos=false
 .endif
 
 .if ${PORT_OPTIONS:MPULSEAUDIO}
@@ -157,32 +180,10 @@ GN_ARGS+=	use_pulseaudio=false
 ALL_TARGET+=	${TEST_TARGETS}
 .endif
 
-DEBUG_MAKE_ENV=	V=1
-.if ${PORT_OPTIONS:MDEBUG}
-BUILDTYPE=	Debug
-GN_ARGS+=	is_debug=true
-GN_BOOTSTRAP_FLAGS+=	--debug
-#GN_ARGS+=	is_component_build = true
-.else
-BUILDTYPE=	Release
-.if ${ARCH} == amd64
-GN_ARGS+=	use_lld=true # harder, better, faster, stronger
-.endif
-GN_ARGS+=	is_debug=false
-GN_ARGS+=	symbol_level=0
-GN_ARGS+=	remove_webcore_debug_symbols=true
-.endif
-
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} < 1200017
-BUILD_DEPENDS+=	clang39:devel/llvm39
 CC=		clang39
 CXX=		clang++39
-GN_ARGS+=	clang_base_path="${LOCALBASE}/llvm39"
-.else
-GN_ARGS+=	clang_base_path="/usr"
-.endif
 #optionally set AR, LD, NM, READELF ?
 
 # TODO: -isystem, would be just as ugly as this approach, but more reliably
@@ -196,10 +197,16 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
 
-.if ${PORT_OPTIONS:MKERBEROS}
-GN_ARGS+=	use_kerberos=true
+.if ${OSVERSION} < 1200017
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-old
 .else
-GN_ARGS+=	use_kerberos=false
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
+.endif
+
+.if ${OSVERSION} < 1002000
+BUILD_DEPENDS+=	${LOCALBASE}/lib/c++/libstdc++.so:devel/libc++
+GN_ARGS+=	extra_cxxflags="-stdlib=libc++ -isystem ${LOCALBASE}/include/c++/v1" \
+		extra_ldflags="-L${LOCALBASE}/lib"
 .endif
 
 pre-everything::
