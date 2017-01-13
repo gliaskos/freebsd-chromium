@@ -1,6 +1,18 @@
---- build/toolchain/gcc_toolchain.gni.orig	2016-10-06 04:02:08.000000000 +0300
-+++ build/toolchain/gcc_toolchain.gni	2016-10-13 10:28:11.777849000 +0300
-@@ -453,14 +453,28 @@
+--- build/toolchain/gcc_toolchain.gni.orig	2016-12-09 05:04:14.000000000 +0000
++++ build/toolchain/gcc_toolchain.gni	2016-12-21 23:03:46.063519000 +0000
+@@ -11,6 +11,11 @@
+ import("//build/toolchain/goma.gni")
+ import("//build/toolchain/toolchain.gni")
+ 
++declare_args() {
++  extra_cxxflags = ""
++  extra_ldflags = ""
++}
++
+ # This template defines a toolchain for something that works like gcc
+ # (including clang).
+ #
+@@ -482,14 +487,23 @@
    }
  
    gcc_toolchain(target_name) {
@@ -8,12 +20,11 @@
 -    cc = "$prefix/clang"
 -    cxx = "$prefix/clang++"
 -    ld = cxx
+-
+-    readelf = "${toolprefix}readelf"
+-    ar = "${toolprefix}ar"
+-    nm = "${toolprefix}nm"
 +    if (is_bsd) {
-+      # cc = getenv("CC")
-+      # assert(cc != "", "CC env must me set with >= clang39")
-+      # cxx = getenv("CXX")
-+      # assert(cxx != "", "CXX env must me set with >= clang++39")
-+      # ld = cxx
 +      cc = "${toolprefix}clang39"
 +      cxx = "${toolprefix}clang++39"
 +      ld = cxx
@@ -25,10 +36,7 @@
 +      cc = "$prefix/clang"
 +      cxx = "$prefix/clang++"
 +      ld = cxx
- 
--    readelf = "${toolprefix}readelf"
--    ar = "${toolprefix}ar"
--    nm = "${toolprefix}nm"
++
 +      readelf = "${toolprefix}readelf"
 +      ar = "${toolprefix}ar"
 +      nm = "${toolprefix}nm"
