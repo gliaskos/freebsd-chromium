@@ -1,4 +1,4 @@
---- device/usb/usb_context.cc.orig	2016-03-25 13:04:49 UTC
+--- device/usb/usb_context.cc.orig	2017-02-02 02:02:54 UTC
 +++ device/usb/usb_context.cc
 @@ -9,8 +9,13 @@
  #include "base/macros.h"

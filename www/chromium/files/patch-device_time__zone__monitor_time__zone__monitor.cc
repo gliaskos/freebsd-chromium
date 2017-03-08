@@ -1,4 +1,4 @@
---- device/time_zone_monitor/time_zone_monitor.cc.orig	2016-12-12 21:25:46 UTC
+--- device/time_zone_monitor/time_zone_monitor.cc.orig	2017-02-02 02:02:54 UTC
 +++ device/time_zone_monitor/time_zone_monitor.cc
 @@ -31,7 +31,7 @@ void TimeZoneMonitor::NotifyClients() {
    std::unique_ptr<icu::TimeZone> new_zone(icu::TimeZone::createDefault());

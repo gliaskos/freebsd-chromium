@@ -1,4 +1,4 @@
---- ui/events/event_switches.h.orig	2016-03-25 13:05:03 UTC
+--- ui/events/event_switches.h.orig	2017-02-02 02:03:13 UTC
 +++ ui/events/event_switches.h
 @@ -18,7 +18,7 @@ EVENTS_BASE_EXPORT extern const char kTo
  EVENTS_BASE_EXPORT extern const char kTouchEventsDisabled[];
