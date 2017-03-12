@@ -1,6 +1,6 @@
---- chrome/common/chrome_switches.h.orig	2016-10-06 04:02:14.000000000 +0300
-+++ chrome/common/chrome_switches.h	2016-10-13 06:13:55.604411000 +0300
-@@ -378,7 +378,7 @@
+--- chrome/common/chrome_switches.h.orig	2017-02-02 02:02:50 UTC
++++ chrome/common/chrome_switches.h
+@@ -385,7 +385,7 @@ extern const char kAllowNaClSocketAPI[];
  extern const char kEnableWaylandServer[];
  #endif
  

@@ -1,4 +1,4 @@
---- net/socket/socks5_client_socket.cc.orig	2016-05-11 19:02:24 UTC
+--- net/socket/socks5_client_socket.cc.orig	2017-02-02 02:02:56 UTC
 +++ net/socket/socks5_client_socket.cc
 @@ -4,6 +4,10 @@
  

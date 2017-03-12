@@ -1,6 +1,6 @@
---- chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc.orig	2016-04-08 16:02:07 UTC
+--- chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc.orig	2017-02-02 02:02:49 UTC
 +++ chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc
-@@ -19,7 +19,7 @@
+@@ -16,7 +16,7 @@
  
  // NOTE(koz): Linux doesn't use the thick shadowed border, so we add padding
  // here.

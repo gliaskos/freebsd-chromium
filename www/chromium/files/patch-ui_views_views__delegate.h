@@ -1,4 +1,4 @@
---- ui/views/views_delegate.h.orig	2016-05-11 19:02:36 UTC
+--- ui/views/views_delegate.h.orig	2017-02-02 02:03:13 UTC
 +++ ui/views/views_delegate.h
 @@ -141,7 +141,7 @@ class VIEWS_EXPORT ViewsDelegate {
    // Returns true if the window passed in is in the Windows 8 metro
