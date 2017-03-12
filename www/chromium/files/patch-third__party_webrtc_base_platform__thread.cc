@@ -1,4 +1,4 @@
---- third_party/webrtc/base/platform_thread.cc.orig	2017-02-02 02:03:57 UTC
+--- third_party/webrtc/base/platform_thread.cc.orig	2017-03-09 20:05:29 UTC
 +++ third_party/webrtc/base/platform_thread.cc
 @@ -12,11 +12,18 @@
  

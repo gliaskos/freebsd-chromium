@@ -1,4 +1,4 @@
---- gpu/config/gpu_test_config.cc.orig	2017-02-02 02:02:55 UTC
+--- gpu/config/gpu_test_config.cc.orig	2017-03-09 20:04:33 UTC
 +++ gpu/config/gpu_test_config.cc
 @@ -24,7 +24,7 @@ namespace {
  GPUTestConfig::OS GetCurrentOS() {

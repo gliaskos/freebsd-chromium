@@ -1,4 +1,4 @@
---- third_party/pdfium/skia/BUILD.gn.orig	2017-02-02 02:03:53 UTC
+--- third_party/pdfium/skia/BUILD.gn.orig	2017-03-09 20:05:26 UTC
 +++ third_party/pdfium/skia/BUILD.gn
 @@ -102,7 +102,7 @@ config("skia_library_config") {
    }

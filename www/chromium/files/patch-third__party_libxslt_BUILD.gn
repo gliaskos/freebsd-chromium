@@ -1,4 +1,4 @@
---- third_party/libxslt/BUILD.gn.orig	2017-02-02 02:03:11 UTC
+--- third_party/libxslt/BUILD.gn.orig	2017-03-09 20:04:47 UTC
 +++ third_party/libxslt/BUILD.gn
 @@ -82,7 +82,7 @@ static_library("libxslt") {
    public_configs = [ ":libxslt_config" ]

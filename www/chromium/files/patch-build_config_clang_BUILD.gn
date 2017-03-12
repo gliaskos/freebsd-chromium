@@ -1,4 +1,4 @@
---- build/config/clang/BUILD.gn.orig	2017-02-02 02:02:47 UTC
+--- build/config/clang/BUILD.gn.orig	2017-03-09 20:04:27 UTC
 +++ build/config/clang/BUILD.gn
 @@ -20,7 +20,7 @@ config("find_bad_constructs") {
          rebase_path("${clang_base_path}/lib/libFindBadConstructs.dylib",

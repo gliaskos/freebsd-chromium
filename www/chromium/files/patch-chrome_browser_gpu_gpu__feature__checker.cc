@@ -1,4 +1,4 @@
---- chrome/browser/gpu/gpu_feature_checker.cc.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/gpu/gpu_feature_checker.cc.orig	2017-03-09 20:04:28 UTC
 +++ chrome/browser/gpu/gpu_feature_checker.cc
 @@ -34,7 +34,7 @@ void GPUFeatureChecker::CheckGPUFeatureA
    CHECK(content::BrowserThread::CurrentlyOn(content::BrowserThread::UI));

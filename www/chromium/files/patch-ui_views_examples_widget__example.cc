@@ -1,4 +1,4 @@
---- ui/views/examples/widget_example.cc.orig	2017-02-02 02:03:13 UTC
+--- ui/views/examples/widget_example.cc.orig	2017-03-09 20:04:49 UTC
 +++ ui/views/examples/widget_example.cc
 @@ -77,7 +77,7 @@ void WidgetExample::CreateExampleView(Vi
    BuildButton(container, "Popup widget", POPUP);

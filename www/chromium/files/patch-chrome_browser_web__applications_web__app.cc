@@ -1,4 +1,4 @@
---- chrome/browser/web_applications/web_app.cc.orig	2017-02-02 02:02:50 UTC
+--- chrome/browser/web_applications/web_app.cc.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/web_applications/web_app.cc
 @@ -58,7 +58,7 @@ namespace {
  #if defined(OS_MACOSX)

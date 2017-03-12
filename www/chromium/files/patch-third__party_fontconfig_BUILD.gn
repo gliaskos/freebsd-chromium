@@ -1,4 +1,4 @@
---- third_party/fontconfig/BUILD.gn.orig	2017-02-02 02:03:11 UTC
+--- third_party/fontconfig/BUILD.gn.orig	2017-03-09 20:04:46 UTC
 +++ third_party/fontconfig/BUILD.gn
 @@ -2,7 +2,7 @@
  # Use of this source code is governed by a BSD-style license that can be

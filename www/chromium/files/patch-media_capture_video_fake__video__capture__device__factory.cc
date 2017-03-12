@@ -1,4 +1,4 @@
---- media/capture/video/fake_video_capture_device_factory.cc.orig	2017-02-02 02:02:55 UTC
+--- media/capture/video/fake_video_capture_device_factory.cc.orig	2017-03-09 20:04:34 UTC
 +++ media/capture/video/fake_video_capture_device_factory.cc
 @@ -71,7 +71,7 @@ void FakeVideoCaptureDeviceFactory::GetD
    for (int n = 0; n < number_of_devices_; ++n) {

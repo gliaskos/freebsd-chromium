@@ -1,4 +1,4 @@
---- chrome/test/base/testing_browser_process.h.orig	2017-02-02 02:02:50 UTC
+--- chrome/test/base/testing_browser_process.h.orig	2017-03-09 20:04:30 UTC
 +++ chrome/test/base/testing_browser_process.h
 @@ -107,8 +107,8 @@ class TestingBrowserProcess : public Bro
    DownloadStatusUpdater* download_status_updater() override;

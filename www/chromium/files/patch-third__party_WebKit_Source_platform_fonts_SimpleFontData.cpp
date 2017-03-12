@@ -1,4 +1,4 @@
---- third_party/WebKit/Source/platform/fonts/SimpleFontData.cpp.orig	2017-02-02 02:03:10 UTC
+--- third_party/WebKit/Source/platform/fonts/SimpleFontData.cpp.orig	2017-03-09 20:04:45 UTC
 +++ third_party/WebKit/Source/platform/fonts/SimpleFontData.cpp
 @@ -50,7 +50,7 @@ namespace blink {
  const float smallCapsFontSizeMultiplier = 0.7f;

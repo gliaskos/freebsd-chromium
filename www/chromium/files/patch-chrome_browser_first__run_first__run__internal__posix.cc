@@ -1,4 +1,4 @@
---- chrome/browser/first_run/first_run_internal_posix.cc.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/first_run/first_run_internal_posix.cc.orig	2017-03-09 20:04:28 UTC
 +++ chrome/browser/first_run/first_run_internal_posix.cc
 @@ -24,7 +24,7 @@ namespace first_run {
  namespace internal {

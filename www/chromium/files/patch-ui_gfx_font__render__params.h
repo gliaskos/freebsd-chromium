@@ -1,4 +1,4 @@
---- ui/gfx/font_render_params.h.orig	2017-02-02 02:03:13 UTC
+--- ui/gfx/font_render_params.h.orig	2017-03-09 20:04:49 UTC
 +++ ui/gfx/font_render_params.h
 @@ -106,13 +106,13 @@ GFX_EXPORT FontRenderParams GetFontRende
      const FontRenderParamsQuery& query,

@@ -1,4 +1,4 @@
---- chrome/browser/ui/webui/extensions/extension_loader_handler.cc.orig	2017-02-02 02:02:50 UTC
+--- chrome/browser/ui/webui/extensions/extension_loader_handler.cc.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/ui/webui/extensions/extension_loader_handler.cc
 @@ -27,7 +27,11 @@
  #include "extensions/common/constants.h"

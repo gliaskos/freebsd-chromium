@@ -1,4 +1,4 @@
---- content/browser/accessibility/browser_accessibility.h.orig	2017-02-02 02:02:53 UTC
+--- content/browser/accessibility/browser_accessibility.h.orig	2017-03-09 20:04:32 UTC
 +++ content/browser/accessibility/browser_accessibility.h
 @@ -38,7 +38,7 @@
  #define PLATFORM_HAS_NATIVE_ACCESSIBILITY_IMPL 1

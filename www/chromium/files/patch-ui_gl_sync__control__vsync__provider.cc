@@ -1,4 +1,4 @@
---- ui/gl/sync_control_vsync_provider.cc.orig	2017-02-02 02:03:13 UTC
+--- ui/gl/sync_control_vsync_provider.cc.orig	2017-03-09 20:04:49 UTC
 +++ ui/gl/sync_control_vsync_provider.cc
 @@ -11,7 +11,7 @@
  #include "base/trace_event/trace_event.h"

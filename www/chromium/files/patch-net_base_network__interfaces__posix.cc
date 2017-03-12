@@ -1,4 +1,4 @@
---- net/base/network_interfaces_posix.cc.orig	2017-02-02 02:02:56 UTC
+--- net/base/network_interfaces_posix.cc.orig	2017-03-09 20:04:35 UTC
 +++ net/base/network_interfaces_posix.cc
 @@ -9,7 +9,7 @@
  #include <memory>

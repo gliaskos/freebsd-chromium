@@ -1,4 +1,4 @@
---- tools/variations/fieldtrial_to_struct.py.orig	2017-02-02 02:03:13 UTC
+--- tools/variations/fieldtrial_to_struct.py.orig	2017-03-09 20:04:49 UTC
 +++ tools/variations/fieldtrial_to_struct.py
 @@ -116,7 +116,7 @@ def main(arguments):
    if not opts.platform:

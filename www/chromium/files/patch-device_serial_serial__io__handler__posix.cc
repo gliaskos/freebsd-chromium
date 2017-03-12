@@ -1,4 +1,4 @@
---- device/serial/serial_io_handler_posix.cc.orig	2017-02-02 02:02:54 UTC
+--- device/serial/serial_io_handler_posix.cc.orig	2017-03-09 20:04:33 UTC
 +++ device/serial/serial_io_handler_posix.cc
 @@ -61,7 +61,7 @@ bool BitrateToSpeedConstant(int bitrate,
      BITRATE_TO_SPEED_CASE(9600)

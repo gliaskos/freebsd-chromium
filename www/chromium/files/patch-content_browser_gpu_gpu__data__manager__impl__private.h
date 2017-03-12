@@ -1,4 +1,4 @@
---- content/browser/gpu/gpu_data_manager_impl_private.h.orig	2017-02-02 02:02:53 UTC
+--- content/browser/gpu/gpu_data_manager_impl_private.h.orig	2017-03-09 20:04:32 UTC
 +++ content/browser/gpu/gpu_data_manager_impl_private.h
 @@ -154,7 +154,7 @@ class CONTENT_EXPORT GpuDataManagerImplP
                             UnblockOtherDomainFrom3DAPIs);

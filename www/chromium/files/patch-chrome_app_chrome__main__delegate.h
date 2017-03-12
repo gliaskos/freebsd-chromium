@@ -1,4 +1,4 @@
---- chrome/app/chrome_main_delegate.h.orig	2017-02-02 02:02:48 UTC
+--- chrome/app/chrome_main_delegate.h.orig	2017-03-09 20:04:27 UTC
 +++ chrome/app/chrome_main_delegate.h
 @@ -44,7 +44,7 @@ class ChromeMainDelegate : public conten
        const std::string& process_type) override;
