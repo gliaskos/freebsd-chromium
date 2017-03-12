@@ -1,4 +1,4 @@
---- media/audio/audio_manager.h.orig	2017-02-02 02:02:55 UTC
+--- media/audio/audio_manager.h.orig	2017-03-09 20:04:34 UTC
 +++ media/audio/audio_manager.h
 @@ -84,7 +84,7 @@ class MEDIA_EXPORT AudioManager {
    // See http://crbug.com/422522

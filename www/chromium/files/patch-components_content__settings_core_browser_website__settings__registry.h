@@ -1,4 +1,4 @@
---- components/content_settings/core/browser/website_settings_registry.h.orig	2017-02-02 02:02:52 UTC
+--- components/content_settings/core/browser/website_settings_registry.h.orig	2017-03-09 20:04:31 UTC
 +++ components/content_settings/core/browser/website_settings_registry.h
 @@ -36,10 +36,11 @@ class WebsiteSettingsRegistry {
      PLATFORM_MAC = 1 << 3,

@@ -1,4 +1,4 @@
---- net/base/mime_util_unittest.cc.orig	2017-02-02 02:02:56 UTC
+--- net/base/mime_util_unittest.cc.orig	2017-03-09 20:04:35 UTC
 +++ net/base/mime_util_unittest.cc
 @@ -243,7 +243,7 @@ TEST(MimeUtilTest, TestGetExtensionsForM
      { "MeSsAge/*",  1, "eml" },

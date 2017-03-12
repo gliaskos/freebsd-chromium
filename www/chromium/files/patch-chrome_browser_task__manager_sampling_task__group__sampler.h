@@ -1,4 +1,4 @@
---- chrome/browser/task_manager/sampling/task_group_sampler.h.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/task_manager/sampling/task_group_sampler.h.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/task_manager/sampling/task_group_sampler.h
 @@ -45,9 +45,9 @@ class TaskGroupSampler : public base::Re
    using OnCpuRefreshCallback = base::Callback<void(double)>;

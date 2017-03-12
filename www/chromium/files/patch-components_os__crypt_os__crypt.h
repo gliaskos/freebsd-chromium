@@ -1,4 +1,4 @@
---- components/os_crypt/os_crypt.h.orig	2017-02-02 02:02:52 UTC
+--- components/os_crypt/os_crypt.h.orig	2017-03-09 20:04:31 UTC
 +++ components/os_crypt/os_crypt.h
 @@ -13,7 +13,7 @@
  #include "base/strings/string16.h"

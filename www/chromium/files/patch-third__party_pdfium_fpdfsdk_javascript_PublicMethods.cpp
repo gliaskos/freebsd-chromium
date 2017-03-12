@@ -1,4 +1,4 @@
---- third_party/pdfium/fpdfsdk/javascript/PublicMethods.cpp.orig	2017-02-02 02:03:53 UTC
+--- third_party/pdfium/fpdfsdk/javascript/PublicMethods.cpp.orig	2017-03-09 20:05:26 UTC
 +++ third_party/pdfium/fpdfsdk/javascript/PublicMethods.cpp
 @@ -68,6 +68,103 @@ const FX_WCHAR* const fullmonths[] = {L"
                                        L"July",    L"August",   L"September",

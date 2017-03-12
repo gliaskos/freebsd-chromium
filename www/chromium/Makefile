@@ -1,9 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 433722 2017-02-09 11:52:49Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 435428 2017-03-04 21:32:19Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	56.0.2924.87
-PORTREVISION=	2
+PORTVERSION=	57.0.2987.98
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -201,10 +200,11 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
 
+# Work around base r261801
 .if ${OSVERSION} >= 1200017 || (${OSVERSION} >= 1100508 && ${OSVERSION} < 1200000)
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
+GN_ARGS+=	extra_cxxflags="-D_LIBCPP_ABI_UNSTABLE=1"
 .else
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-old
+GN_ARGS+=	extra_cxxflags="-D_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"
 .endif
 .endif
 
@@ -255,8 +255,8 @@ do-install:
 .endfor
 	${INSTALL_SCRIPT} ${WRKSRC}/chrome/tools/build/linux/chrome-wrapper \
 		${STAGEDIR}${DATADIR}
-.for p in chrome_100_percent chrome_200_percent keyboard_resources resources \
-	mus_app_resources_100 mus_app_resources_200 mus_app_resources_strings \
+.for p in chrome_100_percent chrome_200_percent headless_lib keyboard_resources \
+	resources mus_app_resources_100 mus_app_resources_200 mus_app_resources_strings \
 	views_mus_resources
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${p}.pak \
 		${STAGEDIR}${DATADIR}

@@ -1,4 +1,4 @@
---- ui/gl/sync_control_vsync_provider.h.orig	2017-02-02 02:03:13 UTC
+--- ui/gl/sync_control_vsync_provider.h.orig	2017-03-09 20:04:49 UTC
 +++ ui/gl/sync_control_vsync_provider.h
 @@ -32,7 +32,7 @@ class GL_EXPORT SyncControlVSyncProvider
    virtual bool GetMscRate(int32_t* numerator, int32_t* denominator) = 0;

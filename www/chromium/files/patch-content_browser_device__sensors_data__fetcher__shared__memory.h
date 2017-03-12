@@ -1,4 +1,4 @@
---- content/browser/device_sensors/data_fetcher_shared_memory.h.orig	2017-02-02 02:02:53 UTC
+--- content/browser/device_sensors/data_fetcher_shared_memory.h.orig	2017-03-09 20:04:32 UTC
 +++ content/browser/device_sensors/data_fetcher_shared_memory.h
 @@ -45,7 +45,7 @@ class CONTENT_EXPORT DataFetcherSharedMe
    bool Start(ConsumerType consumer_type, void* buffer) override;

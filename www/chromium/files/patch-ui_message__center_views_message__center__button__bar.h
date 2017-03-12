@@ -1,4 +1,4 @@
---- ui/message_center/views/message_center_button_bar.h.orig	2017-02-02 02:03:13 UTC
+--- ui/message_center/views/message_center_button_bar.h.orig	2017-03-09 20:04:49 UTC
 +++ ui/message_center/views/message_center_button_bar.h
 @@ -74,7 +74,7 @@ class MessageCenterButtonBar : public vi
    // close-on-deactivation is off. This is a tentative solution. Once pkotwicz

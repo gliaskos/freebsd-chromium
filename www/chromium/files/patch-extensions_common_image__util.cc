@@ -1,4 +1,4 @@
---- extensions/common/image_util.cc.orig	2017-02-02 02:02:54 UTC
+--- extensions/common/image_util.cc.orig	2017-03-09 20:04:33 UTC
 +++ extensions/common/image_util.cc
 @@ -11,7 +11,11 @@
  #include "base/strings/string_number_conversions.h"

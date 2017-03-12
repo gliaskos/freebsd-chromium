@@ -1,4 +1,4 @@
---- gpu/config/gpu_control_list.cc.orig	2017-02-02 02:02:55 UTC
+--- gpu/config/gpu_control_list.cc.orig	2017-03-09 20:04:33 UTC
 +++ gpu/config/gpu_control_list.cc
 @@ -19,7 +19,11 @@
  #include "base/sys_info.h"

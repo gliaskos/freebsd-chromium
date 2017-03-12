@@ -1,4 +1,4 @@
---- chrome/browser/search/local_files_ntp_source.cc.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/search/local_files_ntp_source.cc.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/search/local_files_ntp_source.cc
 @@ -20,8 +20,13 @@
  #include "chrome/common/url_constants.h"

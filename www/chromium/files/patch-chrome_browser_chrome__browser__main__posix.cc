@@ -1,4 +1,4 @@
---- chrome/browser/chrome_browser_main_posix.cc.orig	2017-02-02 02:02:48 UTC
+--- chrome/browser/chrome_browser_main_posix.cc.orig	2017-03-09 20:04:28 UTC
 +++ chrome/browser/chrome_browser_main_posix.cc
 @@ -275,6 +275,11 @@ void ChromeBrowserMainPartsPosix::PostMa
      g_pipe_pid = getpid();

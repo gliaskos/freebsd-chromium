@@ -1,4 +1,4 @@
---- chrome/browser/task_manager/sampling/task_group_sampler.cc.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/task_manager/sampling/task_group_sampler.cc.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/task_manager/sampling/task_group_sampler.cc
 @@ -36,9 +36,9 @@ TaskGroupSampler::TaskGroupSampler(
      const OnCpuRefreshCallback& on_cpu_refresh,

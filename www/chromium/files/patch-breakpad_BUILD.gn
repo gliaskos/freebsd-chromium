@@ -1,4 +1,4 @@
---- breakpad/BUILD.gn.orig	2017-02-02 02:02:47 UTC
+--- breakpad/BUILD.gn.orig	2017-03-09 20:04:26 UTC
 +++ breakpad/BUILD.gn
 @@ -468,7 +468,7 @@ if (is_mac) {
    }

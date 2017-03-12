@@ -1,4 +1,4 @@
---- ui/app_list/views/app_list_item_view.cc.orig	2017-02-02 02:03:13 UTC
+--- ui/app_list/views/app_list_item_view.cc.orig	2017-03-09 20:04:49 UTC
 +++ ui/app_list/views/app_list_item_view.cc
 @@ -55,7 +55,7 @@ gfx::FontList GetFontList() {
    const gfx::FontList& font_list = rb.GetFontList(kItemTextFontStyle);

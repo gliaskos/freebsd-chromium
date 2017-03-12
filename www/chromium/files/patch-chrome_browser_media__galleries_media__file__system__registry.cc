@@ -1,4 +1,4 @@
---- chrome/browser/media_galleries/media_file_system_registry.cc.orig	2017-02-02 02:02:49 UTC
+--- chrome/browser/media_galleries/media_file_system_registry.cc.orig	2017-03-09 20:04:28 UTC
 +++ chrome/browser/media_galleries/media_file_system_registry.cc
 @@ -757,7 +757,10 @@ class MediaFileSystemRegistry::MediaFile
  // Constructor in 'private' section because depends on private class definition.

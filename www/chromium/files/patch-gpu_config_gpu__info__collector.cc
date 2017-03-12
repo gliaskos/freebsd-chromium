@@ -1,4 +1,4 @@
---- gpu/config/gpu_info_collector.cc.orig	2017-02-02 02:02:55 UTC
+--- gpu/config/gpu_info_collector.cc.orig	2017-03-09 20:04:33 UTC
 +++ gpu/config/gpu_info_collector.cc
 @@ -193,8 +193,10 @@ CollectInfoResult CollectGraphicsInfoGL(
    gpu_info->pixel_shader_version = glsl_version;

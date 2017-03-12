@@ -1,4 +1,4 @@
---- chrome/browser/chrome_browser_main_linux.cc.orig	2017-02-02 02:02:48 UTC
+--- chrome/browser/chrome_browser_main_linux.cc.orig	2017-03-09 20:04:28 UTC
 +++ chrome/browser/chrome_browser_main_linux.cc
 @@ -75,12 +75,14 @@ void ChromeBrowserMainPartsLinux::PrePro
  void ChromeBrowserMainPartsLinux::PostProfileInit() {

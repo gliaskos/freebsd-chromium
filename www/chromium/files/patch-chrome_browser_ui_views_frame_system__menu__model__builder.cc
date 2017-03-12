@@ -1,4 +1,4 @@
---- chrome/browser/ui/views/frame/system_menu_model_builder.cc.orig	2017-02-02 02:02:50 UTC
+--- chrome/browser/ui/views/frame/system_menu_model_builder.cc.orig	2017-03-09 20:04:29 UTC
 +++ chrome/browser/ui/views/frame/system_menu_model_builder.cc
 @@ -85,7 +85,7 @@ void SystemMenuModelBuilder::BuildSystem
      model->AddSeparator(ui::NORMAL_SEPARATOR);

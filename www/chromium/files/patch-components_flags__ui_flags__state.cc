@@ -1,4 +1,4 @@
---- components/flags_ui/flags_state.cc.orig	2017-02-02 02:02:52 UTC
+--- components/flags_ui/flags_state.cc.orig	2017-03-09 20:04:31 UTC
 +++ components/flags_ui/flags_state.cc
 @@ -544,7 +544,7 @@ int FlagsState::GetCurrentPlatform() {
    return kOsWin;

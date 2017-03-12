@@ -1,4 +1,4 @@
---- base/process/process_info_linux.cc.orig	2017-02-02 02:02:47 UTC
+--- base/process/process_info_linux.cc.orig	2017-03-09 20:04:26 UTC
 +++ base/process/process_info_linux.cc
 @@ -11,10 +11,28 @@
  #include "base/process/process_handle.h"
