@@ -201,9 +201,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
 
 # Work around base r261801
-.if ${OSVERSION} >= 1200017 || (${OSVERSION} >= 1100508 && ${OSVERSION} < 1200000)
-GN_ARGS+=	extra_cxxflags="-D_LIBCPP_ABI_UNSTABLE=1"
-.else
+.if ${OSVERSION} < 1100508
 GN_ARGS+=	extra_cxxflags="-D_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"
 .endif
 .endif
