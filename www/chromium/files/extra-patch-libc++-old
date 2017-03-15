@@ -18,7 +18,7 @@
  
 +  # Work around base r261801
 +  if (is_bsd) {
-+    defines = ["_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"]
++    defines = [ "_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1" ]
 +  }
 +
    # Desktop screen capture implementations, conditionally built depending on
@@ -69,6 +69,21 @@
      deps += [ "//third_party/boringssl" ]
    }
  
+--- dbus/BUILD.gn.orig	2017-03-09 21:04:33.000000000 +0100
++++ dbus/BUILD.gn	2017-03-15 04:06:32.509864000 +0100
+@@ -55,6 +55,11 @@
+   ]
+ }
+ 
++# Work around base r261801
++if (is_bsd) {
++  defines = [ "_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1" ]
++}
++
+ # This target contains mocks that can be used to write unit tests without
+ # issuing actual D-Bus calls.
+ static_library("test_support") {
+
 --- services/ui/ws/BUILD.gn.orig	2016-12-09 17:47:26.343517000 +0000
 +++ services/ui/ws/BUILD.gn	2016-12-09 17:50:06.387679000 +0000
 @@ -103,6 +103,11 @@
@@ -77,7 +92,7 @@
  
 +  # Work around base r261801
 +  if (is_bsd) {
-+    defines = ["_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"]
++    defines = [ "_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1" ]
 +  }
 +
    deps = [
