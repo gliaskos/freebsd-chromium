@@ -29,7 +29,7 @@
    if (known_dead) {
      return base::GetKnownDeadTerminationStatus(
          process.process.Handle(), exit_code);
-@@ -155,6 +159,7 @@ void ChildProcessLauncherHelper::ForceNo
+@@ -155,13 +159,17 @@ void ChildProcessLauncherHelper::ForceNo
      ChildProcessLauncherHelper::Process process) {
    process.process.Terminate(RESULT_CODE_NORMAL_EXIT, false);
    // On POSIX, we must additionally reap the child.
@@ -37,9 +37,11 @@
    if (process.zygote) {
      // If the renderer was created via a zygote, we have to proxy the reaping
      // through the zygote process.
-@@ -162,6 +167,7 @@ void ChildProcessLauncherHelper::ForceNo
+     process.zygote->EnsureProcessTerminated(process.process.Handle());
    } else {
++#endif
      base::EnsureProcessTerminated(std::move(process.process));
++#if !defined(OS_BSD)
    }
 +#endif
  }

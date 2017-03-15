@@ -247,6 +247,10 @@ test regression-test: build
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
+.for t in font_service ui
+	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${t}.service \
+		${STAGEDIR}${DATADIR}
+.endfor
 .for s in 22 24 48 64 128 256
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/${s}x${s}/apps
 	${INSTALL_DATA} ${WRKSRC}/chrome/app/theme/chromium/product_logo_${s}.png \
