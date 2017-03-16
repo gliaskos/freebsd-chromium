@@ -1,4 +1,4 @@
---- build/toolchain/gcc_toolchain.gni.orig	2017-02-02 02:02:47 UTC
+--- build/toolchain/gcc_toolchain.gni.orig	2017-03-09 20:04:27 UTC
 +++ build/toolchain/gcc_toolchain.gni
 @@ -11,6 +11,11 @@ import("//build/toolchain/cc_wrapper.gni
  import("//build/toolchain/goma.gni")

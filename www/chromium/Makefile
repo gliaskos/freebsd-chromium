@@ -84,6 +84,7 @@ GN_ARGS+=	is_clang=true \
 		enable_one_click_signin=true \
 		enable_remoting=false \
 		enable_webrtc=false \
+		fieldtrial_testing_like_official_build=true \
 		toolkit_views=true \
 		use_allocator="none" \
 		use_aura=true \
@@ -200,10 +201,9 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-10
 .endif
 
-.if ${OSVERSION} >= 1200017 || (${OSVERSION} >= 1100508 && ${OSVERSION} < 1200000)
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
-.else
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-old
+# Work around base r261801
+.if ${OSVERSION} < 1100508
+GN_ARGS+=	extra_cxxflags="-D_LIBCPP_TRIVIAL_PAIR_COPY_CTOR=1"
 .endif
 .endif
 
@@ -247,6 +247,10 @@ test regression-test: build
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
+.for t in font_service ui
+	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${t}.service \
+		${STAGEDIR}${DATADIR}
+.endfor
 .for s in 22 24 48 64 128 256
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/${s}x${s}/apps
 	${INSTALL_DATA} ${WRKSRC}/chrome/app/theme/chromium/product_logo_${s}.png \
