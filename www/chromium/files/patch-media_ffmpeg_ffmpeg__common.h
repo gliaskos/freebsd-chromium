@@ -1,4 +1,4 @@
---- media/ffmpeg/ffmpeg_common.h.orig	2017-03-09 20:04:34 UTC
+--- media/ffmpeg/ffmpeg_common.h.orig	2017-04-19 19:06:35 UTC
 +++ media/ffmpeg/ffmpeg_common.h
 @@ -25,7 +25,7 @@ extern "C" {
  // Disable deprecated features which result in spammy compile warnings.  This

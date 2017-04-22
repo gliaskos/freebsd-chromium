@@ -1,6 +1,6 @@
---- base/allocator/allocator_shim.cc.orig	2017-03-09 20:04:26 UTC
+--- base/allocator/allocator_shim.cc.orig	2017-04-19 19:06:28 UTC
 +++ base/allocator/allocator_shim.cc
-@@ -77,7 +77,7 @@ inline const allocator::AllocatorDispatc
+@@ -81,7 +81,7 @@ inline const allocator::AllocatorDispatc
    // Unfortunately due to that bug NoBarrier_Load() is mistakenly fully
    // barriered on Linux+Clang, and that causes visible perf regressons.
    return reinterpret_cast<const allocator::AllocatorDispatch*>(

@@ -1,4 +1,4 @@
---- chrome/browser/download/download_query.cc.orig	2017-03-09 20:04:28 UTC
+--- chrome/browser/download/download_query.cc.orig	2017-04-19 19:06:29 UTC
 +++ chrome/browser/download/download_query.cc
 @@ -27,7 +27,11 @@
  #include "components/url_formatter/url_formatter.h"

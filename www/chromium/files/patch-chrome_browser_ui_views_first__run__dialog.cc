@@ -1,4 +1,4 @@
---- chrome/browser/ui/views/first_run_dialog.cc.orig	2017-03-09 20:04:29 UTC
+--- chrome/browser/ui/views/first_run_dialog.cc.orig	2017-04-19 19:06:30 UTC
 +++ chrome/browser/ui/views/first_run_dialog.cc
 @@ -40,8 +40,10 @@ using views::GridLayout;
  namespace {

@@ -1,7 +1,0 @@
-#!/bin/sh
-for i in `cat maintainer/extra-patches` ; do
-	rm $i
-done
-for i in `cat maintainer/extra-patches-unbundle` ; do
-	rm $i
-done

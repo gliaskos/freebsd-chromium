@@ -1,4 +1,4 @@
---- device/usb/usb_device_impl.cc.orig	2017-03-09 20:04:33 UTC
+--- device/usb/usb_device_impl.cc.orig	2017-04-19 19:06:34 UTC
 +++ device/usb/usb_device_impl.cc
 @@ -22,7 +22,11 @@
  #include "device/usb/usb_descriptors.h"

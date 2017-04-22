@@ -1,4 +1,4 @@
---- base/security_unittest.cc.orig	2017-03-09 20:04:26 UTC
+--- base/security_unittest.cc.orig	2017-04-19 19:06:28 UTC
 +++ base/security_unittest.cc
 @@ -74,7 +74,7 @@ bool IsTcMallocBypassed() {
  // FAILS_ is too clunky.

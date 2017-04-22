@@ -1,6 +1,6 @@
---- chrome/browser/ui/webui/about_ui.cc.orig	2017-03-09 20:04:29 UTC
+--- chrome/browser/ui/webui/about_ui.cc.orig	2017-04-19 19:06:30 UTC
 +++ chrome/browser/ui/webui/about_ui.cc
-@@ -75,7 +75,7 @@
+@@ -76,7 +76,7 @@
  #include "chrome/browser/ui/webui/theme_source.h"
  #endif
  
