@@ -1,4 +1,4 @@
---- chrome/browser/speech/tts_controller_impl.cc.orig	2017-03-09 20:04:29 UTC
+--- chrome/browser/speech/tts_controller_impl.cc.orig	2017-04-19 19:06:30 UTC
 +++ chrome/browser/speech/tts_controller_impl.cc
 @@ -347,9 +347,13 @@ int TtsControllerImpl::QueueSize() {
  }

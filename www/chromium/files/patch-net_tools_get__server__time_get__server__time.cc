@@ -1,4 +1,4 @@
---- net/tools/get_server_time/get_server_time.cc.orig	2017-03-09 20:04:35 UTC
+--- net/tools/get_server_time/get_server_time.cc.orig	2017-04-19 19:06:36 UTC
 +++ net/tools/get_server_time/get_server_time.cc
 @@ -46,7 +46,7 @@
  

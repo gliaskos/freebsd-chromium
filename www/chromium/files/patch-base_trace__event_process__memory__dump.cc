@@ -1,4 +1,4 @@
---- base/trace_event/process_memory_dump.cc.orig	2017-03-09 20:04:26 UTC
+--- base/trace_event/process_memory_dump.cc.orig	2017-04-19 19:06:28 UTC
 +++ base/trace_event/process_memory_dump.cc
 @@ -83,7 +83,7 @@ size_t ProcessMemoryDump::CountResidentB
    const size_t kMaxChunkSize = 8 * 1024 * 1024;

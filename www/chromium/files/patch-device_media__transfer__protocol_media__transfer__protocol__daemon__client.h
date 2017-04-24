@@ -1,4 +1,4 @@
---- device/media_transfer_protocol/media_transfer_protocol_daemon_client.h.orig	2017-03-09 20:04:33 UTC
+--- device/media_transfer_protocol/media_transfer_protocol_daemon_client.h.orig	2017-04-19 19:06:34 UTC
 +++ device/media_transfer_protocol/media_transfer_protocol_daemon_client.h
 @@ -19,7 +19,7 @@
  #include "base/macros.h"

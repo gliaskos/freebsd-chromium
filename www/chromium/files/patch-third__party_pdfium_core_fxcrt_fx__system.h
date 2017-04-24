@@ -1,4 +1,4 @@
---- third_party/pdfium/core/fxcrt/fx_system.h.orig	2017-03-09 20:05:26 UTC
+--- third_party/pdfium/core/fxcrt/fx_system.h.orig	2017-04-19 19:07:50 UTC
 +++ third_party/pdfium/core/fxcrt/fx_system.h
 @@ -40,7 +40,7 @@
  #elif defined(_WIN64)

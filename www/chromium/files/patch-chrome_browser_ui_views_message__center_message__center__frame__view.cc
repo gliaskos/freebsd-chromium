@@ -1,4 +1,4 @@
---- chrome/browser/ui/views/message_center/message_center_frame_view.cc.orig	2017-03-09 20:04:29 UTC
+--- chrome/browser/ui/views/message_center/message_center_frame_view.cc.orig	2017-04-19 19:06:30 UTC
 +++ chrome/browser/ui/views/message_center/message_center_frame_view.cc
 @@ -15,7 +15,7 @@
  namespace message_center {

@@ -1,4 +1,4 @@
---- chrome/browser/platform_util.h.orig	2017-03-09 20:04:28 UTC
+--- chrome/browser/platform_util.h.orig	2017-04-19 19:06:29 UTC
 +++ chrome/browser/platform_util.h
 @@ -40,7 +40,7 @@ enum OpenOperationResult {
  enum OpenItemType {

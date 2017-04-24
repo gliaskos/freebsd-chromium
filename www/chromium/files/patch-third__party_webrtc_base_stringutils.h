@@ -1,4 +1,4 @@
---- third_party/webrtc/base/stringutils.h.orig	2017-03-09 20:05:29 UTC
+--- third_party/webrtc/base/stringutils.h.orig	2017-04-19 19:07:52 UTC
 +++ third_party/webrtc/base/stringutils.h
 @@ -23,11 +23,11 @@
  #endif  // WEBRTC_WIN 

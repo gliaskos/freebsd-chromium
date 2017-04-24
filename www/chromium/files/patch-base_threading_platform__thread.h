@@ -1,6 +1,6 @@
---- base/threading/platform_thread.h.orig	2017-03-09 20:04:26 UTC
+--- base/threading/platform_thread.h.orig	2017-04-19 19:06:28 UTC
 +++ base/threading/platform_thread.h
-@@ -205,7 +205,7 @@ class BASE_EXPORT PlatformThread {
+@@ -211,7 +211,7 @@ class BASE_EXPORT PlatformThread {
  
    static ThreadPriority GetCurrentThreadPriority();
  

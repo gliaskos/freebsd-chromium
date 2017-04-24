@@ -1,4 +1,4 @@
---- extensions/browser/api/networking_private/networking_private_event_router_factory.cc.orig	2017-03-09 20:04:33 UTC
+--- extensions/browser/api/networking_private/networking_private_event_router_factory.cc.orig	2017-04-19 19:06:34 UTC
 +++ extensions/browser/api/networking_private/networking_private_event_router_factory.cc
 @@ -13,6 +13,7 @@
  
