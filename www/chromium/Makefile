@@ -236,7 +236,7 @@ do-configure:
 
 	# Setup nodejs dependency
 	@${MKDIR} ${WRKSRC}/third_party/node/linux/node-linux-x64/bin
-	${LN} -sf ${PREFIX}/bin/node ${WRKSRC}/third_party/node/linux/node-linux-x64/bin/node
+	${LN} -sf ${LOCALBASE}/bin/node ${WRKSRC}/third_party/node/linux/node-linux-x64/bin/node
 
 test regression-test: build
 .for t in ${TEST_TARGETS}
