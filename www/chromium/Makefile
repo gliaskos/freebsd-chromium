@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 437408 2017-04-01 10:45:26Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 439367 2017-04-25 08:20:30Z riggs $
 
 PORTNAME=	chromium
 PORTVERSION=	58.0.3029.81
@@ -212,9 +212,6 @@ pre-everything::
 .else
 	@${ECHO_MSG} "and a fair amount of free diskspace (~ 3.7GB)."
 .endif
-	@${ECHO_MSG}
-	@${ECHO_MSG} "Make sure you have Python build with the SEM option ON"
-	@${ECHO_MSG} "(default in python27-2.7.8 since r361735)"
 	@${ECHO_MSG}
 
 pre-configure:
