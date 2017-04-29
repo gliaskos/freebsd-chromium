@@ -19,7 +19,7 @@
  
  def check_call(cmd, **kwargs):
    logging.debug('Running: %s', ' '.join(cmd))
-@@ -624,6 +626,39 @@ def write_gn_ninja(path, root_gen_dir, o
+@@ -624,6 +626,41 @@ def write_gn_ninja(path, root_gen_dir, o
          'base/third_party/libevent/epoll.c',
      ])
  
@@ -36,8 +36,10 @@
 +    static_libraries['base']['sources'].extend([
 +        'base/allocator/allocator_shim.cc',
 +        'base/allocator/allocator_shim_default_dispatch_to_glibc.cc',
++        'base/callback_helpers.cc',
 +        'base/memory/shared_memory_posix.cc',
 +        'base/nix/xdg_util.cc',
++        'base/process/memory_stubs.cc',
 +        #'base/process/internal_linux.cc',
 +        'base/process/process_handle_' + platform.system().lower() + '.cc',
 +        'base/process/process_iterator_' + platform.system().lower() + '.cc',
