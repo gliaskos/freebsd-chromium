@@ -47,6 +47,7 @@ LIB_DEPENDS=	libspeechd.so:accessibility/speech-dispatcher \
 		libcups.so:print/cups \
 		libfreetype.so:print/freetype2 \
 		libharfbuzz.so:print/harfbuzz \
+		libharfbuzz-icu.so:print/harfbuzz-icu \
 		libgcrypt.so:security/libgcrypt \
 		libgnome-keyring.so:security/libgnome-keyring \
 		libnss3.so:security/nss \

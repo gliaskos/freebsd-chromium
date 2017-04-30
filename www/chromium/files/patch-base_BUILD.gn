@@ -10,7 +10,7 @@
      } else if (is_android && use_allocator == "none") {
        sources += [
          "allocator/allocator_shim_default_dispatch_to_linker_wrapped_symbols.cc",
-@@ -1171,6 +1174,35 @@ component("base") {
+@@ -1171,6 +1174,34 @@ component("base") {
      }
    }
  
@@ -25,11 +25,10 @@
 +      "sys_info_linux.cc",
 +      "trace_event/malloc_dump_provider.cc",
 +      "trace_event/malloc_dump_provider.h",
-+      "debug/proc_maps_linux.cc",
-+      "debug/proc_maps_linux.h",
 +    ]
 +    sources += [
 +      "files/file_path_watcher_stub.cc",
++      "process/memory_stubs.cc",
 +      "process/process_handle_freebsd.cc",
 +      "process/process_iterator_freebsd.cc",
 +      "process/process_metrics_freebsd.cc",
@@ -46,7 +45,7 @@
    # Allow more direct string conversions on platforms with native utf8
    # strings
    if (is_mac || is_ios || is_chromeos || is_chromecast) {
-@@ -1467,7 +1499,7 @@ component("base") {
+@@ -1467,7 +1498,7 @@ component("base") {
    }
  
    # Linux.
@@ -55,7 +54,7 @@
      if (is_asan || is_lsan || is_msan || is_tsan) {
        # For llvm-sanitizer.
        data += [ "//third_party/llvm-build/Release+Asserts/lib/libstdc++.so.6" ]
-@@ -1492,7 +1524,7 @@ component("base") {
+@@ -1492,7 +1523,7 @@ component("base") {
        "//base/third_party/xdg_user_dirs",
      ]
    } else {
@@ -64,7 +63,7 @@
      sources -= [
        "nix/mime_util_xdg.cc",
        "nix/mime_util_xdg.h",
-@@ -1508,6 +1540,13 @@ component("base") {
+@@ -1508,6 +1539,13 @@ component("base") {
      }
    }
  
@@ -78,7 +77,7 @@
    # iOS
    if (is_ios) {
      set_sources_assignment_filter([])
-@@ -2309,6 +2348,12 @@ test("base_unittests") {
+@@ -2309,6 +2347,12 @@ test("base_unittests") {
      set_sources_assignment_filter(sources_assignment_filter)
    }
  
