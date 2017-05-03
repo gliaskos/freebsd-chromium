@@ -245,7 +245,7 @@ test regression-test: build
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
-.for t in font_service ui
+.for t in font_service test_ime_driver ui
 	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${t}.service \
 		${STAGEDIR}${DATADIR}
 .endfor
