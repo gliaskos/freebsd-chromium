@@ -148,12 +148,12 @@ GN_ARGS+=	proprietary_codecs=false
 GN_ARGS+=	enable_hevc_demuxing=false
 .endif
 
-DEBUG_MAKE_ENV=	V=1
 .if ${PORT_OPTIONS:MDEBUG}
 BUILDTYPE=	Debug
 GN_ARGS+=	is_debug=true
 GN_BOOTSTRAP_FLAGS+=	--debug
 #GN_ARGS+=	is_component_build=true
+MAKE_ENV+=	V=1
 .else
 BUILDTYPE=	Release
 .if ${ARCH} == amd64
