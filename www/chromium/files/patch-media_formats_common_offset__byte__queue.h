@@ -1,4 +1,4 @@
---- media/formats/common/offset_byte_queue.h.orig	2017-04-19 19:06:35 UTC
+--- media/formats/common/offset_byte_queue.h.orig	2017-06-05 19:03:09 UTC
 +++ media/formats/common/offset_byte_queue.h
 @@ -36,15 +36,15 @@ class MEDIA_EXPORT OffsetByteQueue {
    // a null |buf| and a |size| of zero.

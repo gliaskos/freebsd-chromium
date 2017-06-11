@@ -1,9 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 441138 2017-05-18 10:10:36Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 442282 2017-06-01 12:02:41Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	58.0.3029.110
-PORTREVISION=	1
+PORTVERSION=	59.0.3071.86
 CATEGORIES=	www
 MASTER_SITES=	http://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} # default, but needed to get distinfo correct if TEST is on
@@ -59,7 +58,7 @@ LIB_DEPENDS=	libspeechd.so:accessibility/speech-dispatcher \
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf
 
-ONLY_FOR_ARCHS=	i386 amd64
+ONLY_FOR_ARCHS=	amd64 i386
 USES=		compiler bison cpe desktop-file-utils execinfo jpeg \
 		ninja perl5 pkgconfig python:2,build shebangfix tar:xz
 
@@ -91,6 +90,7 @@ GN_ARGS+=	is_clang=true \
 		toolkit_views=true \
 		use_allocator="none" \
 		use_aura=true \
+		use_gtk3=true \
 		use_cups=true \
 		use_experimental_allocator_shim=false \
 		treat_warnings_as_errors=false \

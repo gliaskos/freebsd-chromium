@@ -1,4 +1,4 @@
---- extensions/browser/api/declarative_webrequest/webrequest_action.cc.orig	2017-04-19 19:06:34 UTC
+--- extensions/browser/api/declarative_webrequest/webrequest_action.cc.orig	2017-06-05 19:03:07 UTC
 +++ extensions/browser/api/declarative_webrequest/webrequest_action.cc
 @@ -29,7 +29,11 @@
  #include "net/base/registry_controlled_domains/registry_controlled_domain.h"

@@ -1,4 +1,4 @@
---- base/process/process_posix.cc.orig	2017-04-19 19:06:28 UTC
+--- base/process/process_posix.cc.orig	2017-06-05 19:03:00 UTC
 +++ base/process/process_posix.cc
 @@ -21,8 +21,18 @@
  #include <sys/event.h>
@@ -19,7 +19,7 @@
  #if !defined(OS_NACL_NONSFI)
  
  bool WaitpidWithTimeout(base::ProcessHandle handle,
-@@ -184,13 +194,13 @@ bool WaitForExitWithTimeoutImpl(base::Pr
+@@ -184,13 +194,13 @@ bool WaitForExitWithTimeoutImpl(base::ProcessHandle ha
    base::ProcessHandle parent_pid = base::GetParentProcessId(handle);
    base::ProcessHandle our_pid = base::GetCurrentProcessHandle();
    if (parent_pid != our_pid) {
@@ -36,7 +36,7 @@
    }
  
    int status;
-@@ -257,12 +267,16 @@ Process Process::DeprecatedGetProcessFro
+@@ -256,12 +266,16 @@ Process Process::DeprecatedGetProcessFromHandle(Proces
    return Process(handle);
  }
  
@@ -55,7 +55,7 @@
  
  // static
  void Process::TerminateCurrentProcessImmediately(int exit_code) {
-@@ -370,15 +384,32 @@ bool Process::WaitForExitWithTimeout(Tim
+@@ -369,15 +383,32 @@ bool Process::WaitForExitWithTimeout(TimeDelta timeout
  bool Process::IsProcessBackgrounded() const {
    // See SetProcessBackgrounded().
    DCHECK(IsValid());

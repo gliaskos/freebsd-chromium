@@ -1,6 +1,6 @@
---- chrome/browser/BUILD.gn.orig	2017-04-19 19:06:29 UTC
+--- chrome/browser/BUILD.gn.orig	2017-06-05 19:03:01 UTC
 +++ chrome/browser/BUILD.gn
-@@ -2219,7 +2219,7 @@ split_static_library("browser") {
+@@ -2296,7 +2296,7 @@ split_static_library("browser") {
      deps += [ "//device/udev_linux" ]
    }
  
@@ -9,7 +9,7 @@
      deps += [ "//third_party/speech-dispatcher" ]
    }
  
-@@ -3606,7 +3606,7 @@ split_static_library("browser") {
+@@ -3721,7 +3721,7 @@ split_static_library("browser") {
      }
    }
  

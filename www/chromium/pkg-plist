@@ -95,6 +95,10 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/errorWave_2x.png
 %%DATADIR%%/resources/inspector/Images/ic_info_black_18dp.svg
 %%DATADIR%%/resources/inspector/Images/ic_warning_black_18dp.svg
+%%DATADIR%%/resources/inspector/Images/largeIcons.png
+%%DATADIR%%/resources/inspector/Images/largeIcons_2x.png
+%%DATADIR%%/resources/inspector/Images/mediumIcons.png
+%%DATADIR%%/resources/inspector/Images/mediumIcons_2x.png
 %%DATADIR%%/resources/inspector/Images/navigationControls.png
 %%DATADIR%%/resources/inspector/Images/navigationControls_2x.png
 %%DATADIR%%/resources/inspector/Images/popoverArrows.png
@@ -111,8 +115,6 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/resourceCSSIcon.png
 %%DATADIR%%/resources/inspector/Images/resourceDocumentIcon.png
 %%DATADIR%%/resources/inspector/Images/resourceDocumentIconSmall.png
-%%DATADIR%%/resources/inspector/Images/resourceGlyphs.png
-%%DATADIR%%/resources/inspector/Images/resourceGlyphs_2x.png
 %%DATADIR%%/resources/inspector/Images/resourceJSIcon.png
 %%DATADIR%%/resources/inspector/Images/resourcePlainIcon.png
 %%DATADIR%%/resources/inspector/Images/resourcePlainIconSmall.png
@@ -124,13 +126,12 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/Images/smallIcons.png
 %%DATADIR%%/resources/inspector/Images/smallIcons_2x.png
 %%DATADIR%%/resources/inspector/Images/speech.png
-%%DATADIR%%/resources/inspector/Images/toolbarButtonGlyphs.png
-%%DATADIR%%/resources/inspector/Images/toolbarButtonGlyphs_2x.png
 %%DATADIR%%/resources/inspector/Images/toolbarResizerVertical.png
 %%DATADIR%%/resources/inspector/Images/touchCursor.png
 %%DATADIR%%/resources/inspector/Images/touchCursor_2x.png
 %%DATADIR%%/resources/inspector/Images/treeoutlineTriangles.png
 %%DATADIR%%/resources/inspector/Images/treeoutlineTriangles_2x.png
+%%DATADIR%%/resources/inspector/Images/whatsnew.png
 %%DATADIR%%/resources/inspector/InspectorBackendCommands.js
 %%DATADIR%%/resources/inspector/SupportedCSSProperties.js
 %%DATADIR%%/resources/inspector/Tests.js
@@ -140,6 +141,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/audits2_worker/audits2_worker_module.js
 %%DATADIR%%/resources/inspector/audits/audits_module.js
 %%DATADIR%%/resources/inspector/audits2/audits2_module.js
+%%DATADIR%%/resources/inspector/changes/changes_module.js
 %%DATADIR%%/resources/inspector/cm/cm_module.js
 %%DATADIR%%/resources/inspector/cm_modes/cm_modes_module.js
 %%DATADIR%%/resources/inspector/color_picker/color_picker_module.js
@@ -201,6 +203,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/layers/layers_module.js
 %%DATADIR%%/resources/inspector/network/network_module.js
 %%DATADIR%%/resources/inspector/network_group_lookup/network_group_lookup_module.js
+%%DATADIR%%/resources/inspector/object_ui/object_ui_module.js
 %%DATADIR%%/resources/inspector/perf_ui/perf_ui_module.js
 %%DATADIR%%/resources/inspector/product_registry/product_registry_module.js
 %%DATADIR%%/resources/inspector/profiler/profiler_module.js
@@ -222,6 +225,7 @@ share/applications/chromium-browser.desktop
 %%DATADIR%%/resources/inspector/unit_test_runner.html
 %%DATADIR%%/resources/inspector/unit_test_runner.js
 %%DATADIR%%/resources/inspector/utility_shared_worker.js
+%%DATADIR%%/resources/inspector/workspace_diff/workspace_diff_module.js
 %%DATADIR%%/snapshot_blob.bin
 %%DATADIR%%/test_ime_driver.service
 %%DATADIR%%/ui.service

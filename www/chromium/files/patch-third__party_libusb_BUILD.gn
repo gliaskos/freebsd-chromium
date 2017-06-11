@@ -1,6 +1,6 @@
---- third_party/libusb/BUILD.gn.orig	2017-04-19 19:06:52 UTC
+--- third_party/libusb/BUILD.gn.orig	2017-06-05 19:03:28 UTC
 +++ third_party/libusb/BUILD.gn
-@@ -6,8 +6,25 @@ assert(!is_android && !is_ios)
+@@ -6,10 +6,27 @@ assert(!is_android && !is_ios)
  
  import("//build/config/features.gni")
  
@@ -8,8 +8,8 @@
 -  include_dirs = [ "src/libusb" ]
 +declare_args() {
 +  use_system_libusb = is_bsd
-+}
-+
+ }
+ 
 +
 +if (use_system_libusb) {
 +  config("libusb_config") {
@@ -25,9 +25,11 @@
 +  config("libusb_config") {
 +    include_dirs = [ "src/libusb" ]
 +  }
- }
- 
++}
++
  config("libusb_warnings") {
+   visibility = [ ":*" ]
+   if (is_clang) {
 @@ -21,118 +38,119 @@ config("libusb_warnings") {
    }
  }

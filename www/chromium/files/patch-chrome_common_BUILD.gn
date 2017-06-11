@@ -1,4 +1,4 @@
---- chrome/common/BUILD.gn.orig	2017-04-19 19:06:30 UTC
+--- chrome/common/BUILD.gn.orig	2017-06-05 19:03:03 UTC
 +++ chrome/common/BUILD.gn
 @@ -240,6 +240,13 @@ static_library("common") {
      public_deps += [ "//ppapi/shared_impl" ]

@@ -1,4 +1,4 @@
---- ui/base/webui/web_ui_util.cc.orig	2017-04-19 19:06:54 UTC
+--- ui/base/webui/web_ui_util.cc.orig	2017-06-05 19:03:30 UTC
 +++ ui/base/webui/web_ui_util.cc
 @@ -161,7 +161,7 @@ std::string GetFontFamily() {
  

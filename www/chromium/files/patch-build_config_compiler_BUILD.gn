@@ -1,6 +1,6 @@
---- build/config/compiler/BUILD.gn.orig	2017-04-19 19:06:28 UTC
+--- build/config/compiler/BUILD.gn.orig	2017-06-05 19:03:01 UTC
 +++ build/config/compiler/BUILD.gn
-@@ -158,7 +158,7 @@ config("compiler") {
+@@ -156,7 +156,7 @@ config("compiler") {
      configs += [ "//build/config/win:compiler" ]
    } else if (is_android) {
      configs += [ "//build/config/android:compiler" ]
@@ -9,16 +9,16 @@
      configs += [ "//build/config/linux:compiler" ]
    } else if (is_nacl) {
      configs += [ "//build/config/nacl:compiler" ]
-@@ -301,7 +301,7 @@ config("compiler") {
+@@ -304,7 +304,7 @@ config("compiler") {
  
    # Linux/Android common flags setup.
    # ---------------------------------
 -  if (is_linux || is_android) {
 +  if (is_linux || is_bsd || is_android) {
-     cflags += [
-       "-fPIC",
-       "-pipe",  # Use pipes for communicating between sub-processes. Faster.
-@@ -428,14 +428,14 @@ config("compiler") {
+     if (use_pic) {
+       cflags += [ "-fPIC" ]
+       ldflags += [ "-fPIC" ]
+@@ -429,14 +429,14 @@ config("compiler") {
    # clang-cl (used if is_win) doesn't expose this flag.
    # Currently disabled for nacl since its toolchain lacks this flag (too old).
    # TODO(zforman): Once nacl's toolchain is updated, remove check.
@@ -35,7 +35,7 @@
      # gnu++11 instead of c++11 is needed because some code uses typeof() (a
      # GNU extension).
      # TODO(thakis): Eventually switch this to c++11 instead,
-@@ -488,7 +488,7 @@ config("compiler") {
+@@ -493,7 +493,7 @@ config("compiler") {
        ]
  
        # Apply a lower LTO optimization level as the default is too slow.
@@ -44,7 +44,7 @@
          if (use_lld) {
            ldflags += [ "-Wl,--lto-O1" ]
          } else {
-@@ -508,7 +508,7 @@ config("compiler") {
+@@ -513,7 +513,7 @@ config("compiler") {
      # targeting ARM, without this flag, LTO produces a .text section that is
      # larger than the maximum call displacement, preventing the linker from
      # relocating calls (http://llvm.org/PR22999).
@@ -53,7 +53,7 @@
        ldflags += [ "-Wl,-plugin-opt,-function-sections" ]
      }
    }
-@@ -776,7 +776,7 @@ config("compiler_codegen") {
+@@ -781,7 +781,7 @@ config("compiler_codegen") {
  #   configs -= [ "//build/config/compiler:clang_stackrealign" ]
  # See https://crbug.com/556393 for details of where it must be avoided.
  config("clang_stackrealign") {
@@ -62,7 +62,7 @@
      cflags = [
        # Align the stack on 16-byte boundaries, http://crbug.com/418554.
        "-mstack-alignment=16",
-@@ -830,7 +830,7 @@ config("runtime_library") {
+@@ -835,7 +835,7 @@ config("runtime_library") {
    # smaller.
    if (is_win) {
      configs += [ "//build/config/win:runtime_library" ]
@@ -71,16 +71,16 @@
      configs += [ "//build/config/linux:runtime_library" ]
    } else if (is_ios) {
      configs += [ "//build/config/ios:runtime_library" ]
-@@ -1087,7 +1087,7 @@ config("default_warnings") {
+@@ -1097,7 +1097,7 @@ config("default_warnings") {
+         "-Wno-address-of-packed-member",
  
-     # use_xcode_clang only refers to the iOS toolchain, host binaries use
-     # chromium's clang always.
--    if (!is_nacl && (!use_xcode_clang || current_toolchain == host_toolchain)) {
-+    if (!is_nacl && !is_bsd && (!use_xcode_clang || current_toolchain == host_toolchain)) {
-       # Flags NaCl (Clang 3.7) and Xcode 7.3 (Clang clang-703.0.31) do not
-       # recognize.
-       cflags += [
-@@ -1144,7 +1144,7 @@ config("chromium_code") {
+         # TODO(hans): https://crbug.com/681136
+-        "-Wno-unused-lambda-capture",
++        # "-Wno-unused-lambda-capture",
+ 
+         # TODO(thakis ): https://crbug.com/683349
+         "-Wno-user-defined-warnings",
+@@ -1137,7 +1137,7 @@ config("chromium_code") {
      ]
  
      if (!is_debug && !using_sanitizer &&
@@ -89,7 +89,7 @@
        # _FORTIFY_SOURCE isn't really supported by Clang now, see
        # http://llvm.org/bugs/show_bug.cgi?id=16821.
        # It seems to work fine with Ubuntu 12 headers though, so use it in
-@@ -1203,7 +1203,7 @@ config("no_chromium_code") {
+@@ -1196,7 +1196,7 @@ config("no_chromium_code") {
      ]
    }
  

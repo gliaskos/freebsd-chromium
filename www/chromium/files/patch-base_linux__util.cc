@@ -1,4 +1,4 @@
---- base/linux_util.cc.orig	2017-04-19 19:06:28 UTC
+--- base/linux_util.cc.orig	2017-06-05 19:03:00 UTC
 +++ base/linux_util.cc
 @@ -110,12 +110,14 @@ char g_linux_distro[kDistroSize] =
      "CrOS";

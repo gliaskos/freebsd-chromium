@@ -1,4 +1,4 @@
---- ui/message_center/views/toast_contents_view.cc.orig	2017-04-19 19:06:54 UTC
+--- ui/message_center/views/toast_contents_view.cc.orig	2017-06-05 19:03:30 UTC
 +++ ui/message_center/views/toast_contents_view.cc
 @@ -388,7 +388,7 @@ void ToastContentsView::CreateWidget(
      PopupAlignmentDelegate* alignment_delegate) {

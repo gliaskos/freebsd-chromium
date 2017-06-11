@@ -1,4 +1,4 @@
---- net/http/http_network_session.cc.orig	2017-04-19 19:06:36 UTC
+--- net/http/http_network_session.cc.orig	2017-06-05 19:03:10 UTC
 +++ net/http/http_network_session.cc
 @@ -23,7 +23,9 @@
  #include "base/trace_event/process_memory_dump.h"

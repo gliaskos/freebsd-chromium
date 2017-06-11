@@ -1,4 +1,4 @@
---- services/service_manager/standalone/context.cc.orig	2017-04-19 19:06:37 UTC
+--- services/service_manager/standalone/context.cc.orig	2017-06-05 19:03:11 UTC
 +++ services/service_manager/standalone/context.cc
 @@ -133,7 +133,7 @@ Context::Context(
        tracing::mojom::StartupPerformanceDataCollectorPtr collector;
