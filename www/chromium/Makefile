@@ -94,6 +94,7 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		use_cups=true \
 		use_experimental_allocator_shim=false \
 		use_gtk3=true \
+		use_lld=true \
 		use_sysroot=false \
 		use_system_libjpeg=true \
 		use_system_sqlite=false   # chrome has additional patches
@@ -152,13 +153,9 @@ GN_ARGS+=	enable_hevc_demuxing=false
 BUILDTYPE=	Debug
 GN_ARGS+=	is_debug=true
 GN_BOOTSTRAP_FLAGS+=	--debug
-#GN_ARGS+=	is_component_build=true
 MAKE_ENV+=	V=1
 .else
 BUILDTYPE=	Release
-.if ${ARCH} == amd64
-GN_ARGS+=	use_lld=true # harder, better, faster, stronger
-.endif
 GN_ARGS+=	is_debug=false
 GN_ARGS+=	symbol_level=0
 GN_ARGS+=	remove_webcore_debug_symbols=true
@@ -246,8 +243,8 @@ test regression-test: build
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/out/${BUILDTYPE}/chrome.1 ${STAGEDIR}${MANPREFIX}/man/man1
-.for t in font_service test_ime_driver ui
-	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${t}.service \
+.for m in font_service test_ime_driver ui
+	${INSTALL_DATA} ${WRKSRC}/out/${BUILDTYPE}/${m}.service \
 		${STAGEDIR}${DATADIR}
 .endfor
 .for s in 22 24 48 64 128 256

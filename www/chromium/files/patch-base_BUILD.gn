@@ -1,6 +1,6 @@
---- base/BUILD.gn.orig	2017-06-05 19:03:00 UTC
-+++ base/BUILD.gn
-@@ -1098,7 +1098,7 @@ component("base") {
+--- base/BUILD.gn.orig	2017-06-05 21:03:00.000000000 +0200
++++ base/BUILD.gn	2017-06-13 19:23:34.211227000 +0200
+@@ -1098,7 +1098,7 @@
        "base_paths_win.h",
      ]
  
@@ -9,7 +9,7 @@
        sources += [ "base_paths_posix.cc" ]
      }
    }
-@@ -1157,6 +1157,9 @@ component("base") {
+@@ -1157,6 +1157,9 @@
        deps += [ "//base/allocator:tcmalloc" ]
      } else if (is_linux && use_allocator == "none") {
        sources += [ "allocator/allocator_shim_default_dispatch_to_glibc.cc" ]
@@ -19,7 +19,7 @@
      } else if (is_android && use_allocator == "none") {
        sources += [
          "allocator/allocator_shim_default_dispatch_to_linker_wrapped_symbols.cc",
-@@ -1172,6 +1175,34 @@ component("base") {
+@@ -1172,6 +1175,33 @@
      }
    }
  
@@ -37,7 +37,6 @@
 +    ]
 +    sources += [
 +      "files/file_path_watcher_stub.cc",
-+      "process/memory_stubs.cc",
 +      "process/process_handle_freebsd.cc",
 +      "process/process_iterator_freebsd.cc",
 +      "process/process_metrics_freebsd.cc",
@@ -54,7 +53,7 @@
    # Allow more direct string conversions on platforms with native utf8
    # strings
    if (is_mac || is_ios || is_chromeos || is_chromecast) {
-@@ -1469,7 +1500,7 @@ component("base") {
+@@ -1469,7 +1499,7 @@
    }
  
    # Linux.
@@ -63,7 +62,7 @@
      if (is_asan || is_lsan || is_msan || is_tsan) {
        # For llvm-sanitizer.
        data += [ "//third_party/llvm-build/Release+Asserts/lib/libstdc++.so.6" ]
-@@ -1494,7 +1525,7 @@ component("base") {
+@@ -1494,7 +1524,7 @@
        "//base/third_party/xdg_user_dirs",
      ]
    } else {
@@ -72,7 +71,7 @@
      sources -= [
        "nix/mime_util_xdg.cc",
        "nix/mime_util_xdg.h",
-@@ -2325,6 +2356,12 @@ test("base_unittests") {
+@@ -2325,6 +2355,12 @@
        "trace_event/trace_event_android_unittest.cc",
      ]
      set_sources_assignment_filter(sources_assignment_filter)
