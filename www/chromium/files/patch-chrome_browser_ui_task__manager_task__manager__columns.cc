@@ -1,4 +1,4 @@
---- chrome/browser/ui/task_manager/task_manager_columns.cc.orig	2017-04-19 19:06:30 UTC
+--- chrome/browser/ui/task_manager/task_manager_columns.cc.orig	2017-06-05 19:03:03 UTC
 +++ chrome/browser/ui/task_manager/task_manager_columns.cc
 @@ -80,10 +80,10 @@ const TableColumnData kColumns[] = {
      {IDS_TASK_MANAGER_IDLE_WAKEUPS_COLUMN, ui::TableColumn::RIGHT, -1, 0,

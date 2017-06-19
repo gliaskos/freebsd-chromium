@@ -1,4 +1,4 @@
---- extensions/common/stack_frame.cc.orig	2017-04-19 19:06:34 UTC
+--- extensions/common/stack_frame.cc.orig	2017-06-05 19:03:07 UTC
 +++ extensions/common/stack_frame.cc
 @@ -7,7 +7,11 @@
  #include <string>

@@ -1,4 +1,4 @@
---- components/policy/tools/generate_policy_source.py.orig	2017-04-19 19:06:33 UTC
+--- components/policy/tools/generate_policy_source.py.orig	2017-06-05 19:03:06 UTC
 +++ components/policy/tools/generate_policy_source.py
 @@ -103,7 +103,7 @@ class PolicyDetails:
        if platform.startswith('chrome.'):
