@@ -1,5 +1,5 @@
---- base/process/process_posix.cc.orig	2017-06-05 19:03:00 UTC
-+++ base/process/process_posix.cc
+--- base/process/process_posix.cc.orig	2017-06-15 21:03:00.000000000 +0200
++++ base/process/process_posix.cc	2017-06-19 15:25:27.760111000 +0200
 @@ -21,8 +21,18 @@
  #include <sys/event.h>
  #endif
@@ -19,7 +19,7 @@
  #if !defined(OS_NACL_NONSFI)
  
  bool WaitpidWithTimeout(base::ProcessHandle handle,
-@@ -184,13 +194,13 @@ bool WaitForExitWithTimeoutImpl(base::ProcessHandle ha
+@@ -184,13 +194,13 @@
    base::ProcessHandle parent_pid = base::GetParentProcessId(handle);
    base::ProcessHandle our_pid = base::GetCurrentProcessHandle();
    if (parent_pid != our_pid) {
@@ -36,7 +36,7 @@
    }
  
    int status;
-@@ -256,12 +266,16 @@ Process Process::DeprecatedGetProcessFromHandle(Proces
+@@ -256,12 +266,16 @@
    return Process(handle);
  }
  
@@ -55,7 +55,7 @@
  
  // static
  void Process::TerminateCurrentProcessImmediately(int exit_code) {
-@@ -369,15 +383,32 @@ bool Process::WaitForExitWithTimeout(TimeDelta timeout
+@@ -369,15 +383,31 @@
  bool Process::IsProcessBackgrounded() const {
    // See SetProcessBackgrounded().
    DCHECK(IsValid());
@@ -82,7 +82,6 @@
 +  int priority = value ? kBackgroundPriority : kForegroundPriority;
 +  int result   = setpriority(PRIO_PROCESS, process_, priority);
 +
-+  DPCHECK(result == 0);
 +  return result == 0;
 +#endif // !defined(OS_FREEBSD)
  }

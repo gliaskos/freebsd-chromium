@@ -64,6 +64,7 @@ USES=		bison compiler cpe desktop-file-utils execinfo jpeg \
 
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
+USE_LDCONFIG=	${DATADIR}
 USE_PERL5=	build
 USE_XORG=	scrnsaverproto x11 xcb xcomposite xcursor xext xdamage xfixes xi \
 		xproto xrandr xrender xscrnsaver xtst
@@ -273,6 +274,12 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/chrome ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/mksnapshot \
 		${STAGEDIR}${DATADIR}
+.if ${PORT_OPTIONS:MDEBUG}
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/*.so \
+		${STAGEDIR}${DATADIR}
+	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/character_data_generator \
+		${STAGEDIR}${DATADIR}
+.endif
 .if ${PORT_OPTIONS:MDRIVER}
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
 		${STAGEDIR}${PREFIX}/bin
