@@ -1,4 +1,5 @@
-#$FreeBSD: head/www/chromium/Makefile.tests 368166 2014-09-14 10:16:28Z rene $
+#$FreeBSD: head/www/chromium/Makefile.tests 443998 2017-06-20 20:20:44Z cpm $
+#net_unittests : fatal error: 'sys/epoll.h' file not found
 #telemetry_unittests : unknown ninja target
 TEST_TARGETS=	base_unittests \
 		crypto_unittests \
@@ -12,7 +13,6 @@ TEST_TARGETS=	base_unittests \
 		compositor_unittests \
 		ipc_tests \
 		dbus_unittests \
-		net_unittests \
 		media_unittests \
 		chromedriver_unittests \
 		chromedriver_tests \
