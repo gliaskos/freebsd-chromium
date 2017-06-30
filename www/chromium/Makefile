@@ -61,8 +61,8 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf
 
 ONLY_FOR_ARCHS=	amd64 i386
-USES=		bison compiler cpe desktop-file-utils execinfo jpeg \
-		ninja perl5 pkgconfig python:2,build shebangfix tar:xz
+USES=		bison cpe desktop-file-utils execinfo jpeg ninja perl5 \
+		pkgconfig python:2,build shebangfix tar:xz
 
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
@@ -75,6 +75,10 @@ MAKE_ARGS=	-C out/${BUILDTYPE}
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
+
+CC=                     clang40
+CXX=                    clang++40
+EXTRA_PATCHES+=         ${FILESDIR}/extra-patch-clang
 
 # TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
 #
@@ -139,7 +143,6 @@ CODECS_VARS_OFF=	GN_ARGS+=ffmpeg_branding="Chromium" \
 			GN_ARGS+=proprietary_codecs=false \
 			GN_ARGS+=enable_hevc_demuxing=false
 
-DEBUG_MAKE_ENV=		V=1
 DEBUG_VARS=		BUILDTYPE=Debug \
 			GN_ARGS+=is_debug=true \
 			GN_BOOTSTRAP_FLAGS+=--debug \
@@ -175,13 +178,8 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 .include "Makefile.tests"
 TEST_ALL_TARGET=	${TEST_TARGETS}
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}:source1
-TEST_VARS=		RUN_TESTS="${TEST_TARGETS}"
 
-.include <bsd.port.pre.mk>
-
-CC=			clang40
-CXX=			clang++40
-EXTRA_PATCHES+=		${FILESDIR}/extra-patch-clang
+.include <bsd.port.options.mk>
 
 # TODO: -isystem, would be just as ugly as this approach, but more reliably
 # build would fail without C_INCLUDE_PATH/CPLUS_INCLUDE_PATH env var set.
@@ -229,8 +227,8 @@ do-configure:
 	@${MKDIR} ${WRKSRC}/third_party/node/linux/node-linux-x64/bin
 	${LN} -sf ${LOCALBASE}/bin/node ${WRKSRC}/third_party/node/linux/node-linux-x64/bin/node
 
-test regression-test: build
-.for t in ${RUN_TESTS}
+do-test-TEST-on:
+.for t in ${TEST_TARGETS}
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
 		./${t} --gtest_filter=-${EXCLUDE_${t}:ts:} || ${TRUE}
 .endfor
@@ -279,4 +277,4 @@ post-install-DRIVER-on:
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
 		${STAGEDIR}${PREFIX}/bin
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
