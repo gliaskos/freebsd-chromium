@@ -76,9 +76,9 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
-CC=                     clang40
-CXX=                    clang++40
-EXTRA_PATCHES+=         ${FILESDIR}/extra-patch-clang
+CC=		clang40
+CXX=		clang++40
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 
 # TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
 #
