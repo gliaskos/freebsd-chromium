@@ -1,5 +1,5 @@
---- build/config/compiler/BUILD.gn.orig	2017-06-05 21:03:01.000000000 +0200
-+++ build/config/compiler/BUILD.gn	2017-06-13 16:28:04.062660000 +0200
+--- build/config/compiler/BUILD.gn.orig	2017-06-26 21:03:13.000000000 +0200
++++ build/config/compiler/BUILD.gn	2017-07-01 01:18:24.381731000 +0200
 @@ -37,7 +37,7 @@
    # only two architectures that are currently checked in). Turn this off when
    # you are using a custom toolchain and need to control -B in cflags.
@@ -80,6 +80,15 @@
        ldflags += [ "-Wl,-plugin-opt,-function-sections" ]
      }
    }
+@@ -584,7 +584,7 @@
+         cflags += [ "-mtune=$arm_tune" ]
+       }
+     } else if (current_cpu == "arm64") {
+-      if (is_clang && !is_android && !is_nacl) {
++      if (is_clang && !is_android && !is_nacl && !is_bsd) {
+         cflags += [ "--target=aarch64-linux-gnu" ]
+         ldflags += [ "--target=aarch64-linux-gnu" ]
+       }
 @@ -781,7 +781,7 @@
  #   configs -= [ "//build/config/compiler:clang_stackrealign" ]
  # See https://crbug.com/556393 for details of where it must be avoided.

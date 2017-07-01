@@ -1,8 +1,9 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 444531 2017-06-28 00:36:33Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 444775 2017-06-30 19:10:30Z cpm $
 
 PORTNAME=	chromium
 PORTVERSION=	59.0.3071.115
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/:source1 \
 		LOCAL/cpm:source2
@@ -60,7 +61,7 @@ LIB_DEPENDS=	libspeechd.so:accessibility/speech-dispatcher \
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		droid-fonts-ttf>0:x11-fonts/droid-fonts-ttf
 
-ONLY_FOR_ARCHS=	amd64 i386
+ONLY_FOR_ARCHS=	aarch64 amd64 i386
 USES=		bison cpe desktop-file-utils execinfo jpeg ninja perl5 \
 		pkgconfig python:2,build shebangfix tar:xz
 
