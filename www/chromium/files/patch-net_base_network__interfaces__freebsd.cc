@@ -1,6 +1,6 @@
---- net/base/network_interfaces_freebsd.cc.orig	2017-07-04 23:05:54.591928000 +0200
-+++ net/base/network_interfaces_freebsd.cc	2017-07-04 23:07:28.844964000 +0200
-@@ -0,0 +1,239 @@
+--- net/base/network_interfaces_freebsd.cc.orig	2017-07-05 18:08:44.779023000 +0200
++++ net/base/network_interfaces_freebsd.cc	2017-07-05 22:03:18.679624000 +0200
+@@ -0,0 +1,240 @@
 +// Copyright (c) 2014 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -12,6 +12,7 @@
 +#include <netinet/in.h>
 +#include <sys/types.h>
 +#include <net/if_media.h>
++#include <net/if_var.h>
 +#include <netinet/in_var.h>
 +#include <netinet6/in6_var.h>
 +#include <sys/ioctl.h>
