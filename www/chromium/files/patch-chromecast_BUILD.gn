@@ -1,4 +1,4 @@
---- chromecast/BUILD.gn.orig	2017-06-05 19:03:05 UTC
+--- chromecast/BUILD.gn.orig	2017-04-19 19:06:32 UTC
 +++ chromecast/BUILD.gn
 @@ -55,7 +55,7 @@ cast_test_group("cast_tests") {
      }

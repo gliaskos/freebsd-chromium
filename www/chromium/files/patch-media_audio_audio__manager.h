@@ -1,4 +1,4 @@
---- media/audio/audio_manager.h.orig	2017-06-05 19:03:08 UTC
+--- media/audio/audio_manager.h.orig	2017-04-19 19:06:35 UTC
 +++ media/audio/audio_manager.h
 @@ -81,7 +81,7 @@ class MEDIA_EXPORT AudioManager {
    static void StartHangMonitorIfNeeded(

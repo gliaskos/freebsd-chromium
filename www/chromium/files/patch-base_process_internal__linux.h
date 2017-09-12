@@ -1,4 +1,4 @@
---- base/process/internal_linux.h.orig	2017-06-05 19:03:00 UTC
+--- base/process/internal_linux.h.orig	2017-04-19 19:06:28 UTC
 +++ base/process/internal_linux.h
 @@ -14,6 +14,8 @@
  

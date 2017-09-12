@@ -1,4 +1,4 @@
---- base/threading/platform_thread.h.orig	2017-06-05 19:03:00 UTC
+--- base/threading/platform_thread.h.orig	2017-04-19 19:06:28 UTC
 +++ base/threading/platform_thread.h
 @@ -211,7 +211,7 @@ class BASE_EXPORT PlatformThread {
  
