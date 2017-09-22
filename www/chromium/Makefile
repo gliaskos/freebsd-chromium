@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 449124 2017-09-02 11:34:55Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 450351 2017-09-22 10:48:28Z mat $
 
 PORTNAME=	chromium
-PORTVERSION=	61.0.3163.91
+PORTVERSION=	61.0.3163.100
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -67,7 +67,7 @@ ONLY_FOR_ARCHS=	aarch64 amd64 i386
 .if defined(GN_ONLY)
 USES=		compiler:c++14-lang ninja pkgconfig python:2,build shebangfix tar:xz
 .else
-USES=		bison cpe desktop-file-utils execinfo jpeg ninja perl5 pkgconfig \
+USES=		bison cpe desktop-file-utils jpeg ninja perl5 pkgconfig \
 		python:2,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
@@ -206,7 +206,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
 .endif
 
 .if ${ARCH} == aarch64
-GN_ARGS+=	use_vulcanize=false
+GN_ARGS+=	optimize_webui=false
 .endif
 
 .if !defined(GN_ONLY)
