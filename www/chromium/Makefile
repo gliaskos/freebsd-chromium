@@ -206,7 +206,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
 .endif
 
 .if ${ARCH} == aarch64
-GN_ARGS+=	optimize_webui=false
+GN_ARGS+=	use_vulcanize=false
 .endif
 
 .if !defined(GN_ONLY)
