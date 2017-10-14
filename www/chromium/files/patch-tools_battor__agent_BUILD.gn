@@ -1,4 +1,4 @@
---- tools/battor_agent/BUILD.gn.orig	2017-06-05 19:03:29 UTC
+--- tools/battor_agent/BUILD.gn.orig	2017-04-19 19:06:54 UTC
 +++ tools/battor_agent/BUILD.gn
 @@ -5,7 +5,7 @@
  import("//testing/test.gni")

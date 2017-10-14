@@ -1,4 +1,4 @@
---- chrome/browser/task_manager/sampling/task_group.h.orig	2017-06-05 19:03:03 UTC
+--- chrome/browser/task_manager/sampling/task_group.h.orig	2017-04-19 19:06:30 UTC
 +++ chrome/browser/task_manager/sampling/task_group.h
 @@ -96,9 +96,9 @@ class TaskGroup {
    int nacl_debug_stub_port() const { return nacl_debug_stub_port_; }

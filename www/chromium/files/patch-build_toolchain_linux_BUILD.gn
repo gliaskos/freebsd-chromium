@@ -1,5 +1,5 @@
---- build/toolchain/linux/BUILD.gn.orig	2017-07-01 01:19:34.918465000 +0200
-+++ build/toolchain/linux/BUILD.gn	2017-07-01 01:19:56.675777000 +0200
+--- build/toolchain/linux/BUILD.gn.orig	2017-09-11 02:58:56.145741000 +0200
++++ build/toolchain/linux/BUILD.gn	2017-09-11 02:59:18.322655000 +0200
 @@ -14,7 +14,6 @@
  }
  
