@@ -1,8 +1,9 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 450351 2017-09-22 10:48:28Z mat $
+# $FreeBSD: head/www/chromium/Makefile 453790 2017-11-09 02:31:47Z jbeich $
 
 PORTNAME=	chromium
 PORTVERSION=	61.0.3163.100
+PORTREVISION=	3
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -130,12 +131,11 @@ GN_ARGS+=	google_api_key="AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8" \
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
 
-OPTIONS_DEFINE=	CODECS GCONF KERBEROS DRIVER
+OPTIONS_DEFINE=	CODECS DEBUG GCONF KERBEROS DRIVER TEST
 CODECS_DESC=	Compile and enable patented codecs like H.264
 DRIVER_DESC=	Install chromedriver
-OPTIONS_GROUP=		AUDIO TESTS
+OPTIONS_GROUP=		AUDIO
 OPTIONS_GROUP_AUDIO=	ALSA PULSEAUDIO SNDIO
-OPTIONS_GROUP_TESTS=	DEBUG TEST
 
 OPTIONS_DEFAULT=	ALSA CODECS DRIVER GCONF KERBEROS
 OPTIONS_SUB=		yes
