@@ -1,5 +1,5 @@
 --- build/config/compiler/BUILD.gn.orig	2018-01-04 21:05:38.000000000 +0100
-+++ build/config/compiler/BUILD.gn	2018-01-20 16:53:24.701867000 +0100
++++ build/config/compiler/BUILD.gn	2018-02-17 22:25:04.697653000 +0100
 @@ -47,7 +47,7 @@
    # only two architectures that are currently checked in). Turn this off when
    # you are using a custom toolchain and need to control -B in cflags.
@@ -18,15 +18,15 @@
        # TODO(jochen): Enable this on chromeos on arm. http://crbug.com/356580
        # TODO(lizeb,pasko): Fix link errors when linking with order_profiling=1
        # crbug.com/485542
-+@@ -277,7 +277,7 @@
-+       }
-+     }
-+ 
-+-    if (is_official_build) {
-++    if (is_official_build && !is_bsd) {
-+       # Explicitly pass --build-id to ld. Compilers used to always pass this
-+       # implicitly but don't any more (in particular clang when built without
-+       # ENABLE_LINKER_BUILD_ID=ON). The crash infrastructure does need a build
+@@ -277,7 +277,7 @@
+       }
+     }
+ 
+-    if (is_official_build) {
++    if (is_official_build && !is_bsd) {
+       # Explicitly pass --build-id to ld. Compilers used to always pass this
+       # implicitly but don't any more (in particular clang when built without
+       # ENABLE_LINKER_BUILD_ID=ON). The crash infrastructure does need a build
 @@ -326,8 +326,6 @@
        "-Wl,-z,relro",
      ]
