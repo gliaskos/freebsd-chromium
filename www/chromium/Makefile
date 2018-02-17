@@ -118,8 +118,8 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		use_bundled_fontconfig=false \
 		use_cups=true \
 		use_custom_libcxx=false \
+		use_gold=false \
 		use_gtk3=true \
-		use_lld=true \
 		use_sysroot=false \
 		use_system_freetype=true \
 		use_system_harfbuzz=true \
@@ -220,6 +220,10 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-libc++-new
 
 .if ${ARCH} == aarch64
 GN_ARGS+=	use_vulcanize=false
+.endif
+
+.if ${ARCH} == amd64
+GN_ARGS+=	use_lld=true
 .endif
 
 .if !defined(GN_ONLY)
