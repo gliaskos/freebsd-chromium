@@ -226,11 +226,6 @@ GN_ARGS+=	use_vulcanize=false
 GN_ARGS+=	use_lld=true
 .endif
 
-.if ${ARCH} == i386
-BUILD_DEPENDS+=	${LOCALBASE}/bin/ld:devel/binutils
-LD=		${LOCALBASE}/bin/ld
-.endif
-
 .if !defined(GN_ONLY)
 pre-everything::
 	@${ECHO_MSG}
