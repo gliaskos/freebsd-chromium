@@ -13,8 +13,7 @@ COMMENT?=	Google web browser based on WebKit
 LICENSE=	BSD3CLAUSE LGPL21 MPL11
 LICENSE_COMB=	multi
 
-BUILD_DEPENDS=	python:lang/python \
-		bash:shells/bash \
+BUILD_DEPENDS=	bash:shells/bash \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR} \
 
@@ -77,6 +76,7 @@ USES=		bison cpe desktop-file-utils jpeg ninja perl5 pkgconfig \
 		python:2.7,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
+BINARY_ALIAS=	python=${PYTHON_CMD}
 
 .if !defined(GN_ONLY)
 CPE_VENDOR=	google
@@ -246,18 +246,18 @@ pre-configure:
 	# system libraries and not shipped ones.
 	# cd ${WRKSRC} && ${PYTHON_CMD} \
 	#./build/linux/unbundle/remove_bundled_libraries.py [list of preserved]
-	cd ${WRKSRC} && ${PYTHON_CMD} \
+	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${PYTHON_CMD} \
 		./build/linux/unbundle/replace_gn_files.py --system-libraries \
 		ffmpeg flac freetype harfbuzz-ng libdrm libwebp libxml libxslt openh264 opus snappy yasm || ${FALSE}
 .endif
 
 do-configure:
 	# GN generator bootstrapping and generating ninja files
-	cd ${WRKSRC} && ${SETENV} CC=${CC} CXX=${CXX} LD=${CXX} \
+	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} CC=${CC} CXX=${CXX} LD=${CXX} \
 		READELF=${READELF} AR=${AR} NM=${NM} ${PYTHON_CMD} \
 		./tools/gn/bootstrap/bootstrap.py ${GN_BOOTSTRAP_FLAGS}
 .if !defined(GN_ONLY)
-	cd ${WRKSRC} && ${SETENV} ./out/${BUILDTYPE}/gn \
+	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ./out/${BUILDTYPE}/gn \
 		gen --args='${GN_ARGS}' out/${BUILDTYPE}
 
 	# Setup nodejs dependency
