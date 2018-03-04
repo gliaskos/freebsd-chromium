@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 457431 2017-12-27 23:33:04Z jbeich $
+# $FreeBSD: head/www/chromium/Makefile 462416 2018-02-20 18:51:06Z rene $
 
 PORTNAME=	chromium
-PORTVERSION=	63.0.3239.132
+PORTVERSION=	64.0.3282.186
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -30,7 +30,8 @@ BUILD_DEPENDS+=	gperf:devel/gperf \
 .endif
 
 .if !defined(GN_ONLY)
-LIB_DEPENDS=	libspeechd.so:accessibility/speech-dispatcher \
+LIB_DEPENDS=	libatk-bridge-2.0.so:accessibility/at-spi2-atk \
+		libspeechd.so:accessibility/speech-dispatcher \
 		libsnappy.so:archivers/snappy \
 		libFLAC.so:audio/flac \
 		libopus.so:audio/opus \
