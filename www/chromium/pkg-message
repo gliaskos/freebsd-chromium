@@ -9,3 +9,16 @@ to /etc/sysctl.conf :
 kern.ipc.shm_allow_removed=1
 
 FreeBSD 11.0-R and newer have this set by default.
+
+Chromium has a known problem of hanging tabs. The workaround
+for this problem is to mount ~/.cache/chromium as tmpfs. In order
+to do this, please create this directory if you don't have it as
+user {user}:
+
+$ mkdir ~{user}/.cache/chromium
+
+and mount it as tmpfs, as root:
+
+# echo "tmpfs /home/{user}/.cache/chromium tmpfs rw,late,size=300M 0 0" >> /etc/fstab
+# mount /home/{user}/.cache/chromium
+
