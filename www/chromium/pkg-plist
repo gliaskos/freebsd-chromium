@@ -307,7 +307,6 @@ bin/chrome
 %%DEBUG%%%%DATADIR%%/libVkLayer_core_validation.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_object_tracker.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_parameter_validation.so
-%%DEBUG%%%%DATADIR%%/libVkLayer_swapchain.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_threading.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_unique_objects.so
 %%DRIVER%%bin/chromedriver

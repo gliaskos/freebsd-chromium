@@ -111,7 +111,6 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		enable_webrtc=true \
 		fieldtrial_testing_like_official_build=true \
 		is_clang=true \
-		is_official_build=true \
 		toolkit_views=true \
 		treat_warnings_as_errors=false \
 		use_allocator="none" \
@@ -178,6 +177,7 @@ DEBUG_VARS=		BUILDTYPE=Debug \
 			WANTSPACE="lots of free disk space (~ 12GB)"
 DEBUG_VARS_OFF=		BUILDTYPE=Release \
 			GN_ARGS+=is_debug=false \
+			GN_ARGS+=is_official_build=true \
 			GN_ARGS+=symbol_level=0 \
 			GN_ARGS+=remove_webcore_debug_symbols=true \
 			WANTSPACE="a fair amount of free disk space (~ 5.8GB)"
