@@ -175,12 +175,12 @@ DEBUG_VARS=		BUILDTYPE=Debug \
 			GN_ARGS+=is_debug=true \
 			GN_ARGS+=is_component_build=false \
 			GN_BOOTSTRAP_FLAGS+=--debug \
-			WANTSPACE="lots of free diskspace (~ 8.5GB)"
+			WANTSPACE="lots of free disk space (~ 12GB)"
 DEBUG_VARS_OFF=		BUILDTYPE=Release \
 			GN_ARGS+=is_debug=false \
 			GN_ARGS+=symbol_level=0 \
 			GN_ARGS+=remove_webcore_debug_symbols=true \
-			WANTSPACE="a fair amount of free diskspace (~ 3.7GB)"
+			WANTSPACE="a fair amount of free disk space (~ 5.8GB)"
 
 DRIVER_MAKE_ARGS=	chromedriver
 
