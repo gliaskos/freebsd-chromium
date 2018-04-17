@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 465058 2018-03-20 02:46:15Z yuri $
+# $FreeBSD: head/www/chromium/Makefile 466810 2018-04-08 17:33:34Z cpm $
 
 PORTNAME=	chromium
 PORTVERSION=	65.0.3325.181
@@ -64,7 +64,6 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		noto-lite>0:x11-fonts/noto-lite
 
 BROKEN_FreeBSD_11_aarch64=	components/safe_browsing_db/v4_rice.cc:120:18: use of overloaded operator '&' is ambiguous
-BROKEN_FreeBSD_12_aarch64=	third_party/skia/src/core/SkCpu.cpp:84:27: use of undeclared identifier 'getauxval'
 ONLY_FOR_ARCHS=			aarch64 amd64 i386
 
 .endif
