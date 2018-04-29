@@ -19,7 +19,7 @@ BUILD_DEPENDS=	bash:shells/bash \
 
 .if !defined(GN_ONLY)
 BUILD_DEPENDS+=	gperf:devel/gperf \
-		clang50:devel/llvm50 \
+		clang60:devel/llvm60 \
 		yasm:devel/yasm \
 		ffmpeg>=3.2.2,1:multimedia/ffmpeg \
 		flock:sysutils/flock \
@@ -90,8 +90,8 @@ SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
-CC=		clang50
-CXX=		clang++50
+CC=		clang60
+CXX=		clang++60
 .endif
 
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
