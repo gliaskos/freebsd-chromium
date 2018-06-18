@@ -206,9 +206,9 @@ TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .if ${OPSYS} == FreeBSD && ${OSVERSION} < 1101513
 CC=             clang60
 CXX=            clang++60
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-llvm-port
+EXTRA_PATCHES+=	extra-patch-llvm-port
 .else
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-llvm-base
+EXTRA_PATCHES+=	extra-patch-llvm-base
 .endif
 
 # TODO: -isystem, would be just as ugly as this approach, but more reliably
