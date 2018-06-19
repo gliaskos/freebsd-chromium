@@ -203,6 +203,7 @@ TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX}
 .include <bsd.port.options.mk>
 
 .if ${OPSYS} == FreeBSD && ${OSVERSION} < 1101513
+BUILD_DEPENDS+=	clang60:devel/llvm60
 CC=             clang60
 CXX=            clang++60
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-llvm-port
