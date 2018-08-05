@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 475101 2018-07-22 10:28:49Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 476013 2018-07-31 18:41:30Z zeising $
 
 PORTNAME=	chromium
-PORTVERSION=	67.0.3396.87
+PORTVERSION=	68.0.3440.84
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -81,8 +81,8 @@ CPE_PRODUCT=	chrome
 USE_GL=		gl
 USE_LDCONFIG=	${DATADIR}
 USE_PERL5=	build
-USE_XORG=	scrnsaverproto x11 xcb xcomposite xcursor xext xdamage xfixes xi \
-		xproto xrandr xrender xscrnsaver xtst
+USE_XORG=	x11 xcb xcomposite xcursor xext xdamage xfixes xi \
+		xorgproto xrandr xrender xscrnsaver xtst
 USE_GNOME=	atk dconf glib20 gtk30 libxml2 libxslt
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
@@ -102,7 +102,6 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		enable_nacl=false \
 		enable_one_click_signin=true \
 		enable_remoting=false \
-		enable_webrtc=true \
 		fieldtrial_testing_like_official_build=true \
 		is_clang=true \
 		toolkit_views=true \
@@ -298,6 +297,7 @@ do-install:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/swiftshader/${g} \
 		${STAGEDIR}${DATADIR}/swiftshader
 .endfor
+	${INSTALL_SCRIPT} ${FILESDIR}/fix-hanging-tabs.sh ${STAGEDIR}${DATADIR}
 
 post-install-DEBUG-on:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/*.so \
