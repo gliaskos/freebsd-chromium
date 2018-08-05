@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 473551 2018-06-29 14:22:11Z jbeich $
+# $FreeBSD: head/www/chromium/Makefile 476013 2018-07-31 18:41:30Z zeising $
 
 PORTNAME=	chromium
-PORTVERSION=	67.0.3396.87
+PORTVERSION=	68.0.3440.84
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
@@ -18,8 +18,7 @@ BUILD_DEPENDS=	bash:shells/bash \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR} \
 
 .if !defined(GN_ONLY)
-BUILD_DEPENDS+=	git:devel/git \
-		gperf:devel/gperf \
+BUILD_DEPENDS+=	gperf:devel/gperf \
 		yasm:devel/yasm \
 		ffmpeg>=3.2.2,1:multimedia/ffmpeg \
 		flock:sysutils/flock \
@@ -82,8 +81,8 @@ CPE_PRODUCT=	chrome
 USE_GL=		gl
 USE_LDCONFIG=	${DATADIR}
 USE_PERL5=	build
-USE_XORG=	scrnsaverproto x11 xcb xcomposite xcursor xext xdamage xfixes xi \
-		xproto xrandr xrender xscrnsaver xtst
+USE_XORG=	x11 xcb xcomposite xcursor xext xdamage xfixes xi \
+		xorgproto xrandr xrender xscrnsaver xtst
 USE_GNOME=	atk dconf glib20 gtk30 libxml2 libxslt
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper
 ALL_TARGET=	chrome
@@ -103,7 +102,6 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		enable_nacl=false \
 		enable_one_click_signin=true \
 		enable_remoting=false \
-		enable_webrtc=true \
 		fieldtrial_testing_like_official_build=true \
 		is_clang=true \
 		toolkit_views=true \
@@ -176,6 +174,7 @@ DEBUG_VARS_OFF=		BUILDTYPE=Release \
 			GN_ARGS+=remove_webcore_debug_symbols=true \
 			WANTSPACE="a fair amount of free disk space (~ 5.8GB)"
 
+DRIVER_BUILD_DEPENDS=	git:devel/git
 DRIVER_MAKE_ARGS=	chromedriver
 
 KERBEROS_VARS=		GN_ARGS+=use_kerberos=true
@@ -298,6 +297,7 @@ do-install:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/swiftshader/${g} \
 		${STAGEDIR}${DATADIR}/swiftshader
 .endfor
+	${INSTALL_SCRIPT} ${FILESDIR}/fix-hanging-tabs.sh ${STAGEDIR}${DATADIR}
 
 post-install-DEBUG-on:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/*.so \
