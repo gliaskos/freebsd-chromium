@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 476599 2018-08-07 13:56:28Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 476675 2018-08-08 20:27:42Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	68.0.3440.84
+PORTVERSION=	68.0.3440.106
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
