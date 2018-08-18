@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 476675 2018-08-08 20:27:42Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 477294 2018-08-15 22:54:53Z cpm $
 
 PORTNAME=	chromium
 PORTVERSION=	68.0.3440.106
@@ -308,4 +308,5 @@ post-install-DRIVER-on:
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
 		${STAGEDIR}${PREFIX}/bin
 .endif
+
 .include <bsd.port.mk>
