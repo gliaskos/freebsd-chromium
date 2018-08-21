@@ -295,12 +295,12 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/chrome/tools/build/linux/chrome-wrapper \
 		${STAGEDIR}${DATADIR}
 
-# ANGLE
+	# ANGLE
 .for f in libEGL.so libGLESv2.so
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
 .endfor
 
-# SwiftShader
+	# SwiftShader
 	@${MKDIR} ${STAGEDIR}${DATADIR}/swiftshader
 .for g in libEGL.so libGLESv2.so
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/swiftshader/${g} \
