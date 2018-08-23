@@ -1,0 +1,14 @@
+--- third_party/googletest/src/googletest/Makefile.am.orig	2018-08-23 03:18:07.108039000 +0200
++++ third_party/googletest/src/googletest/Makefile.am	2018-08-23 03:19:46.080217000 +0200
+@@ -209,7 +209,10 @@
+   include/gtest/internal/gtest-port-arch.h \
+   include/gtest/internal/gtest-string.h \
+   include/gtest/internal/gtest-tuple.h \
+-  include/gtest/internal/gtest-type-util.h \
++  include/gtest/internal/gtest-type-util.h
++
++pkginclude_internal_customdir = $(pkgincludedir)/internal/custom
++pkginclude_internal_custom_HEADERS = \
+   include/gtest/internal/custom/gtest.h \
+   include/gtest/internal/custom/gtest-port.h \
+   include/gtest/internal/custom/gtest-printers.h
