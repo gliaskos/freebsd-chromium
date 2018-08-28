@@ -195,7 +195,8 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .endif
 
-TEST_ALL_TARGET=	base_unittests
+TEST_ALL_TARGET=	base_unittests \
+			gn_unittests
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts${EXTRACT_SUFX}:fonts
 
