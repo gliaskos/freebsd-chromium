@@ -68,9 +68,9 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 .endif
 
 .if defined(GN_ONLY)
-USES=		compiler:c++14-lang ninja pkgconfig python:2.7,build shebangfix tar:xz
+USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig python:2.7,build shebangfix tar:xz
 .else
-USES=		bison cpe desktop-file-utils jpeg ninja perl5 pkgconfig \
+USES=		bison cpe desktop-file-utils gnome jpeg localbase:ldflags ninja perl5 pkgconfig \
 		python:2.7,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
@@ -119,8 +119,9 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		use_system_freetype=true \
 		use_system_harfbuzz=true \
 		use_system_libjpeg=true \
-		extra_cxxflags="-I${LOCALBASE}/include" \
-		extra_ldflags="-L${LOCALBASE}/lib"
+		extra_cflags="${CFLAGS}" \
+		extra_cxxflags="${CXXFLAGS}" \
+		extra_ldflags="${LDFLAGS}"
 # TODO: investigate building with these options:
 # use_system_minigbm
 GN_BOOTSTRAP_FLAGS=	--no-clean --no-rebuild
@@ -195,12 +196,13 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .endif
 
-TEST_TARGETS=		base_unittests \
+TEST_ALL_TARGET=	base_unittests \
 			chromedriver_unittests \
 			crypto_unittests \
 			gn_unittests \
 			headless_unittests \
 			printing_unittests
+TEST_CFLAGS=		-DDCHECK_ALWAYS_ON
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts${EXTRACT_SUFX}:fonts
 
