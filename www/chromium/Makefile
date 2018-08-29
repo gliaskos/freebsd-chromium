@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 477504 2018-08-18 14:41:14Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 477781 2018-08-22 09:58:18Z cpm $
 
 PORTNAME=	chromium
 PORTVERSION=	68.0.3440.106
@@ -195,8 +195,12 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .endif
 
-TEST_ALL_TARGET=	base_unittests \
-			gn_unittests
+TEST_TARGETS=		base_unittests \
+			chromedriver_unittests \
+			crypto_unittests \
+			gn_unittests \
+			headless_unittests \
+			printing_unittests
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts${EXTRACT_SUFX}:fonts
 
