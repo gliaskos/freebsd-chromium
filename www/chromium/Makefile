@@ -68,10 +68,11 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 .endif
 
 .if defined(GN_ONLY)
-USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig python:2.7,build shebangfix tar:xz
-.else
-USES=		bison cpe desktop-file-utils gnome jpeg localbase:ldflags ninja perl5 pkgconfig \
+USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig \
 		python:2.7,build shebangfix tar:xz
+.else
+USES=		bison cpe desktop-file-utils gnome jpeg localbase:ldflags \
+		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
 BINARY_ALIAS=	python=${PYTHON_CMD}
