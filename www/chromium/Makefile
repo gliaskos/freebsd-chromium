@@ -197,12 +197,8 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .endif
 
-TEST_ALL_TARGET=	base_unittests \
-			chromedriver_unittests \
-			crypto_unittests \
-			gn_unittests \
-			headless_unittests \
-			printing_unittests
+.include "Makefile.tests"
+TEST_ALL_TARGET=	${TEST_TARGETS}
 TEST_CFLAGS=		-DDCHECK_ALWAYS_ON
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts${EXTRACT_SUFX}:fonts
