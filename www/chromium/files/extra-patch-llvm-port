@@ -1,11 +1,10 @@
---- build/toolchain/gcc_toolchain.gni.orig	2018-08-08 21:10:32.000000000 +0200
-+++ build/toolchain/gcc_toolchain.gni	2018-08-29 20:18:21.680382000 +0200
-@@ -25,6 +25,12 @@
+--- build/toolchain/gcc_toolchain.gni.orig	2018-06-13 00:10:02.000000000 +0200
++++ build/toolchain/gcc_toolchain.gni	2018-07-21 12:38:45.107087000 +0200
+@@ -25,6 +25,11 @@
      rebase_path("//build/toolchain/clang_static_analyzer_wrapper.py",
                  root_build_dir) + " --mode=clang"
  
 +declare_args() {
-+  extra_cflags = ""
 +  extra_cxxflags = ""
 +  extra_ldflags = ""
 +}
@@ -13,7 +12,7 @@
  # This template defines a toolchain for something that works like gcc
  # (including clang).
  #
-@@ -339,12 +345,12 @@
+@@ -343,12 +348,12 @@
          # We use slightly different arflags for AIX.
          extra_arflags = "-r -c -s"
        } else {
@@ -28,7 +27,7 @@
        description = "AR {{output}}"
        rspfile_content = "{{inputs}}"
        outputs = [
-@@ -604,13 +610,22 @@
+@@ -608,13 +613,22 @@
    }
  
    gcc_toolchain(target_name) {
