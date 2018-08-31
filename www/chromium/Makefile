@@ -120,7 +120,6 @@ GN_ARGS+=	clang_use_chrome_plugins=false \
 		use_system_freetype=true \
 		use_system_harfbuzz=true \
 		use_system_libjpeg=true \
-		extra_cflags="${CFLAGS}" \
 		extra_cxxflags="${CXXFLAGS}" \
 		extra_ldflags="${LDFLAGS}"
 # TODO: investigate building with these options:
@@ -199,7 +198,6 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .include "Makefile.tests"
 TEST_ALL_TARGET=	${TEST_TARGETS}
-TEST_CFLAGS=		-DDCHECK_ALWAYS_ON
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts${EXTRACT_SUFX}:fonts
 

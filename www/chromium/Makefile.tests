@@ -2,11 +2,8 @@
 TEST_TARGETS=	base_unittests \
 		chromedriver_unittests \
 		crypto_unittests \
-		dbus_unittests \
 		gn_unittests \
 		headless_unittests \
-		media_unittests \
 		printing_unittests \
-		sql_unittests \
 		url_unittests
 		
