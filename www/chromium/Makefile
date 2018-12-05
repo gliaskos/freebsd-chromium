@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 477781 2018-08-22 09:58:18Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	68.0.3440.106
+PORTVERSION=	71.0.3578.80
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
@@ -71,7 +71,7 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig \
 		python:2.7,build shebangfix tar:xz
 .else
-USES=		bison cpe desktop-file-utils gnome jpeg localbase:ldflags \
+USES=		bison cpe desktop-file-utils gl gnome jpeg localbase:ldflags \
 		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}

@@ -1,6 +1,6 @@
---- chrome/browser/ui/libgtkui/nav_button_provider_gtk3.h.orig	2018-02-11 02:34:07.340548000 +0100
-+++ chrome/browser/ui/libgtkui/nav_button_provider_gtk3.h	2018-02-11 02:32:04.747163000 +0100
-@@ -31,7 +31,7 @@
+--- chrome/browser/ui/libgtkui/nav_button_provider_gtk.h.orig	2018-12-04 15:51:51.982625000 +0100
++++ chrome/browser/ui/libgtkui/nav_button_provider_gtk.h	2018-12-04 15:52:30.242388000 +0100
+@@ -38,7 +38,7 @@
  
   private:
    std::map<chrome::FrameButtonDisplayType,
