@@ -7,8 +7,6 @@ bin/chrome
 %%DATADIR%%/icudtl.dat
 %%DATADIR%%/libEGL.so
 %%DATADIR%%/libGLESv2.so
-%%DATADIR%%/libmalloc_wrapper.so
-%%DATADIR%%/libtest_shared_library.so
 %%DATADIR%%/locales/am.pak
 %%DATADIR%%/locales/am.pak.info
 %%DATADIR%%/locales/ar.pak
@@ -319,6 +317,8 @@ bin/chrome
 %%DATADIR%%/v8_context_snapshot.bin
 %%DATADIR%%/views_mus_resources.pak
 %%DEBUG%%%%DATADIR%%/character_data_generator
+%%DEBUG%%%%DATADIR%%/libmalloc_wrapper.so
+%%DEBUG%%%%DATADIR%%/libtest_shared_library.so
 %%DEBUG%%%%DATADIR%%/libVkICD_mock_icd.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_core_validation.so
 %%DEBUG%%%%DATADIR%%/libVkLayer_object_tracker.so

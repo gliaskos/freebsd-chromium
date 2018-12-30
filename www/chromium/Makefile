@@ -32,6 +32,7 @@ BUILD_DEPENDS+=	gperf:devel/gperf \
 
 .if !defined(GN_ONLY)
 LIB_DEPENDS=	libatk-bridge-2.0.so:accessibility/at-spi2-atk \
+		libatspi.so:accessibility/at-spi2-core \
 		libspeechd.so:accessibility/speech-dispatcher \
 		libsnappy.so:archivers/snappy \
 		libFLAC.so:audio/flac \
@@ -212,8 +213,8 @@ PLIST_SUB+=	NOT_AARCH64=""
 
 .if ${OPSYS} == FreeBSD && ${OSVERSION} < 1101513
 BUILD_DEPENDS+=	clang60:devel/llvm60
-CC=             clang60
-CXX=            clang++60
+CC=		clang60
+CXX=		clang++60
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-llvm-port
 .else
 BUILD_DEPENDS+=	${LOCALBASE}/bin/ar:devel/binutils
