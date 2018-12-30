@@ -1,5 +1,5 @@
---- build/config/compiler/BUILD.gn.orig	2018-12-03 21:16:33.000000000 +0100
-+++ build/config/compiler/BUILD.gn	2018-12-05 14:07:03.805048000 +0100
+--- build/config/compiler/BUILD.gn.orig	2018-12-12 22:56:02.000000000 +0100
++++ build/config/compiler/BUILD.gn	2018-12-16 01:04:15.942884000 +0100
 @@ -53,7 +53,7 @@
    # only two architectures that are currently checked in). Turn this off when
    # you are using a custom toolchain and need to control -B in cflags.
@@ -52,18 +52,21 @@
          cflags += [ "--target=aarch64-linux-gnu" ]
          ldflags += [ "--target=aarch64-linux-gnu" ]
        }
-@@ -1499,10 +1490,6 @@
+@@ -1498,13 +1489,6 @@
+         cflags += [
            # TODO(thakis): https://crbug.com/753973
            "-Wno-enum-compare-switch",
- 
+-
 -          # Ignore warnings about MSVC optimization pragmas.
 -          # TODO(thakis): Only for no_chromium_code? http://crbug.com/505314
 -          "-Wno-ignored-pragma-optimize",
 -
-           # TODO(hans): https://crbug.com/890307
-           "-Wno-defaulted-function-deleted",
+-          # TODO(hans): https://crbug.com/890307
+-          "-Wno-defaulted-function-deleted",
          ]
-@@ -1691,7 +1678,7 @@
+       }
+     }
+@@ -1691,7 +1675,7 @@
    # Mac and iOS use the mac-specific "libtool" command, not ar, which doesn't
    # have a "thin archive" mode (it does accept -T, but it means truncating
    # archive names to 16 characters, which is not what we want).
@@ -72,7 +75,7 @@
      arflags = [ "-T" ]
    }
  }
-@@ -2264,7 +2251,7 @@
+@@ -2264,7 +2248,7 @@
          # [1] crrev.com/a81d5ade0b043208e06ad71a38bcf9c348a1a52f
          cflags += [ "-gdwarf-3" ]
        }
@@ -81,7 +84,7 @@
      }
      if (use_debug_fission && !is_nacl && !is_android) {
        # NOTE: Some Chrome OS builds globally set |use_debug_fission| to true,
-@@ -2284,7 +2271,7 @@
+@@ -2284,7 +2268,7 @@
      # DWARF info may be corrupt; offsets in a range list entry are in different
      # sections" there.  Maybe just a bug in nacl_switch_32.S.
      if (!is_mac && !is_ios && !is_nacl && current_cpu != "x86" &&
