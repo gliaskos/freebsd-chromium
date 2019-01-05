@@ -73,11 +73,12 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig \
 		python:2.7,build shebangfix tar:xz
 .else
-USES=		bison cpe desktop-file-utils gl gnome jpeg localbase:ldflags \
+USES=		bison cpe desktop-file-utils dos2unix gl gnome jpeg localbase:ldflags \
 		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
 BINARY_ALIAS=	python=${PYTHON_CMD}
+DOS2UNIX_FILES=	third_party/skia/third_party/vulkanmemoryallocator/include/vk_mem_alloc.h
 
 .if !defined(GN_ONLY)
 CPE_VENDOR=	google
