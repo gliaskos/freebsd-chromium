@@ -214,6 +214,8 @@ PLIST_SUB+=	NOT_AARCH64="@comment "
 PLIST_SUB+=	NOT_AARCH64=""
 .endif
 
+LDFLAGS_i386=	-Wl,-znotext
+
 # TODO: -isystem, would be just as ugly as this approach, but more reliably
 # build would fail without C_INCLUDE_PATH/CPLUS_INCLUDE_PATH env var set.
 MAKE_ENV+=	C_INCLUDE_PATH=${LOCALBASE}/include \
