@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 487272 2018-12-12 01:35:33Z gerald $
+# $FreeBSD: head/www/chromium/Makefile 489612 2019-01-07 19:47:18Z cpm $
 
 PORTNAME=	chromium
 PORTVERSION=	71.0.3578.98
@@ -70,7 +70,7 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 .endif
 
 .if defined(GN_ONLY)
-USES=		compiler:c++14-lang localbase:ldflags ninja pkgconfig \
+USES=		compiler:c++14-lang dos2unix localbase:ldflags ninja pkgconfig \
 		python:2.7,build shebangfix tar:xz
 .else
 USES=		bison cpe desktop-file-utils dos2unix gl gnome jpeg localbase:ldflags \
@@ -104,6 +104,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 # replace_gn_files.py script, some parts just turned on/off for target host
 # OS "target_os == is_bsd", like libusb, libpci.
 GN_ARGS+=	clang_use_chrome_plugins=false \
+		enable_hangout_services_extension=true \
 		enable_nacl=false \
 		enable_one_click_signin=true \
 		enable_remoting=false \
