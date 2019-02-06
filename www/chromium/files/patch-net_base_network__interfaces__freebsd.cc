@@ -1,5 +1,5 @@
---- net/base/network_interfaces_freebsd.cc.orig	2017-07-05 18:08:44.779023000 +0200
-+++ net/base/network_interfaces_freebsd.cc	2017-07-05 22:03:18.679624000 +0200
+--- net/base/network_interfaces_freebsd.cc.orig	2019-02-01 16:07:39.151688000 +0100
++++ net/base/network_interfaces_freebsd.cc	2019-02-01 23:57:09.415948000 +0100
 @@ -0,0 +1,240 @@
 +// Copyright (c) 2014 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be
@@ -217,7 +217,7 @@
 +    return false;
 +
 +  // getifaddrs() may require IO operations.
-+  base::AssertBlockingAllowed();
++  base::internal::AssertBlockingAllowed();
 +
 +  ifaddrs* interfaces;
 +  if (getifaddrs(&interfaces) < 0) {
