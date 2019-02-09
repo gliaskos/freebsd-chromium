@@ -1,9 +1,0 @@
---- ui/webui/webui_features.gni.orig	2019-02-06 21:10:17.131230000 +0100
-+++ ui/webui/webui_features.gni	2019-02-06 21:10:29.469796000 +0100
-@@ -11,5 +11,5 @@
-   # Enable closure type-checking for Chrome's web technology-based UI. This
-   # enables the webui_closure_compile target which does a no-op without this
-   # flag enabled. Requires Java.
--  closure_compile = is_chromeos || is_linux || is_android
-+  closure_compile = (is_chromeos || is_linux || is_android) && !is_bsd
- }
