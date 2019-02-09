@@ -215,7 +215,7 @@ PLIST_SUB+=	NOT_AARCH64=""
 .endif
 
 # Make better javascript with java
-.if ${ARCH} == amd64
+.if ${ARCH} == amd64 && !defined(GN_ONLY)
 JAVA_BUILD=	yes
 JAVA_VERSION=	1.8
 USE_JAVA=	yes
@@ -260,10 +260,6 @@ pre-configure:
 		./build/linux/unbundle/replace_gn_files.py --system-libraries \
 		ffmpeg flac freetype harfbuzz-ng libdrm libusb libwebp libxml libxslt openh264 opus snappy yasm || ${FALSE}
 .endif
-.if ${ARCH} == amd64
-	@${MKDIR} ${WRKDIR}/bin
-	${LN} -sf ${LOCALBASE}/openjdk8/bin/java ${WRKDIR}/bin/java
-.endif
 
 do-configure:
 	# GN generator bootstrapping and generating ninja files
@@ -277,6 +273,12 @@ do-configure:
 	# Setup nodejs dependency
 	@${MKDIR} ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin
 	${LN} -sf ${LOCALBASE}/bin/node ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin/node
+
+	# Setup java dependency on amd64
+.if ${ARCH} == amd64
+	@${MKDIR} ${WRKDIR}/bin
+	${LN} -sf ${LOCALBASE}/openjdk8/bin/java ${WRKDIR}/bin/java
+.endif
 .endif
 
 do-test-TEST-on:
