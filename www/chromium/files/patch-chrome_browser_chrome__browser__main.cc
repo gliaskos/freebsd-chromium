@@ -1,5 +1,5 @@
 --- chrome/browser/chrome_browser_main.cc.orig	2019-02-06 23:06:37.000000000 +0100
-+++ chrome/browser/chrome_browser_main.cc	2019-02-12 18:40:23.308378000 +0100
++++ chrome/browser/chrome_browser_main.cc	2019-02-12 20:03:14.042579000 +0100
 @@ -216,7 +216,7 @@
  #include "chromeos/settings/cros_settings_names.h"
  #endif  // defined(OS_CHROMEOS)
@@ -54,3 +54,19 @@
    metrics::DesktopSessionDurationTracker::Initialize();
  #endif
    metrics::RendererUptimeTracker::Initialize();
+@@ -1279,6 +1279,7 @@
+       base::TimeDelta::FromMinutes(1));
+ 
+ #if !defined(OS_ANDROID)
++#if !defined(OS_BSD)
+   if (base::FeatureList::IsEnabled(features::kWebUsb)) {
+     web_usb_detector_.reset(new WebUsbDetector());
+     BrowserThread::PostAfterStartupTask(
+@@ -1287,6 +1288,7 @@
+         base::BindOnce(&WebUsbDetector::Initialize,
+                        base::Unretained(web_usb_detector_.get())));
+   }
++#endif
+   if (base::FeatureList::IsEnabled(features::kTabMetricsLogging)) {
+     // Initialize the TabActivityWatcher to begin logging tab activity events.
+     resource_coordinator::TabActivityWatcher::GetInstance();
