@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 489612 2019-01-07 19:47:18Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	72.0.3626.109
+PORTVERSION=	72.0.3626.119
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
