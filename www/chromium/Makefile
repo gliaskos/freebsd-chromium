@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 489612 2019-01-07 19:47:18Z cpm $
+# $FreeBSD: head/www/chromium/Makefile 493960 2019-02-26 10:25:09Z rene $
 
 PORTNAME=	chromium
 PORTVERSION=	72.0.3626.119
@@ -215,7 +215,7 @@ PLIST_SUB+=	NOT_AARCH64=""
 .endif
 
 # Make better javascript with java
-.if ${ARCH} == amd64 && !defined(GN_ONLY)
+.if (${ARCH} == amd64 || ${ARCH} == i386) && !defined(GN_ONLY)
 JAVA_BUILD=	yes
 JAVA_VERSION=	1.8
 USE_JAVA=	yes
@@ -274,8 +274,8 @@ do-configure:
 	@${MKDIR} ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin
 	${LN} -sf ${LOCALBASE}/bin/node ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin/node
 
-	# Setup java dependency on amd64
-.if ${ARCH} == amd64
+	# Setup java dependency on amd64 and i386
+.if ${ARCH} == amd64 || ${ARCH} == i386
 	@${MKDIR} ${WRKDIR}/bin
 	${LN} -sf ${LOCALBASE}/openjdk8/bin/java ${WRKDIR}/bin/java
 .endif
