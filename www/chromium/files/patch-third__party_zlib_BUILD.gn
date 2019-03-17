@@ -1,6 +1,6 @@
---- third_party/zlib/BUILD.gn.orig	2018-08-08 21:11:58.000000000 +0200
-+++ third_party/zlib/BUILD.gn	2018-09-12 01:00:34.445630000 +0200
-@@ -68,7 +68,7 @@
+--- third_party/zlib/BUILD.gn.orig	2019-03-11 22:01:18 UTC
++++ third_party/zlib/BUILD.gn
+@@ -72,7 +72,7 @@ if (use_arm_neon_optimizations) {
        if (is_android) {
          defines += [ "ARMV8_OS_ANDROID" ]
        } else if (is_linux || is_chromeos) {
@@ -9,7 +9,7 @@
        }
      }
    }
-@@ -327,7 +327,7 @@
+@@ -306,7 +306,7 @@ static_library("minizip") {
      ]
    }
  

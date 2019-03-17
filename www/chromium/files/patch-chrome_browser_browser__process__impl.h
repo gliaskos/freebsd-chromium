@@ -1,6 +1,6 @@
---- chrome/browser/browser_process_impl.h.orig	2019-02-12 16:33:04.676012000 +0100
-+++ chrome/browser/browser_process_impl.h	2019-02-12 16:33:35.429453000 +0100
-@@ -367,7 +367,7 @@
+--- chrome/browser/browser_process_impl.h.orig	2019-03-11 22:00:53 UTC
++++ chrome/browser/browser_process_impl.h
+@@ -361,7 +361,7 @@ class BrowserProcessImpl : public BrowserProcess,
    std::unique_ptr<ChromeResourceDispatcherHostDelegate>
        resource_dispatcher_host_delegate_;
  
@@ -9,7 +9,7 @@
    base::RepeatingTimer autoupdate_timer_;
  
    // Gets called by autoupdate timer to see if browser needs restart and can be
-@@ -376,7 +376,7 @@
+@@ -370,7 +370,7 @@ class BrowserProcessImpl : public BrowserProcess,
    bool IsRunningInBackground() const;
    void OnPendingRestartResult(bool is_update_pending_restart);
    void RestartBackgroundInstance();

@@ -1,6 +1,6 @@
---- chrome/browser/browser_process_impl.cc.orig	2019-02-12 16:31:58.701630000 +0100
-+++ chrome/browser/browser_process_impl.cc	2019-02-12 16:32:33.417312000 +0100
-@@ -1485,7 +1485,7 @@
+--- chrome/browser/browser_process_impl.cc.orig	2019-03-11 22:00:53 UTC
++++ chrome/browser/browser_process_impl.cc
+@@ -1469,7 +1469,7 @@ void BrowserProcessImpl::Unpin() {
  }
  
  // Mac is currently not supported.
@@ -9,7 +9,7 @@
  
  bool BrowserProcessImpl::IsRunningInBackground() const {
    // Check if browser is in the background.
-@@ -1555,4 +1555,4 @@
+@@ -1539,4 +1539,4 @@ void BrowserProcessImpl::OnPendingRestartResult(
    }
  }
  

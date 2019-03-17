@@ -1,6 +1,6 @@
---- v8/src/base/platform/platform-posix.cc.orig	2018-02-24 16:26:18.000000000 +0100
-+++ v8/src/base/platform/platform-posix.cc	2018-03-04 05:02:38.985674000 +0100
-@@ -459,6 +459,12 @@
+--- v8/src/base/platform/platform-posix.cc.orig	2019-03-11 22:08:08 UTC
++++ v8/src/base/platform/platform-posix.cc
+@@ -501,6 +501,12 @@ int OS::GetCurrentThreadId() {
    return static_cast<int>(syscall(__NR_gettid));
  #elif V8_OS_ANDROID
    return static_cast<int>(gettid());

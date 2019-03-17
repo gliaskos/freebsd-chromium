@@ -1,5 +1,5 @@
---- base/process/process_metrics_freebsd.cc.orig	2019-02-06 23:06:36.000000000 +0100
-+++ base/process/process_metrics_freebsd.cc	2019-02-08 19:11:07.753223000 +0100
+--- base/process/process_metrics_freebsd.cc.orig	2019-03-11 22:00:51 UTC
++++ base/process/process_metrics_freebsd.cc
 @@ -5,6 +5,7 @@
  #include "base/process/process_metrics.h"
  
@@ -26,7 +26,7 @@
  
  // static
  std::unique_ptr<ProcessMetrics> ProcessMetrics::CreateProcessMetrics(
-@@ -67,6 +72,95 @@
+@@ -67,6 +72,95 @@ size_t GetSystemCommitCharge() {
    pagesize = getpagesize();
  
    return mem_total - (mem_free*pagesize) - (mem_inactive*pagesize);

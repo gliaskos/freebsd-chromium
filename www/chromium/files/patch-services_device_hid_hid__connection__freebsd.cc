@@ -1,5 +1,5 @@
---- services/device/hid/hid_connection_freebsd.cc.orig	2019-02-01 16:07:39.214979000 +0100
-+++ services/device/hid/hid_connection_freebsd.cc	2019-02-02 01:21:12.648154000 +0100
+--- services/device/hid/hid_connection_freebsd.cc.orig	2019-03-17 01:14:33 UTC
++++ services/device/hid/hid_connection_freebsd.cc
 @@ -0,0 +1,191 @@
 +// Copyright (c) 2014 The Chromium Authors. All rights reserved.
 +// Use of this source code is governed by a BSD-style license that can be

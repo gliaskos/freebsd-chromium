@@ -1,7 +1,7 @@
---- third_party/ffmpeg/BUILD.gn.orig	2017-04-19 19:07:44 UTC
+--- third_party/ffmpeg/BUILD.gn.orig	2019-03-11 22:07:59 UTC
 +++ third_party/ffmpeg/BUILD.gn
-@@ -6,8 +6,13 @@ import("ffmpeg_options.gni")
- import("ffmpeg_generated.gni")
+@@ -9,8 +9,13 @@ import("//build/buildflag_header.gni")
+ import("//build/config/sanitizers/sanitizers.gni")
  
  # Path to platform configuration files.
 -platform_config_root =
@@ -14,5 +14,5 @@
 +      "chromium/config/$ffmpeg_branding/linux/$ffmpeg_arch"
 +}
  
- has_yasm_deps =
-     ffmpeg_yasm_sources != [] &&
+ has_nasm_deps =
+     ffmpeg_asm_sources != [] &&
