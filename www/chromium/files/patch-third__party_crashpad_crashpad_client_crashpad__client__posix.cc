@@ -1,4 +1,4 @@
---- third_party/crashpad/crashpad/client/crashpad_client_posix.cc.orig	2019-03-17 01:14:34 UTC
+--- third_party/crashpad/crashpad/client/crashpad_client_posix.cc.orig	2019-03-17 01:47:14 UTC
 +++ third_party/crashpad/crashpad/client/crashpad_client_posix.cc
 @@ -0,0 +1,38 @@
 +// Copyright 2017 The Crashpad Authors. All rights reserved.

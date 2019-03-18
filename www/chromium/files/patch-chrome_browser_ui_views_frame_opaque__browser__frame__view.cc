@@ -18,3 +18,12 @@
    views::MenuRunner menu_runner(frame()->GetSystemMenuModel(),
                                  views::MenuRunner::HAS_MNEMONICS);
    menu_runner.RunMenuAt(browser_view()->GetWidget(), window_icon_,
+@@ -480,7 +480,7 @@ bool OpaqueBrowserFrameView::EverHasVisibleBackgroundT
+ 
+ OpaqueBrowserFrameView::FrameButtonStyle
+ OpaqueBrowserFrameView::GetFrameButtonStyle() const {
+-#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
++#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)
+   return FrameButtonStyle::kMdButton;
+ #else
+   return FrameButtonStyle::kImageButton;

@@ -4,7 +4,7 @@
    int card = -1;
  
    // Loop through the sound cards to get ALSA device hints.
-+#ifdef OS_LINUX
++#if defined(OS_LINUX) || defined(OS_BSD)
    while (!wrapper_->CardNext(&card) && card >= 0) {
 +#endif
      void** hints = NULL;
@@ -14,7 +14,7 @@
        DLOG(WARNING) << "GetAlsaAudioDevices: unable to get device hints: "
                      << wrapper_->StrError(error);
      }
-+#ifdef OS_LINUX
++#if defined(OS_LINUX) || defined(OS_BSD)
    }
 +#endif
  }
@@ -36,7 +36,7 @@
    // Loop through the sound cards.
    // Don't use snd_device_name_hint(-1,..) since there is a access violation
    // inside this ALSA API with libasound.so.2.0.0.
-+#ifdef OS_LINUX
++#if defined(OS_LINUX) || defined(OS_BSD)
    while (!wrapper_->CardNext(&card) && (card >= 0) && !has_device) {
 +#endif
      int error = wrapper_->DeviceNameHint(card, kPcmInterfaceName, &hints);
@@ -46,7 +46,7 @@
        DLOG(WARNING) << "HasAnyAudioDevice: unable to get device hints: "
                      << wrapper_->StrError(error);
      }
-+#ifdef OS_LINUX
++#if defined(OS_LINUX) || defined(OS_BSD)
    }
 +#endif
  

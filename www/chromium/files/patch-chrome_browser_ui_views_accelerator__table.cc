@@ -18,7 +18,16 @@
      {ui::VKEY_1, ui::EF_ALT_DOWN, IDC_SELECT_TAB_0},
      {ui::VKEY_NUMPAD1, ui::EF_ALT_DOWN, IDC_SELECT_TAB_0},
      {ui::VKEY_2, ui::EF_ALT_DOWN, IDC_SELECT_TAB_1},
-@@ -122,7 +122,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+@@ -98,7 +98,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+     {ui::VKEY_8, ui::EF_ALT_DOWN, IDC_SELECT_TAB_7},
+     {ui::VKEY_NUMPAD8, ui::EF_ALT_DOWN, IDC_SELECT_TAB_7},
+     {ui::VKEY_BROWSER_FAVORITES, ui::EF_NONE, IDC_SHOW_BOOKMARK_BAR},
+-#endif  // OS_LINUX && !OS_CHROMEOS
++#endif  // (OS_LINUX || OS_BSD) && !OS_CHROMEOS
+     {ui::VKEY_B, ui::EF_SHIFT_DOWN | ui::EF_PLATFORM_ACCELERATOR,
+      IDC_SHOW_BOOKMARK_BAR},
+     {ui::VKEY_OEM_MINUS, ui::EF_PLATFORM_ACCELERATOR, IDC_ZOOM_MINUS},
+@@ -122,14 +122,14 @@ const AcceleratorMapping kAcceleratorMap[] = {
      {ui::VKEY_F11, ui::EF_NONE, IDC_FULLSCREEN},
  
    // Platform-specific key maps.
@@ -27,3 +36,11 @@
      {ui::VKEY_BROWSER_BACK, ui::EF_NONE, IDC_BACK},
      {ui::VKEY_BROWSER_FORWARD, ui::EF_NONE, IDC_FORWARD},
      {ui::VKEY_BROWSER_HOME, ui::EF_NONE, IDC_HOME},
+     {ui::VKEY_BROWSER_REFRESH, ui::EF_NONE, IDC_RELOAD},
+     {ui::VKEY_BROWSER_REFRESH, ui::EF_CONTROL_DOWN, IDC_RELOAD_BYPASSING_CACHE},
+     {ui::VKEY_BROWSER_REFRESH, ui::EF_SHIFT_DOWN, IDC_RELOAD_BYPASSING_CACHE},
+-#endif  // defined(OS_LINUX)
++#endif  // defined(OS_LINUX) || defined(OS_BSD)
+ 
+ #if defined(OS_CHROMEOS)
+     // On Chrome OS, VKEY_BROWSER_SEARCH is handled in Ash.

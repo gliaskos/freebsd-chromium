@@ -9,6 +9,15 @@
  
  PP_Instance g_last_instance_id;
  
+@@ -413,7 +413,7 @@ void Release(FPDF_SYSFONTINFO* sysfontinfo) {
+   fontinfo_with_metrics->default_sysfontinfo->Release(
+       fontinfo_with_metrics->default_sysfontinfo);
+ }
+-#endif  // defined(OS_LINUX)
++#endif  // defined(OS_LINUX) || defined(OS_BSD)
+ 
+ PDFiumEngine::CreateDocumentLoaderFunction
+     g_create_document_loader_for_testing = nullptr;
 @@ -663,7 +663,7 @@ bool InitializeSDK() {
    config.m_v8EmbedderSlot = gin::kEmbedderPDFium;
    FPDF_InitLibraryWithConfig(&config);

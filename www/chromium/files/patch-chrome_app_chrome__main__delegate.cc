@@ -27,6 +27,15 @@
  void AdjustLinuxOOMScore(const std::string& process_type) {
    // Browsers and zygotes should still be killable, but killed last.
    const int kZygoteScore = 0;
+@@ -291,7 +291,7 @@ void AdjustLinuxOOMScore(const std::string& process_ty
+   if (score > -1)
+     base::AdjustOOMScore(base::GetCurrentProcId(), score);
+ }
+-#endif  // defined(OS_LINUX)
++#endif  // defined(OS_LINUX) && !defined(OS_BSD)
+ 
+ // Returns true if this subprocess type needs the ResourceBundle initialized
+ // and resources loaded.
 @@ -336,7 +336,7 @@ bool HandleVersionSwitches(const base::CommandLine& co
    return false;
  }
@@ -54,6 +63,24 @@
    // On Linux, Chrome does not support running multiple copies under different
    // DISPLAYs, so the profile directory can be specified in the environment to
    // support the virtual desktop use-case.
+@@ -412,7 +412,7 @@ void InitializeUserDataDir(base::CommandLine* command_
+       user_data_dir = base::FilePath::FromUTF8Unsafe(user_data_dir_string);
+     }
+   }
+-#endif  // OS_LINUX
++#endif  // OS_LINUX || OS_BSD
+ #if defined(OS_MACOSX)
+   policy::path_parser::CheckUserDataDirPolicy(&user_data_dir);
+ #endif  // OS_MAC
+@@ -469,7 +469,7 @@ void InitLogging(const std::string& process_type) {
+ void RecordMainStartupMetrics(base::TimeTicks exe_entry_point_ticks) {
+   if (!exe_entry_point_ticks.is_null())
+     startup_metric_utils::RecordExeMainEntryPointTicks(exe_entry_point_ticks);
+-#if defined(OS_MACOSX) || defined(OS_WIN) || defined(OS_LINUX)
++#if defined(OS_MACOSX) || defined(OS_WIN) || defined(OS_LINUX) || defined(OS_BSD)
+   // Record the startup process creation time on supported platforms.
+   startup_metric_utils::RecordStartupProcessCreationTime(
+       base::Process::Current().CreationTime());
 @@ -596,7 +596,7 @@ bool ChromeMainDelegate::BasicStartupComplete(int* exi
      *exit_code = 0;
      return true;  // Got a --version switch; exit with a success error code.

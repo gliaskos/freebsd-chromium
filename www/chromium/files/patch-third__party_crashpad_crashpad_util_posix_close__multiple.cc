@@ -9,3 +9,12 @@
    static constexpr char kFDDir[] = "/dev/fd";
  #elif defined(OS_LINUX) || defined(OS_ANDROID)
    static constexpr char kFDDir[] = "/proc/self/fd";
+@@ -146,7 +146,7 @@ void CloseMultipleNowOrOnExec(int fd, int preserve_fd)
+   // while the system is running, but it’s still a better upper bound than the
+   // current RLIMIT_NOFILE value.
+ 
+-#if defined(OS_MACOSX)
++#if defined(OS_MACOSX) || defined(OS_BSD)
+   // See 10.11.6 xnu-3248.60.10/bsd/kern/kern_resource.c maxfilesperproc,
+   // referenced by dosetrlimit().
+   int oid[] = {CTL_KERN, KERN_MAXFILESPERPROC};

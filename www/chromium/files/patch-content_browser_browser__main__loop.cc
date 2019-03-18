@@ -26,3 +26,21 @@
  #endif
  
  #if defined(USE_X11)
+@@ -629,7 +641,7 @@ int BrowserMainLoop::EarlyInitialization() {
+ #endif  // defined(OS_ANDROID) || defined(OS_CHROMEOS)
+ 
+ #if defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_CHROMEOS) || \
+-    defined(OS_ANDROID)
++    defined(OS_ANDROID) || defined(OS_BSD)
+   // We use quite a few file descriptors for our IPC as well as disk the disk
+   // cache,and the default limit on the Mac is low (256), so bump it up.
+ 
+@@ -639,7 +651,7 @@ int BrowserMainLoop::EarlyInitialization() {
+   // an arbitrarily high number. See https://crbug.com/539567
+   base::IncreaseFdLimitTo(8192);
+ #endif  // defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_CHROMEOS) ||
+-        // defined(OS_ANDROID)
++        // defined(OS_ANDROID) || defined(OS_BSD)
+ 
+ #if defined(OS_WIN)
+   net::EnsureWinsockInit();
