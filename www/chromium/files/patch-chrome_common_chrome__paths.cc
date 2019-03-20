@@ -94,21 +94,3 @@
  #if !defined(OS_ANDROID)
      case chrome::DIR_GLOBAL_GCM_STORE:
        if (!base::PathService::Get(chrome::DIR_USER_DATA, &cur))
-@@ -547,7 +552,7 @@ bool PathProvider(int key, base::FilePath* result) {
-       cur = cur.Append(kGCMStoreDirname);
-       break;
- #endif  // !defined(OS_ANDROID)
--#if defined(OS_LINUX)
-+#if defined(OS_LINUX) || defined(OS_BSD)
-     case chrome::FILE_COMPONENT_FLASH_HINT:
-       if (!base::PathService::Get(
-               chrome::DIR_COMPONENT_UPDATED_PEPPER_FLASH_PLUGIN, &cur)) {
-@@ -555,7 +560,7 @@ bool PathProvider(int key, base::FilePath* result) {
-       }
-       cur = cur.Append(kComponentUpdatedFlashHint);
-       break;
--#endif  // defined(OS_LINUX)
-+#endif  // defined(OS_LINUX) || defined(OS_BSD)
- #if defined(OS_CHROMEOS)
-     case chrome::FILE_CHROME_OS_COMPONENT_FLASH:
-       cur = base::FilePath(kChromeOSComponentFlash);

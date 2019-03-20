@@ -89,21 +89,3 @@
  
  #if defined(OS_CHROMEOS)
    int shmem = 0;
-@@ -379,7 +379,7 @@ BASE_EXPORT bool GetSystemMemoryInfo(SystemMemoryInfoK
- #endif  // defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) ||
-         // defined(OS_ANDROID) || defined(OS_AIX) || defined(OS_FUCHSIA)
- 
--#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_AIX)
-+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_AIX) || defined(OS_BSD)
- // Parse the data found in /proc/<pid>/stat and return the sum of the
- // CPU-related ticks.  Returns -1 on parse error.
- // Exposed for testing.
-@@ -547,7 +547,7 @@ class SystemMetrics {
-   FRIEND_TEST_ALL_PREFIXES(SystemMetricsTest, SystemMetrics);
- 
-   size_t committed_memory_;
--#if defined(OS_LINUX) || defined(OS_ANDROID)
-+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
-   SystemMemoryInfoKB memory_info_;
-   VmStatInfo vmstat_info_;
-   SystemDiskInfo disk_info_;

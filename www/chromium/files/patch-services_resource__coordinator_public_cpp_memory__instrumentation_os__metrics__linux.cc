@@ -11,7 +11,23 @@
  
  namespace memory_instrumentation {
  
-@@ -123,14 +125,14 @@ bool ParseSmapsHeader(const char* header_line,
+@@ -67,6 +69,7 @@ struct ModuleData {
+ 
+ ModuleData GetMainModuleData() {
+   ModuleData module_data;
++#if !defined(OS_BSD)
+   Dl_info dl_info;
+   if (dladdr(&__ehdr_start, &dl_info)) {
+     base::Optional<std::string> build_id =
+@@ -76,6 +79,7 @@ ModuleData GetMainModuleData() {
+       module_data.build_id = *build_id;
+     }
+   }
++#endif
+   return module_data;
+ }
+ 
+@@ -123,14 +127,14 @@ bool ParseSmapsHeader(const char* header_line,
    // Build ID is needed to symbolize heap profiles, and is generated only on
    // official builds. Build ID is only added for the current library (chrome)
    // since it is racy to read other libraries which can be unmapped any time.
@@ -28,7 +44,7 @@
  
    return res;
  }
-@@ -217,6 +219,9 @@ void OSMetrics::SetProcSmapsForTesting(FILE* f) {
+@@ -217,6 +221,9 @@ void OSMetrics::SetProcSmapsForTesting(FILE* f) {
  // static
  bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
                                   mojom::RawOSMemDump* dump) {
@@ -38,7 +54,7 @@
    base::ScopedFD autoclose = OpenStatm(pid);
    int statm_fd = autoclose.get();
  
-@@ -242,6 +247,7 @@ bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
+@@ -242,6 +249,7 @@ bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
    dump->resident_set_kb = process_metrics->GetResidentSetSize() / 1024;
  
    return true;

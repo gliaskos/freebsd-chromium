@@ -51,8 +51,8 @@
 +std::string SysInfo::CPUModelName() {
 +  int mib[] = { CTL_HW, HW_MODEL };
 +  char name[256];
-+  size_t size = arraysize(name);
-+  if (sysctl(mib, arraysize(mib), &name, &size, NULL, 0) == 0)
++  size_t size = base::size(name);
++  if (sysctl(mib, base::size(mib), &name, &size, NULL, 0) == 0)
 +    return name;
 +  return std::string();
 +}
@@ -61,7 +61,7 @@
 +  int mib[] = { CTL_HW, HW_NCPU };
 +  int ncpu;
 +  size_t size = sizeof(ncpu);
-+  if (sysctl(mib, arraysize(mib), &ncpu, &size, NULL, 0) == -1) {
++  if (sysctl(mib, base::size(mib), &ncpu, &size, NULL, 0) == -1) {
 +    NOTREACHED();
 +    return 1;
 +  }

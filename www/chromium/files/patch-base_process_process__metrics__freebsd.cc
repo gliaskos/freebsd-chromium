@@ -106,7 +106,7 @@
 +
 +  length = sizeof(total_count);
 +
-+  if (sysctl(mib, arraysize(mib), &total_count, &length, NULL, 0) < 0) {
++  if (sysctl(mib, base::size(mib), &total_count, &length, NULL, 0) < 0) {
 +    total_count = -1;
 +    goto out;
 +  }

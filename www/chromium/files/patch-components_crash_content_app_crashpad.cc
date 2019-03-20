@@ -31,7 +31,7 @@
    const bool should_initialize_database_and_set_upload_policy = browser_process;
  #endif
    if (should_initialize_database_and_set_upload_policy) {
-@@ -267,15 +273,17 @@ bool GetUploadsEnabled() {
+@@ -267,7 +273,9 @@ bool GetUploadsEnabled() {
  
  #if !defined(OS_ANDROID)
  void DumpWithoutCrashing() {
@@ -41,13 +41,3 @@
  }
  #endif
  
--#if defined(OS_LINUX) || defined(OS_ANDROID)
-+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
- void CrashWithoutDumping(const std::string& message) {
-   crashpad::CrashpadClient::CrashWithoutDump(message);
- }
--#endif  // defined(OS_LINUX) || defined(OS_ANDROID)
-+#endif  // defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
- 
- void GetReports(std::vector<Report>* reports) {
- #if defined(OS_WIN)

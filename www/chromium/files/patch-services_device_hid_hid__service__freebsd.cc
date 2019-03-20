@@ -1,4 +1,4 @@
---- services/device/hid/hid_service_freebsd.cc.orig	2019-03-17 01:47:14 UTC
+--- services/device/hid/hid_service_freebsd.cc.orig	2019-03-18 08:59:44 UTC
 +++ services/device/hid/hid_service_freebsd.cc
 @@ -0,0 +1,371 @@
 +// Copyright 2014 The Chromium Authors. All rights reserved.
@@ -333,7 +333,7 @@
 +
 +void HidServiceFreeBSD::Connect(const std::string& device_guid,
 +                            const ConnectCallback& callback) {
-+  DCHECK(thread_checker_.CalledOnValidThread());
++  DCHECK_CALLED_ON_VALID_SEQUENCE(sequence_checker_);
 +
 +  const auto& map_entry = devices().find(device_guid);
 +  if (map_entry == devices().end()) {

@@ -1,5 +1,14 @@
 --- third_party/crashpad/crashpad/util/posix/close_multiple.cc.orig	2019-03-11 22:01:15 UTC
 +++ third_party/crashpad/crashpad/util/posix/close_multiple.cc
+@@ -31,7 +31,7 @@
+ #include "util/file/directory_reader.h"
+ #include "util/misc/implicit_cast.h"
+ 
+-#if defined(OS_MACOSX)
++#if defined(OS_MACOSX) || defined(OS_BSD)
+ #include <sys/sysctl.h>
+ #endif
+ 
 @@ -72,7 +72,7 @@ void CloseNowOrOnExec(int fd, bool ebadf_ok) {
  // This is an advantage over looping over all possible file descriptors, because
  // no attempt needs to be made to close file descriptors that are not open.
