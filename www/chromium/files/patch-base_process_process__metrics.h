@@ -1,6 +1,6 @@
---- base/process/process_metrics.h.orig	2019-03-11 22:00:51 UTC
-+++ base/process/process_metrics.h
-@@ -41,7 +41,7 @@ namespace base {
+--- base/process/process_metrics.h.orig	2019-03-21 01:36:27.000000000 +0100
++++ base/process/process_metrics.h	2019-03-24 19:51:50.158637000 +0100
+@@ -41,7 +41,7 @@
  // Full declaration is in process_metrics_iocounters.h.
  struct IoCounters;
  
@@ -9,7 +9,7 @@
  // Minor and major page fault counts since the process creation.
  // Both counts are process-wide, and exclude child processes.
  //
-@@ -51,7 +51,7 @@ struct PageFaultCounts {
+@@ -51,7 +51,7 @@
    int64_t minor;
    int64_t major;
  };
@@ -18,7 +18,16 @@
  
  // Convert a POSIX timeval to microseconds.
  BASE_EXPORT int64_t TimeValToMicroseconds(const struct timeval& tv);
-@@ -199,14 +199,14 @@ class BASE_EXPORT ProcessMetrics {
+@@ -92,7 +92,7 @@
+   // convenience wrapper for CreateProcessMetrics().
+   static std::unique_ptr<ProcessMetrics> CreateCurrentProcessMetrics();
+ 
+-#if defined(OS_LINUX) || defined(OS_ANDROID)
++#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
+   // Resident Set Size is a Linux/Android specific memory concept. Do not
+   // attempt to extend this to other platforms.
+   BASE_EXPORT size_t GetResidentSetSize() const;
+@@ -199,14 +199,14 @@
    int GetOpenFdSoftLimit() const;
  #endif  // defined(OS_POSIX)
  
@@ -35,7 +44,7 @@
  
    // Returns total memory usage of malloc.
    size_t GetMallocUsage();
-@@ -218,7 +218,7 @@ class BASE_EXPORT ProcessMetrics {
+@@ -218,7 +218,7 @@
    ProcessMetrics(ProcessHandle process, PortProvider* port_provider);
  #endif  // !defined(OS_MACOSX) || defined(OS_IOS)
  
@@ -44,7 +53,7 @@
    int CalculateIdleWakeupsPerSecond(uint64_t absolute_idle_wakeups);
  #endif
  #if defined(OS_MACOSX)
-@@ -247,7 +247,7 @@ class BASE_EXPORT ProcessMetrics {
+@@ -247,7 +247,7 @@
    // Number of bytes transferred to/from disk in bytes.
    uint64_t last_cumulative_disk_usage_ = 0;
  
@@ -53,7 +62,7 @@
    // Same thing for idle wakeups.
    TimeTicks last_idle_wakeups_time_;
    uint64_t last_absolute_idle_wakeups_;
-@@ -293,7 +293,7 @@ BASE_EXPORT void IncreaseFdLimitTo(unsigned int max_de
+@@ -293,7 +293,7 @@
  #endif  // defined(OS_POSIX)
  
  #if defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) || \
@@ -62,7 +71,7 @@
  // Data about system-wide memory consumption. Values are in KB. Available on
  // Windows, Mac, Linux, Android and Chrome OS.
  //
-@@ -326,7 +326,7 @@ struct BASE_EXPORT SystemMemoryInfoKB {
+@@ -326,7 +326,7 @@
    int avail_phys = 0;
  #endif
  
@@ -71,7 +80,7 @@
    // This provides an estimate of available memory as described here:
    // https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773
    // NOTE: this is ONLY valid in kernels 3.14 and up.  Its value will always
-@@ -341,7 +341,7 @@ struct BASE_EXPORT SystemMemoryInfoKB {
+@@ -341,7 +341,7 @@
  #endif
  
  #if defined(OS_ANDROID) || defined(OS_LINUX) || defined(OS_AIX) || \
@@ -80,7 +89,7 @@
    int buffers = 0;
    int cached = 0;
    int active_anon = 0;
-@@ -351,7 +351,7 @@ struct BASE_EXPORT SystemMemoryInfoKB {
+@@ -351,7 +351,7 @@
    int dirty = 0;
    int reclaimable = 0;
  #endif  // defined(OS_ANDROID) || defined(OS_LINUX) || defined(OS_AIX) ||
@@ -89,3 +98,15 @@
  
  #if defined(OS_CHROMEOS)
    int shmem = 0;
+@@ -377,9 +377,9 @@
+ BASE_EXPORT bool GetSystemMemoryInfo(SystemMemoryInfoKB* meminfo);
+ 
+ #endif  // defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) ||
+-        // defined(OS_ANDROID) || defined(OS_AIX) || defined(OS_FUCHSIA)
++        // defined(OS_ANDROID) || defined(OS_AIX) || defined(OS_FUCHSIA) || defined(OS_BSD)
+ 
+-#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_AIX)
++#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_AIX) || defined(OS_BSD)
+ // Parse the data found in /proc/<pid>/stat and return the sum of the
+ // CPU-related ticks.  Returns -1 on parse error.
+ // Exposed for testing.

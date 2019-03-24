@@ -1,5 +1,5 @@
---- services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics_linux.cc.orig	2019-03-11 22:01:02 UTC
-+++ services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics_linux.cc
+--- services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics_linux.cc.orig	2019-03-21 01:36:59.000000000 +0100
++++ services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics_linux.cc	2019-03-24 18:58:48.459358000 +0100
 @@ -17,8 +17,10 @@
  #include "build/build_config.h"
  #include "services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics.h"
@@ -11,7 +11,7 @@
  
  namespace memory_instrumentation {
  
-@@ -67,6 +69,7 @@ struct ModuleData {
+@@ -67,6 +69,7 @@
  
  ModuleData GetMainModuleData() {
    ModuleData module_data;
@@ -19,7 +19,7 @@
    Dl_info dl_info;
    if (dladdr(&__ehdr_start, &dl_info)) {
      base::Optional<std::string> build_id =
-@@ -76,6 +79,7 @@ ModuleData GetMainModuleData() {
+@@ -76,6 +79,7 @@
        module_data.build_id = *build_id;
      }
    }
@@ -27,7 +27,7 @@
    return module_data;
  }
  
-@@ -123,14 +127,14 @@ bool ParseSmapsHeader(const char* header_line,
+@@ -123,14 +127,14 @@
    // Build ID is needed to symbolize heap profiles, and is generated only on
    // official builds. Build ID is only added for the current library (chrome)
    // since it is racy to read other libraries which can be unmapped any time.
@@ -44,7 +44,7 @@
  
    return res;
  }
-@@ -217,6 +221,9 @@ void OSMetrics::SetProcSmapsForTesting(FILE* f) {
+@@ -217,6 +221,9 @@
  // static
  bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
                                   mojom::RawOSMemDump* dump) {
@@ -54,7 +54,7 @@
    base::ScopedFD autoclose = OpenStatm(pid);
    int statm_fd = autoclose.get();
  
-@@ -242,6 +249,7 @@ bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
+@@ -242,10 +249,12 @@
    dump->resident_set_kb = process_metrics->GetResidentSetSize() / 1024;
  
    return true;
@@ -62,3 +62,19 @@
  }
  
  // static
+ std::vector<VmRegionPtr> OSMetrics::GetProcessMemoryMaps(base::ProcessId pid) {
++#if defined(OS_BSD)
+   std::vector<VmRegionPtr> maps;
+   uint32_t res = 0;
+   if (g_proc_smaps_for_testing) {
+@@ -263,6 +272,10 @@
+     return std::vector<VmRegionPtr>();
+ 
+   return maps;
++#else
++  NOTIMPLEMENTED();
++  return std::vector<VmRegionPtr>();
++#endif
+ }
+ 
+ }  // namespace memory_instrumentation
