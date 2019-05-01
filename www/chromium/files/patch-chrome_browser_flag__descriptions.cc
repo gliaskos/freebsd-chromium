@@ -1,6 +1,6 @@
---- chrome/browser/flag_descriptions.cc.orig	2019-03-11 22:00:53 UTC
+--- chrome/browser/flag_descriptions.cc.orig	2019-04-30 22:22:33 UTC
 +++ chrome/browser/flag_descriptions.cc
-@@ -3656,13 +3656,13 @@ const char kWakeOnPacketsDescription[] =
+@@ -3524,13 +3524,13 @@ extern const char kAshNotificationStackingBarRedesignD
  
  // Random platform combinations -----------------------------------------------
  
@@ -14,9 +14,9 @@
 -#endif  // defined(OS_WIN) || defined(OS_LINUX)
 +#endif  // defined(OS_WIN) || defined(OS_LINUX) || defined(OS_BSD)
  
- #if defined(OS_WIN) || defined(OS_MACOSX)
+ #if defined(OS_WIN) || defined(OS_LINUX) || defined(OS_CHROMEOS)
  
-@@ -3675,13 +3675,13 @@ const char kAutomaticTabDiscardingDescription[] =
+@@ -3551,13 +3551,13 @@ const char kAutomaticTabDiscardingDescription[] =
  
  #endif  // defined(OS_WIN) || defined(OS_MACOSX)
  

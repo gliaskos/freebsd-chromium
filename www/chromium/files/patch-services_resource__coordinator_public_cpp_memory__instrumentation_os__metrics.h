@@ -1,6 +1,6 @@
---- services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics.h.orig	2019-03-11 22:01:02 UTC
+--- services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics.h.orig	2019-04-30 22:22:56 UTC
 +++ services/resource_coordinator/public/cpp/memory_instrumentation/os_metrics.h
-@@ -26,9 +26,9 @@ class COMPONENT_EXPORT(
+@@ -28,9 +28,9 @@ class COMPONENT_EXPORT(
                                      mojom::RawOSMemDump*);
    static std::vector<mojom::VmRegionPtr> GetProcessMemoryMaps(base::ProcessId);
  
