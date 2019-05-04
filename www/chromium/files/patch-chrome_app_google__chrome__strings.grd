@@ -1,5 +1,14 @@
 --- chrome/app/google_chrome_strings.grd.orig	2019-04-30 22:22:30 UTC
 +++ chrome/app/google_chrome_strings.grd
+@@ -701,7 +701,7 @@ Signing in anyway will merge Chrome information like b
+       </if>
+ 
+       <!-- about:browser-switch strings -->
+-      <if expr="is_win or is_macosx or (is_linux and not is_chromeos)">
++      <if expr="is_win or is_macosx or (is_posix and not is_chromeos)">
+         <message name="IDS_ABOUT_BROWSER_SWITCH_DESCRIPTION" desc="Description shown while waiting for an alternative browser to open">
+           Your system administrator has configured Google Chrome to open an alternative browser to access <ph name="TARGET_URL_HOSTNAME">$1<ex>example.com</ex></ph>.
+         </message>
 @@ -827,7 +827,7 @@ Signing in anyway will merge Chrome information like b
        </message>
  

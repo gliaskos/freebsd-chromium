@@ -44,17 +44,18 @@
  
    return res;
  }
-@@ -220,6 +224,9 @@ void OSMetrics::SetProcSmapsForTesting(FILE* f) {
+@@ -220,6 +224,10 @@ void OSMetrics::SetProcSmapsForTesting(FILE* f) {
  // static
  bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
                                   mojom::RawOSMemDump* dump) {
 +#if defined(OS_BSD)
++  NOTIMPLEMENTED();
 +  return false;
 +#else
    base::ScopedFD autoclose = OpenStatm(pid);
    int statm_fd = autoclose.get();
  
-@@ -267,10 +274,12 @@ bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
+@@ -267,10 +275,15 @@ bool OSMetrics::FillOSMemoryDump(base::ProcessId pid,
  #endif  //  defined(OS_ANDROID)
  
    return true;
@@ -64,17 +65,36 @@
  // static
  std::vector<VmRegionPtr> OSMetrics::GetProcessMemoryMaps(base::ProcessId pid) {
 +#if defined(OS_BSD)
++  NOTIMPLEMENTED();
++  return std::vector<VmRegionPtr>();
++#else
    std::vector<VmRegionPtr> maps;
    uint32_t res = 0;
    if (g_proc_smaps_for_testing) {
-@@ -288,6 +297,10 @@ std::vector<VmRegionPtr> OSMetrics::GetProcessMemoryMa
+@@ -288,6 +301,7 @@ std::vector<VmRegionPtr> OSMetrics::GetProcessMemoryMa
      return std::vector<VmRegionPtr>();
  
    return maps;
-+#else
-+  NOTIMPLEMENTED();
-+  return std::vector<VmRegionPtr>();
 +#endif
  }
  
  // static
+@@ -295,6 +309,10 @@ OSMetrics::MappedAndResidentPagesDumpState OSMetrics::
+     const size_t start_address,
+     const size_t end_address,
+     std::vector<uint8_t>* accessed_pages_bitmap) {
++#if defined(OS_BSD)
++  NOTIMPLEMENTED();
++  return OSMetrics::MappedAndResidentPagesDumpState::kFailure;
++#else
+   const char* kPagemap = "/proc/self/pagemap";
+ 
+   base::ScopedFILE pagemap_file(fopen(kPagemap, "r"));
+@@ -336,6 +354,7 @@ OSMetrics::MappedAndResidentPagesDumpState OSMetrics::
+     }
+   }
+   return OSMetrics::MappedAndResidentPagesDumpState::kSuccess;
++#endif
+ }
+ 
+ }  // namespace memory_instrumentation
