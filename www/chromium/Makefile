@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 502903 2019-05-28 17:26:32Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	74.0.3729.169
+PORTVERSION=	75.0.3770.80
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
@@ -172,6 +172,7 @@ CUPS_VARS_OFF=		GN_ARGS+=use_cups=false
 DEBUG_VARS=		BUILDTYPE=Debug \
 			GN_ARGS+=is_debug=true \
 			GN_ARGS+=is_component_build=false \
+			GN_ARGS+=symbol_level=1 \
 			GN_BOOTSTRAP_FLAGS+=--debug \
 			WANTSPACE="lots of free disk space (~ 13GB)"
 DEBUG_VARS_OFF=		BUILDTYPE=Release \
