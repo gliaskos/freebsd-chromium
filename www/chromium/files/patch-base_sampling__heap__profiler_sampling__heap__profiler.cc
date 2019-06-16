@@ -16,7 +16,7 @@
    int err = pthread_getname_np(pthread_self(), name, kBufferLen);
    if (err == 0 && *name != '\0')
 +    return strdup(name);
-+#elif defined(OS_BSD)
++#elif defined(OS_BSD) && defined(HAVE_PTHREAD_GET_NAME_NP)
 +  pthread_get_name_np(pthread_self(), name, kBufferLen);
 +  if (*name != '\0')
      return strdup(name);
