@@ -1,4 +1,4 @@
---- base/sampling_heap_profiler/sampling_heap_profiler.cc.orig	2019-06-04 18:55:15 UTC
+--- base/sampling_heap_profiler/sampling_heap_profiler.cc.orig	2019-07-24 18:58:02 UTC
 +++ base/sampling_heap_profiler/sampling_heap_profiler.cc
 @@ -30,6 +30,10 @@
  #include <sys/prctl.h>
@@ -16,7 +16,7 @@
    int err = pthread_getname_np(pthread_self(), name, kBufferLen);
    if (err == 0 && *name != '\0')
 +    return strdup(name);
-+#elif defined(OS_BSD) && defined(HAVE_PTHREAD_GET_NAME_NP)
++#elif defined(OS_BSD) && __FreeBSD__ >= 12
 +  pthread_get_name_np(pthread_self(), name, kBufferLen);
 +  if (*name != '\0')
      return strdup(name);
