@@ -1,6 +1,6 @@
---- content/ppapi_plugin/ppapi_blink_platform_impl.cc.orig	2019-03-11 22:00:58 UTC
+--- content/ppapi_plugin/ppapi_blink_platform_impl.cc.orig	2019-09-09 21:55:16 UTC
 +++ content/ppapi_plugin/ppapi_blink_platform_impl.cc
-@@ -20,7 +20,7 @@
+@@ -19,7 +19,7 @@
  
  #if defined(OS_MACOSX)
  #include "content/child/child_process_sandbox_support_impl_mac.h"
@@ -9,7 +9,7 @@
  #include "content/child/child_process_sandbox_support_impl_linux.h"
  #endif
  
-@@ -34,7 +34,7 @@ typedef struct CGFont* CGFontRef;
+@@ -33,7 +33,7 @@ typedef struct CGFont* CGFontRef;
  namespace content {
  
  PpapiBlinkPlatformImpl::PpapiBlinkPlatformImpl() {
@@ -18,7 +18,7 @@
    font_loader_ =
        sk_make_sp<font_service::FontLoader>(ChildThread::Get()->GetConnector());
    SkFontConfigInterface::SetGlobal(font_loader_);
-@@ -49,7 +49,7 @@ PpapiBlinkPlatformImpl::~PpapiBlinkPlatformImpl() {
+@@ -48,7 +48,7 @@ PpapiBlinkPlatformImpl::~PpapiBlinkPlatformImpl() {
  }
  
  void PpapiBlinkPlatformImpl::Shutdown() {
@@ -27,7 +27,7 @@
    // SandboxSupport contains a map of OutOfProcessFont objects, which hold
    // WebStrings and WebVectors, which become invalidated when blink is shut
    // down. Hence, we need to clear that map now, just before blink::shutdown()
-@@ -59,7 +59,7 @@ void PpapiBlinkPlatformImpl::Shutdown() {
+@@ -58,7 +58,7 @@ void PpapiBlinkPlatformImpl::Shutdown() {
  }
  
  blink::WebSandboxSupport* PpapiBlinkPlatformImpl::GetSandboxSupport() {

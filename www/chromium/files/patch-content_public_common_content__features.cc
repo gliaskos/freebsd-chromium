@@ -1,6 +1,15 @@
---- content/public/common/content_features.cc.orig	2019-07-24 18:58:24 UTC
+--- content/public/common/content_features.cc.orig	2019-09-09 21:55:16 UTC
 +++ content/public/common/content_features.cc
-@@ -577,7 +577,7 @@ const base::Feature kWebAssemblyThreads {
+@@ -42,7 +42,7 @@ const base::Feature kAudioServiceLaunchOnStartup{
+ // Runs the audio service in a separate process.
+ const base::Feature kAudioServiceOutOfProcess{
+   "AudioServiceOutOfProcess",
+-#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
++#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)
+       base::FEATURE_ENABLED_BY_DEFAULT
+ #else
+       base::FEATURE_DISABLED_BY_DEFAULT
+@@ -612,7 +612,7 @@ const base::Feature kWebAssemblyThreads {
  };
  
  // Enable WebAssembly trap handler.
@@ -9,7 +18,7 @@
      defined(ARCH_CPU_X86_64)
  const base::Feature kWebAssemblyTrapHandler{"WebAssemblyTrapHandler",
                                              base::FEATURE_ENABLED_BY_DEFAULT};
-@@ -612,7 +612,7 @@ const base::Feature kWebAuthBle{"WebAuthenticationBle"
+@@ -647,7 +647,7 @@ const base::Feature kWebAuthBle{"WebAuthenticationBle"
  // https://w3c.github.io/webauthn
  const base::Feature kWebAuthCable {
    "WebAuthenticationCable",

@@ -1,4 +1,4 @@
---- services/video_capture/broadcasting_receiver.cc.orig	2019-04-30 22:22:57 UTC
+--- services/video_capture/broadcasting_receiver.cc.orig	2019-09-09 21:55:23 UTC
 +++ services/video_capture/broadcasting_receiver.cc
 @@ -40,7 +40,7 @@ void CloneSharedBufferHandle(const mojo::ScopedSharedB
  void CloneSharedBufferToRawFileDescriptorHandle(
@@ -9,7 +9,7 @@
    media::SharedMemoryHandleProvider provider;
    provider.InitFromMojoHandle(
        source->Clone(mojo::SharedBufferHandle::AccessMode::READ_WRITE));
-@@ -174,7 +174,7 @@ void BroadcastingReceiver::BufferContext::
+@@ -180,7 +180,7 @@ void BroadcastingReceiver::BufferContext::
      ConvertRawFileDescriptorToSharedBuffer() {
    DCHECK(buffer_handle_->is_shared_memory_via_raw_file_descriptor());
  

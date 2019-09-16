@@ -1,6 +1,6 @@
---- content/renderer/media/webrtc/webrtc_audio_renderer_unittest.cc.orig	2019-04-30 22:22:47 UTC
+--- content/renderer/media/webrtc/webrtc_audio_renderer_unittest.cc.orig	2019-09-09 21:55:17 UTC
 +++ content/renderer/media/webrtc/webrtc_audio_renderer_unittest.cc
-@@ -204,7 +204,7 @@ TEST_F(WebRtcAudioRendererTest, MultipleRenderers) {
+@@ -245,7 +245,7 @@ TEST_F(WebRtcAudioRendererTest, MultipleRenderers) {
  TEST_F(WebRtcAudioRendererTest, VerifySinkParameters) {
    SetupRenderer(kDefaultOutputDeviceId);
    renderer_proxy_->Start();

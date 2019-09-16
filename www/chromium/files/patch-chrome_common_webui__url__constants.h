@@ -1,6 +1,6 @@
---- chrome/common/webui_url_constants.h.orig	2019-07-24 18:58:14 UTC
+--- chrome/common/webui_url_constants.h.orig	2019-09-09 21:55:11 UTC
 +++ chrome/common/webui_url_constants.h
-@@ -262,7 +262,7 @@ extern const char kChromeUIMetroFlowURL[];
+@@ -267,7 +267,7 @@ extern const char kChromeUIMetroFlowURL[];
  extern const char kChromeUICastHost[];
  #endif
  
@@ -9,7 +9,7 @@
  extern const char kChromeUIDiscardsHost[];
  extern const char kChromeUIDiscardsURL[];
  extern const char kChromeUIHatsHost[];
-@@ -274,17 +274,17 @@ extern const char kChromeUIHatsURL[];
+@@ -279,17 +279,17 @@ extern const char kChromeUIHatsURL[];
  extern const char kChromeUILinuxProxyConfigHost[];
  #endif
  

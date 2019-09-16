@@ -1,6 +1,6 @@
---- base/base_switches.h.orig	2019-07-29 18:05:10 UTC
+--- base/base_switches.h.orig	2019-09-09 21:55:05 UTC
 +++ base/base_switches.h
-@@ -36,7 +36,7 @@ extern const char kWaitForDebugger[];
+@@ -37,7 +37,7 @@ extern const char kWaitForDebugger[];
  extern const char kDisableUsbKeyboardDetect[];
  #endif
  
@@ -9,7 +9,7 @@
  extern const char kDisableDevShmUsage[];
  #endif
  
-@@ -49,7 +49,7 @@ extern const char kEnableReachedCodeProfiler[];
+@@ -50,7 +50,7 @@ extern const char kEnableReachedCodeProfiler[];
  extern const char kOrderfileMemoryOptimization[];
  #endif
  

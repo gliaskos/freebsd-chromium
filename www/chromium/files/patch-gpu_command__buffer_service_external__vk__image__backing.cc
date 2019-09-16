@@ -1,6 +1,6 @@
---- gpu/command_buffer/service/external_vk_image_backing.cc.orig	2019-07-24 18:58:27 UTC
+--- gpu/command_buffer/service/external_vk_image_backing.cc.orig	2019-09-09 21:55:18 UTC
 +++ gpu/command_buffer/service/external_vk_image_backing.cc
-@@ -26,7 +26,7 @@
+@@ -25,7 +25,7 @@
  #include "gpu/vulkan/fuchsia/vulkan_fuchsia_ext.h"
  #endif
  
@@ -9,16 +9,16 @@
  #define GL_HANDLE_TYPE_OPAQUE_FD_EXT 0x9586
  #endif
  
-@@ -439,7 +439,7 @@ ExternalVkImageBacking::ProduceGLTexture(SharedImageMa
+@@ -449,7 +449,7 @@ ExternalVkImageBacking::ProduceGLTexture(SharedImageMa
  #if defined(OS_FUCHSIA)
    NOTIMPLEMENTED_LOG_ONCE();
    return nullptr;
 -#elif defined(OS_LINUX)
 +#elif defined(OS_LINUX) || defined(OS_BSD)
-   if (!texture_) {
-     VkMemoryGetFdInfoKHR get_fd_info;
-     get_fd_info.sType = VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR;
-@@ -502,7 +502,7 @@ ExternalVkImageBacking::ProduceGLTexture(SharedImageMa
+   GrVkImageInfo image_info;
+   bool result = backend_texture_.getVkImageInfo(&image_info);
+   DCHECK(result);
+@@ -518,7 +518,7 @@ ExternalVkImageBacking::ProduceGLTexture(SharedImageMa
    }
    return std::make_unique<ExternalVkImageGlRepresentation>(
        manager, this, tracker, texture_, texture_->service_id());

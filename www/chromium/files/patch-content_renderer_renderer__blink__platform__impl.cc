@@ -1,6 +1,6 @@
---- content/renderer/renderer_blink_platform_impl.cc.orig	2019-07-24 18:58:25 UTC
+--- content/renderer/renderer_blink_platform_impl.cc.orig	2019-09-09 21:55:17 UTC
 +++ content/renderer/renderer_blink_platform_impl.cc
-@@ -108,7 +108,7 @@
+@@ -101,7 +101,7 @@
  
  #if defined(OS_MACOSX)
  #include "content/child/child_process_sandbox_support_impl_mac.h"
@@ -9,7 +9,7 @@
  #include "content/child/child_process_sandbox_support_impl_linux.h"
  #endif
  
-@@ -199,7 +199,7 @@ RendererBlinkPlatformImpl::RendererBlinkPlatformImpl(
+@@ -187,7 +187,7 @@ RendererBlinkPlatformImpl::RendererBlinkPlatformImpl(
                       ->Clone();
      thread_safe_sender_ = RenderThreadImpl::current()->thread_safe_sender();
      blob_registry_.reset(new WebBlobRegistryImpl(thread_safe_sender_.get()));
@@ -18,7 +18,7 @@
      font_loader_ = sk_make_sp<font_service::FontLoader>(connector_.get());
      SkFontConfigInterface::SetGlobal(font_loader_);
  #endif
-@@ -208,7 +208,7 @@ RendererBlinkPlatformImpl::RendererBlinkPlatformImpl(
+@@ -196,7 +196,7 @@ RendererBlinkPlatformImpl::RendererBlinkPlatformImpl(
      connector_ = service_manager::Connector::Create(&request);
    }
  
@@ -27,7 +27,7 @@
    if (g_sandbox_enabled && sandboxEnabled()) {
  #if defined(OS_MACOSX)
      sandbox_support_.reset(new WebSandboxSupportMac(connector_.get()));
-@@ -236,7 +236,7 @@ RendererBlinkPlatformImpl::~RendererBlinkPlatformImpl(
+@@ -222,7 +222,7 @@ RendererBlinkPlatformImpl::~RendererBlinkPlatformImpl(
  }
  
  void RendererBlinkPlatformImpl::Shutdown() {
@@ -36,7 +36,7 @@
    // SandboxSupport contains a map of OutOfProcessFont objects, which hold
    // WebStrings and WebVectors, which become invalidated when blink is shut
    // down. Hence, we need to clear that map now, just before blink::shutdown()
-@@ -311,7 +311,7 @@ RendererBlinkPlatformImpl::CreateNetworkURLLoaderFacto
+@@ -297,7 +297,7 @@ RendererBlinkPlatformImpl::CreateNetworkURLLoaderFacto
  
  void RendererBlinkPlatformImpl::SetDisplayThreadPriority(
      base::PlatformThreadId thread_id) {
@@ -45,7 +45,7 @@
    if (RenderThreadImpl* render_thread = RenderThreadImpl::current()) {
      render_thread->render_message_filter()->SetThreadPriority(
          thread_id, base::ThreadPriority::DISPLAY);
-@@ -324,7 +324,7 @@ blink::BlameContext* RendererBlinkPlatformImpl::GetTop
+@@ -310,7 +310,7 @@ blink::BlameContext* RendererBlinkPlatformImpl::GetTop
  }
  
  blink::WebSandboxSupport* RendererBlinkPlatformImpl::GetSandboxSupport() {

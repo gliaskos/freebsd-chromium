@@ -1,4 +1,4 @@
---- v8/BUILD.gn.orig	2019-07-24 19:03:36 UTC
+--- v8/BUILD.gn.orig	2019-09-09 21:57:07 UTC
 +++ v8/BUILD.gn
 @@ -3541,7 +3541,7 @@ v8_component("v8_libbase") {
      }
@@ -22,7 +22,7 @@
    } else if (is_android) {
      if (current_toolchain == host_toolchain) {
        libs = [
-@@ -3818,6 +3824,7 @@ if (v8_use_snapshot && current_toolchain == v8_snapsho
+@@ -3812,6 +3818,7 @@ if (v8_use_snapshot && current_toolchain == v8_snapsho
        "src/snapshot/embedded/platform-embedded-file-writer-win.h",
        "src/snapshot/mksnapshot.cc",
      ]

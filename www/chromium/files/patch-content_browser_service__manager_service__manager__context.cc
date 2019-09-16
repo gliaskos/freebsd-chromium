@@ -1,15 +1,15 @@
---- content/browser/service_manager/service_manager_context.cc.orig	2019-07-24 18:58:24 UTC
+--- content/browser/service_manager/service_manager_context.cc.orig	2019-09-09 21:55:16 UTC
 +++ content/browser/service_manager/service_manager_context.cc
 @@ -98,7 +98,7 @@
- #include "jni/ContentNfcDelegate_jni.h"
+ #include "content/public/android/content_jni_headers/ContentNfcDelegate_jni.h"
  #endif
  
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_BSD)
  #include "components/services/font/font_service_app.h"
- #include "components/services/font/public/interfaces/constants.mojom.h"  // nogncheck
+ #include "components/services/font/public/mojom/constants.mojom.h"  // nogncheck
  #endif
-@@ -342,12 +342,12 @@ void CreateInProcessAudioService(
+@@ -341,12 +341,12 @@ void CreateInProcessAudioService(
                       BrowserMainLoop::GetAudioManager(), std::move(request)));
  }
  
@@ -24,7 +24,7 @@
  
  std::unique_ptr<service_manager::Service> CreateResourceCoordinatorService(
      service_manager::mojom::ServiceRequest request) {
-@@ -665,7 +665,7 @@ ServiceManagerContext::ServiceManagerContext(
+@@ -657,7 +657,7 @@ ServiceManagerContext::ServiceManagerContext(
          base::BindRepeating(&CreateVideoCaptureService));
    }
  

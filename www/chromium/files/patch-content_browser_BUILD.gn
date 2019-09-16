@@ -1,11 +1,11 @@
---- content/browser/BUILD.gn.orig	2019-07-24 18:58:23 UTC
+--- content/browser/BUILD.gn.orig	2019-09-09 21:55:16 UTC
 +++ content/browser/BUILD.gn
-@@ -2058,7 +2058,7 @@ jumbo_source_set("browser") {
-       "//chromeos/resources",
-       "//components/chromeos_camera:mojo_mjpeg_decode_accelerator",
+@@ -2615,7 +2615,7 @@ jumbo_source_set("browser") {
+       "//chromeos/network",
+       "//components/session_manager/core",
      ]
 -  } else {
 +  } else if (!is_bsd) {
      sources += [
-       "memory/memory_monitor_linux.cc",
-       "memory/memory_monitor_linux.h",
+       # ChromeOS accessibility metrics provider is in chromeos_metrics_provider.
+       "accessibility/accessibility_metrics_provider.cc",

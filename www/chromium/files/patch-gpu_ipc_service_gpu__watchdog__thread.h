@@ -1,6 +1,6 @@
---- gpu/ipc/service/gpu_watchdog_thread.h.orig	2019-07-24 18:58:27 UTC
+--- gpu/ipc/service/gpu_watchdog_thread.h.orig	2019-09-09 21:55:18 UTC
 +++ gpu/ipc/service/gpu_watchdog_thread.h
-@@ -191,8 +191,10 @@ class GPU_IPC_SERVICE_EXPORT GpuWatchdogThread : publi
+@@ -228,8 +228,10 @@ class GPU_IPC_SERVICE_EXPORT GpuWatchdogThreadImplV1
    XDisplay* display_;
    gfx::AcceleratedWidget window_;
    XAtom atom_;
@@ -10,4 +10,4 @@
 +#endif
  #endif
  
-   base::RepeatingClosure alternative_terminate_for_testing_;
+   base::WeakPtrFactory<GpuWatchdogThreadImplV1> weak_factory_{this};

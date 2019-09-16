@@ -1,6 +1,6 @@
---- chrome/common/chrome_features.cc.orig	2019-07-24 18:58:13 UTC
+--- chrome/common/chrome_features.cc.orig	2019-09-09 21:55:11 UTC
 +++ chrome/common/chrome_features.cc
-@@ -98,13 +98,13 @@ const base::Feature kAutoFetchOnNetErrorPage{"AutoFetc
+@@ -87,13 +87,13 @@ const base::Feature kAutoFetchOnNetErrorPage{"AutoFetc
                                               base::FEATURE_DISABLED_BY_DEFAULT};
  #endif  // defined(OS_ANDROID)
  
@@ -16,7 +16,7 @@
  
  // Enables or disables whether permission prompts are automatically blocked
  // after the user has explicitly dismissed them too many times.
-@@ -150,7 +150,7 @@ const base::Feature kThirdPartyModulesBlocking{
+@@ -143,7 +143,7 @@ const base::Feature kThirdPartyModulesBlocking{
      "ThirdPartyModulesBlocking", base::FEATURE_DISABLED_BY_DEFAULT};
  #endif
  
@@ -25,3 +25,12 @@
  // Enables the dual certificate verification trial feature.
  // https://crbug.com/649026
  const base::Feature kCertDualVerificationTrialFeature{
+@@ -221,7 +221,7 @@ const base::Feature kUploadZippedSystemLogs{"UploadZip
+                                             base::FEATURE_DISABLED_BY_DEFAULT};
+ #endif
+ 
+-#if defined(OS_CHROMEOS) || defined(OS_LINUX)
++#if defined(OS_CHROMEOS) || defined(OS_LINUX) || defined(OS_BSD)
+ // Enable chrome://terminal in Chrome OS or Linux.
+ const base::Feature kTerminalSystemApp{"TerminalSystemApp",
+                                        base::FEATURE_DISABLED_BY_DEFAULT};
