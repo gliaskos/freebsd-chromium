@@ -316,10 +316,15 @@ do-install:
 		${STAGEDIR}${DATADIR}
 
 	# ANGLE, EGL, Vk
-.for f in libEGL.so libGLESv2.so libVkICD_mock_icd.so libVkLayer_core_validation.so libVkLayer_object_lifetimes.so \
-	libVkLayer_stateless_validation.so libVkLayer_thread_safety.so libVkLayer_unique_objects.so
+.for f in libEGL.so libGLESv2.so libVkICD_mock_icd.so
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
 .endfor
+.if ${BUILDTYPE} == Debug
+.for f in libVkLayer_core_validation.so libVkLayer_object_lifetimes.so libVkLayer_stateless_validation.so \
+	libVkLayer_thread_safety.so libVkLayer_unique_objects.so
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
+.endfor
+.endif
 
 	# SwiftShader
 .if ${ARCH} != aarch64
