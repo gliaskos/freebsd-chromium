@@ -1,4 +1,4 @@
---- chrome/browser/chrome_browser_main.cc.orig	2019-07-24 18:58:07 UTC
+--- chrome/browser/chrome_browser_main.cc.orig	2019-09-09 21:55:09 UTC
 +++ chrome/browser/chrome_browser_main.cc
 @@ -220,9 +220,9 @@
  #include "components/arc/metrics/stability_metrics_manager.h"
@@ -21,7 +21,7 @@
  #include "chrome/browser/metrics/desktop_session_duration/desktop_session_duration_tracker.h"
  #include "chrome/browser/profiles/profile_activity_metrics_recorder.h"
  #endif
-@@ -1079,7 +1079,7 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
+@@ -1074,7 +1074,7 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
        AddFirstRunNewTabs(browser_creator_.get(), master_prefs_->new_tabs);
      }
  
@@ -30,7 +30,7 @@
      // Create directory for user-level Native Messaging manifest files. This
      // makes it less likely that the directory will be created by third-party
      // software with incorrect owner or permission. See crbug.com/725513 .
-@@ -1088,14 +1088,14 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
+@@ -1083,14 +1083,14 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
                                   &user_native_messaging_dir));
      if (!base::PathExists(user_native_messaging_dir))
        base::CreateDirectory(user_native_messaging_dir);
@@ -48,7 +48,7 @@
  
  #if defined(OS_MACOSX)
    // Get the Keychain API to register for distributed notifications on the main
-@@ -1125,7 +1125,7 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
+@@ -1120,7 +1120,7 @@ int ChromeBrowserMainParts::PreCreateThreadsImpl() {
    }
  
  #if defined(OS_WIN) || defined(OS_MACOSX) || \
@@ -57,15 +57,15 @@
    metrics::DesktopSessionDurationTracker::Initialize();
    ProfileActivityMetricsRecorder::Initialize();
  #endif
-@@ -1291,6 +1291,7 @@ void ChromeBrowserMainParts::PostBrowserStart() {
+@@ -1280,6 +1280,7 @@ void ChromeBrowserMainParts::PostBrowserStart() {
        base::TimeDelta::FromMinutes(1));
  
  #if !defined(OS_ANDROID)
 +#if !defined(OS_BSD)
    if (base::FeatureList::IsEnabled(features::kWebUsb)) {
      web_usb_detector_.reset(new WebUsbDetector());
-     BrowserThread::PostAfterStartupTask(
-@@ -1299,6 +1300,7 @@ void ChromeBrowserMainParts::PostBrowserStart() {
+     base::PostTaskWithTraits(
+@@ -1288,6 +1289,7 @@ void ChromeBrowserMainParts::PostBrowserStart() {
          base::BindOnce(&WebUsbDetector::Initialize,
                         base::Unretained(web_usb_detector_.get())));
    }

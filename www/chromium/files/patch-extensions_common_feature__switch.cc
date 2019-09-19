@@ -1,6 +1,6 @@
---- extensions/common/feature_switch.cc.orig	2019-03-11 22:00:58 UTC
+--- extensions/common/feature_switch.cc.orig	2019-09-09 21:55:17 UTC
 +++ extensions/common/feature_switch.cc
-@@ -44,11 +44,7 @@ class CommonSwitches {
+@@ -41,11 +41,7 @@ class CommonSwitches {
                           FeatureSwitch::DEFAULT_ENABLED),
          load_media_router_component_extension(
              kLoadMediaRouterComponentExtensionFlag,

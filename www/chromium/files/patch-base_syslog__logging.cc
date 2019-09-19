@@ -1,18 +1,18 @@
---- base/syslog_logging.cc.orig	2019-05-01 17:21:47 UTC
+--- base/syslog_logging.cc.orig	2019-09-09 21:55:05 UTC
 +++ base/syslog_logging.cc
-@@ -9,7 +9,7 @@
- #include "base/bind.h"
+@@ -11,7 +11,7 @@
  #include "base/callback_helpers.h"
  #include "base/debug/stack_trace.h"
+ #include "base/win/win_util.h"
 -#elif defined(OS_LINUX)
 +#elif defined(OS_LINUX) || defined(OS_BSD)
  // <syslog.h> defines LOG_INFO, LOG_WARNING macros that could conflict with
  // base::LOG_INFO, base::LOG_WARNING.
  #include <syslog.h>
-@@ -94,7 +94,7 @@ EventLogMessage::~EventLogMessage() {
-                     1, 0, strings, nullptr)) {
-     stream() << " !!NOT ADDED TO EVENTLOG!!";
-   }
+@@ -110,7 +110,7 @@ EventLogMessage::~EventLogMessage() {
+ 
+   if (user_sid != nullptr)
+     ::LocalFree(user_sid);
 -#elif defined(OS_LINUX)
 +#elif defined(OS_LINUX) || defined(OS_BSD)
    const char kEventSource[] = "chrome";

@@ -1,6 +1,6 @@
---- components/startup_metric_utils/browser/startup_metric_utils.cc.orig	2019-03-17 18:33:50 UTC
+--- components/startup_metric_utils/browser/startup_metric_utils.cc.orig	2019-09-09 21:55:15 UTC
 +++ components/startup_metric_utils/browser/startup_metric_utils.cc
-@@ -456,7 +456,7 @@ void AddStartupEventsForTelemetry()
+@@ -444,7 +444,7 @@ void AddStartupEventsForTelemetry()
  // RecordBrowserMainMessageLoopStart, the time since last startup is also logged
  // to a histogram suffixed with the startup temperature.
  void RecordTimeSinceLastStartup(PrefService* pref_service) {
@@ -9,7 +9,7 @@
    DCHECK(pref_service);
  
    // Get the timestamp of the current startup.
-@@ -485,7 +485,7 @@ void RecordTimeSinceLastStartup(PrefService* pref_serv
+@@ -473,7 +473,7 @@ void RecordTimeSinceLastStartup(PrefService* pref_serv
    // Write the timestamp of the current startup in |pref_service|.
    pref_service->SetInt64(prefs::kLastStartupTimestamp,
                           process_start_time.ToInternalValue());

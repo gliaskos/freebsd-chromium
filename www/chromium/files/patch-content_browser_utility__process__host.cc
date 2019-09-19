@@ -1,9 +1,9 @@
---- content/browser/utility_process_host.cc.orig	2019-06-04 18:55:23 UTC
+--- content/browser/utility_process_host.cc.orig	2019-09-09 21:55:16 UTC
 +++ content/browser/utility_process_host.cc
-@@ -213,7 +213,7 @@ UtilityProcessHost::UtilityProcessHost(
-     : client_(client),
-       client_task_runner_(client_task_runner),
-       sandbox_type_(service_manager::SANDBOX_TYPE_UTILITY),
+@@ -211,7 +211,7 @@ UtilityProcessHost::UtilityProcessHost()
+ 
+ UtilityProcessHost::UtilityProcessHost(std::unique_ptr<Client> client)
+     : sandbox_type_(service_manager::SANDBOX_TYPE_UTILITY),
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_BSD)
        child_flags_(ChildProcessHost::CHILD_ALLOW_SELF),

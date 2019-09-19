@@ -1,6 +1,6 @@
---- chrome/browser/extensions/BUILD.gn.orig	2019-07-24 18:58:09 UTC
+--- chrome/browser/extensions/BUILD.gn.orig	2019-09-09 21:55:09 UTC
 +++ chrome/browser/extensions/BUILD.gn
-@@ -1135,6 +1135,12 @@ jumbo_static_library("extensions") {
+@@ -1131,6 +1131,12 @@ jumbo_static_library("extensions") {
      deps += [ "//chrome/common:service_process_mojom" ]
    }
  

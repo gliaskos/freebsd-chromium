@@ -1,4 +1,4 @@
---- base/cpu.cc.orig	2019-07-29 18:05:46 UTC
+--- base/cpu.cc.orig	2019-09-09 21:55:05 UTC
 +++ base/cpu.cc
 @@ -15,7 +15,7 @@
  #include "base/stl_util.h"
@@ -9,7 +9,7 @@
  #include "base/files/file_util.h"
  #endif
  
-@@ -97,7 +97,7 @@ uint64_t xgetbv(uint32_t xcr) {
+@@ -98,7 +98,7 @@ uint64_t xgetbv(uint32_t xcr) {
  
  #endif  // ARCH_CPU_X86_FAMILY
  
@@ -18,7 +18,7 @@
  std::string* CpuInfoBrand() {
    static std::string* brand = []() {
      // This function finds the value from /proc/cpuinfo under the key "model
-@@ -127,7 +127,7 @@ std::string* CpuInfoBrand() {
+@@ -128,7 +128,7 @@ std::string* CpuInfoBrand() {
    return brand;
  }
  #endif  // defined(ARCH_CPU_ARM_FAMILY) && (defined(OS_ANDROID) ||

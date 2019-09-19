@@ -1,6 +1,6 @@
---- content/renderer/media/stream/processed_local_audio_source.cc.orig	2019-06-04 18:55:23 UTC
+--- content/renderer/media/stream/processed_local_audio_source.cc.orig	2019-09-09 21:55:17 UTC
 +++ content/renderer/media/stream/processed_local_audio_source.cc
-@@ -80,7 +80,7 @@ void LogAudioProcesingProperties(
+@@ -82,7 +82,7 @@ void LogAudioProcesingProperties(
  }  // namespace
  
  bool IsApmInAudioServiceEnabled() {
@@ -9,7 +9,7 @@
    return base::FeatureList::IsEnabled(features::kWebRtcApmInAudioService);
  #else
    return false;
-@@ -406,7 +406,7 @@ void ProcessedLocalAudioSource::CaptureUsingProcessor(
+@@ -407,7 +407,7 @@ void ProcessedLocalAudioSource::CaptureUsingProcessor(
      bool key_pressed) {
  #if defined(OS_WIN) || defined(OS_MACOSX)
    DCHECK_LE(volume, 1.0);

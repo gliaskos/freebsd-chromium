@@ -1,6 +1,6 @@
---- chrome/browser/media/webrtc/webrtc_logging_handler_host.h.orig	2019-04-30 22:22:34 UTC
+--- chrome/browser/media/webrtc/webrtc_logging_handler_host.h.orig	2019-09-09 21:55:09 UTC
 +++ chrome/browser/media/webrtc/webrtc_logging_handler_host.h
-@@ -153,13 +153,13 @@ class WebRtcLoggingHandlerHost : public content::Brows
+@@ -154,13 +154,13 @@ class WebRtcLoggingHandlerHost : public base::Supports
                           size_t web_app_id,
                           const StartEventLoggingCallback& callback);
  
@@ -14,9 +14,9 @@
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
-  private:
-   friend class content::BrowserThread;
-@@ -226,7 +226,7 @@ class WebRtcLoggingHandlerHost : public content::Brows
+   // chrome::mojom::WebRtcLoggingClient methods:
+   void OnAddMessages(
+@@ -215,7 +215,7 @@ class WebRtcLoggingHandlerHost : public base::Supports
        bool success,
        const std::string& error_message);
  
@@ -25,12 +25,12 @@
    // Grants the render process access to the 'WebRTC Logs' directory, and
    // invokes |callback| with the ids necessary to create a DirectoryEntry
    // object. If the |logs_path| couldn't be created or found, |error_callback|
-@@ -235,7 +235,7 @@ class WebRtcLoggingHandlerHost : public content::Brows
+@@ -224,7 +224,7 @@ class WebRtcLoggingHandlerHost : public base::Supports
        const LogsDirectoryCallback& callback,
        const LogsDirectoryErrorCallback& error_callback,
        const base::FilePath& logs_path);
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
-   // The render process ID this object belongs to.
-   const int render_process_id_;
+   static base::FilePath GetLogDirectoryAndEnsureExists(
+       const base::FilePath& browser_context_directory_path);
