@@ -1,4 +1,4 @@
---- chrome/browser/browser_resources.grd.orig	2019-09-09 21:55:09 UTC
+--- chrome/browser/browser_resources.grd.orig	2019-10-21 19:06:20 UTC
 +++ chrome/browser/browser_resources.grd
 @@ -106,7 +106,7 @@
          <include name="IDR_DISCARDS_SORTED_TABLE_BEHAVIOR_JS" file="resources\discards\sorted_table_behavior.js" compress="gzip" type="BINDATA" />
@@ -9,7 +9,7 @@
          <include name="IDR_BROWSER_SWITCH_APP_HTML" file="resources\browser_switch\app.html" compress="gzip" allowexternalscript="true" type="BINDATA" />
          <include name="IDR_BROWSER_SWITCH_APP_JS" file="resources\browser_switch\app.js" compress="gzip" type="BINDATA" />
          <include name="IDR_BROWSER_SWITCH_PROXY_HTML" file="resources\browser_switch\browser_switch_proxy.html" compress="gzip" allowexternalscript="true" type="BINDATA" />
-@@ -633,7 +633,7 @@
+@@ -561,7 +561,7 @@
          <include name="IDR_IME_WINDOW_CLOSE_H" file="resources\input_ime\ime_window_close_hover.png" type="BINDATA" />
        </if>
        <include name="IDR_SSL_ERROR_ASSISTANT_PB" file="${root_gen_dir}/chrome/browser/resources/ssl/ssl_error_assistant/ssl_error_assistant.pb" use_base_dir="false" type="BINDATA" />

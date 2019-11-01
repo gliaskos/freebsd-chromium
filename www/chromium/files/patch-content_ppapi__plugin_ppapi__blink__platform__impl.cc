@@ -1,4 +1,4 @@
---- content/ppapi_plugin/ppapi_blink_platform_impl.cc.orig	2019-09-09 21:55:16 UTC
+--- content/ppapi_plugin/ppapi_blink_platform_impl.cc.orig	2019-10-21 19:06:32 UTC
 +++ content/ppapi_plugin/ppapi_blink_platform_impl.cc
 @@ -19,7 +19,7 @@
  
@@ -7,18 +7,18 @@
 -#elif defined(OS_LINUX)
 +#elif defined(OS_LINUX) || defined(OS_BSD)
  #include "content/child/child_process_sandbox_support_impl_linux.h"
+ #include "mojo/public/cpp/bindings/pending_remote.h"
  #endif
- 
-@@ -33,7 +33,7 @@ typedef struct CGFont* CGFontRef;
+@@ -34,7 +34,7 @@ typedef struct CGFont* CGFontRef;
  namespace content {
  
  PpapiBlinkPlatformImpl::PpapiBlinkPlatformImpl() {
 -#if defined(OS_LINUX)
 +#if defined(OS_LINUX) || defined(OS_BSD)
-   font_loader_ =
-       sk_make_sp<font_service::FontLoader>(ChildThread::Get()->GetConnector());
-   SkFontConfigInterface::SetGlobal(font_loader_);
-@@ -48,7 +48,7 @@ PpapiBlinkPlatformImpl::~PpapiBlinkPlatformImpl() {
+   mojo::PendingRemote<font_service::mojom::FontService> font_service;
+   ChildThread::Get()->BindHostReceiver(
+       font_service.InitWithNewPipeAndPassReceiver());
+@@ -51,7 +51,7 @@ PpapiBlinkPlatformImpl::~PpapiBlinkPlatformImpl() {
  }
  
  void PpapiBlinkPlatformImpl::Shutdown() {
@@ -27,7 +27,7 @@
    // SandboxSupport contains a map of OutOfProcessFont objects, which hold
    // WebStrings and WebVectors, which become invalidated when blink is shut
    // down. Hence, we need to clear that map now, just before blink::shutdown()
-@@ -58,7 +58,7 @@ void PpapiBlinkPlatformImpl::Shutdown() {
+@@ -61,7 +61,7 @@ void PpapiBlinkPlatformImpl::Shutdown() {
  }
  
  blink::WebSandboxSupport* PpapiBlinkPlatformImpl::GetSandboxSupport() {

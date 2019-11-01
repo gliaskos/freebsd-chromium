@@ -1,4 +1,4 @@
---- gpu/ipc/service/gpu_watchdog_thread.cc.orig	2019-09-09 21:55:18 UTC
+--- gpu/ipc/service/gpu_watchdog_thread.cc.orig	2019-10-21 19:06:35 UTC
 +++ gpu/ipc/service/gpu_watchdog_thread.cc
 @@ -45,8 +45,10 @@ const int kGpuTimeout = 10000;
  #endif
@@ -35,7 +35,7 @@
    SetupXServer();
  #endif
    base::MessageLoopCurrent::Get()->AddTaskObserver(&task_observer_);
-@@ -230,8 +237,10 @@ GpuWatchdogThreadImplV1::~GpuWatchdogThreadImplV1() {
+@@ -231,8 +238,10 @@ GpuWatchdogThreadImplV1::~GpuWatchdogThreadImplV1() {
    base::PowerMonitor::RemoveObserver(this);
  
  #if defined(USE_X11)
@@ -46,7 +46,7 @@
    if (display_) {
      DCHECK(window_);
      XDestroyWindow(display_, window_);
-@@ -431,7 +440,7 @@ void GpuWatchdogThreadImplV1::DeliberatelyTerminateToR
+@@ -432,7 +441,7 @@ void GpuWatchdogThreadImplV1::DeliberatelyTerminateToR
      return;
  #endif
  
@@ -55,7 +55,7 @@
    // Don't crash if we're not on the TTY of our host X11 server.
    int active_tty = GetActiveTTY();
    if (host_tty_ != -1 && active_tty != -1 && host_tty_ != active_tty) {
-@@ -515,7 +524,9 @@ void GpuWatchdogThreadImplV1::SetupXServer() {
+@@ -516,7 +525,9 @@ void GpuWatchdogThreadImplV1::SetupXServer() {
                        CopyFromParent, InputOutput, CopyFromParent, 0, nullptr);
      atom_ = XInternAtom(display_, "CHECK", x11::False);
    }
@@ -65,7 +65,7 @@
  }
  
  void GpuWatchdogThreadImplV1::SetupXChangeProp() {
-@@ -615,7 +626,7 @@ base::ThreadTicks GpuWatchdogThreadImplV1::GetWatchedT
+@@ -616,7 +627,7 @@ base::ThreadTicks GpuWatchdogThreadImplV1::GetWatchedT
  }
  #endif
  

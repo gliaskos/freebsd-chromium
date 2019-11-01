@@ -1,6 +1,6 @@
---- chrome/common/chrome_features.h.orig	2019-09-09 21:55:11 UTC
+--- chrome/common/chrome_features.h.orig	2019-10-21 19:06:25 UTC
 +++ chrome/common/chrome_features.h
-@@ -61,10 +61,10 @@ COMPONENT_EXPORT(CHROME_FEATURES)
+@@ -64,10 +64,10 @@ COMPONENT_EXPORT(CHROME_FEATURES)
  extern const base::Feature kAutoFetchOnNetErrorPage;
  #endif
  
@@ -13,7 +13,7 @@
  
  COMPONENT_EXPORT(CHROME_FEATURES)
  extern const base::Feature kBlockPromptsIfDismissedOften;
-@@ -83,7 +83,7 @@ extern const base::Feature kBundledConnectionHelpFeatu
+@@ -86,7 +86,7 @@ extern const base::Feature kBundledConnectionHelpFeatu
  COMPONENT_EXPORT(CHROME_FEATURES)
  extern const base::Feature kCaptionSettings;
  
@@ -22,12 +22,3 @@
  COMPONENT_EXPORT(CHROME_FEATURES)
  extern const base::Feature kCertDualVerificationTrialFeature;
  #endif
-@@ -129,7 +129,7 @@ COMPONENT_EXPORT(CHROME_FEATURES)
- extern const base::Feature kUploadZippedSystemLogs;
- #endif
- 
--#if defined(OS_CHROMEOS) || defined(OS_LINUX)
-+#if defined(OS_CHROMEOS) || defined(OS_LINUX) || defined(OS_BSD)
- COMPONENT_EXPORT(CHROME_FEATURES) extern const base::Feature kTerminalSystemApp;
- #endif
- 

@@ -1,4 +1,4 @@
---- chrome/browser/ui/startup/startup_browser_creator.cc.orig	2019-09-09 21:55:10 UTC
+--- chrome/browser/ui/startup/startup_browser_creator.cc.orig	2019-10-21 19:06:24 UTC
 +++ chrome/browser/ui/startup/startup_browser_creator.cc
 @@ -85,7 +85,7 @@
  #include "chrome/browser/ui/user_manager.h"
@@ -9,7 +9,7 @@
  #include "ui/events/devices/x11/touch_factory_x11.h"  // nogncheck
  #endif
  
-@@ -296,7 +296,7 @@ bool IsSilentLaunchEnabled(const base::CommandLine& co
+@@ -295,7 +295,7 @@ bool IsSilentLaunchEnabled(const base::CommandLine& co
  // true, send a warning if guest mode is requested but not allowed by policy.
  bool IsGuestModeEnforced(const base::CommandLine& command_line,
                           bool show_warning) {
@@ -18,7 +18,7 @@
    PrefService* service = g_browser_process->local_state();
    DCHECK(service);
  
-@@ -670,8 +670,10 @@ bool StartupBrowserCreator::ProcessCmdLineImpl(
+@@ -666,8 +666,10 @@ bool StartupBrowserCreator::ProcessCmdLineImpl(
    }
  #endif  // OS_CHROMEOS
  

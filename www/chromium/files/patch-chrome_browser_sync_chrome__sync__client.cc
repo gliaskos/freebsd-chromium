@@ -1,6 +1,6 @@
---- chrome/browser/sync/chrome_sync_client.cc.orig	2019-09-09 21:55:10 UTC
+--- chrome/browser/sync/chrome_sync_client.cc.orig	2019-10-21 19:06:23 UTC
 +++ chrome/browser/sync/chrome_sync_client.cc
-@@ -383,7 +383,7 @@ ChromeSyncClient::CreateDataTypeControllers(syncer::Sy
+@@ -389,7 +389,7 @@ ChromeSyncClient::CreateDataTypeControllers(syncer::Sy
            GetSyncableServiceForType(syncer::APP_LIST), dump_stack));
  #endif  // BUILDFLAG(ENABLE_APP_LIST)
  
@@ -9,7 +9,7 @@
    // Dictionary sync is enabled by default.
    if (!disabled_types.Has(syncer::DICTIONARY)) {
      controllers.push_back(
-@@ -391,7 +391,7 @@ ChromeSyncClient::CreateDataTypeControllers(syncer::Sy
+@@ -397,7 +397,7 @@ ChromeSyncClient::CreateDataTypeControllers(syncer::Sy
              syncer::DICTIONARY, GetModelTypeStoreService()->GetStoreFactory(),
              GetSyncableServiceForType(syncer::DICTIONARY), dump_stack));
    }

@@ -1,6 +1,6 @@
---- content/public/common/content_switches.cc.orig	2019-09-09 21:55:16 UTC
+--- content/public/common/content_switches.cc.orig	2019-10-21 19:06:32 UTC
 +++ content/public/common/content_switches.cc
-@@ -962,7 +962,7 @@ const char kEnableAggressiveDOMStorageFlushing[] =
+@@ -980,7 +980,7 @@ const char kEnableAggressiveDOMStorageFlushing[] =
  // Enable indication that browser is controlled by automation.
  const char kEnableAutomation[] = "enable-automation";
  

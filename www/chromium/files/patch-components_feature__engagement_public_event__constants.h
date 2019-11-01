@@ -1,4 +1,4 @@
---- components/feature_engagement/public/event_constants.h.orig	2019-09-09 21:55:14 UTC
+--- components/feature_engagement/public/event_constants.h.orig	2019-10-21 19:06:29 UTC
 +++ components/feature_engagement/public/event_constants.h
 @@ -14,15 +14,15 @@ namespace events {
  
@@ -19,7 +19,7 @@
      defined(OS_CHROMEOS)
  // All conditions for reopen closed tab IPH were met. Since this IPH needs to
  // track user events (opening/closing tabs, focusing the omnibox, etc) on the
-@@ -69,7 +69,7 @@ extern const char kIncognitoWindowOpened[];
+@@ -75,7 +75,7 @@ extern const char kIncognitoWindowOpened[];
  extern const char kIncognitoWindowSessionTimeMet[];
  #endif  // BUILDFLAG(ENABLE_LEGACY_DESKTOP_IN_PRODUCT_HELP)
  

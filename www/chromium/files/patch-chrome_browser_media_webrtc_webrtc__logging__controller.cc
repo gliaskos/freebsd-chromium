@@ -1,6 +1,6 @@
---- chrome/browser/media/webrtc/webrtc_logging_handler_host.cc.orig	2019-09-09 21:55:09 UTC
-+++ chrome/browser/media/webrtc/webrtc_logging_handler_host.cc
-@@ -26,10 +26,10 @@
+--- chrome/browser/media/webrtc/webrtc_logging_controller.cc.orig	2019-10-30 15:49:45 UTC
++++ chrome/browser/media/webrtc/webrtc_logging_controller.cc
+@@ -24,10 +24,10 @@
  #include "content/public/browser/render_process_host.h"
  #include "services/service_manager/public/cpp/connector.h"
  
@@ -13,21 +13,21 @@
  
  using webrtc_event_logging::WebRtcEventLogManager;
  
-@@ -279,7 +279,7 @@ void WebRtcLoggingHandlerHost::StartEventLogging(
+@@ -267,7 +267,7 @@ void WebRtcLoggingController::StartEventLogging(
        web_app_id, callback);
  }
  
 -#if defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#if defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
- void WebRtcLoggingHandlerHost::GetLogsDirectory(
+ void WebRtcLoggingController::GetLogsDirectory(
      const LogsDirectoryCallback& callback,
      const LogsDirectoryErrorCallback& error_callback) {
-@@ -324,7 +324,7 @@ void WebRtcLoggingHandlerHost::GrantLogsDirectoryAcces
+@@ -312,7 +312,7 @@ void WebRtcLoggingController::GrantLogsDirectoryAccess
    base::SequencedTaskRunnerHandle::Get()->PostTask(
        FROM_HERE, base::BindOnce(callback, file_system.id(), registered_name));
  }
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
-+#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD
++#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
- void WebRtcLoggingHandlerHost::OnRtpPacket(
+ void WebRtcLoggingController::OnRtpPacket(
      std::unique_ptr<uint8_t[]> packet_header,

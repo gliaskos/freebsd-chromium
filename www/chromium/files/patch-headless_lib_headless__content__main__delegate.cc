@@ -1,6 +1,6 @@
---- headless/lib/headless_content_main_delegate.cc.orig	2019-09-16 09:50:49 UTC
+--- headless/lib/headless_content_main_delegate.cc.orig	2019-10-21 19:06:35 UTC
 +++ headless/lib/headless_content_main_delegate.cc
-@@ -324,7 +324,7 @@ int HeadlessContentMainDelegate::RunProcess(
+@@ -328,7 +328,7 @@ int HeadlessContentMainDelegate::RunProcess(
  }
  #endif  // !defined(CHROME_MULTIPLE_DLL_CHILD)
  
@@ -9,7 +9,7 @@
  void SIGTERMProfilingShutdown(int signal) {
    content::Profiling::Stop();
    struct sigaction sigact;
-@@ -359,7 +359,7 @@ void HeadlessContentMainDelegate::ZygoteForked() {
+@@ -363,7 +363,7 @@ void HeadlessContentMainDelegate::ZygoteForked() {
    breakpad::InitCrashReporter(process_type);
  #endif
  }

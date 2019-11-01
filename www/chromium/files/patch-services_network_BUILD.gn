@@ -1,6 +1,6 @@
---- services/network/BUILD.gn.orig	2019-09-09 21:55:22 UTC
+--- services/network/BUILD.gn.orig	2019-10-21 19:06:39 UTC
 +++ services/network/BUILD.gn
-@@ -258,7 +258,6 @@ jumbo_component("network_service") {
+@@ -261,7 +261,6 @@ jumbo_component("network_service") {
  
    if (is_linux) {
      deps += [

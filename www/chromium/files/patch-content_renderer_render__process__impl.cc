@@ -1,4 +1,4 @@
---- content/renderer/render_process_impl.cc.orig	2019-09-09 21:55:17 UTC
+--- content/renderer/render_process_impl.cc.orig	2019-10-21 19:06:33 UTC
 +++ content/renderer/render_process_impl.cc
 @@ -43,7 +43,7 @@
  #if defined(OS_WIN)
@@ -9,7 +9,7 @@
  #include "v8/include/v8-wasm-trap-handler-posix.h"
  #endif
  namespace {
-@@ -156,7 +156,7 @@ RenderProcessImpl::RenderProcessImpl()
+@@ -158,7 +158,7 @@ RenderProcessImpl::RenderProcessImpl()
  
    SetV8FlagIfNotFeature(features::kWebAssemblyTrapHandler,
                          "--no-wasm-trap-handler");

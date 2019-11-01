@@ -1,8 +1,8 @@
---- chrome/browser/ui/ui_features.h.orig	2019-09-16 07:24:27 UTC
+--- chrome/browser/ui/ui_features.h.orig	2019-10-21 19:06:24 UTC
 +++ chrome/browser/ui/ui_features.h
-@@ -35,7 +35,7 @@ extern const char kTabHoverCardsFeatureParameterName[]
+@@ -46,7 +46,7 @@ extern const base::Feature kWebFooterExperiment;
  
- extern const base::Feature kTabHoverCardImages;
+ extern const base::Feature kWebUITabStrip;
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)

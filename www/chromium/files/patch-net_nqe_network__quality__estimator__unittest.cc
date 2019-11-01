@@ -1,11 +1,11 @@
---- net/nqe/network_quality_estimator_unittest.cc.orig	2019-09-09 21:55:22 UTC
+--- net/nqe/network_quality_estimator_unittest.cc.orig	2019-10-21 19:06:38 UTC
 +++ net/nqe/network_quality_estimator_unittest.cc
-@@ -2146,7 +2146,7 @@ TEST_F(NetworkQualityEstimatorTest, TestGlobalSocketWa
- 
+@@ -2144,7 +2144,7 @@ TEST_F(NetworkQualityEstimatorTest, TestGlobalSocketWa
  // TestTCPSocketRTT requires kernel support for tcp_info struct, and so it is
  // enabled only on certain platforms.
--#if defined(TCP_INFO) || defined(OS_LINUX) || defined(OS_ANDROID)
-+#if defined(TCP_INFO) || defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
+ // ChromeOS is disabled due to crbug.com/986904
+-#if (defined(TCP_INFO) || defined(OS_LINUX) || defined(OS_ANDROID)) && \
++#if (defined(TCP_INFO) || defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)) && \
+     !defined(OS_CHROMEOS)
  #define MAYBE_TestTCPSocketRTT TestTCPSocketRTT
  #else
- #define MAYBE_TestTCPSocketRTT DISABLED_TestTCPSocketRTT
