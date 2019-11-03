@@ -1,6 +1,6 @@
---- gpu/command_buffer/common/gpu_memory_buffer_support.cc.orig	2019-09-09 21:55:18 UTC
+--- gpu/command_buffer/common/gpu_memory_buffer_support.cc.orig	2019-10-21 19:06:34 UTC
 +++ gpu/command_buffer/common/gpu_memory_buffer_support.cc
-@@ -92,7 +92,7 @@ bool IsImageSizeValidForGpuMemoryBufferFormat(const gf
+@@ -88,7 +88,7 @@ bool IsImageSizeValidForGpuMemoryBufferFormat(const gf
  uint32_t GetPlatformSpecificTextureTarget() {
  #if defined(OS_MACOSX)
    return GL_TEXTURE_RECTANGLE_ARB;

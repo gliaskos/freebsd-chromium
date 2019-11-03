@@ -1,4 +1,4 @@
---- gpu/ipc/service/gpu_init.cc.orig	2019-09-09 21:55:18 UTC
+--- gpu/ipc/service/gpu_init.cc.orig	2019-10-21 19:06:35 UTC
 +++ gpu/ipc/service/gpu_init.cc
 @@ -109,7 +109,7 @@ void InitializePlatformOverlaySettings(GPUInfo* gpu_in
  #endif
@@ -16,9 +16,9 @@
 -#endif  // OS_LINUX && !OS_CHROMEOS && !IS_CHROMECAST
 +#endif  // (OS_LINUX && !OS_CHROMEOS && !IS_CHROMECAST) || OS_BSD
  
- }  // namespace
- 
-@@ -152,7 +152,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+ class GpuWatchdogInit {
+  public:
+@@ -165,7 +165,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
    // crash during feature collection.
    gpu::SetKeysForCrashLogging(gpu_info_);
  
@@ -27,7 +27,7 @@
    if (gpu_info_.gpu.vendor_id == 0x10de &&  // NVIDIA
        gpu_info_.gpu.driver_vendor == "NVIDIA" && !CanAccessNvidiaDeviceFile())
      return false;
-@@ -228,7 +228,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -246,7 +246,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
    sandbox_helper_->PreSandboxStartup();
  
    bool attempted_startsandbox = false;
@@ -36,7 +36,7 @@
    // On Chrome OS ARM Mali, GPU driver userspace creates threads when
    // initializing a GL context, so start the sandbox early.
    // TODO(zmo): Need to collect OS version before this.
-@@ -237,7 +237,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -255,7 +255,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
          watchdog_thread_.get(), &gpu_info_, gpu_preferences_);
      attempted_startsandbox = true;
    }
@@ -45,7 +45,7 @@
  
    base::TimeTicks before_initialize_one_off = base::TimeTicks::Now();
  
-@@ -284,14 +284,14 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -304,14 +304,14 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
    }
    if (gl_initialized && use_swiftshader &&
        gl::GetGLImplementation() != gl::kGLImplementationSwiftShaderGL) {
@@ -62,7 +62,7 @@
    }
    if (!gl_initialized)
      gl_initialized = gl::init::InitializeGLNoExtensionsOneOff();
-@@ -317,7 +317,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -337,7 +337,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
          command_line, gpu_feature_info_,
          gpu_preferences_.disable_software_rasterizer, false);
      if (use_swiftshader) {
@@ -71,7 +71,7 @@
        VLOG(1) << "Quit GPU process launch to fallback to SwiftShader cleanly "
                << "on Linux";
        return false;
-@@ -328,7 +328,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -348,7 +348,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
                  << "failed";
          return false;
        }
@@ -80,7 +80,7 @@
      }
    }
  
-@@ -357,7 +357,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -377,7 +377,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
  
    InitializePlatformOverlaySettings(&gpu_info_);
  
@@ -89,7 +89,7 @@
    // Driver may create a compatibility profile context when collect graphics
    // information on Linux platform. Try to collect graphics information
    // based on core profile context after disabling platform extensions.
-@@ -376,7 +376,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
+@@ -396,7 +396,7 @@ bool GpuInit::InitializeAndStartSandbox(base::CommandL
        return false;
      }
    }
@@ -98,7 +98,7 @@
  
    if (use_swiftshader) {
      AdjustInfoToSwiftShader();
-@@ -552,7 +552,7 @@ void GpuInit::InitializeInProcess(base::CommandLine* c
+@@ -569,7 +569,7 @@ void GpuInit::InitializeInProcess(base::CommandLine* c
  
    InitializePlatformOverlaySettings(&gpu_info_);
  
@@ -107,7 +107,7 @@
    // Driver may create a compatibility profile context when collect graphics
    // information on Linux platform. Try to collect graphics information
    // based on core profile context after disabling platform extensions.
-@@ -572,7 +572,7 @@ void GpuInit::InitializeInProcess(base::CommandLine* c
+@@ -589,7 +589,7 @@ void GpuInit::InitializeInProcess(base::CommandLine* c
        }
      }
    }

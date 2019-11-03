@@ -1,4 +1,4 @@
---- chrome/common/chrome_paths.h.orig	2019-09-09 21:55:11 UTC
+--- chrome/common/chrome_paths.h.orig	2019-10-21 19:06:25 UTC
 +++ chrome/common/chrome_paths.h
 @@ -53,7 +53,7 @@ enum {
                       // contains subdirectories.
@@ -18,7 +18,7 @@
    DIR_STANDALONE_EXTERNAL_EXTENSIONS,  // Directory for 'per-extension'
                                         // definition manifest files that
                                         // describe extensions which are to be
-@@ -108,7 +108,7 @@ enum {
+@@ -119,7 +119,7 @@ enum {
    DIR_SUPERVISED_USER_INSTALLED_WHITELISTS,  // Directory where sanitized
                                               // supervised user whitelists are
                                               // installed.
@@ -27,7 +27,7 @@
    DIR_NATIVE_MESSAGING,       // System directory where native messaging host
                                // manifest files are stored.
    DIR_USER_NATIVE_MESSAGING,  // Directory with Native Messaging Hosts
-@@ -123,10 +123,10 @@ enum {
+@@ -134,10 +134,10 @@ enum {
    DIR_GEN_TEST_DATA,  // Directory where generated test data resides.
    DIR_TEST_DATA,      // Directory where unit test data resides.
    DIR_TEST_TOOLS,     // Directory where unit test tools reside.

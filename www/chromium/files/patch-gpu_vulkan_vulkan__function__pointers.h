@@ -1,6 +1,6 @@
---- gpu/vulkan/vulkan_function_pointers.h.orig	2019-09-09 21:55:18 UTC
+--- gpu/vulkan/vulkan_function_pointers.h.orig	2019-10-21 19:06:35 UTC
 +++ gpu/vulkan/vulkan_function_pointers.h
-@@ -161,14 +161,14 @@ struct VulkanFunctionPointers {
+@@ -170,14 +170,14 @@ struct VulkanFunctionPointers {
        vkGetAndroidHardwareBufferPropertiesANDROIDFn = nullptr;
  #endif  // defined(OS_ANDROID)
  
@@ -19,7 +19,7 @@
  
  #if defined(OS_FUCHSIA)
    PFN_vkImportSemaphoreZirconHandleFUCHSIA
-@@ -342,16 +342,16 @@ struct VulkanFunctionPointers {
+@@ -356,16 +356,16 @@ struct VulkanFunctionPointers {
        ->vkGetAndroidHardwareBufferPropertiesANDROIDFn
  #endif  // defined(OS_ANDROID)
  

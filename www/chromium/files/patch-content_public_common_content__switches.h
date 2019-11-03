@@ -1,6 +1,6 @@
---- content/public/common/content_switches.h.orig	2019-09-09 21:55:16 UTC
+--- content/public/common/content_switches.h.orig	2019-10-21 19:06:32 UTC
 +++ content/public/common/content_switches.h
-@@ -268,7 +268,7 @@ CONTENT_EXPORT extern const char kRemoteDebuggingSocke
+@@ -270,7 +270,7 @@ CONTENT_EXPORT extern const char kRemoteDebuggingSocke
  CONTENT_EXPORT extern const char kRendererWaitForJavaDebugger[];
  #endif
  

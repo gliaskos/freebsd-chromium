@@ -1,6 +1,6 @@
---- content/browser/renderer_host/render_process_host_impl.h.orig	2019-09-09 21:55:16 UTC
+--- content/browser/renderer_host/render_process_host_impl.h.orig	2019-10-21 19:06:32 UTC
 +++ content/browser/renderer_host/render_process_host_impl.h
-@@ -404,10 +404,10 @@ class CONTENT_EXPORT RenderProcessHostImpl
+@@ -423,10 +423,10 @@ class CONTENT_EXPORT RenderProcessHostImpl
      is_for_guests_only_ = is_for_guests_only;
    }
  
