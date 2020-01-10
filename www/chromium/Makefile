@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/chromium/Makefile 504582 2019-06-19 17:25:17Z cpm $
 
 PORTNAME=	chromium
-PORTVERSION=	78.0.3904.108
+PORTVERSION=	79.0.3945.117
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
@@ -320,15 +320,13 @@ do-install:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
 .endfor
 .if ${BUILDTYPE} == Debug
-.for f in libVkLayer_core_validation.so libVkLayer_object_lifetimes.so libVkLayer_stateless_validation.so \
-	libVkLayer_thread_safety.so libVkLayer_unique_objects.so
-	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/${f} ${STAGEDIR}${DATADIR}
-.endfor
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libVkLayer_khronos_validation.so ${STAGEDIR}${DATADIR}
 .endif
 
 	# SwiftShader
 .if ${ARCH} != aarch64
 	@${MKDIR} ${STAGEDIR}${DATADIR}/swiftshader
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libvk_swiftshader.so ${STAGEDIR}${DATADIR}
 .for g in libEGL.so libGLESv2.so
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/swiftshader/${g} \
 		${STAGEDIR}${DATADIR}/swiftshader
