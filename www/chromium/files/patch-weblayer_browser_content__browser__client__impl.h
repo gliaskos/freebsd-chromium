@@ -1,8 +1,8 @@
---- weblayer/browser/content_browser_client_impl.h.orig	2019-12-17 20:03:10 UTC
+--- weblayer/browser/content_browser_client_impl.h.orig	2020-01-07 21:53:35 UTC
 +++ weblayer/browser/content_browser_client_impl.h
-@@ -75,12 +75,12 @@ class ContentBrowserClientImpl : public content::Conte
-       blink::AssociatedInterfaceRegistry* associated_registry,
-       content::RenderProcessHost* render_process_host) override;
+@@ -80,12 +80,12 @@ class ContentBrowserClientImpl : public content::Conte
+       base::OnceCallback<void(base::Optional<storage::QuotaSettings>)> callback)
+       override;
  
 -#if defined(OS_LINUX) || defined(OS_ANDROID)
 +#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_BSD)
