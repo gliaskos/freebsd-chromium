@@ -1,6 +1,6 @@
---- tools/gn/base/files/file_util_posix.cc.orig	2019-12-16 21:58:04 UTC
-+++ tools/gn/base/files/file_util_posix.cc
-@@ -250,7 +250,7 @@ bool ReplaceFile(const FilePath& from_path,
+--- tools/gn/src/base/files/file_util_posix.cc.orig	2020-03-16 18:48:21 UTC
++++ tools/gn/src/base/files/file_util_posix.cc
+@@ -210,7 +210,7 @@ bool ReplaceFile(const FilePath& from_path,
  }
  
  bool CreateLocalNonBlockingPipe(int fds[2]) {

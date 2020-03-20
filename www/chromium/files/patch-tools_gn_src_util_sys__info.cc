@@ -1,5 +1,5 @@
---- tools/gn/util/sys_info.cc.orig	2019-04-30 22:29:37 UTC
-+++ tools/gn/util/sys_info.cc
+--- tools/gn/src/util/sys_info.cc.orig	2020-03-16 18:48:21 UTC
++++ tools/gn/src/util/sys_info.cc
 @@ -28,6 +28,8 @@ std::string OperatingSystemArchitecture() {
      arch = "x86";
    } else if (arch == "amd64") {

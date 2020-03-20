@@ -1,5 +1,5 @@
---- tools/gn/base/files/scoped_file.cc.orig	2019-06-04 19:02:25 UTC
-+++ tools/gn/base/files/scoped_file.cc
+--- tools/gn/src/base/files/scoped_file.cc.orig	2020-03-16 18:48:21 UTC
++++ tools/gn/src/base/files/scoped_file.cc
 @@ -30,7 +30,7 @@ void ScopedFDCloseTraits::Free(int fd) {
    // a single open directory would bypass the entire security model.
    int ret = IGNORE_EINTR(close(fd));

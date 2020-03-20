@@ -1,6 +1,6 @@
---- base/test/launcher/test_launcher.cc.orig	2019-09-09 21:55:05 UTC
+--- base/test/launcher/test_launcher.cc.orig	2020-03-16 18:40:27 UTC
 +++ base/test/launcher/test_launcher.cc
-@@ -54,6 +54,7 @@
+@@ -55,6 +55,7 @@
  #include "testing/gtest/include/gtest/gtest.h"
  
  #if defined(OS_POSIX)
