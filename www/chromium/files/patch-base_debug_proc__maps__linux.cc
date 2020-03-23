@@ -9,7 +9,7 @@
  #include <inttypes.h>
  #endif
  
-@@ -28,6 +28,12 @@
+@@ -28,6 +28,11 @@
  namespace base {
  namespace debug {
  
@@ -17,12 +17,18 @@
 +const char kProcSelfMapsPath[] = "/proc/curproc/map";
 +#else
 +const char kProcSelfMapsPath[] = "/proc/self/maps";
-+#endif
 +
  // Scans |proc_maps| starting from |pos| returning true if the gate VMA was
  // found, otherwise returns false.
  static bool ContainsGateVMA(std::string* proc_maps, size_t pos) {
-@@ -49,9 +55,9 @@ bool ReadProcMaps(std::string* proc_maps) {
+@@ -43,15 +48,16 @@ static bool ContainsGateVMA(std::string* proc_maps, si
+   return false;
+ #endif
+ }
++#endif
+ 
+ bool ReadProcMaps(std::string* proc_maps) {
+   // seq_file only writes out a page-sized amount on each call. Refer to header
    // file for details.
    const long kReadSize = sysconf(_SC_PAGESIZE);
  
@@ -43,33 +49,57 @@
        proc_maps->clear();
        return false;
      }
-@@ -119,6 +125,25 @@ bool ParseProcMaps(const std::string& input,
-     long inode = 0;
-     int path_index = 0;
+@@ -76,6 +82,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+     if (bytes_read == 0)
+       break;
  
++#if !defined(OS_BSD)
+     // The gate VMA is handled as a special case after seq_file has finished
+     // iterating through all entries in the virtual memory table.
+     //
+@@ -86,6 +93,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+     // Avoid this by searching for the gate VMA and breaking early.
+     if (ContainsGateVMA(proc_maps, pos))
+       break;
++#endif
+   }
+ 
+   return true;
+@@ -114,10 +122,32 @@ bool ParseProcMaps(const std::string& input,
+     MappedMemoryRegion region;
+     const char* line = lines[i].c_str();
+     char permissions[5] = {'\0'};  // Ensure NUL-terminated string.
++    int path_index = 0;
++
 +#if defined(OS_BSD)
++    if (lines[i].empty())
++      continue;
++
++
++    char cow;
++
 +    // Format:
 +    //
 +    // start    end      resident private_resident obj                perms ref_count shadow_count flags  cow needs_copy type  fullpath cred ruid
 +    // 0x200000 0x202000 2        6                0xfffff80005be9000 r--   3         1            0x1000 COW NC         vnode /bin/cat NCH  -1
 +    //
-+    if (sscanf(line, "%lli %lli %*ld %*ld %*lli %3c %*ld %*ld 0x%*x %*s %*s %*s %n",
-+	       &region.start, &region.end, permissions, &path_index) < 3) {
++    if (sscanf(line, "%" SCNxPTR " %" SCNxPTR " %*ld %*ld %*llx %3c %*d %*d %*x %c%*s %*s %*s %n",
++	       &region.start, &region.end, permissions, &cow, &path_index) < 4) {
 +      DPLOG(WARNING) << "sscanf failed for line: " << line;
 +      return false;
 +    }
 +
 +    const char* fullpath = line + path_index;
 +    const char* cred     = strchr(fullpath, ' ');
-+
-+    if (fullpath[0] == '-') {
-+      continue;
-+    }
 +#else
+     uint8_t dev_major = 0;
+     uint8_t dev_minor = 0;
+     long inode = 0;
+-    int path_index = 0;
+ 
      // Sample format from man 5 proc:
      //
-     // address           perms offset  dev   inode   pathname
-@@ -133,6 +158,7 @@ bool ParseProcMaps(const std::string& input,
+@@ -133,6 +163,7 @@ bool ParseProcMaps(const std::string& input,
        DPLOG(WARNING) << "sscanf failed for line: " << line;
        return false;
      }
@@ -77,11 +107,18 @@
  
      region.permissions = 0;
  
-@@ -151,14 +177,24 @@ bool ParseProcMaps(const std::string& input,
+@@ -151,14 +182,31 @@ bool ParseProcMaps(const std::string& input,
      else if (permissions[2] != '-')
        return false;
  
-+#if !defined(OS_BSD)
++#if defined(OS_BSD)
++    if (cow == 'C') {
++      region.permissions |= MappedMemoryRegion::PRIVATE;
++    } else if (cow != 'N') {
++      DPLOG(WARNING) << "unknown value for COW in line " << line << ": " << cow;
++      return false;
++    }
++#else
      if (permissions[3] == 'p')
        region.permissions |= MappedMemoryRegion::PRIVATE;
      else if (permissions[3] != 's' && permissions[3] != 'S')  // Shared memory.

@@ -9,3 +9,15 @@
  #include "base/debug/proc_maps_linux.h"
  #endif
  
+@@ -697,7 +697,11 @@ class SandboxSymbolizeHelper {
+           // Skip regions with empty file names.
+           continue;
+         }
++#if defined(OS_BSD)
++	if (region.path[0] == '-') {
++#else	
+         if (region.path[0] == '[') {
++#endif
+           // Skip pseudo-paths, like [stack], [vdso], [heap], etc ...
+           continue;
+         }

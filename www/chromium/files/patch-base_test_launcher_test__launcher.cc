@@ -8,3 +8,12 @@
  #include <fcntl.h>
  
  #include "base/files/file_descriptor_watcher_posix.h"
+@@ -551,7 +552,7 @@ ChildProcessResults DoLaunchChildTestProcess(
+ #if !defined(OS_FUCHSIA)
+   options.new_process_group = true;
+ #endif
+-#if defined(OS_LINUX)
++#if defined(OS_LINUX) || defined(OS_BSD)
+   options.kill_on_parent_death = true;
+ #endif
+ 
