@@ -1,4 +1,4 @@
---- chrome/browser/about_flags.cc.orig	2020-03-16 18:40:29 UTC
+--- chrome/browser/about_flags.cc.orig	2020-03-26 18:39:47 UTC
 +++ chrome/browser/about_flags.cc
 @@ -170,7 +170,7 @@
  #include "ui/gl/gl_switches.h"
@@ -136,7 +136,7 @@
  
  #if !defined(OS_ANDROID)
      {"ntp-confirm-suggestion-removals",
-@@ -3845,12 +3845,12 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3846,12 +3846,12 @@ const FeatureEntry kFeatureEntries[] = {
       FEATURE_VALUE_TYPE(kClickToCallDetectionV2)},
  #endif  // BUILDFLAG(ENABLE_CLICK_TO_CALL)
  
@@ -151,7 +151,25 @@
          // defined(OS_CHROMEOS)
  
      {"shared-clipboard-receiver",
-@@ -3976,13 +3976,13 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3895,7 +3895,7 @@ const FeatureEntry kFeatureEntries[] = {
+      flag_descriptions::kSharingUseDeviceInfoDescription, kOsAll,
+      FEATURE_VALUE_TYPE(kSharingUseDeviceInfo)},
+ 
+-#if defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) || \
++#if defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_BSD) || \
+     defined(OS_CHROMEOS)
+     {"sharing-peer-connection-receiver",
+      flag_descriptions::kSharingPeerConnectionReceiverName,
+@@ -3906,7 +3906,7 @@ const FeatureEntry kFeatureEntries[] = {
+      flag_descriptions::kSharingPeerConnectionSenderName,
+      flag_descriptions::kSharingPeerConnectionSenderDescription, kOsDesktop,
+      FEATURE_VALUE_TYPE(kSharingPeerConnectionSender)},
+-#endif  // defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) ||
++#endif  // defined(OS_WIN) || defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_BSD) ||
+         // defined(OS_CHROMEOS)
+ 
+     {"sharing-qr-code-generator",
+@@ -3981,13 +3981,13 @@ const FeatureEntry kFeatureEntries[] = {
       FEATURE_VALUE_TYPE(printing::features::kEnableCustomMacPaperSizes)},
  #endif
  
@@ -167,7 +185,7 @@
          // defined(OS_CHROMEOS)
  
      {"enable-audio-focus-enforcement",
-@@ -4427,7 +4427,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -4432,7 +4432,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kEnableSyncUSSNigoriDescription, kOsAll,
       FEATURE_VALUE_TYPE(switches::kSyncUSSNigori)},
  
@@ -176,7 +194,7 @@
      {"global-media-controls", flag_descriptions::kGlobalMediaControlsName,
       flag_descriptions::kGlobalMediaControlsDescription,
       kOsWin | kOsMac | kOsLinux,
-@@ -4444,7 +4444,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -4449,7 +4449,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kGlobalMediaControlsPictureInPictureDescription,
       kOsWin | kOsMac | kOsLinux | kOsCrOS,
       FEATURE_VALUE_TYPE(media::kGlobalMediaControlsPictureInPicture)},
