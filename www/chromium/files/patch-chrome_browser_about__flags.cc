@@ -1,4 +1,4 @@
---- chrome/browser/about_flags.cc.orig	2020-03-26 18:39:47 UTC
+--- chrome/browser/about_flags.cc.orig	2020-04-03 04:11:28 UTC
 +++ chrome/browser/about_flags.cc
 @@ -170,7 +170,7 @@
  #include "ui/gl/gl_switches.h"
@@ -44,7 +44,7 @@
  
  const FeatureEntry::FeatureParam kMarkHttpAsDangerous[] = {
      {security_state::features::kMarkHttpAsFeatureParameterName,
-@@ -2027,13 +2027,13 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2031,13 +2031,13 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kCloudPrintXpsDescription, kOsWin,
       SINGLE_VALUE_TYPE(switches::kEnableCloudPrintXps)},
  #endif  // OS_WIN
@@ -60,7 +60,7 @@
      {"enable-webgl-draft-extensions",
       flag_descriptions::kWebglDraftExtensionsName,
       flag_descriptions::kWebglDraftExtensionsDescription, kOsAll,
-@@ -2070,14 +2070,14 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2074,14 +2074,14 @@ const FeatureEntry kFeatureEntries[] = {
                                      "OverrideTranslateTriggerInIndia")},
  #endif  // OS_ANDROID
  
@@ -77,7 +77,7 @@
  
  #if BUILDFLAG(ENABLE_NATIVE_NOTIFICATIONS) && !defined(OS_CHROMEOS)
      {"enable-native-notifications",
-@@ -2155,13 +2155,13 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2159,13 +2159,13 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kTerminalSystemAppSplitsDescription, kOsCrOS,
       FEATURE_VALUE_TYPE(features::kTerminalSystemAppSplits)},
  #endif  // OS_CHROMEOS
@@ -93,7 +93,7 @@
  #if defined(OS_ANDROID)
      {"enable-credit-card-assist", flag_descriptions::kCreditCardAssistName,
       flag_descriptions::kCreditCardAssistDescription, kOsAndroid,
-@@ -2235,7 +2235,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2239,7 +2239,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kEnableLitePageServerPreviewsDescription, kOsAndroid,
       FEATURE_VALUE_TYPE(previews::features::kLitePageServerPreviews)},
  #endif  // OS_ANDROID
@@ -102,7 +102,7 @@
      {"enable-save-data", flag_descriptions::kEnableSaveDataName,
       flag_descriptions::kEnableSaveDataDescription, kOsCrOS,
       SINGLE_VALUE_TYPE(
-@@ -2903,7 +2903,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2907,7 +2907,7 @@ const FeatureEntry kFeatureEntries[] = {
       FEATURE_VALUE_TYPE(
           omnibox::kHistoryQuickProviderAllowMidwordContinuations)},
  
@@ -111,7 +111,7 @@
      {"omnibox-experimental-keyword-mode",
       flag_descriptions::kOmniboxExperimentalKeywordModeName,
       flag_descriptions::kOmniboxExperimentalKeywordModeDescription, kOsDesktop,
-@@ -2952,7 +2952,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -2956,7 +2956,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kOmniboxAutocompleteTitlesName,
       flag_descriptions::kOmniboxAutocompleteTitlesDescription, kOsDesktop,
       FEATURE_VALUE_TYPE(omnibox::kAutocompleteTitles)},
@@ -120,7 +120,7 @@
  
      {"enable-speculative-service-worker-start-on-query-input",
       flag_descriptions::kSpeculativeServiceWorkerStartOnQueryInputName,
-@@ -3178,13 +3178,13 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3182,13 +3182,13 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kClickToOpenPDFDescription, kOsAll,
       FEATURE_VALUE_TYPE(features::kClickToOpenPDFPlaceholder)},
  
@@ -136,7 +136,7 @@
  
  #if !defined(OS_ANDROID)
      {"ntp-confirm-suggestion-removals",
-@@ -3846,12 +3846,12 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3850,12 +3850,12 @@ const FeatureEntry kFeatureEntries[] = {
       FEATURE_VALUE_TYPE(kClickToCallDetectionV2)},
  #endif  // BUILDFLAG(ENABLE_CLICK_TO_CALL)
  
@@ -151,7 +151,7 @@
          // defined(OS_CHROMEOS)
  
      {"shared-clipboard-receiver",
-@@ -3895,7 +3895,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3899,7 +3899,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kSharingUseDeviceInfoDescription, kOsAll,
       FEATURE_VALUE_TYPE(kSharingUseDeviceInfo)},
  
@@ -160,7 +160,7 @@
      defined(OS_CHROMEOS)
      {"sharing-peer-connection-receiver",
       flag_descriptions::kSharingPeerConnectionReceiverName,
-@@ -3906,7 +3906,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3910,7 +3910,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kSharingPeerConnectionSenderName,
       flag_descriptions::kSharingPeerConnectionSenderDescription, kOsDesktop,
       FEATURE_VALUE_TYPE(kSharingPeerConnectionSender)},
@@ -169,7 +169,7 @@
          // defined(OS_CHROMEOS)
  
      {"sharing-qr-code-generator",
-@@ -3981,13 +3981,13 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -3985,13 +3985,13 @@ const FeatureEntry kFeatureEntries[] = {
       FEATURE_VALUE_TYPE(printing::features::kEnableCustomMacPaperSizes)},
  #endif
  
@@ -185,7 +185,7 @@
          // defined(OS_CHROMEOS)
  
      {"enable-audio-focus-enforcement",
-@@ -4432,7 +4432,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -4436,7 +4436,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kEnableSyncUSSNigoriDescription, kOsAll,
       FEATURE_VALUE_TYPE(switches::kSyncUSSNigori)},
  
@@ -194,7 +194,7 @@
      {"global-media-controls", flag_descriptions::kGlobalMediaControlsName,
       flag_descriptions::kGlobalMediaControlsDescription,
       kOsWin | kOsMac | kOsLinux,
-@@ -4449,7 +4449,7 @@ const FeatureEntry kFeatureEntries[] = {
+@@ -4453,7 +4453,7 @@ const FeatureEntry kFeatureEntries[] = {
       flag_descriptions::kGlobalMediaControlsPictureInPictureDescription,
       kOsWin | kOsMac | kOsLinux | kOsCrOS,
       FEATURE_VALUE_TYPE(media::kGlobalMediaControlsPictureInPicture)},

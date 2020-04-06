@@ -1,6 +1,6 @@
---- chrome/browser/flag_descriptions.cc.orig	2020-03-26 18:39:48 UTC
+--- chrome/browser/flag_descriptions.cc.orig	2020-04-03 04:11:29 UTC
 +++ chrome/browser/flag_descriptions.cc
-@@ -3640,7 +3640,7 @@ const char kZeroStateFilesDescription[] =
+@@ -3646,7 +3646,7 @@ const char kZeroStateFilesDescription[] =
  
  #endif  // defined(OS_CHROMEOS)
  
@@ -9,7 +9,7 @@
  
  #if BUILDFLAG(USE_TCMALLOC)
  const char kDynamicTcmallocName[] = "Dynamic Tcmalloc Tuning";
-@@ -3649,7 +3649,7 @@ const char kDynamicTcmallocDescription[] =
+@@ -3655,7 +3655,7 @@ const char kDynamicTcmallocDescription[] =
      "utilization.";
  #endif  // BUILDFLAG(USE_TCMALLOC)
  
@@ -18,7 +18,7 @@
  
  // All views-based platforms --------------------------------------------------
  
-@@ -3674,13 +3674,13 @@ const char kReopenTabInProductHelpDescription[] =
+@@ -3680,13 +3680,13 @@ const char kReopenTabInProductHelpDescription[] =
  
  // Random platform combinations -----------------------------------------------
  
@@ -34,7 +34,7 @@
  
  #if BUILDFLAG(ENABLE_CLICK_TO_CALL)
  
-@@ -3697,7 +3697,7 @@ const char kClickToCallDetectionV2Description[] =
+@@ -3703,7 +3703,7 @@ const char kClickToCallDetectionV2Description[] =
  
  #endif  // BUILDFLAG(ENABLE_CLICK_TO_CALL)
  
@@ -43,7 +43,7 @@
      defined(OS_CHROMEOS)
  
  const char kRemoteCopyReceiverName[] =
-@@ -3706,16 +3706,16 @@ const char kRemoteCopyReceiverDescription[] =
+@@ -3712,16 +3712,16 @@ const char kRemoteCopyReceiverDescription[] =
      "Enables the remote copy feature to handle messages by writing content to "
      "the clipboard and showing a notification to the user.";
  
