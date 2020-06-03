@@ -1,5 +1,5 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 536180 2020-05-22 01:19:33Z jbeich $
+# $FreeBSD: head/www/chromium/Makefile 537579 2020-06-02 20:30:55Z jrm $
 
 PORTNAME=	chromium
 PORTVERSION=	83.0.4103.61
@@ -71,10 +71,10 @@ ONLY_FOR_ARCHS=			aarch64 amd64 i386
 
 .if defined(GN_ONLY)
 USES=		compiler:c++14-lang dos2unix localbase:ldflags ninja pkgconfig \
-		python:2.7,build shebangfix tar:xz
+		python:build shebangfix tar:xz
 .else
 USES=		bison cpe desktop-file-utils dos2unix gl gnome jpeg localbase:ldflags \
-		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz xorg
+		ninja perl5 pkgconfig python:build shebangfix tar:xz xorg
 .endif
 MAKE_ARGS=	-C out/${BUILDTYPE}
 BINARY_ALIAS=	python=${PYTHON_CMD}
