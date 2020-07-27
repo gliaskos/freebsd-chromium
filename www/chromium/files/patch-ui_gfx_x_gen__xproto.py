@@ -6,7 +6,7 @@
  
 +    # Workaround to use the xcb-proto package, which installs using the default python version
 +    # Remove this as soon as chromium builds with python3!
-+    sys.path.append(os.path.join('/', 'usr', 'local', 'lib', 'python3.7', 'site-packages'))
++    sys.path.append(os.path.join('..', '..', '..', 'site-packages'))
 +
      import xcbgen.xtypes
      import xcbgen.state
