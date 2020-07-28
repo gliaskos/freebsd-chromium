@@ -261,7 +261,7 @@ pre-configure:
 	# having the pre-compiled pyc files from 2.7 in the 3.7 site packages
 	# Remove this as soon as chromium uses python3.x as well
 	@${MKDIR} ${WRKDIR}/site-packages/xcbgen
-	cp ${PYTHONBASE}/lib/python3.7/site-packages/xcbgen/*.py \
+	${CP} ${PYTHONBASE}/lib/python3.7/site-packages/xcbgen/*.py \
 		${WRKDIR}/site-packages/xcbgen
 .endif
 
