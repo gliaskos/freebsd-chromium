@@ -1,8 +1,8 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
-# $FreeBSD: head/www/chromium/Makefile 543922 2020-08-01 20:41:11Z rene $
+# $FreeBSD: head/www/chromium/Makefile 545308 2020-08-19 10:50:13Z jbeich $
 
 PORTNAME=	chromium
-PORTVERSION=	84.0.4147.125
+PORTVERSION=	84.0.4147.135
 CATEGORIES?=	www java
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
@@ -83,7 +83,7 @@ DOS2UNIX_FILES=	third_party/skia/third_party/vulkanmemoryallocator/include/vk_me
 .if !defined(GN_ONLY)
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
-USE_GL=		gl
+USE_GL=		gbm gl
 USE_LDCONFIG=	${DATADIR}
 USE_PERL5=	build
 USE_XORG=	x11 xcb xcomposite xcursor xext xdamage xfixes xi \
